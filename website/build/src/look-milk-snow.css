@@ -1,0 +1,53 @@
+/* LOOK 1 — MILK SNOW: quiet and airy. Pale milk-blue ground, the logo's blue,
+   deep glacier ink, light serif titles. */
+:root{
+  --bg:#F7FBFE;
+  --band:#EDF4FA;
+  --surface:#FFFFFF;
+  --plate:linear-gradient(180deg,#F1F7FC 0%,#E3EEF7 100%);
+  --brand:#70ADD9;            /* the logo's blue */
+  --accent-text:#245F92;      /* the same blue, deep enough to read as text */
+  --ink:#16324A;
+  --ink-2:#3F5A72;
+  --line:rgba(22,50,74,.13);
+  --focus:#245F92;
+  --glass:rgba(247,251,254,.82);
+  --scrim:rgba(14,36,56,.38);
+  --open:#1F9D63;
+  --closed:#9AAFC0;
+  --btn-bg:#245F92;
+  --btn-bg-hover:#1C4F7B;
+  --btn-ink:#FFFFFF;
+  --btn-shadow:0 10px 24px rgba(36,95,146,.24);
+  --tag-bg:#DCEAF6;
+  --tag-ink:#1D4E79;
+  --soon-bg:#FFF1CF;
+  --soon-ink:#6B4A00;
+  --few-bg:#FFE3DA;
+  --few-ink:#8A2A10;
+  --chip-bg:rgba(255,255,255,.66);
+  --chip-line:#9DC3E2;
+  --sign:#4F86B5;
+  --halo:radial-gradient(circle,#FFFFFF 0%,#FFFFFF 40%,rgba(255,255,255,0) 70%);
+  --hero-bg:linear-gradient(180deg,#F7FBFE 0%,#EEF5FB 46%,#DCEAF6 100%);
+  --photo-shadow:rgba(40,90,140,.20);
+  --snow-far:#A9CBE6;
+  --snow-near:#FFFFFF;
+  --footer-bg:#EAF2F9;
+  --footer-ink:#16324A;
+  --bar-bg:rgba(255,255,255,.88);
+  --bar-ink:#16324A;
+  --bar-shadow:0 1px 0 rgba(22,50,74,.06),0 14px 34px rgba(40,90,140,.22);
+  --shadow-1:0 1px 0 rgba(22,50,74,.06),0 8px 20px rgba(60,110,160,.12);
+  --shadow-2:0 2px 0 rgba(22,50,74,.04),0 18px 40px rgba(40,90,140,.20);
+  --radius:22px;
+  --gutter:20px;
+  --header-h:64px;
+  --font-display:"Hahmlet","Hahmlet Fallback","Noto Serif KR","Apple SD Gothic Neo",Georgia,serif;
+  --font-body:"Plex","Plex Fallback","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --display-weight:300;
+  --display-tracking:-.035em;
+  --ease:cubic-bezier(.22,.8,.24,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+}
+:lang(ko) h1,:lang(ko) h2,:lang(ko) .display{letter-spacing:-.02em;line-height:1.14}

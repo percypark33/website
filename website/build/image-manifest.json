@@ -1,0 +1,1635 @@
+{
+ "images": {
+  "/assets/bowl-shine-muscat-preview-20261026.png|hero": {
+   "w": 1220,
+   "h": 1247,
+   "variants": [
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-480.webp",
+     "bytes": 54716
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-720.webp",
+     "bytes": 114816
+    },
+    {
+     "w": 1080,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-1080.webp",
+     "bytes": 225160
+    }
+   ]
+  },
+  "/assets/croffles/biscoff.png|feature": {
+   "w": 1517,
+   "h": 923,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/biscoff-f835ade5-320.webp",
+     "bytes": 21820
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/biscoff-f835ade5-480.webp",
+     "bytes": 41614
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/biscoff-f835ade5-720.webp",
+     "bytes": 82450
+    }
+   ]
+  },
+  "/assets/croffles/dubai-strawberry-icecream-20261023.png|feature": {
+   "w": 1518,
+   "h": 981,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-320.webp",
+     "bytes": 26784
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-480.webp",
+     "bytes": 51646
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-720.webp",
+     "bytes": 101318
+    }
+   ]
+  },
+  "/assets/cups-cutout-20261029/mango-jelly.png|feature": {
+   "w": 1033,
+   "h": 1398,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/mango-jelly-384050d5-320.webp",
+     "bytes": 31174
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/mango-jelly-384050d5-480.webp",
+     "bytes": 57182
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/mango-jelly-384050d5-720.webp",
+     "bytes": 98916
+    }
+   ]
+  },
+  "/assets/strawberry-mango-poprocks-20261106.png|feature": {
+   "w": 1234,
+   "h": 1249,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-320.webp",
+     "bytes": 19654
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-480.webp",
+     "bytes": 37214
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-720.webp",
+     "bytes": 73418
+    }
+   ]
+  },
+  "/assets/cups-cutout-20261029/cookies-cream.png|feature": {
+   "w": 940,
+   "h": 1480,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cookies-cream-6add2f76-320.webp",
+     "bytes": 48962
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cookies-cream-6add2f76-480.webp",
+     "bytes": 96088
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cookies-cream-6add2f76-720.webp",
+     "bytes": 180642
+    }
+   ]
+  },
+  "/assets/story/winter.jpg|photo": {
+   "w": 760,
+   "h": 760,
+   "variants": [
+    {
+     "w": 380,
+     "url": "/assets/site/img/winter-6f9b4b28-380.webp",
+     "bytes": 23622
+    },
+    {
+     "w": 760,
+     "url": "/assets/site/img/winter-6f9b4b28-760.webp",
+     "bytes": 66864
+    }
+   ]
+  },
+  "/assets/story/pastry.jpg|photo": {
+   "w": 760,
+   "h": 760,
+   "variants": [
+    {
+     "w": 380,
+     "url": "/assets/site/img/pastry-e3b4daf0-380.webp",
+     "bytes": 15882
+    },
+    {
+     "w": 760,
+     "url": "/assets/site/img/pastry-e3b4daf0-760.webp",
+     "bytes": 40408
+    }
+   ]
+  },
+  "/assets/story/family-time.jpg|photo": {
+   "w": 760,
+   "h": 760,
+   "variants": [
+    {
+     "w": 380,
+     "url": "/assets/site/img/family-time-f3ab70cf-380.webp",
+     "bytes": 29998
+    },
+    {
+     "w": 760,
+     "url": "/assets/site/img/family-time-f3ab70cf-760.webp",
+     "bytes": 77414
+    }
+   ]
+  },
+  "/assets/story/test-bowl.jpg|photo": {
+   "w": 760,
+   "h": 760,
+   "variants": [
+    {
+     "w": 380,
+     "url": "/assets/site/img/test-bowl-c19c5e0e-380.webp",
+     "bytes": 21086
+    },
+    {
+     "w": 760,
+     "url": "/assets/site/img/test-bowl-c19c5e0e-760.webp",
+     "bytes": 54120
+    }
+   ]
+  },
+  "/assets/story/behind-the-glass.jpg|photo": {
+   "w": 760,
+   "h": 760,
+   "variants": [
+    {
+     "w": 380,
+     "url": "/assets/site/img/behind-the-glass-bda94d78-380.webp",
+     "bytes": 17620
+    },
+    {
+     "w": 760,
+     "url": "/assets/site/img/behind-the-glass-bda94d78-760.webp",
+     "bytes": 48754
+    }
+   ]
+  },
+  "/assets/story/counter.jpg|photo": {
+   "w": 760,
+   "h": 760,
+   "variants": [
+    {
+     "w": 380,
+     "url": "/assets/site/img/counter-632f0fa3-380.webp",
+     "bytes": 23398
+    },
+    {
+     "w": 760,
+     "url": "/assets/site/img/counter-632f0fa3-760.webp",
+     "bytes": 68960
+    }
+   ]
+  },
+  "/assets/story/cookies-and-cream.jpg|photo": {
+   "w": 760,
+   "h": 760,
+   "variants": [
+    {
+     "w": 380,
+     "url": "/assets/site/img/cookies-and-cream-8379b655-380.webp",
+     "bytes": 23918
+    },
+    {
+     "w": 760,
+     "url": "/assets/site/img/cookies-and-cream-8379b655-760.webp",
+     "bytes": 64790
+    }
+   ]
+  },
+  "/assets/story/dubai-chocolate.jpg|photo": {
+   "w": 760,
+   "h": 760,
+   "variants": [
+    {
+     "w": 380,
+     "url": "/assets/site/img/dubai-chocolate-214bdec7-380.webp",
+     "bytes": 26448
+    },
+    {
+     "w": 760,
+     "url": "/assets/site/img/dubai-chocolate-214bdec7-760.webp",
+     "bytes": 83460
+    }
+   ]
+  },
+  "/assets/story/lychee-heaven.jpg|photo": {
+   "w": 760,
+   "h": 760,
+   "variants": [
+    {
+     "w": 380,
+     "url": "/assets/site/img/lychee-heaven-5aea259c-380.webp",
+     "bytes": 22424
+    },
+    {
+     "w": 760,
+     "url": "/assets/site/img/lychee-heaven-5aea259c-760.webp",
+     "bytes": 56334
+    }
+   ]
+  },
+  "/assets/bowl-black-sesame-natural.png|card": {
+   "w": 577,
+   "h": 611,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-black-sesame-natural-975ae241-320.webp",
+     "bytes": 35548
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-black-sesame-natural-975ae241-480.webp",
+     "bytes": 67472
+    },
+    {
+     "w": 577,
+     "url": "/assets/site/img/bowl-black-sesame-natural-975ae241-577.webp",
+     "bytes": 89176
+    }
+   ]
+  },
+  "/assets/bowl-injeolmi-jollypong-preview-20261026.png|card": {
+   "w": 1218,
+   "h": 1147,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-injeolmi-jollypong-preview-20261026-5a2790a2-320.webp",
+     "bytes": 29724
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-injeolmi-jollypong-preview-20261026-5a2790a2-480.webp",
+     "bytes": 57846
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-injeolmi-jollypong-preview-20261026-5a2790a2-720.webp",
+     "bytes": 111918
+    }
+   ]
+  },
+  "/assets/bowl-mango-natural.png|card": {
+   "w": 597,
+   "h": 591,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-mango-natural-edb3ba33-320.webp",
+     "bytes": 23376
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-mango-natural-edb3ba33-480.webp",
+     "bytes": 43398
+    },
+    {
+     "w": 597,
+     "url": "/assets/site/img/bowl-mango-natural-edb3ba33-597.webp",
+     "bytes": 59612
+    }
+   ]
+  },
+  "/assets/bowl-strawberry-realphoto-natural.png|card": {
+   "w": 557,
+   "h": 584,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-strawberry-realphoto-natural-1591f6ca-320.webp",
+     "bytes": 31052
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-strawberry-realphoto-natural-1591f6ca-480.webp",
+     "bytes": 59624
+    },
+    {
+     "w": 557,
+     "url": "/assets/site/img/bowl-strawberry-realphoto-natural-1591f6ca-557.webp",
+     "bytes": 73776
+    }
+   ]
+  },
+  "/assets/bowl-cookies-cream-natural.png|card": {
+   "w": 623,
+   "h": 596,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-cookies-cream-natural-cdba78f8-320.webp",
+     "bytes": 26432
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-cookies-cream-natural-cdba78f8-480.webp",
+     "bytes": 50700
+    },
+    {
+     "w": 623,
+     "url": "/assets/site/img/bowl-cookies-cream-natural-cdba78f8-623.webp",
+     "bytes": 71592
+    }
+   ]
+  },
+  "/assets/bowl-matcha-strawberry-natural.png|card": {
+   "w": 612,
+   "h": 591,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-b1d050b6-320.webp",
+     "bytes": 29958
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-b1d050b6-480.webp",
+     "bytes": 57924
+    },
+    {
+     "w": 612,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-b1d050b6-612.webp",
+     "bytes": 80726
+    }
+   ]
+  },
+  "/assets/bowl-lychee-realphoto-natural.png|card": {
+   "w": 624,
+   "h": 628,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-lychee-realphoto-natural-bc7656af-320.webp",
+     "bytes": 24930
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-lychee-realphoto-natural-bc7656af-480.webp",
+     "bytes": 46502
+    },
+    {
+     "w": 624,
+     "url": "/assets/site/img/bowl-lychee-realphoto-natural-bc7656af-624.webp",
+     "bytes": 65662
+    }
+   ]
+  },
+  "/assets/bowl-hojicha-syrup-natural.png|card": {
+   "w": 582,
+   "h": 593,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-hojicha-syrup-natural-3e400aa3-320.webp",
+     "bytes": 32826
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-hojicha-syrup-natural-3e400aa3-480.webp",
+     "bytes": 65348
+    },
+    {
+     "w": 582,
+     "url": "/assets/site/img/bowl-hojicha-syrup-natural-3e400aa3-582.webp",
+     "bytes": 85466
+    }
+   ]
+  },
+  "/assets/bowl-matcha-banana-natural.png|card": {
+   "w": 632,
+   "h": 622,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-matcha-banana-natural-8a1b7ca3-320.webp",
+     "bytes": 31060
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-matcha-banana-natural-8a1b7ca3-480.webp",
+     "bytes": 61046
+    },
+    {
+     "w": 632,
+     "url": "/assets/site/img/bowl-matcha-banana-natural-8a1b7ca3-632.webp",
+     "bytes": 90432
+    }
+   ]
+  },
+  "/assets/bowl-strawnana-natural.png|card": {
+   "w": 625,
+   "h": 605,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-strawnana-natural-290e1971-320.webp",
+     "bytes": 27490
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-strawnana-natural-290e1971-480.webp",
+     "bytes": 54310
+    },
+    {
+     "w": 625,
+     "url": "/assets/site/img/bowl-strawnana-natural-290e1971-625.webp",
+     "bytes": 80124
+    }
+   ]
+  },
+  "/assets/bowl-shine-muscat-preview-20261026.png|card": {
+   "w": 1220,
+   "h": 1247,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-320.webp",
+     "bytes": 26638
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-480.webp",
+     "bytes": 51966
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-720.webp",
+     "bytes": 109734
+    }
+   ]
+  },
+  "/assets/bowl-honeycomb-x2-20261101.png|card": {
+   "w": 1645,
+   "h": 1638,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-honeycomb-x2-20261101-ec5657d2-320.webp",
+     "bytes": 25834
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-honeycomb-x2-20261101-ec5657d2-480.webp",
+     "bytes": 50324
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-honeycomb-x2-20261101-ec5657d2-720.webp",
+     "bytes": 100782
+    }
+   ]
+  },
+  "/assets/bowl-sweet-potato-cream-20261109.webp|card": {
+   "w": 1200,
+   "h": 1112,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-sweet-potato-cream-20261109-0ce87de4-320.webp",
+     "bytes": 30488
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-sweet-potato-cream-20261109-0ce87de4-480.webp",
+     "bytes": 57532
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-sweet-potato-cream-20261109-0ce87de4-720.webp",
+     "bytes": 116258
+    }
+   ]
+  },
+  "/assets/bowl-half-half-natural.png|card": {
+   "w": 634,
+   "h": 579,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-half-half-natural-70c94c80-320.webp",
+     "bytes": 26166
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-half-half-natural-70c94c80-480.webp",
+     "bytes": 49344
+    },
+    {
+     "w": 634,
+     "url": "/assets/site/img/bowl-half-half-natural-70c94c80-634.webp",
+     "bytes": 73860
+    }
+   ]
+  },
+  "/assets/bowl-shine-lychee-preview-20261026.png|card": {
+   "w": 1253,
+   "h": 1247,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-453f18f4-320.webp",
+     "bytes": 23162
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-453f18f4-480.webp",
+     "bytes": 44840
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-453f18f4-720.webp",
+     "bytes": 93500
+    }
+   ]
+  },
+  "/assets/bowl-mango-lychee-20261028.png|card": {
+   "w": 1212,
+   "h": 1207,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-mango-lychee-20261028-65e5f1e6-320.webp",
+     "bytes": 22432
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-mango-lychee-20261028-65e5f1e6-480.webp",
+     "bytes": 41868
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-mango-lychee-20261028-65e5f1e6-720.webp",
+     "bytes": 82448
+    }
+   ]
+  },
+  "/assets/bowl-strawberry-shine-20261028.png|card": {
+   "w": 1236,
+   "h": 1245,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-strawberry-shine-20261028-8c593882-320.webp",
+     "bytes": 29594
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-strawberry-shine-20261028-8c593882-480.webp",
+     "bytes": 59220
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-strawberry-shine-20261028-8c593882-720.webp",
+     "bytes": 125124
+    }
+   ]
+  },
+  "/assets/strawberry-mango-poprocks-20261106.png|card": {
+   "w": 1234,
+   "h": 1249,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-320.webp",
+     "bytes": 19654
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-480.webp",
+     "bytes": 37214
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-720.webp",
+     "bytes": 73418
+    }
+   ]
+  },
+  "/assets/cups-cutout-20261029/mango-jelly.png|card": {
+   "w": 1033,
+   "h": 1398,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/mango-jelly-384050d5-320.webp",
+     "bytes": 31174
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/mango-jelly-384050d5-480.webp",
+     "bytes": 57182
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/mango-jelly-384050d5-720.webp",
+     "bytes": 98916
+    }
+   ]
+  },
+  "/assets/cups-cutout-20261029/injeolmi-jollypong.png|card": {
+   "w": 936,
+   "h": 1347,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/injeolmi-jollypong-acaef359-320.webp",
+     "bytes": 41956
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/injeolmi-jollypong-acaef359-480.webp",
+     "bytes": 83030
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/injeolmi-jollypong-acaef359-720.webp",
+     "bytes": 156370
+    }
+   ]
+  },
+  "/assets/cups-cutout-20261029/cookies-cream.png|card": {
+   "w": 940,
+   "h": 1480,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cookies-cream-6add2f76-320.webp",
+     "bytes": 48962
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cookies-cream-6add2f76-480.webp",
+     "bytes": 96088
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cookies-cream-6add2f76-720.webp",
+     "bytes": 180642
+    }
+   ]
+  },
+  "/assets/cups-viet-coffee-20261101.png|card": {
+   "w": 1141,
+   "h": 1601,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cups-viet-coffee-20261101-ebffce4b-320.webp",
+     "bytes": 39700
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cups-viet-coffee-20261101-ebffce4b-480.webp",
+     "bytes": 75034
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cups-viet-coffee-20261101-ebffce4b-720.webp",
+     "bytes": 135930
+    }
+   ]
+  },
+  "/assets/cups-cutout-20261029/matcha-red-bean-crunch.png|card": {
+   "w": 1053,
+   "h": 1430,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/matcha-red-bean-crunch-a3ac053f-320.webp",
+     "bytes": 43150
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/matcha-red-bean-crunch-a3ac053f-480.webp",
+     "bytes": 86224
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/matcha-red-bean-crunch-a3ac053f-720.webp",
+     "bytes": 164586
+    }
+   ]
+  },
+  "/assets/cups-biscoff-caramel-20261101.png|card": {
+   "w": 1043,
+   "h": 1687,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cups-biscoff-caramel-20261101-c2e03b4c-320.webp",
+     "bytes": 46308
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cups-biscoff-caramel-20261101-c2e03b4c-480.webp",
+     "bytes": 88934
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cups-biscoff-caramel-20261101-c2e03b4c-720.webp",
+     "bytes": 164726
+    }
+   ]
+  },
+  "/assets/cups-strawberry-cheesecake-glaze-20261109.webp|card": {
+   "w": 892,
+   "h": 1194,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cups-strawberry-cheesecake-glaze-20261109-82950fb5-320.webp",
+     "bytes": 35932
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cups-strawberry-cheesecake-glaze-20261109-82950fb5-480.webp",
+     "bytes": 71386
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cups-strawberry-cheesecake-glaze-20261109-82950fb5-720.webp",
+     "bytes": 141930
+    }
+   ]
+  },
+  "/assets/mini-taiyaki-bags-20261108/dubai-chocolate.webp|card": {
+   "w": 1202,
+   "h": 1237,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/dubai-chocolate-8ad2bbeb-320.webp",
+     "bytes": 28048
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/dubai-chocolate-8ad2bbeb-480.webp",
+     "bytes": 54876
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/dubai-chocolate-8ad2bbeb-720.webp",
+     "bytes": 112282
+    }
+   ]
+  },
+  "/assets/mini-taiyaki-bags-20261108/red-beans.webp|card": {
+   "w": 1240,
+   "h": 1225,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/red-beans-377b90d4-320.webp",
+     "bytes": 24654
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/red-beans-377b90d4-480.webp",
+     "bytes": 46934
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/red-beans-377b90d4-720.webp",
+     "bytes": 97738
+    }
+   ]
+  },
+  "/assets/mini-taiyaki-bags-20261108/custard.webp|card": {
+   "w": 1226,
+   "h": 1192,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/custard-9445f53f-320.webp",
+     "bytes": 26160
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/custard-9445f53f-480.webp",
+     "bytes": 50138
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/custard-9445f53f-720.webp",
+     "bytes": 103462
+    }
+   ]
+  },
+  "/assets/mini-taiyaki-bags-20261108/nutella.webp|card": {
+   "w": 1212,
+   "h": 1253,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/nutella-421c3166-320.webp",
+     "bytes": 25526
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/nutella-421c3166-480.webp",
+     "bytes": 48200
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/nutella-421c3166-720.webp",
+     "bytes": 98080
+    }
+   ]
+  },
+  "/assets/mini-taiyaki-bags-20261108/cheese.webp|card": {
+   "w": 1214,
+   "h": 1159,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cheese-1ff3f37c-320.webp",
+     "bytes": 26476
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cheese-1ff3f37c-480.webp",
+     "bytes": 50984
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cheese-1ff3f37c-720.webp",
+     "bytes": 105258
+    }
+   ]
+  },
+  "/assets/mochi-20261108/white-bowl-v3.webp|feature": {
+   "w": 1012,
+   "h": 936,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/white-bowl-v3-da1da428-320.webp",
+     "bytes": 25842
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/white-bowl-v3-da1da428-480.webp",
+     "bytes": 49534
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/white-bowl-v3-da1da428-720.webp",
+     "bytes": 105014
+    }
+   ]
+  },
+  "/assets/croffles/injeolmi.png|card": {
+   "w": 1522,
+   "h": 1024,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/injeolmi-eab3ee99-320.webp",
+     "bytes": 23350
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/injeolmi-eab3ee99-480.webp",
+     "bytes": 47120
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/injeolmi-eab3ee99-720.webp",
+     "bytes": 99166
+    }
+   ]
+  },
+  "/assets/croffles/biscoff.png|card": {
+   "w": 1517,
+   "h": 923,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/biscoff-f835ade5-320.webp",
+     "bytes": 21820
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/biscoff-f835ade5-480.webp",
+     "bytes": 41614
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/biscoff-f835ade5-720.webp",
+     "bytes": 82450
+    }
+   ]
+  },
+  "/assets/croffles/oreo-tiramisu.png|card": {
+   "w": 1478,
+   "h": 980,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/oreo-tiramisu-65655039-320.webp",
+     "bytes": 23382
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/oreo-tiramisu-65655039-480.webp",
+     "bytes": 46162
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/oreo-tiramisu-65655039-720.webp",
+     "bytes": 93512
+    }
+   ]
+  },
+  "/assets/croffles/dubai-strawberry-icecream-20261023.png|card": {
+   "w": 1518,
+   "h": 981,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-320.webp",
+     "bytes": 26784
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-480.webp",
+     "bytes": 51646
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-720.webp",
+     "bytes": 101318
+    }
+   ]
+  },
+  "/designs/toppings/popping-boba-strawberry.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/popping-boba-strawberry-11635acf-96.webp",
+     "bytes": 4522
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/popping-boba-strawberry-11635acf-192.webp",
+     "bytes": 11280
+    }
+   ]
+  },
+  "/designs/toppings/popping-boba-mango.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/popping-boba-mango-3176f5a6-96.webp",
+     "bytes": 4156
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/popping-boba-mango-3176f5a6-192.webp",
+     "bytes": 9964
+    }
+   ]
+  },
+  "/designs/toppings/popping-boba-lychee.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/popping-boba-lychee-25314323-96.webp",
+     "bytes": 3404
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/popping-boba-lychee-25314323-192.webp",
+     "bytes": 7872
+    }
+   ]
+  },
+  "/designs/toppings/cereal-fruity-pebbles.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/cereal-fruity-pebbles-fcb86207-96.webp",
+     "bytes": 5814
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/cereal-fruity-pebbles-fcb86207-192.webp",
+     "bytes": 15660
+    }
+   ]
+  },
+  "/designs/toppings/cereal-fruit-loops.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/cereal-fruit-loops-a53ccc27-96.webp",
+     "bytes": 5504
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/cereal-fruit-loops-a53ccc27-192.webp",
+     "bytes": 14236
+    }
+   ]
+  },
+  "/designs/toppings/cereal-corn-flakes.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/cereal-corn-flakes-8a3eb4e1-96.webp",
+     "bytes": 5478
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/cereal-corn-flakes-8a3eb4e1-192.webp",
+     "bytes": 14450
+    }
+   ]
+  },
+  "/designs/toppings/cereal-cinnamon-toast-crunch.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/cereal-cinnamon-toast-crunch-a90c9f95-96.webp",
+     "bytes": 5290
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/cereal-cinnamon-toast-crunch-a90c9f95-192.webp",
+     "bytes": 14612
+    }
+   ]
+  },
+  "/designs/toppings/condensed-milk.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/condensed-milk-cd2a98d8-96.webp",
+     "bytes": 2900
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/condensed-milk-cd2a98d8-192.webp",
+     "bytes": 6206
+    }
+   ]
+  },
+  "/designs/toppings/honey-drizzle.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/honey-drizzle-cea66f5f-96.webp",
+     "bytes": 4166
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/honey-drizzle-cea66f5f-192.webp",
+     "bytes": 10334
+    }
+   ]
+  },
+  "/designs/toppings/crushed-almonds.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/crushed-almonds-71c78306-96.webp",
+     "bytes": 5452
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/crushed-almonds-71c78306-192.webp",
+     "bytes": 14272
+    }
+   ]
+  },
+  "/designs/toppings/granola.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/granola-3dad00eb-96.webp",
+     "bytes": 6370
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/granola-3dad00eb-192.webp",
+     "bytes": 18100
+    }
+   ]
+  },
+  "/designs/toppings/oreo-crumbs.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/oreo-crumbs-f6f770ce-96.webp",
+     "bytes": 5212
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/oreo-crumbs-f6f770ce-192.webp",
+     "bytes": 15404
+    }
+   ]
+  },
+  "/designs/toppings/toasted-coconut-flakes.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/toasted-coconut-flakes-39d90908-96.webp",
+     "bytes": 5102
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/toasted-coconut-flakes-39d90908-192.webp",
+     "bytes": 12234
+    }
+   ]
+  },
+  "/designs/toppings/coconut-flakes.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/coconut-flakes-38d2facd-96.webp",
+     "bytes": 3844
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/coconut-flakes-38d2facd-192.webp",
+     "bytes": 9296
+    }
+   ]
+  },
+  "/designs/toppings/coconut-jelly.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/coconut-jelly-4f3d1847-96.webp",
+     "bytes": 3478
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/coconut-jelly-4f3d1847-192.webp",
+     "bytes": 8988
+    }
+   ]
+  },
+  "/designs/toppings/tajin.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/tajin-de120b3f-96.webp",
+     "bytes": 6008
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/tajin-de120b3f-192.webp",
+     "bytes": 17762
+    }
+   ]
+  },
+  "/designs/toppings/injeolmi-powder.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/injeolmi-powder-0e2930e0-96.webp",
+     "bytes": 4882
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/injeolmi-powder-0e2930e0-192.webp",
+     "bytes": 14232
+    }
+   ]
+  },
+  "/designs/toppings/mochi.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/mochi-c3fbb7a0-96.webp",
+     "bytes": 3422
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/mochi-c3fbb7a0-192.webp",
+     "bytes": 7938
+    }
+   ]
+  },
+  "/designs/toppings/red-beans.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/red-beans-cc6490a2-96.webp",
+     "bytes": 5000
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/red-beans-cc6490a2-192.webp",
+     "bytes": 14114
+    }
+   ]
+  },
+  "/designs/toppings/biscoff-crumbs.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/biscoff-crumbs-ce565c53-96.webp",
+     "bytes": 6572
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/biscoff-crumbs-ce565c53-192.webp",
+     "bytes": 19122
+    }
+   ]
+  },
+  "/designs/toppings/ice-cream-vanilla.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/ice-cream-vanilla-2f461550-96.webp",
+     "bytes": 3902
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/ice-cream-vanilla-2f461550-192.webp",
+     "bytes": 9878
+    }
+   ]
+  },
+  "/designs/toppings/ice-cream-yogurt.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/ice-cream-yogurt-b243f00b-96.webp",
+     "bytes": 3360
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/ice-cream-yogurt-b243f00b-192.webp",
+     "bytes": 8084
+    }
+   ]
+  },
+  "/designs/toppings/cheesecake-bites.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/cheesecake-bites-77c998ab-96.webp",
+     "bytes": 4800
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/cheesecake-bites-77c998ab-192.webp",
+     "bytes": 12170
+    }
+   ]
+  },
+  "/designs/toppings/brownie-bites.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/brownie-bites-798eb5dc-96.webp",
+     "bytes": 5148
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/brownie-bites-798eb5dc-192.webp",
+     "bytes": 14950
+    }
+   ]
+  },
+  "/designs/toppings/crushed-pistachios.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/crushed-pistachios-c555f0fc-96.webp",
+     "bytes": 5882
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/crushed-pistachios-c555f0fc-192.webp",
+     "bytes": 15820
+    }
+   ]
+  },
+  "/designs/toppings/cookie-dough-bites.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/cookie-dough-bites-a5618698-96.webp",
+     "bytes": 4872
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/cookie-dough-bites-a5618698-192.webp",
+     "bytes": 12270
+    }
+   ]
+  },
+  "/designs/toppings/organic-cacao-nibs.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/organic-cacao-nibs-04f0a3a2-96.webp",
+     "bytes": 4930
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/organic-cacao-nibs-04f0a3a2-192.webp",
+     "bytes": 13590
+    }
+   ]
+  },
+  "/designs/toppings/organic-freeze-dried-strawberry.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/organic-freeze-dried-strawberry-f2a5932a-96.webp",
+     "bytes": 4938
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/organic-freeze-dried-strawberry-f2a5932a-192.webp",
+     "bytes": 13658
+    }
+   ]
+  },
+  "/designs/toppings/sprinkles.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/sprinkles-22d45017-96.webp",
+     "bytes": 5600
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/sprinkles-22d45017-192.webp",
+     "bytes": 14028
+    }
+   ]
+  },
+  "/designs/toppings/extra-fruit-strawberry.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/extra-fruit-strawberry-0a00a76e-96.webp",
+     "bytes": 4818
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/extra-fruit-strawberry-0a00a76e-192.webp",
+     "bytes": 13218
+    }
+   ]
+  },
+  "/designs/toppings/extra-fruit-mango.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/extra-fruit-mango-7ece82d7-96.webp",
+     "bytes": 3992
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/extra-fruit-mango-7ece82d7-192.webp",
+     "bytes": 9320
+    }
+   ]
+  },
+  "/designs/toppings/extra-fruit-banana.webp|icon": {
+   "w": 512,
+   "h": 512,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/extra-fruit-banana-bba049cd-96.webp",
+     "bytes": 4014
+    },
+    {
+     "w": 192,
+     "url": "/assets/site/img/extra-fruit-banana-bba049cd-192.webp",
+     "bytes": 9740
+    }
+   ]
+  },
+  "/assets/qt-golden-market-original.webp|place": {
+   "w": 750,
+   "h": 1000,
+   "variants": [
+    {
+     "w": 480,
+     "url": "/assets/site/img/qt-golden-market-original-28a85980-480.webp",
+     "bytes": 36566
+    },
+    {
+     "w": 750,
+     "url": "/assets/site/img/qt-golden-market-original-28a85980-750.webp",
+     "bytes": 74610
+    }
+   ]
+  },
+  "/assets/sweet-snow-storefront-straight.webp|place": {
+   "w": 1086,
+   "h": 1448,
+   "variants": [
+    {
+     "w": 480,
+     "url": "/assets/site/img/sweet-snow-storefront-straight-8a57f218-480.webp",
+     "bytes": 42836
+    },
+    {
+     "w": 960,
+     "url": "/assets/site/img/sweet-snow-storefront-straight-8a57f218-960.webp",
+     "bytes": 128100
+    }
+   ]
+  }
+ },
+ "logos": {
+  "logo-blue": {
+   "w": 1585,
+   "h": 645,
+   "variants": [
+    {
+     "w": 240,
+     "url": "/assets/site/img/logo-blue-240.webp",
+     "bytes": 19326
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/logo-blue-480.webp",
+     "bytes": 50330
+    }
+   ]
+  },
+  "logo-white": {
+   "w": 1585,
+   "h": 645,
+   "variants": [
+    {
+     "w": 240,
+     "url": "/assets/site/img/logo-white-240.webp",
+     "bytes": 9580
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/logo-white-480.webp",
+     "bytes": 26112
+    }
+   ]
+  },
+  "logo-ink": {
+   "w": 1585,
+   "h": 645,
+   "variants": [
+    {
+     "w": 240,
+     "url": "/assets/site/img/logo-ink-240.webp",
+     "bytes": 16890
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/logo-ink-480.webp",
+     "bytes": 45026
+    }
+   ]
+  },
+  "arch-blue": {
+   "w": 776,
+   "h": 434,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/arch-blue-320.webp",
+     "bytes": 31114
+    },
+    {
+     "w": 640,
+     "url": "/assets/site/img/arch-blue-640.webp",
+     "bytes": 75712
+    }
+   ]
+  },
+  "arch-white": {
+   "w": 776,
+   "h": 434,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/arch-white-320.webp",
+     "bytes": 15396
+    },
+    {
+     "w": 640,
+     "url": "/assets/site/img/arch-white-640.webp",
+     "bytes": 38720
+    }
+   ]
+  }
+ }
+}
