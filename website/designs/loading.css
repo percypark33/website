@@ -9,3 +9,4 @@
 .brand-loader .loader-dots i:nth-child(3){animation-delay:.3s!important}
 .loader-label,.loader-spark,.click-bunny{display:none}
 @keyframes snow-dot{0%,70%,100%{transform:translateY(0);opacity:.35}35%{transform:translateY(-4px);opacity:1}}
+@media (prefers-reduced-motion:reduce){.brand-loader{transition:none}.brand-loader .loader-dots i{animation:none!important;opacity:.7}}

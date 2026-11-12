@@ -89,9 +89,7 @@
 .theme-showcase .hero-image{border-radius:32px;padding:14px;background:var(--sky-pale);border:1px solid var(--sky-line);box-shadow:none}
 .theme-showcase .hero-image>img{border-radius:22px}
 @media(max-width:700px){.theme-showcase .hero-image{border-radius:26px;padding:10px}.theme-showcase .hero-image>img{border-radius:18px}}
-/* Original Sweet Snow Soft display typeface. */
-@font-face{font-family:'Sweet Snow Soft';src:url('./fonts/SweetSnowSoft-Regular.ttf?v=bold-20261006') format('truetype');font-weight:400;font-style:normal;font-display:swap}
-.theme-showcase h1,.theme-showcase h2,.theme-showcase h3,.theme-showcase h4,.theme-showcase .brand-word,.theme-showcase .button,.theme-showcase .filters button,.theme-showcase .toppings-details summary,.theme-showcase .coming-soon{font-family:'Sweet Snow Soft',Arial,sans-serif;font-weight:400;font-synthesis:none;letter-spacing:0}
+.theme-showcase h1,.theme-showcase h2,.theme-showcase h3,.theme-showcase h4,.theme-showcase .brand-word,.theme-showcase .button,.theme-showcase .filters button,.theme-showcase .toppings-details summary,.theme-showcase .coming-soon{font-family:'Lilita One',Arial,sans-serif;font-weight:400;font-synthesis:none;letter-spacing:0}
 .theme-showcase h1{font-size:clamp(42px,4.7vw,66px);max-width:15ch;line-height:1.13}
 .theme-showcase h2{line-height:1.15}
 .theme-showcase .brand-word{font-size:26px}
@@ -119,7 +117,7 @@
 .theme-showcase .product-heading,.theme-showcase .product-description,.theme-showcase .product-meta{margin-inline:0}
 
 /* Give supporting copy the same distinctive rounded lettering. */
-.theme-showcase{font-family:'Sweet Snow Soft',Arial,sans-serif;font-weight:400;font-synthesis:none}
+.theme-showcase{font-family:'Lilita One',Arial,sans-serif;font-weight:400;font-synthesis:none}
 .theme-showcase .hero-description,.theme-showcase .brand-story-copy>p:not(.eyebrow){font-size:18px;line-height:1.65;color:#294f69}
 .theme-showcase .product-description{font-size:15px;line-height:1.55;color:#294f69;-webkit-line-clamp:3}
 .theme-showcase .price{font-size:17px;color:#183c54}
@@ -149,13 +147,13 @@
 /* White page with softly blended photo edges instead of square backdrops. */
 .theme-showcase{background:#fff}
 .theme-showcase .product-photo,.theme-showcase .hero-image{background:#fff}
-.theme-showcase .product-photo img,.theme-showcase .hero-image>img{mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(ellipse 66% 64% at 50% 51%,#000 48%,rgba(0,0,0,.98) 59%,transparent 78%);mask-image:radial-gradient(ellipse 66% 64% at 50% 51%,#000 48%,rgba(0,0,0,.98) 59%,transparent 78%)}
+.theme-showcase .product-photo img,.theme-showcase .hero-image>img{mix-blend-mode:multiply;-webkit-mask-image:none;mask-image:none}
 
 /* Longer brand headline and cleaner, noninteractive menu photos. */
 .theme-showcase h1{font-size:clamp(36px,3.7vw,54px);max-width:19ch;line-height:1.13}
 .theme-showcase .product-photo{cursor:default}
 .theme-showcase .product-photo:hover img{transform:none}
-.theme-showcase .product-photo img,.theme-showcase .hero-image>img{filter:brightness(1.055);-webkit-mask-image:radial-gradient(ellipse 66% 64% at 50% 51%,#000 53%,rgba(0,0,0,.98) 61%,transparent 78%);mask-image:radial-gradient(ellipse 66% 64% at 50% 51%,#000 53%,rgba(0,0,0,.98) 61%,transparent 78%)}
+.theme-showcase .product-photo img,.theme-showcase .hero-image>img{filter:contrast(1.04) saturate(.98);-webkit-mask-image:none;mask-image:none}
 @media(max-width:700px){.theme-showcase h1{font-size:clamp(34px,8vw,48px);max-width:20ch}}
 
 /* Live opening status */
@@ -164,3 +162,32 @@
 .status-dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex:0 0 10px;background:#c63737;}
 .is-open>.status-dot{background:#228448;}
 .is-closed>.status-dot{background:#c63737;}
+
+/* Bold brand lettering inspired by Sweet Snow's supplied logos. */
+.theme-showcase{font-family:Arial,Helvetica,sans-serif}
+.theme-showcase h1,.theme-showcase h2,.theme-showcase h3,.theme-showcase h4,.theme-showcase .brand-word{color:#28618a}
+.theme-showcase h1{font-size:clamp(40px,4.2vw,62px);line-height:1.08;max-width:18ch}
+.theme-showcase h1 em{font-style:normal;color:#3c789f}
+.theme-showcase .main-nav a,.theme-showcase .price,.theme-showcase .btn-vote{font-family:'Lilita One',Arial,sans-serif}
+.theme-showcase .product-heading h4{font-size:30px;line-height:1.12}
+.theme-showcase .price{font-size:21px}
+@media(max-width:700px){.theme-showcase h1{font-size:clamp(36px,9.5vw,48px);max-width:18ch}.theme-showcase .product-heading h4{font-size:25px}.theme-showcase .price{font-size:19px}}
+
+/* The supplied arched bunny logo stands alone in the header. */
+.theme-showcase .site-header .brand{background:transparent;border:0;border-radius:0;box-shadow:none;padding:0;flex-shrink:0}
+.theme-showcase .site-header .logo{width:210px;height:auto;display:block;border:0;border-radius:0;background:transparent;box-shadow:none}
+.theme-showcase .site-header .brand-word{display:none}
+@media(max-width:700px){.theme-showcase .site-header .logo{width:170px}}
+
+/* Keep the full bunny artwork at its original proportions. */
+.theme-showcase .site-header .brand{overflow:visible}
+.theme-showcase .site-header .logo{width:240px;max-width:100%;height:auto;aspect-ratio:905 / 564;object-fit:contain;object-position:center;overflow:visible;clip-path:none;mask-image:none;-webkit-mask-image:none;filter:none}
+.theme-showcase .brand-story-art img{width:100%;height:auto;aspect-ratio:905 / 564;object-fit:contain;object-position:center;clip-path:none;mask-image:none;-webkit-mask-image:none;filter:none}
+@media(max-width:700px){.theme-showcase .site-header .logo{width:190px}}
+
+/* Unframed photos on the white page, without a tinted rectangular surface. */
+.theme-showcase .product-photo,.theme-showcase .hero-image{background:transparent;border:0;border-radius:0;box-shadow:none;padding:0}
+.theme-showcase .product-photo img,.theme-showcase .hero-image>img{border:0;border-radius:0;box-shadow:none;mix-blend-mode:multiply}
+
+/* Actual transparent cutouts: preserve food detail without backdrop effects. */
+.theme-showcase .product-photo img,.theme-showcase .hero-image>img{filter:none;mix-blend-mode:normal;mask-image:none;-webkit-mask-image:none;background:transparent;border:0;border-radius:0;box-shadow:none}

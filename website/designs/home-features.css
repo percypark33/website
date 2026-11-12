@@ -1,0 +1,45 @@
+/* Homepage campaigns share the Shine Muscat typography and open composition. */
+.theme-showcase .home-flyers{width:100%;max-width:none;margin:0;padding:0}
+.theme-showcase .home-feature{overflow:hidden;color:#285d80}
+.theme-showcase .home-feature-croffles{background:linear-gradient(135deg,#edf7fc 0%,#f7f8ef 60%,#f7ead7 100%)}
+.theme-showcase .home-feature-cups{background:linear-gradient(125deg,#eaf6fc 0%,#d9edf8 65%,#e5f2ec 100%)}
+.theme-showcase .home-feature-inner{display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;gap:40px;max-width:1320px;margin:auto;padding:64px 48px;min-height:650px}
+.theme-showcase .home-feature-copy{position:relative;z-index:1;max-width:420px}
+.theme-showcase .home-feature .campaign-new{margin-bottom:24px}
+.theme-showcase .home-feature h2{font-family:'Lilita One',Arial,sans-serif;font-weight:400;font-size:clamp(56px,5.2vw,78px);line-height:1.02;letter-spacing:-1px;margin:0 0 24px;color:#285d80}
+.theme-showcase .home-feature h2 em{font-style:normal;color:#9b683d}
+.theme-showcase .home-feature-cups h2 em{color:#587d36}
+.theme-showcase .home-feature-copy>p:not(.campaign-new){font-size:17px;line-height:1.7;color:#25465b;max-width:36ch;margin:0 0 28px}
+.theme-showcase .home-feature-link{display:inline-flex;align-items:center;gap:16px;background:#285d80;color:#fff;padding:15px 24px;border-radius:999px;text-decoration:none;font-weight:700;font-size:16px;transition:background .2s}
+.theme-showcase .home-feature-link:hover{background:#194763}
+.theme-showcase .home-feature-link:focus-visible{outline:3px solid #285d80;outline-offset:5px}
+.theme-showcase .home-feature-food{min-width:0}
+.theme-showcase .home-feature-food figure{margin:0;padding:0;position:relative;text-align:center;max-width:none}
+.theme-showcase .home-feature-food img{display:block;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 18px 14px #6c54201a)}
+.theme-showcase .home-feature-food figcaption{font-family:'Lilita One',Arial,sans-serif;font-weight:400;color:#285d80;font-size:21px;line-height:1.2;margin-top:0}
+.theme-showcase .croffle-feature-food{display:grid;grid-template-columns:1fr;max-width:610px;padding:0 10px}
+.theme-showcase .croffle-feature-food figure{width:84%}
+.theme-showcase .croffle-feature-food figure:first-child{justify-self:start;transform:rotate(-3deg)}
+.theme-showcase .croffle-feature-food figure+figure{justify-self:end;margin-top:-24px;transform:rotate(3deg)}
+.theme-showcase .croffle-feature-food img{aspect-ratio:1.5}
+.theme-showcase .cup-feature-food{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:0;margin-inline:-36px}
+.theme-showcase .cup-feature-food figure:nth-child(2){align-self:start;transform:translateY(-45px);z-index:1}
+.theme-showcase .cup-feature-food img{width:140%;max-width:none;margin-left:-20%;margin-bottom:12px;aspect-ratio:1}
+.theme-showcase .cup-feature-food figcaption{font-size:18px;padding:0 4px}
+@media(max-width:1000px) and (min-width:761px){.theme-showcase .home-feature-inner{gap:24px;padding:50px 32px;min-height:580px}.theme-showcase .home-feature h2{font-size:60px}.theme-showcase .cup-feature-food{margin-inline:-12px}.theme-showcase .home-feature-food figcaption{font-size:17px}}
+@media(max-width:760px){
+ .theme-showcase .home-feature-inner{grid-template-columns:1fr;gap:36px;min-height:0;padding:44px 22px 48px;text-align:center}
+ .theme-showcase .home-feature-copy{max-width:100%;margin:auto}
+ .theme-showcase .home-feature h2{font-size:clamp(45px,11.8vw,66px);margin-bottom:18px}
+ .theme-showcase .home-feature-copy>p:not(.campaign-new){font-size:15px;line-height:1.65;margin:0 auto 24px;max-width:34ch}
+ .theme-showcase .home-feature .campaign-new{font-size:10px;margin-bottom:18px}
+ .theme-showcase .home-feature-link{font-size:14px;padding:13px 22px}
+ .theme-showcase .croffle-feature-food{max-width:480px;width:100%;padding:0;margin:auto}
+ .theme-showcase .croffle-feature-food figure{width:86%}
+ .theme-showcase .croffle-feature-food figure+figure{margin-top:-8px}
+ .theme-showcase .home-feature-food figcaption{font-size:19px}
+ .theme-showcase .cup-feature-food{margin:30px -6px 0;gap:4px}
+ .theme-showcase .cup-feature-food figure:nth-child(2){transform:translateY(-28px)}
+ .theme-showcase .cup-feature-food figcaption{font-size:14px;line-height:1.25;padding:0}
+ .theme-showcase .cup-feature-food img{width:135%;margin-left:-17.5%}
+}

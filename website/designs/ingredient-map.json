@@ -1,0 +1,627 @@
+{
+  "Mango": [
+    {
+      "label": "mango",
+      "x": 50,
+      "y": 35
+    },
+    {
+      "label": "house-made syrup",
+      "x": 50,
+      "y": 61
+    },
+    {
+      "label": "mochi",
+      "x": 68,
+      "y": 23
+    }
+  ],
+  "Mango Special": [
+    {
+      "label": "mango",
+      "x": 23,
+      "y": 47
+    },
+    {
+      "label": "house-made syrup",
+      "x": 50,
+      "y": 68
+    },
+    {
+      "label": "mochi",
+      "x": 86,
+      "y": 80
+    },
+    {
+      "label": "toasted coconut flakes",
+      "x": 50,
+      "y": 18
+    },
+    {
+      "label": "mango popping boba",
+      "x": 50,
+      "y": 45
+    },
+    {
+      "label": "coconut jelly",
+      "x": 43,
+      "y": 40
+    },
+    {
+      "label": "yogurt vanilla ice cream",
+      "x": 50,
+      "y": 27
+    }
+  ],
+  "Strawberry": [
+    {
+      "label": "strawberry",
+      "x": 50,
+      "y": 35
+    },
+    {
+      "label": "house-made syrup",
+      "x": 50,
+      "y": 62
+    },
+    {
+      "label": "mochi",
+      "x": 65,
+      "y": 23
+    }
+  ],
+  "Strawberry Special": [
+    {
+      "label": "strawberry",
+      "x": 24,
+      "y": 45
+    },
+    {
+      "label": "house-made syrup",
+      "x": 43,
+      "y": 65
+    },
+    {
+      "label": "mochi",
+      "x": 86,
+      "y": 80
+    },
+    {
+      "label": "cheesecake bites",
+      "x": 66,
+      "y": 44
+    },
+    {
+      "label": "Biscoff crumbs",
+      "x": 50,
+      "y": 48
+    },
+    {
+      "label": "vanilla ice cream",
+      "x": 50,
+      "y": 28
+    }
+  ],
+  "Mango & Strawberry": [
+    {
+      "label": "mango",
+      "x": 30,
+      "y": 35
+    },
+    {
+      "label": "strawberry",
+      "x": 70,
+      "y": 35
+    },
+    {
+      "label": "house-made syrup",
+      "x": 50,
+      "y": 46
+    },
+    {
+      "label": "mochi",
+      "x": 50,
+      "y": 21
+    }
+  ],
+  "Injeolmi": [
+    {
+      "label": "roasted soybean powder",
+      "x": 37,
+      "y": 45
+    },
+    {
+      "label": "red bean",
+      "x": 50,
+      "y": 30
+    },
+    {
+      "label": "crushed almonds",
+      "x": 65,
+      "y": 46
+    },
+    {
+      "label": "mochi",
+      "x": 53,
+      "y": 19
+    }
+  ],
+  "Black Sesame": [
+    {
+      "label": "black sesame",
+      "x": 35,
+      "y": 47
+    },
+    {
+      "label": "red bean",
+      "x": 50,
+      "y": 30
+    },
+    {
+      "label": "crushed almonds",
+      "x": 62,
+      "y": 47
+    },
+    {
+      "label": "mochi",
+      "x": 50,
+      "y": 18
+    }
+  ],
+  "Strawnana Pie": [
+    {
+      "label": "strawberry",
+      "x": 72,
+      "y": 40
+    },
+    {
+      "label": "banana",
+      "x": 28,
+      "y": 39
+    },
+    {
+      "label": "cookie crumbs",
+      "x": 50,
+      "y": 49
+    },
+    {
+      "label": "house-made syrup",
+      "x": 43,
+      "y": 59
+    },
+    {
+      "label": "house-made banana cream",
+      "x": 40,
+      "y": 55
+    },
+    {
+      "label": "whipped cream",
+      "x": 50,
+      "y": 25
+    }
+  ],
+  "Blueberry Yogurt Cheesecake": [
+    {
+      "label": "blueberry",
+      "x": 53,
+      "y": 42
+    },
+    {
+      "label": "house-made yogurt syrup",
+      "x": 50,
+      "y": 63
+    },
+    {
+      "label": "cheesecake bites",
+      "x": 68,
+      "y": 45
+    },
+    {
+      "label": "yogurt ice cream",
+      "x": 50,
+      "y": 25
+    }
+  ],
+  "Cookies and Cream": [
+    {
+      "label": "Oreo™ crumbs",
+      "x": 50,
+      "y": 38
+    },
+    {
+      "label": "house-made cream",
+      "x": 50,
+      "y": 47
+    },
+    {
+      "label": "premium cacao powder",
+      "x": 50,
+      "y": 32
+    },
+    {
+      "label": "mochi",
+      "x": 85,
+      "y": 78
+    }
+  ],
+  "Cereal Killer": [
+    {
+      "label": "three cereals of our choice",
+      "x": 40,
+      "y": 35
+    },
+    {
+      "label": "organic freeze-dried strawberry",
+      "x": 67,
+      "y": 49
+    },
+    {
+      "label": "mochi",
+      "x": 43,
+      "y": 49
+    }
+  ],
+  "Hojicha Tiramisu": [
+    {
+      "label": "house-made Japanese hojicha syrup",
+      "x": 45,
+      "y": 62
+    },
+    {
+      "label": "ladyfinger bites",
+      "x": 52,
+      "y": 52
+    },
+    {
+      "label": "house-made cream",
+      "x": 50,
+      "y": 40
+    },
+    {
+      "label": "organic hojicha powder",
+      "x": 50,
+      "y": 28
+    },
+    {
+      "label": "mochi",
+      "x": 84,
+      "y": 78
+    }
+  ],
+  "Matcha Strawberry": [
+    {
+      "label": "strawberry",
+      "x": 29,
+      "y": 47
+    },
+    {
+      "label": "organic matcha syrup",
+      "x": 50,
+      "y": 61
+    },
+    {
+      "label": "Biscoff crumbs",
+      "x": 48,
+      "y": 43
+    },
+    {
+      "label": "mochi",
+      "x": 85,
+      "y": 78
+    },
+    {
+      "label": "premium green tea ice cream",
+      "x": 50,
+      "y": 25
+    }
+  ],
+  "Matcha Banana Cream": [
+    {
+      "label": "house-made Japanese matcha syrup",
+      "x": 50,
+      "y": 62
+    },
+    {
+      "label": "banana",
+      "x": 50,
+      "y": 37
+    },
+    {
+      "label": "house-made banana cream",
+      "x": 50,
+      "y": 49
+    },
+    {
+      "label": "Biscoff crumbs",
+      "x": 50,
+      "y": 54
+    },
+    {
+      "label": "organic matcha powder",
+      "x": 50,
+      "y": 34
+    }
+  ],
+  "Lychee Heaven": [
+    {
+      "label": "lychee",
+      "x": 24,
+      "y": 42
+    },
+    {
+      "label": "lychee popping boba",
+      "x": 50,
+      "y": 45
+    },
+    {
+      "label": "toasted coconut flakes",
+      "x": 50,
+      "y": 62
+    },
+    {
+      "label": "coconut jelly",
+      "x": 43,
+      "y": 41
+    },
+    {
+      "label": "mochi",
+      "x": 85,
+      "y": 79
+    },
+    {
+      "label": "yogurt ice cream",
+      "x": 50,
+      "y": 30
+    },
+    {
+      "label": "yogurt lychee syrup on top",
+      "x": 50,
+      "y": 35
+    }
+  ],
+  "Açaí": [
+    {
+      "label": "açaí",
+      "x": 50,
+      "y": 66
+    },
+    {
+      "label": "banana",
+      "x": 73,
+      "y": 40
+    },
+    {
+      "label": "strawberry",
+      "x": 27,
+      "y": 40
+    },
+    {
+      "label": "blueberry",
+      "x": 50,
+      "y": 43
+    },
+    {
+      "label": "granola",
+      "x": 50,
+      "y": 43
+    },
+    {
+      "label": "honey",
+      "x": 50,
+      "y": 47
+    },
+    {
+      "label": "toasted coconut flakes",
+      "x": 44,
+      "y": 36
+    }
+  ],
+  "Taiyaki": [
+    {
+      "label": "Nutella filling (choice)",
+      "x": 50,
+      "y": 48
+    },
+    {
+      "label": "Red Bean filling (choice)",
+      "x": 50,
+      "y": 48
+    },
+    {
+      "label": "Custard filling (choice)",
+      "x": 50,
+      "y": 48
+    },
+    {
+      "label": "Sweet Potato & Cheese filling (choice)",
+      "x": 50,
+      "y": 48
+    },
+    {
+      "label": "Cheese filling (choice)",
+      "x": 50,
+      "y": 48
+    }
+  ],
+  "Dubai Taiyaki": [
+    {
+      "label": "Dubai chocolate filling",
+      "x": 49,
+      "y": 48
+    }
+  ],
+  "Dubai Chewy Cookie": [
+    {
+      "label": "real pistachios",
+      "x": 49,
+      "y": 47
+    },
+    {
+      "label": "kataifi",
+      "x": 40,
+      "y": 47
+    },
+    {
+      "label": "marshmallows",
+      "x": 50,
+      "y": 50
+    },
+    {
+      "label": "premium cacao",
+      "x": 28,
+      "y": 39
+    },
+    {
+      "label": "white chocolate",
+      "x": 51,
+      "y": 49
+    }
+  ],
+  "Matcha Red Beans": [
+    {
+      "label": "matcha syrup",
+      "x": 35,
+      "y": 68
+    },
+    {
+      "label": "matcha powder",
+      "x": 31,
+      "y": 42
+    },
+    {
+      "label": "red beans",
+      "x": 54,
+      "y": 29
+    },
+    {
+      "label": "mochi",
+      "x": 50,
+      "y": 18
+    }
+  ],
+  "Watermelon": [
+    {
+      "label": "Milk base",
+      "x": 15,
+      "y": 55
+    },
+    {
+      "label": "fresh watermelon balls",
+      "x": 32,
+      "y": 42
+    },
+    {
+      "label": "homemade syrup",
+      "x": 50,
+      "y": 50
+    },
+    {
+      "label": "condensed milk",
+      "x": 57,
+      "y": 31
+    },
+    {
+      "label": "mochi",
+      "x": 51,
+      "y": 20
+    }
+  ],
+  "Injeolmi Jollypong": [
+    {
+      "label": "roasted soybean powder",
+      "x": 37,
+      "y": 45
+    },
+    {
+      "label": "red bean",
+      "x": 50,
+      "y": 30
+    },
+    {
+      "label": "crushed almonds",
+      "x": 65,
+      "y": 46
+    },
+    {
+      "label": "mochi",
+      "x": 53,
+      "y": 19
+    },
+    {
+      "label": "Jollypong",
+      "x": 35,
+      "y": 42
+    },
+    {
+      "label": "Condensed Milk",
+      "x": 50,
+      "y": 62
+    }
+  ],
+  "Shine Muscat": [
+    {
+      "label": "Green grape",
+      "x": 35,
+      "y": 45
+    },
+    {
+      "label": "Yogurt grape syrup",
+      "x": 60,
+      "y": 57
+    },
+    {
+      "label": "Aloe jelly",
+      "x": 33,
+      "y": 30
+    },
+    {
+      "label": "Yogurt ice cream",
+      "x": 50,
+      "y": 17
+    }
+  ],
+  "Shine Muscat & Lychee": [
+    {
+      "label": "Green grape",
+      "x": 30,
+      "y": 43
+    },
+    {
+      "label": "Lychee",
+      "x": 70,
+      "y": 40
+    },
+    {
+      "label": "Yogurt grape syrup",
+      "x": 31,
+      "y": 62
+    },
+    {
+      "label": "Aloe jelly",
+      "x": 27,
+      "y": 28
+    },
+    {
+      "label": "Yogurt ice cream",
+      "x": 50,
+      "y": 17
+    }
+  ],
+  "Milk & Honeycomb": [
+    {
+      "label": "Granola",
+      "x": 30,
+      "y": 40
+    },
+    {
+      "label": "Raw honeycomb",
+      "x": 50,
+      "y": 20
+    },
+    {
+      "label": "Honey Teddy Grahams",
+      "x": 71,
+      "y": 31
+    }
+  ]
+}

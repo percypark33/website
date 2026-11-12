@@ -1,0 +1,52 @@
+/* A quiet, open layout with room for the food and brand. */
+.theme-showcase .site-header,.theme-showcase .location-bar,.theme-showcase .brand-story,.theme-showcase .customize-section,.theme-showcase .coming-section,.theme-showcase .vote-section,.theme-showcase .site-footer{border:0}
+.theme-showcase .coming-soon{outline:0;box-shadow:none}
+.theme-showcase .button,.theme-showcase .btn-vote,.theme-showcase .catering-card{box-shadow:none}
+.theme-showcase .site-header{position:relative}
+.theme-showcase .main-nav a{background:transparent;border:0}
+.mobile-nav-toggle{display:none}
+.theme-showcase .hero h1{max-width:16ch}
+@media(max-width:760px){
+ .theme-showcase .shell{width:calc(100% - 40px)}
+ .theme-showcase .location-bar{display:none}
+ .theme-showcase .site-header{min-height:96px;padding-block:16px;gap:12px;flex-wrap:nowrap}
+ .theme-showcase .site-header .brand{margin-right:auto}
+ .theme-showcase .site-header .logo{width:112px}
+ .mobile-nav-toggle{display:grid;place-content:center;gap:5px;width:44px;height:44px;background:none;border:0;color:#21445e;cursor:pointer}
+ .mobile-nav-toggle span{display:block;width:22px;height:2px;background:currentColor;transition:transform .2s}
+ .mobile-nav-toggle[aria-expanded=true] span:first-child{transform:translateY(3.5px) rotate(45deg)}
+ .mobile-nav-toggle[aria-expanded=true] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+ .theme-showcase .main-nav{display:none;position:absolute;top:100%;left:-20px;right:-20px;z-index:30;background:#fff;padding:20px;box-shadow:0 15px 20px #21445e0a}
+ .theme-showcase .main-nav.is-open{display:flex;flex-direction:column;align-items:stretch}
+ .theme-showcase .main-nav a{font-size:20px;padding:14px;justify-content:flex-start}
+ .theme-showcase .hero{display:flex;flex-direction:column;align-items:stretch;padding-block:44px 64px;gap:30px}
+ .theme-showcase .hero .eyebrow{font-size:10px;letter-spacing:1.3px;margin-bottom:20px}
+ .theme-showcase .hero h1{font-size:clamp(38px,10vw,58px);line-height:1.13;margin-bottom:22px;max-width:15ch}
+ .theme-showcase .hero-description{font-size:16px;line-height:1.75;max-width:32ch}
+ .theme-showcase .hero-actions{gap:12px;margin-top:26px}
+ .theme-showcase .hero-actions .button{font-size:16px;padding:13px 18px;border-width:1px}
+ .theme-showcase .origin-hero{max-width:460px;align-self:center;width:100%}
+ .theme-showcase .origin-caption{font-size:11px;margin-top:0}
+ .theme-showcase .kitchen-moment{width:calc(100% - 40px);max-width:460px;margin-bottom:28px}
+ .theme-showcase .menu-section{padding-top:40px}
+ .theme-showcase .menu-category-title{justify-content:flex-start;font-size:26px;margin-bottom:10px}
+ .theme-showcase .menu-category-title::before,.theme-showcase .menu-category-title::after{display:none}
+ .theme-showcase .product-grid{grid-template-columns:1fr;gap:26px}
+ .theme-showcase .product-card{display:flex;flex-direction:column;min-height:0;padding:0;gap:0;max-width:460px;width:100%;margin-inline:auto}
+ .theme-showcase .product-card .ingredient-trigger{width:100%;max-width:360px;margin-inline:auto;transform:none;transition:transform .4s ease}
+ .theme-showcase .product-card.ingredients-open .ingredient-trigger{transform:scale(.9)}
+ .theme-showcase .product-card .product-info{display:block;max-height:none;overflow:visible;align-self:stretch;transform:none;transition:none;padding:0 8px 24px}
+ .theme-showcase .product-card.ingredients-open .product-info{display:block;max-height:none;transform:none;padding-bottom:24px;transition:none}
+ .theme-showcase .product-card .product-heading{min-height:0;margin:4px 0 14px}
+ .theme-showcase .product-card .product-heading h4{font-size:30px;margin:0;min-height:0}
+ .theme-showcase .menu-ingredient-description{font-size:16px;line-height:1.75;max-width:none}
+ .touch-ingredient-hint{margin:0;padding:6px 0;background:transparent;border-radius:0;font-size:12px;text-decoration:underline;text-underline-offset:5px}
+ .theme-showcase .customize-section,.theme-showcase .brand-story,.theme-showcase .vote-section{padding-block:48px}
+ .theme-showcase .customize-toppings{gap:0 24px}
+ .theme-showcase .customize-toppings li{border:0;padding-block:14px}
+ .theme-showcase .customize-toppings li>span{font-size:20px}
+ .theme-showcase .brand-story-art{max-width:220px}
+ .theme-showcase .catering-card{border:0;border-radius:0;padding:28px}
+ .theme-showcase .contact-footer{width:100%;border-radius:0;padding:36px 24px 24px}
+ .theme-showcase .ballot{border:0;border-radius:0;padding:24px}
+}

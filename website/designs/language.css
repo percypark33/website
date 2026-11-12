@@ -1,0 +1,136 @@
+.language-control {
+  position: relative;
+  z-index: 30;
+  margin-left: auto;
+  align-self: center;
+}
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.42rem 0.6rem;
+  border: 1px solid rgba(39, 57, 60, 0.3);
+  border-radius: 999px;
+  background: #fff;
+  color: #27393c;
+  font:
+    700 0.76rem/1 system-ui,
+    sans-serif;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  border-color: #27393c;
+  background: #f4fbfc;
+}
+.language-toggle:focus-visible,
+.language-drawer button:focus-visible {
+  outline: 3px solid #7ac2d2;
+  outline-offset: 2px;
+}
+.language-toggle svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+.language-drawer {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.45rem);
+  display: grid;
+  min-width: 8.5rem;
+  padding: 0.3rem;
+  border: 1px solid rgba(39, 57, 60, 0.2);
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(30, 49, 52, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-0.25rem);
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
+}
+.language-control.is-open .language-drawer {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.language-drawer button {
+  border: 0;
+  border-radius: 0.45rem;
+  padding: 0.55rem 0.65rem;
+  background: transparent;
+  color: #27393c;
+  text-align: left;
+  font:
+    650 0.88rem/1.2 system-ui,
+    sans-serif;
+  cursor: pointer;
+}
+.language-drawer button:hover,
+.language-drawer button[aria-checked="true"] {
+  background: #e8f6f8;
+}
+.language-drawer button[aria-checked="true"]::after {
+  content: "✓";
+  float: right;
+}
+.language-ko {
+  word-break: keep-all;
+}
+.language-ko .language-toggle,
+.language-ko .language-drawer button {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    sans-serif;
+}
+.language-ko h1,
+.language-ko h2,
+.language-ko h3,
+.language-ko h4 {
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+.site-header .language-control {
+  order: 2;
+}
+@media (max-width: 700px) {
+  .language-control {
+    margin-left: 0.18rem;
+  }
+  .language-toggle {
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+  }
+  .language-current {
+    display: none;
+  }
+  .language-toggle svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+  .language-drawer {
+    right: -0.25rem;
+  }
+  .site-header .language-control {
+    order: 2;
+  }
+  .mobile-nav-toggle {
+    order: 3;
+  }
+  .main-nav + .language-control {
+    margin-left: 0;
+  }
+}

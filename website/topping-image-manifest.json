@@ -1,0 +1,233 @@
+[
+  {
+    "key": "popping-boba-strawberry",
+    "en": "Strawberry Popping Boba",
+    "ko": "딸기 팝핑보바",
+    "category": "topping",
+    "visualDescription": "Glossy ruby-red spheres, translucent, juicy and tightly grouped."
+  },
+  {
+    "key": "popping-boba-mango",
+    "en": "Mango Popping Boba",
+    "ko": "망고 팝핑보바",
+    "category": "topping",
+    "visualDescription": "Glossy golden-orange spheres with bright translucent skins."
+  },
+  {
+    "key": "popping-boba-lychee",
+    "en": "Lychee Popping Boba",
+    "ko": "리치 팝핑보바",
+    "category": "topping",
+    "visualDescription": "Glossy pearly-white spheres with a subtle blush and translucent shine."
+  },
+  {
+    "key": "cereal-fruity-pebbles",
+    "en": "Fruity Pebbles",
+    "ko": "후루티 페블스",
+    "category": "cereal",
+    "visualDescription": "Tiny vivid rainbow cereal crisps, playful and sharply textured."
+  },
+  {
+    "key": "cereal-fruit-loops",
+    "en": "Fruit Loops",
+    "ko": "후르츠 루프",
+    "category": "cereal",
+    "visualDescription": "Bright ring-shaped cereal pieces in saturated rainbow colors."
+  },
+  {
+    "key": "cereal-corn-flakes",
+    "en": "Corn Flakes",
+    "ko": "콘플레이크",
+    "category": "cereal",
+    "visualDescription": "Thin golden corn flakes with crisp curled edges."
+  },
+  {
+    "key": "cereal-cinnamon-toast-crunch",
+    "en": "Cinnamon Toast Crunch",
+    "ko": "시나몬 토스트 크런치",
+    "category": "cereal",
+    "visualDescription": "Small square cinnamon cereal pieces with visible sugar sparkle."
+  },
+  {
+    "key": "condensed-milk",
+    "en": "Condensed Milk",
+    "ko": "연유",
+    "category": "topping",
+    "visualDescription": "Ivory condensed-milk ribbon in a glossy drizzle pool."
+  },
+  {
+    "key": "honey-drizzle",
+    "en": "Honey Drizzle",
+    "ko": "허니 드리즐",
+    "category": "topping",
+    "visualDescription": "Amber honey ribbon catching warm highlights."
+  },
+  {
+    "key": "crushed-almonds",
+    "en": "Crushed Almonds",
+    "ko": "아몬드 크럼블",
+    "category": "topping",
+    "visualDescription": "Toasted almond pieces in irregular tan shards."
+  },
+  {
+    "key": "granola",
+    "en": "Granola",
+    "ko": "그래놀라",
+    "category": "topping",
+    "visualDescription": "Golden oat clusters with toasted edges and crumb detail."
+  },
+  {
+    "key": "oreo-crumbs",
+    "en": "Oreo Crumbs",
+    "ko": "오레오 크럼",
+    "category": "topping",
+    "visualDescription": "Dark chocolate cookie crumbs with varied crunchy granules."
+  },
+  {
+    "key": "toasted-coconut-flakes",
+    "en": "Toasted Coconut Flakes",
+    "ko": "구운 코코넛 플레이크",
+    "category": "topping",
+    "visualDescription": "Cream and lightly browned coconut ribbons, thin and curled."
+  },
+  {
+    "key": "coconut-flakes",
+    "en": "Coconut Flakes",
+    "ko": "코코넛 플레이크",
+    "category": "topping",
+    "visualDescription": "Fresh white coconut shavings with soft fibrous texture."
+  },
+  {
+    "key": "coconut-jelly",
+    "en": "Coconut Jelly",
+    "ko": "코코넛 젤리",
+    "category": "topping",
+    "visualDescription": "Thin, nearly clear translucent coconut jelly strips."
+  },
+  {
+    "key": "tajin",
+    "en": "Tajín",
+    "ko": "타힌",
+    "category": "topping",
+    "visualDescription": "Fine red chile-lime seasoning with vivid speckled granularity."
+  },
+  {
+    "key": "injeolmi-powder",
+    "en": "Injeolmi Powder",
+    "ko": "인절미 가루",
+    "category": "topping",
+    "visualDescription": "Fine warm-beige roasted soybean powder, soft and powdery."
+  },
+  {
+    "key": "mochi",
+    "en": "Mochi",
+    "ko": "모찌",
+    "category": "topping",
+    "visualDescription": "Small pillowy white rice-cake pieces with a soft matte sheen."
+  },
+  {
+    "key": "red-beans",
+    "en": "Red Beans",
+    "ko": "팥",
+    "category": "topping",
+    "visualDescription": "Glossy burgundy adzuki beans, plump and syrupy."
+  },
+  {
+    "key": "biscoff-crumbs",
+    "en": "Biscoff Crumbs",
+    "ko": "비스코프 크럼",
+    "category": "topping",
+    "visualDescription": "Caramel-brown spiced biscuit crumbs with crisp variation."
+  },
+  {
+    "key": "ice-cream-vanilla",
+    "en": "Vanilla Ice Cream",
+    "ko": "바닐라 아이스크림",
+    "category": "ice-cream",
+    "visualDescription": "Creamy ivory scoop with smooth rounded ridges."
+  },
+  {
+    "key": "ice-cream-yogurt",
+    "en": "Yogurt Ice Cream",
+    "ko": "요거트 아이스크림",
+    "category": "ice-cream",
+    "visualDescription": "Bright white tangy scoop with a clean creamy texture."
+  },
+  {
+    "key": "cheesecake-bites",
+    "en": "Cheesecake Bites",
+    "ko": "치즈케이크 바이트",
+    "category": "topping",
+    "visualDescription": "Tiny pale cheesecake cubes with a tender crumb and golden edges."
+  },
+  {
+    "key": "brownie-bites",
+    "en": "Brownie Bites",
+    "ko": "브라우니 바이트",
+    "category": "topping",
+    "visualDescription": "Dense dark chocolate brownie cubes with fudgy centers."
+  },
+  {
+    "key": "crushed-pistachios",
+    "en": "Crushed Pistachios",
+    "ko": "피스타치오 크럼",
+    "category": "topping",
+    "visualDescription": "Vivid green pistachio pieces with toasted tan flecks."
+  },
+  {
+    "key": "cookie-dough-bites",
+    "en": "Cookie Dough Bites",
+    "ko": "쿠키도우 바이트",
+    "category": "topping",
+    "visualDescription": "Small golden cookie-dough nuggets with chocolate specks."
+  },
+  {
+    "key": "organic-cacao-nibs",
+    "en": "Organic Cacao Nibs",
+    "ko": "유기농 카카오 닙스",
+    "category": "topping",
+    "visualDescription": "Angular dark cacao nibs with a dry, crunchy texture."
+  },
+  {
+    "key": "organic-freeze-dried-strawberry",
+    "en": "Organic Freeze-Dried Strawberry",
+    "ko": "유기농 동결건조 딸기",
+    "category": "topping",
+    "visualDescription": "Crisp ruby strawberry pieces with porous freeze-dried texture."
+  },
+  {
+    "key": "sprinkles",
+    "en": "Sprinkles",
+    "ko": "스프링클",
+    "category": "topping",
+    "visualDescription": "Tiny cheerful rainbow sugar rods scattered lightly."
+  },
+  {
+    "key": "cream-top",
+    "en": "House-Made Mascarpone Cream Top",
+    "ko": "수제 마스카포네 크림 토핑",
+    "category": "cream-top",
+    "visualDescription": "Tall cloudlike ivory mascarpone cream with silky peaks."
+  },
+  {
+    "key": "extra-fruit-strawberry",
+    "en": "Extra Strawberry",
+    "ko": "추가 딸기",
+    "category": "extra-fruit",
+    "visualDescription": "Fresh red strawberry slices with juicy seeds and glossy cut faces."
+  },
+  {
+    "key": "extra-fruit-mango",
+    "en": "Extra Mango",
+    "ko": "추가 망고",
+    "category": "extra-fruit",
+    "visualDescription": "Fresh golden mango cubes with juicy translucent edges."
+  },
+  {
+    "key": "extra-fruit-banana",
+    "en": "Extra Banana",
+    "ko": "추가 바나나",
+    "category": "extra-fruit",
+    "visualDescription": "Fresh pale cream banana slices with natural centers."
+  }
+]

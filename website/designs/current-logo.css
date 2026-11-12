@@ -1,0 +1,22 @@
+/* Approved complete artwork: keep its natural tall ratio and original colors. */
+.chapter-experience.theme-showcase .site-header .brand .logo{width:220px;height:auto;max-width:100%;aspect-ratio:1881 / 837;object-fit:contain;clip-path:none;filter:none;mix-blend-mode:normal}
+.theme-showcase .site-header .brand{flex:none}
+.theme-showcase .site-header .brand-word{display:none}
+.theme-showcase .sl-logo{width:260px;height:auto;aspect-ratio:1881 / 837;object-fit:contain;filter:none;mix-blend-mode:normal}
+.theme-showcase .brand-loader .loader-logo{width:min(150px,36vw);height:auto;aspect-ratio:1274 / 1982;object-fit:contain;mix-blend-mode:normal}
+@media(max-width:760px){.chapter-experience.theme-showcase .site-header .brand .logo{width:140px}.theme-showcase .sl-logo{width:220px}}
+
+/* Transparent mountain over the sky; original blue on the white header. */
+.scroll-logo{position:relative;display:block;flex:none;line-height:0}
+.scroll-logo .mountain-sky{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .32s ease}
+.site-header.over-hero .scroll-logo .mountain-sky{opacity:1}
+@media(prefers-reduced-motion:reduce){.scroll-logo .mountain-sky{transition:none}}
+
+.scroll-logo > .logo{transition:opacity .32s ease}
+.site-header.over-hero .scroll-logo > .logo{opacity:0}
+@media(prefers-reduced-motion:reduce){.scroll-logo > .logo{transition:none}}
+
+/* Same artwork registration in both colors; no rectangular white edge. */
+.chapter-experience.theme-showcase .site-header .brand .logo,.theme-showcase .sl-logo{mix-blend-mode:multiply}
+.scroll-logo .mountain-sky,.scroll-logo > .logo{transition:opacity .4s ease}
+@media(prefers-reduced-motion:reduce){.scroll-logo .mountain-sky,.scroll-logo > .logo{transition:none}}

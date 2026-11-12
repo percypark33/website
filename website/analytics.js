@@ -52,13 +52,34 @@
     if (!hasMeasurementId) return;
     window.gtag("event", name, Object.assign({ send_to: measurementId, page_location: safePage }, values));
   }
+  function isPickupDestination(url) {
+    return url.protocol === "https:" && url.hostname === "cash.app" &&
+      url.pathname === "/$sweetsnowus";
+  }
+  function isDeliveryDestination(url) {
+    return url.protocol === "https:" && url.hostname === "www.doordash.com" &&
+      url.pathname.indexOf("/store/sweet-snow-garden-grove-52186263/") === 0;
+  }
+  function isDirectionsDestination(url) {
+    return url.protocol === "https:" && /^(www\.)?google\.com$/.test(url.hostname) &&
+      url.pathname === "/maps/search/" && url.searchParams.get("api") === "1" &&
+      url.searchParams.has("query");
+  }
   document.addEventListener("click", function (e) {
     if (e.defaultPrevented || e.button > 0) return;
     var link = e.target.closest && e.target.closest("a[href]");
     if (!link) return;
     var url;
     try { url = new URL(link.href, window.location.href); } catch (_) { return; }
-    if (url.origin === window.location.origin) {
+    // These are click intentions only, not purchases or ad conversions. URLs,
+    // queries, link labels, and customer data are deliberately never sent.
+    if (isPickupDestination(url)) {
+      event("order_online_click", {});
+    } else if (isDeliveryDestination(url)) {
+      event("delivery_click", {});
+    } else if (isDirectionsDestination(url)) {
+      event("directions_click", {});
+    } else if (url.origin === window.location.origin) {
       var section = sections[url.hash.slice(1)];
       if (section) event("navigate_section", { section_name: section });
     } else if (/^(www\.)?instagram\.com$/.test(url.hostname)) {

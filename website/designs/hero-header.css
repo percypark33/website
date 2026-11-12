@@ -1,0 +1,63 @@
+/* The opening header shares the Lychee scene; only its colors change on scroll. */
+.chapter-experience { overflow-anchor: none; }
+.chapter-experience.theme-showcase .site-header {
+  transition: background-color .32s ease, border-color .32s ease, box-shadow .32s ease;
+}
+.chapter-experience.hero-header-connected .site-header {
+  margin-bottom: calc(-1 * var(--hero-header-height, 110px));
+}
+.chapter-experience.theme-showcase .site-header.over-hero {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+.chapter-experience.theme-showcase .site-header.over-hero .main-nav a,
+.chapter-experience .site-header.over-hero .language-toggle {
+  color: #fff;
+  text-shadow: 0 1px 5px #214c6660;
+}
+.chapter-experience.theme-showcase .site-header.over-hero .main-nav a::after {
+  background: #fff;
+}
+.chapter-experience .site-header.over-hero .chapter-order {
+  background: #ffffffed;
+}
+.chapter-experience .site-header.over-hero .language-toggle:hover,
+.chapter-experience .site-header.over-hero .language-toggle:focus-visible {
+  background: #ffffff24;
+}
+.chapter-experience .site-header.over-hero .bunny-mark > .logo {
+  filter: url('#ss-hero-white');
+}
+.chapter-experience .site-header.over-hero .bunny-motion-layer > img {
+  filter: url('#ss-hero-blue');
+}
+.chapter-experience .site-header.over-hero a:focus-visible,
+.chapter-experience .site-header.over-hero button:focus-visible {
+  outline-color: #fff;
+}
+.chapter-experience.theme-showcase .lychee-campaign {
+  background: #b9ddf4;
+  min-height: 100svh;
+}
+.chapter-experience.theme-showcase .lychee-campaign-inner {
+  padding-top: calc(var(--hero-header-height, 110px) + 48px);
+}
+@media (min-width:761px) {
+  .chapter-experience.theme-showcase .lychee-campaign::after {
+    background: linear-gradient(180deg, #427da5b8 0%, #80bce252 22%, #8ccaf000 48%),
+      linear-gradient(90deg, #c7e5f9ed 0%, #d4edfab3 32%, #cce9fa00 60%);
+  }
+}
+@media (max-width:760px) {
+  .chapter-experience.theme-showcase .lychee-campaign {
+    background: linear-gradient(180deg, #84b8db 0%, #b5dbf3 24%, #d7edfa 58%, #e9f6fc 78%);
+  }
+  .chapter-experience.theme-showcase .lychee-campaign-inner {
+    padding-top: calc(var(--hero-header-height, 122px) + 26px);
+    flex: 1;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  .chapter-experience.theme-showcase .site-header { transition: none; }
+}

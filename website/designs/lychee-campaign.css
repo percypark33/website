@@ -1,0 +1,91 @@
+/* Lychee Heaven: a botanical campaign, with the original product photograph. */
+.theme-showcase .lychee-campaign{position:relative;isolation:isolate;overflow:hidden;background:#e9f6fc url('/assets/lychee-orchard-campaign.png') center 58%/cover no-repeat}
+.theme-showcase .lychee-campaign-inner{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:36px;min-height:650px;padding-block:58px 84px;position:relative;z-index:1}
+.theme-showcase .lychee-campaign-copy{padding-left:12px;max-width:520px}
+.campaign-new{display:inline-block;border:1px solid #a7cbb9;border-radius:999px;padding:9px 17px;margin:0 0 24px;background:#f2f8e9;color:#345c4a;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
+.theme-showcase .campaign-intro{font-size:24px;margin:0 0 8px;color:#335d70}
+.theme-showcase #lychee-campaign-title{font-size:clamp(68px,7.4vw,112px);line-height:.98;max-width:none;margin:0 0 24px;letter-spacing:-2px;color:#285d80}
+.theme-showcase #lychee-campaign-title em{color:#a64e66;font-style:normal}
+.theme-showcase .lychee-campaign-description{font-size:17px;line-height:1.7;max-width:37ch;margin:0;color:#25465b}
+.theme-showcase .lychee-campaign .hero-actions{gap:20px;flex-wrap:wrap;margin-top:28px}
+.theme-showcase .campaign-order{background:#285d80;color:#fff;border-color:#285d80;font-size:18px;box-shadow:none;padding:15px 24px}
+.theme-showcase .campaign-order:hover{background:#194763;border-color:#194763}
+.theme-showcase .campaign-menu-link{font-size:15px;font-weight:700;text-underline-offset:6px}
+.theme-showcase figure.lychee-campaign-bowl{width:100%;max-width:580px;justify-self:center;position:relative;padding-top:35px}
+.theme-showcase .lychee-campaign-bowl>img{filter:drop-shadow(0 20px 18px #244b4c20);mix-blend-mode:normal;object-fit:contain;mask-image:none;-webkit-mask-image:none}
+.theme-showcase .lychee-campaign .origin-caption{color:#294f56;font-size:11px;max-width:fit-content;margin:16px auto 0;padding:6px 12px;border-radius:20px;background:#f1f8efdd}
+.campaign-footnote{display:flex;justify-content:center;align-items:center;gap:22px;background:#e3efdedb;color:#365b4c;padding:17px 24px;font-size:13px;letter-spacing:.5px;position:relative;z-index:1}
+/* Broad color bands separate menu families without boxing in the food. */
+.theme-showcase .campaign-menu{width:100%;max-width:none;margin:0;padding:0}
+.theme-showcase .campaign-menu>.section-heading{margin:0;padding:62px 24px 45px;background:#e9f5fd}
+.theme-showcase .campaign-menu>.section-heading h2{margin:0;font-size:clamp(42px,5vw,64px)}
+.theme-showcase .campaign-menu .menu-group{margin:0;padding:48px 0 70px}
+.theme-showcase .menu-color-classic{background:#e9f5fd}
+.theme-showcase .menu-color-special{background:#f9e9ed}
+.theme-showcase .campaign-menu .menu-category-title{justify-content:center;font-size:clamp(32px,3.6vw,46px);margin:0 0 44px;gap:28px}
+.theme-showcase .campaign-menu .menu-category-title::before,.theme-showcase .campaign-menu .menu-category-title::after{display:block;max-width:120px;height:1px;background:#aecfe3}
+.theme-showcase .menu-color-special .menu-category-title{color:#9a4b62}
+.theme-showcase .menu-color-special .menu-category-title::before,.theme-showcase .menu-color-special .menu-category-title::after{background:#dcb7c3}
+.theme-showcase .menu-color-special .product-heading h4{color:#85465c}
+.theme-showcase .menu-color-special .brand-tag{color:#85465c;background:#f0d8e1}
+.theme-showcase .campaign-menu .product-photo,.theme-showcase .campaign-menu .product-card{background:transparent;border:0;box-shadow:none}
+.theme-showcase .kitchen-moment{margin-top:64px}
+.theme-showcase #single-cups,.theme-showcase #non-dairy{position:relative;isolation:isolate;border:0;padding-block:52px}
+.theme-showcase #single-cups::before,.theme-showcase #non-dairy::before{content:'';position:absolute;inset:0;box-shadow:0 0 0 100vmax var(--format-color);clip-path:inset(0 -100vmax);background:var(--format-color);z-index:-1}
+.theme-showcase #single-cups{--format-color:#f2f5e7}
+.theme-showcase #non-dairy{--format-color:#e5f3ec;margin-bottom:32px}
+@media(min-width:1600px){.theme-showcase .lychee-campaign{background-position:center 65%}.theme-showcase .lychee-campaign-inner{min-height:700px}}
+@media(max-width:900px) and (min-width:761px){.theme-showcase .lychee-campaign-inner{gap:20px;min-height:590px}.theme-showcase #lychee-campaign-title{font-size:72px}.theme-showcase .lychee-campaign-description{font-size:15px}.theme-showcase .lychee-campaign-copy{padding-left:0}}
+@media(max-width:760px){
+ .theme-showcase .lychee-campaign{background-position:65% center;background-size:auto 100%}
+ .theme-showcase .lychee-campaign::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#edf7fee8 0%,#edf7feb8 34%,transparent 61%);z-index:0}
+ .theme-showcase .lychee-campaign-inner{display:flex;flex-direction:column;gap:20px;min-height:0;padding-block:38px 28px;text-align:center}
+ .theme-showcase .lychee-campaign-copy{padding:0;max-width:100%}
+ .campaign-new{font-size:10px;padding:8px 13px;margin-bottom:17px}
+ .theme-showcase .campaign-intro{font-size:20px}
+ .theme-showcase #lychee-campaign-title{font-size:clamp(62px,15.5vw,88px);line-height:.98;letter-spacing:-1px;margin-bottom:19px}
+ .theme-showcase .lychee-campaign-description{font-size:15px;line-height:1.65;max-width:33ch;margin-inline:auto}
+ .theme-showcase .lychee-campaign .hero-actions{justify-content:center;gap:18px;margin-top:22px}
+ .theme-showcase .campaign-order{font-size:16px;padding:13px 20px}
+ .theme-showcase .campaign-menu-link{font-size:14px}
+ .theme-showcase figure.lychee-campaign-bowl{width:min(100%,420px);padding:0;margin:0 auto}
+ .theme-showcase .lychee-campaign .origin-caption{font-size:10px;margin-top:8px}
+ .campaign-footnote{gap:12px;font-size:10px;padding:14px 12px;letter-spacing:0}
+ .theme-showcase .campaign-menu>.section-heading{padding:42px 20px 26px}
+ .theme-showcase .campaign-menu .menu-group{padding:25px 0 40px}
+ .theme-showcase .campaign-menu .menu-category-title{font-size:32px;gap:18px;margin-bottom:25px}
+ .theme-showcase .campaign-menu .menu-category-title::before,.theme-showcase .campaign-menu .menu-category-title::after{max-width:55px}
+ .theme-showcase .campaign-menu .product-grid{gap:18px}
+ .theme-showcase .kitchen-moment{margin-top:38px}
+}
+
+/* One coherent photographic scene: the bowl sits on the orchard counter. */
+.theme-showcase .lychee-campaign{display:grid;grid-template-columns:1fr;background:#e8f5fc}
+.theme-showcase .campaign-scene{grid-area:1/1;display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:center bottom}
+.theme-showcase .lychee-campaign-inner{grid-area:1/1;grid-template-columns:1fr;min-height:750px;padding-block:70px 90px;pointer-events:none}
+.theme-showcase .lychee-campaign-copy{width:44%;max-width:510px;pointer-events:auto}
+.theme-showcase .campaign-footnote{grid-column:1;grid-row:2}
+@media(min-width:1600px){.theme-showcase .lychee-campaign-inner{min-height:800px}}
+@media(max-width:1100px) and (min-width:761px){.theme-showcase .lychee-campaign-inner{min-height:660px}.theme-showcase .lychee-campaign-copy{width:44%;padding-left:0}.theme-showcase #lychee-campaign-title{font-size:72px}.theme-showcase .lychee-campaign-description{font-size:15px}}
+@media(max-width:760px){
+ .theme-showcase .lychee-campaign{display:flex;flex-direction:column;background:#e9f6fc}
+ .theme-showcase .lychee-campaign::before{display:none}
+ .theme-showcase .lychee-campaign-inner{order:0;display:block;min-height:0;padding-block:34px 18px;pointer-events:auto}
+ .theme-showcase .lychee-campaign-copy{width:100%;max-width:none}
+ .theme-showcase .campaign-scene{order:1;flex:none;height:460px;min-height:0;object-fit:cover;object-position:right bottom}
+ .theme-showcase .campaign-footnote{order:2}
+}
+
+@media(min-width:761px){.theme-showcase .lychee-campaign::after{content:'';grid-area:1/1;background:linear-gradient(90deg,#edf7fef5 0%,#edf7febf 32%,#edf7fe00 60%);z-index:0;pointer-events:none}.theme-showcase .campaign-scene{z-index:-1}.theme-showcase .lychee-campaign-inner{z-index:1}}
+
+@media(max-width:760px){.theme-showcase .campaign-scene{mask-image:linear-gradient(to bottom,transparent,#000 35px);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 35px);margin-top:-16px}}
+
+/* DoorDash mark beside the campaign order label. */
+.theme-showcase .campaign-order{display:inline-flex;align-items:center;justify-content:center;gap:10px}
+.theme-showcase .campaign-order .campaign-doordash-logo{display:block;width:32px;height:18px;flex:0 0 32px;object-fit:contain;filter:brightness(0) invert(1)}
+
+/* Owner-approved Shine Muscat Aloe campaign, 2026-10-28. */
+.chapter-experience.theme-showcase #lychee-campaign-title{font-size:clamp(56px,5.2vw,78px);line-height:1.02;letter-spacing:-1px}
+.theme-showcase #lychee-campaign-title em{color:#587d36}
+.theme-showcase .lychee-campaign-description{max-width:390px}
+@media(max-width:760px){.chapter-experience.theme-showcase #lychee-campaign-title{font-size:clamp(45px,11.8vw,66px)}.theme-showcase .campaign-scene{height:350px;object-position:right bottom}}

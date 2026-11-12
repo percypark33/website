@@ -1,0 +1,5 @@
+/* Animate the header mark only; preserve its uncropped dimensions. */
+.site-header .brand .logo{transform-origin:50% 65%}
+@media (prefers-reduced-motion:reduce){
+ .site-header .brand .logo,.lychee-campaign-copy>*,.campaign-scene{animation:none!important}
+}

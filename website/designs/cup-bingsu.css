@@ -1,0 +1,35 @@
+.cup-bingsu-section{background:#faf6ef;color:#285d80;padding:64px 0;scroll-margin-top:24px}.cup-bingsu-section .preview-heading{justify-content:flex-start;gap:22px;flex-wrap:wrap}.cup-bingsu-section h2{font-size:clamp(32px,4vw,48px);margin:0}.cup-bingsu-intro{max-width:660px;font-size:18px;line-height:1.65;margin:18px 0 24px}.cup-bingsu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.cup-bingsu-card{min-width:0;text-align:center}.cup-bingsu-photo{overflow:hidden;aspect-ratio:1/2;width:100%;max-width:300px;margin:0 auto 8px}.cup-bingsu-photo img{display:block;width:300%;max-width:none;height:100%;object-fit:fill}.cup-bingsu-card h3{font-size:27px;margin:0 0 10px}.cup-bingsu-card p{font-size:15px;line-height:1.7;max-width:31ch;margin:0 auto;color:#46616b}@media(max-width:760px){.cup-bingsu-section{padding:42px 0}.cup-bingsu-intro{font-size:16px}.cup-bingsu-grid{grid-template-columns:1fr;gap:35px}.cup-bingsu-photo{max-width:250px}.cup-bingsu-card h3{font-size:27px}.cup-bingsu-card p{max-width:32ch}}
+.cup-bingsu-addon{margin:-8px 0 28px;font-size:16px;font-weight:700;color:#285d80}
+
+.cup-bingsu-grid{row-gap:46px}.cup-bingsu-photo-single{aspect-ratio:2/3}.cup-bingsu-photo-single img{width:100%;height:100%;object-fit:contain}
+
+/* Cup flavors belong to the main menu; product cutouts have no frames. */
+.cup-bingsu-section .cup-bingsu-card,.cup-bingsu-section .cup-bingsu-photo{background:transparent;border:0;box-shadow:none;border-radius:0}.cup-bingsu-section #cup-bingsu-title{font-size:clamp(32px,4vw,48px);margin:0}.cup-bingsu-section .cup-bingsu-photo img{mix-blend-mode:normal;filter:none}
+
+.cup-bingsu-photo:not(.cup-bingsu-photo-single){width:75%;max-width:225px}@media(max-width:760px){.cup-bingsu-photo:not(.cup-bingsu-photo-single){max-width:187.5px}}
+
+/* Normalize visible rim width, body height, and base line across all cup artwork. */
+.cup-bingsu-section .cup-bingsu-photo,.cup-bingsu-section .cup-bingsu-photo:not(.cup-bingsu-photo-single){position:relative;width:100%;max-width:300px;height:auto;aspect-ratio:30/47;overflow:hidden}
+.cup-bingsu-section .cup-bingsu-photo img{position:absolute;width:var(--cup-art-width);height:var(--cup-art-height);max-width:none;left:var(--cup-art-left);top:var(--cup-art-top);object-fit:fill;transform:none}
+.cup-bingsu-section .cup-bingsu-photo:not(.cup-bingsu-photo-single) img{clip-path:inset(0 0 0 66.666667%)}
+@media(max-width:760px){.cup-bingsu-section .cup-bingsu-photo,.cup-bingsu-section .cup-bingsu-photo:not(.cup-bingsu-photo-single){max-width:250px}}
+
+/* A coordinated higher camera angle reveals the full topping surface. */
+.cup-bingsu-section .cup-bingsu-photo,.cup-bingsu-section .cup-bingsu-photo:not(.cup-bingsu-photo-single){width:100%;max-width:360px;aspect-ratio:1;height:auto;margin:0 auto 10px;overflow:visible}
+.cup-bingsu-section .cup-bingsu-photo img{position:static;display:block;width:100%;height:100%;object-fit:contain;max-width:100%;transform:none;clip-path:none}
+@media(max-width:760px){.cup-bingsu-section .cup-bingsu-photo,.cup-bingsu-section .cup-bingsu-photo:not(.cup-bingsu-photo-single){max-width:330px}}
+
+/* Cup ingredient reveal. */
+.theme-showcase .cup-bingsu-card .ingredient-trigger{padding:0;font:inherit;overflow:hidden;cursor:pointer}
+.cup-bingsu-card .ingredient-annotations{inset:0;aspect-ratio:auto;height:100%}
+.cup-bingsu-card .touch-ingredient-hint{position:absolute;bottom:0;left:0;right:0}
+.theme-showcase .cup-bingsu-card.ingredients-open .ingredient-trigger>img{opacity:.2;filter:saturate(.6) blur(.35px)}
+
+.theme-showcase .cup-bingsu-card.product-card{display:block;text-align:center;padding:0}.theme-showcase .cup-bingsu-card.product-card>h3{margin:0 0 10px;text-align:center}
+
+/* Slightly shorter cups; preserve the restored lychee campaign and bowl sizing. */
+.cup-bingsu-section .cup-bingsu-photo,.cup-bingsu-section .cup-bingsu-photo:not(.cup-bingsu-photo-single){aspect-ratio:1 / .94}
+.cup-bingsu-section .cup-bingsu-photo img{object-fit:fill}
+
+/* Optional cup add-on, requested alongside the current cup lineup. */
+.cup-bingsu-addon{margin:0 0 32px;font-weight:600;font-size:17px;line-height:1.5;color:#285d80}

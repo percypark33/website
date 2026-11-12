@@ -1,0 +1,29 @@
+/* Warm paper tones and grounded food photography, October 20, 2026. */
+body.chapter-experience.theme-showcase {background:#f6f3ed;--chapter-line:#e2dfd6}
+.chapter-experience.theme-showcase .site-header:not(.over-hero){background:#f8f6f0;border-bottom-color:#e7e2d8}
+.chapter-experience.theme-showcase .campaign-menu,
+.chapter-experience .home-featured {background:#f6f3ed}
+.chapter-experience .home-extras {border-top-color:#e2ddd3}
+.chapter-experience .catalog-nav {background:#f8f6f0f5;border-color:#e2ddd3}
+.chapter-experience.theme-showcase .campaign-menu #menu-special {background:#f0ede5;padding-top:36px;padding-bottom:42px}
+.chapter-experience.theme-showcase .campaign-menu .menu-group + .menu-group>.shell {border-color:#ded9cf}
+.chapter-experience.theme-showcase .flavor-item[data-kind=bingsu] .ingredient-trigger {position:relative;isolation:isolate}
+.chapter-experience.theme-showcase .flavor-item[data-kind=bingsu] .ingredient-trigger::before {content:"";position:absolute;z-index:-1;pointer-events:none;left:15%;right:15%;bottom:1%;height:10%;border-radius:50%;background:radial-gradient(ellipse,rgba(92,76,49,.23) 0%,rgba(92,76,49,.10) 39%,transparent 72%);filter:blur(4px)}
+.chapter-experience.theme-showcase .flavor-item[data-kind=bingsu] .ingredient-trigger>img {position:relative;filter:drop-shadow(0 3px 2px rgba(73,60,41,.10))}
+.chapter-experience.theme-showcase .catalog-grid .flavor-item {border-bottom:1px solid #dfdbd1;padding-bottom:26px}
+.chapter-experience .catalog-detail-dialog {background:#f6f3ed}
+.chapter-experience .menu-browser-tabs,.chapter-experience .topping-browser-tabs {background:#e9e7df}
+.chapter-experience .coming-soon-section .shell {background:#eaf0ed;border-color:#d7e0dc}
+.chapter-experience.theme-showcase .campaign-menu .menu-category-title {color:#35505b}
+@media(max-width:760px){.chapter-experience.theme-showcase .campaign-menu #menu-special{padding-top:26px;padding-bottom:30px}.chapter-experience.theme-showcase .catalog-grid .flavor-item{padding-bottom:18px}}
+.chapter-experience.theme-showcase .site-header:not(.over-hero) img {mix-blend-mode:multiply}
+
+/* Toppings is itself the content container, unlike other nested menu groups. */
+.chapter-experience.theme-showcase .campaign-menu #toppings.customize-section {
+  width:calc(100% - 64px);max-width:1120px;margin:0 auto;padding:48px 0 32px;
+}
+@media(max-width:700px){
+ .chapter-experience.theme-showcase .campaign-menu #toppings.customize-section{width:calc(100% - 32px);padding:32px 0 24px}
+ .chapter-experience.theme-showcase #toppings .customize-toppings{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 18px}
+ .chapter-experience.theme-showcase #toppings .topping-gallery-cell>span{font-size:14px;line-height:1.35}
+}

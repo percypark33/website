@@ -1,9 +1,75 @@
-/* Sweet Snow brand story */
-.brand-story{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:center;gap:64px;padding-block:72px;border-top:2px dashed #b9def8}
-.brand-story-art{padding:32px;background:#eaf6ff;border-radius:32px;border:1px solid #b9def8}
-.brand-story-art img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
-.brand-story-copy .eyebrow{color:#28618a}.brand-story-copy h2{line-height:1.12}
-.brand-story-copy>p:not(.eyebrow){color:#416074;font-size:16px;line-height:1.8;max-width:48ch}
-.brand-story-copy .text-link{display:inline-block;margin-top:10px;color:#215b85}
-.theme-showcase .main-nav{flex-wrap:wrap;justify-content:flex-end}
-@media(max-width:700px){.brand-story{grid-template-columns:1fr;gap:30px;padding-block:50px}.brand-story-art{max-width:320px;padding:26px;margin-inline:auto}.brand-story-copy>p:not(.eyebrow){font-size:15px}}
+/* ============================================================
+   SWEET SNOW — OUR STORY · the family letter (October 2026)
+   ------------------------------------------------------------
+   This file is used in two places on purpose:
+     1. index.html links it, which registers the handwriting font.
+     2. brand-story.js links it again inside the letter itself,
+        which is what styles the letter.
+   Every rule below starts with .sl- so nothing here can touch
+   the rest of the site.
+   ============================================================ */
+
+@font-face{font-family:'Gaegu';font-style:normal;font-weight:400;font-display:swap;src:url('./fonts/Gaegu-Regular.woff2') format('woff2')}
+@font-face{font-family:'Gaegu';font-style:normal;font-weight:700;font-display:swap;src:url('./fonts/Gaegu-Bold.woff2') format('woff2')}
+
+/* The section on the page: a pale blue band, edge to edge. */
+#brand-story.story-letter{display:block;background:#eff8ff}
+
+/* ---- Layout: photos · letter · photos, then a row of photos ---- */
+.sl-wrap,.sl-wrap *{box-sizing:border-box}
+.sl-wrap{max-width:1200px;margin:0 auto;padding:30px clamp(16px,4vw,40px) 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:44px 36px;color:#23495f;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;text-align:left;-webkit-font-smoothing:antialiased}
+.sl-photos{flex:1 1 200px;display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:clamp(26px,5vw,44px) clamp(8px,1.2vw,12px)}
+.sl-photos--left{padding-top:clamp(8px,7vw,96px)}
+.sl-photos--right{padding-top:clamp(8px,12vw,160px)}
+.sl-photos--row{flex:1 1 100%;align-items:flex-start;column-gap:clamp(8px,3vw,40px);padding-top:8px}
+
+/* ---- One photo ---- */
+.sl-polaroid{position:relative;margin:0;width:min(200px,28vw);background:#fff;padding:clamp(5px,1.6vw,10px) clamp(5px,1.6vw,10px) 12px;box-shadow:0 12px 26px -12px rgba(35,73,95,.45);transform:rotate(var(--tilt,0deg));display:flex;flex-direction:column;gap:8px}
+.sl-photos--row .sl-polaroid{width:min(220px,28vw)}
+.sl-tape{position:absolute;top:-10px;left:30%;width:40%;height:20px;background:rgba(245,197,24,.78);transform:rotate(var(--tape,0deg))}
+.sl-polaroid img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;background:#eaf6ff}
+.sl-polaroid figcaption{display:flex;flex-direction:column;gap:5px;align-items:center;text-align:center}
+.sl-caption{font-family:'Gaegu','Comic Sans MS',cursive;font-size:clamp(15px,4.2vw,22px);line-height:1.1;color:#23495f}
+.sl-note{font-family:'Gaegu','Comic Sans MS',cursive;font-size:clamp(13px,3.4vw,17px);line-height:1.2;color:#35566b}
+.sl-date{font-size:11px;font-weight:700;letter-spacing:1.2px;line-height:1.3;text-transform:uppercase;color:#28618a}
+
+/* ---- The letter ---- */
+.sl-letter{flex:4 1 520px;min-width:0;max-width:660px;background:#fff;border-radius:10px;box-shadow:0 1px 0 #cce4f6,0 24px 48px -24px rgba(35,73,95,.35);padding:clamp(28px,5vw,64px);display:flex;flex-direction:column;gap:22px}
+.sl-logo{display:block;width:132px;height:auto;mix-blend-mode:multiply}
+.sl-letter p.sl-eyebrow{margin:8px 0 0;font-size:12px;font-weight:700;letter-spacing:2px;line-height:1.4;text-transform:uppercase;color:#28618a}
+.sl-title{margin:0;font-family:'Lilita One',Arial,sans-serif;font-weight:400;font-size:clamp(34px,4.2vw,50px);line-height:1.06;letter-spacing:0;color:#28618a;text-wrap:balance}
+.sl-letter p{margin:0;font-size:18px;line-height:1.7;color:#23495f;text-wrap:pretty}
+.sl-letter p.sl-question{margin:6px 0;font-family:'Lilita One',Arial,sans-serif;font-size:clamp(28px,3.4vw,40px);line-height:1.1;color:#28618a;text-wrap:balance}
+.sl-letter strong{font-weight:700}
+
+.sl-goals{list-style:none;margin:6px 0;padding:0;display:flex;flex-direction:column;gap:22px}
+.sl-goals li{display:flex;gap:16px;align-items:flex-start}
+.sl-num{flex:none;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#eaf6ff;font-family:'Lilita One',Arial,sans-serif;font-size:22px;line-height:1;color:#28618a}
+.sl-goal{display:flex;flex-direction:column;gap:6px}
+.sl-goal h3{margin:0;font-family:'Lilita One',Arial,sans-serif;font-weight:400;font-size:24px;line-height:1.2;letter-spacing:0;color:#28618a}
+.sl-letter .sl-goal p{font-size:17px;line-height:1.65;color:#35566b}
+
+.sl-signoff{display:flex;flex-direction:column;gap:2px;padding-top:10px}
+.sl-letter .sl-signoff p{font-family:'Gaegu','Comic Sans MS',cursive;font-size:28px;line-height:1.2;color:#23495f}
+.sl-letter .sl-signoff p.sl-name{font-weight:700;font-size:34px;color:#28618a}
+
+/* Korean copy is rendered as a complete in-shadow letter. */
+.sl-letter[lang="ko"] p,.sl-letter[lang="ko"] h2,.sl-letter[lang="ko"] h3{word-break:keep-all}
+.sl-letter[lang="ko"] .sl-title{letter-spacing:-.03em}
+.sl-letter[lang="ko"] .sl-signoff p{font-family:Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif}
+
+/* The family letter shares the photos' handwriting, with roomier body type. */
+.sl-letter{font-family:'Gaegu','Apple SD Gothic Neo','Malgun Gothic',cursive}
+.sl-title{font-family:inherit;font-weight:700;font-size:clamp(38px,4.2vw,52px);line-height:1.08}
+.sl-letter p{font-size:clamp(23px,2.1vw,26px);line-height:1.4}
+.sl-letter p.sl-eyebrow{font-size:20px;letter-spacing:1px;text-transform:none}
+.sl-letter p.sl-question{font-family:inherit;font-weight:700;font-size:clamp(32px,3.4vw,42px);line-height:1.15}
+.sl-goal h3{font-family:inherit;font-weight:700;font-size:clamp(27px,2.4vw,30px);line-height:1.12}
+.sl-letter .sl-goal p{font-size:clamp(23px,2vw,25px);line-height:1.4}
+.sl-num{font-family:'Gaegu',cursive;font-size:30px;font-weight:700}
+.sl-letter[lang="ko"] p{font-size:18px;line-height:1.7}
+.sl-letter[lang="ko"] .sl-title{font-size:clamp(32px,3.8vw,46px)}
+.sl-letter[lang="ko"] p.sl-question{font-size:clamp(26px,3vw,36px);line-height:1.25}
+.sl-letter[lang="ko"] .sl-goal h3{font-size:24px;line-height:1.25}
+.sl-letter[lang="ko"] .sl-signoff p{font-size:28px;line-height:1.2}
+.sl-letter[lang="ko"] .sl-signoff p.sl-name{font-size:34px}

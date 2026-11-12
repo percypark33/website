@@ -1,0 +1,144 @@
+/* Home is a curated taste; Menu is the complete, ordered catalog. */
+.chapter-experience.theme-showcase .site-header:not(.over-hero) {background:#fff}
+.chapter-experience .home-chapter.chapter-panel {padding:0}
+.chapter-experience .home-featured {padding:72px 0 58px;background:#fff;overflow:hidden}
+.home-featured-heading {display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:26px}
+.home-featured-heading .eyebrow,.home-extras .eyebrow {font-size:11px;letter-spacing:.16em;color:#668ca3;margin:0 0 13px}
+.chapter-experience .home-featured h2,.chapter-experience .home-extras h2 {font-size:clamp(34px,3.6vw,50px);line-height:1.1;letter-spacing:-.02em;margin:0;color:#23495f}
+.home-full-menu {display:inline-flex;align-items:center;gap:24px;flex:none;padding-bottom:6px;color:#285d80;font-size:14px;font-weight:700;text-decoration:none;border-bottom:1px solid #adcbdc}
+.chapter-experience.theme-showcase .home-featured-track {display:flex;gap:32px;align-items:stretch;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-padding-inline:max(40px,calc((100vw - 1280px)/2));padding:8px max(40px,calc((100vw - 1280px)/2)) 12px;overscroll-behavior-x:contain}
+.home-featured-track::-webkit-scrollbar {display:none}
+.chapter-experience.theme-showcase .home-featured-card {display:flex;flex-direction:column;flex:0 0 min(350px,27vw);min-width:0;width:auto;max-width:none;padding:0;margin:0;gap:0;scroll-snap-align:start;background:none;border:0;box-shadow:none;text-align:center}
+.chapter-experience .home-featured-card .product-info {padding:0 8px}
+.chapter-experience .home-featured-card .product-heading {margin:0;min-height:0}
+.chapter-experience .home-featured-card .product-heading h4 {font-size:27px;line-height:1.16;min-height:2.32em;display:grid;align-content:center}
+.home-flavor-link {font-size:12px;color:#5c7b8f;text-decoration:none;text-underline-offset:4px;padding:12px 0;display:block}
+.home-flavor-link:hover {text-decoration:underline}
+.home-featured-bottom {display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:18px}
+.home-featured-bottom .flavor-hint {margin:0;text-align:left}
+.home-featured-bottom .flavor-controls {margin:0}
+.chapter-experience .home-extras {max-width:1120px;display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:34px;align-items:center;padding-top:52px;padding-bottom:70px;border-top:1px solid #e2edf4}
+.chapter-experience .home-extras h2 {font-size:38px;max-width:310px}
+.home-extras-heading>p:not(.eyebrow) {font-size:14px;line-height:1.6;color:#658092;margin:18px 0}
+.home-extras-heading>a {font-size:13px;font-weight:700;color:#285d80;text-underline-offset:5px}
+.home-extra {display:block;text-align:center;color:#23495f;text-decoration:none;padding:0 8px}
+.home-extra>img {display:block;width:172px;height:172px;object-fit:contain;border-radius:50%;margin:0 auto 18px;transition:transform .3s ease}
+.home-extra h3 {font-size:25px;line-height:1.1;margin-bottom:10px}
+.home-extra p {font-size:13px;line-height:1.6;max-width:220px;min-height:3.2em;margin:0 auto 12px;color:#647e8f}
+.home-extra>span {font-size:12px;color:#285d80;text-decoration:underline;text-underline-offset:5px}
+.home-extra-fruits {position:relative;width:220px;height:172px;margin:0 auto 18px}
+.home-extra-fruits img {position:absolute;border-radius:50%;width:132px;height:132px;object-fit:contain;transition:transform .3s ease}
+.home-extra-fruits img:first-child {left:0;top:4px;transform:rotate(-8deg)}
+.home-extra-fruits img:last-child {right:0;bottom:0;transform:rotate(7deg)}
+@media (hover:hover) {.home-extra:hover>img {transform:translateY(-5px)}.home-extra:hover .home-extra-fruits img:first-child {transform:translateY(-5px) rotate(-8deg)}.home-extra:hover .home-extra-fruits img:last-child {transform:translateY(-3px) rotate(7deg)}}
+.chapter-experience.theme-showcase .campaign-menu>.section-heading {padding:0 24px 28px}
+.catalog-hint {margin:16px 0 0;color:#708593;font-size:12px;line-height:1.6}
+.catalog-nav {display:flex;align-items:center;justify-content:center;gap:38px;position:sticky;top:var(--hero-header-height,110px);z-index:20;padding:18px 24px;background:#fffffff5;border-block:1px solid #e7eff4;backdrop-filter:blur(10px)}
+.catalog-nav a {display:block;color:#365d75;font-size:14px;font-weight:600;text-decoration:none;text-underline-offset:7px;white-space:nowrap}
+.catalog-nav a:hover,.catalog-nav a:focus-visible {text-decoration:underline}
+.chapter-experience.theme-showcase .campaign-menu .menu-group {padding:48px 0 52px;scroll-margin-top:calc(var(--hero-header-height,110px) + 88px)}
+.chapter-experience.theme-showcase .campaign-menu .menu-category-title {position:static!important;width:auto;height:auto;overflow:visible;clip-path:none;white-space:normal;display:flex;align-items:center;justify-content:flex-start;gap:16px;margin:0 0 28px;padding:0;color:#23495f;font-size:32px;line-height:1.2;letter-spacing:0}
+.chapter-experience.theme-showcase .campaign-menu .menu-category-title::before {content:attr(data-number);display:inline-block;flex:none;max-width:none;width:auto;height:auto;background:none;font:500 12px/1 system-ui;color:#7597ac}
+.chapter-experience.theme-showcase .campaign-menu .menu-category-title::after {display:none}
+.chapter-experience.theme-showcase .campaign-menu .catalog-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;column-gap:36px;row-gap:45px;overflow:visible;padding:0;margin:0}
+.chapter-experience.theme-showcase .catalog-grid .flavor-item {display:flex;flex-direction:column;align-items:stretch;gap:0;min-width:0;min-height:0;width:auto;max-width:none;margin:0;padding:0;border:0;box-shadow:none;background:none;animation:none;text-align:center}
+.chapter-experience.theme-showcase .catalog-grid .flavor-item .product-info {padding:0 8px}
+.chapter-experience.theme-showcase .catalog-grid .product-heading h4,.chapter-experience.theme-showcase .catalog-grid .flavor-item>h3 {font-size:26px;line-height:1.16;min-height:0;margin:0}
+.chapter-experience.theme-showcase .catalog-grid .flavor-item .ingredient-trigger {max-width:340px;aspect-ratio:1;margin:0 auto 16px}
+.chapter-experience.theme-showcase .catalog-grid .flavor-item[data-kind=cup] .ingredient-trigger {max-width:305px;aspect-ratio:1/.94;margin-bottom:26px}
+.chapter-experience .catalog-grid .product-meta {margin-top:6px}
+.chapter-experience .campaign-menu #single-cups {padding:48px 0 52px}
+.chapter-experience .campaign-menu .cup-bingsu-intro {text-align:left;max-width:640px;margin:-10px 0 25px;font-size:14px}
+.chapter-experience .campaign-menu .mini-taiyaki-section {padding:48px 0 52px}
+.chapter-experience .mini-taiyaki-title {margin:-10px 0 9px;color:#23495f;font-size:20px;line-height:1.25}
+.chapter-experience .mini-taiyaki-intro {max-width:640px;margin:-10px 0 25px;color:#557084;font-size:14px;line-height:1.55}
+.chapter-experience .mini-taiyaki-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;column-gap:36px;row-gap:45px}
+.chapter-experience .mini-taiyaki-card {min-width:0;text-align:center}
+.chapter-experience .mini-taiyaki-card>img {display:block;width:min(100%,300px);aspect-ratio:1;object-fit:contain;margin:0 auto 16px}
+.chapter-experience .mini-taiyaki-card h3 {margin:0;color:#23495f;font-size:26px;line-height:1.16}
+.chapter-experience .mini-taiyaki-card p {margin:6px 0 0;font-size:12px;line-height:1.45}
+.chapter-experience .mini-taiyaki-card .mini-taiyaki-filling {color:#557084}
+.chapter-experience .mini-taiyaki-card .mini-taiyaki-order {color:#7597ac;font-weight:600}
+.chapter-experience .mini-taiyaki-card .mini-taiyaki-price {color:#23495f;font-weight:700}
+.chapter-experience .campaign-menu .coming-soon-section {padding-bottom:64px}
+.chapter-experience .coming-soon-section .shell {padding:34px 40px 40px;background:#f1f9fc;border:1px solid #d5e8f0;border-radius:2px}
+.chapter-experience .coming-soon-list {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px 16px;margin:0;padding:0;list-style:none;color:#23495f;font-size:18px;font-weight:700;line-height:1.3}
+.chapter-experience .coming-soon-list li {padding-bottom:9px;border-bottom:1px solid #c9e2ec}
+.chapter-experience .coming-soon-list li:last-child {font-family:'Gaegu',cursive;font-size:21px;font-weight:600;color:#477a98}
+.chapter-experience .campaign-menu .menu-group + .menu-group>.shell {border-top:1px solid #e7eff4;padding-top:44px}
+.chapter-experience .campaign-menu .menu-group + .menu-group {padding-top:0}
+.catalog-detail-open {overflow:hidden}
+.catalog-detail-dialog {width:min(430px,calc(100vw - 28px));max-height:calc(100svh - 32px);padding:42px 18px 26px;border:0;border-radius:20px;background:#fff;color:#23495f;overflow:auto}
+.catalog-detail-dialog::backdrop {background:#173b5269;backdrop-filter:blur(4px)}
+.catalog-detail-close {position:absolute;top:10px;right:12px;display:grid;place-items:center;width:36px;height:36px;border:0;border-radius:50%;background:#edf6fb;color:#23495f;font:26px/1 system-ui;cursor:pointer;z-index:5}
+.chapter-experience.theme-showcase .catalog-detail-card {display:flex;flex-direction:column;gap:0;width:100%;min-width:0;margin:0;padding:0;text-align:center;background:none;border:0;box-shadow:none}
+.chapter-experience.theme-showcase .catalog-detail-card .ingredient-trigger {width:100%;height:auto;max-width:none;aspect-ratio:1;margin:0}
+.chapter-experience.theme-showcase .catalog-detail-card .ingredient-trigger>img {width:100%;height:100%;object-fit:contain}
+.chapter-experience.theme-showcase .catalog-detail-card .product-info {padding:8px 0 0}
+.chapter-experience.theme-showcase .catalog-detail-card .product-heading h4,.chapter-experience.theme-showcase .catalog-detail-card>h3 {font-size:27px;margin:10px 0 0;min-height:0;line-height:1.2}
+.chapter-experience .catalog-detail-card .touch-ingredient-hint {display:none}
+.chapter-experience .catalog-detail-card .ingredient-annotation b {font-size:11px;padding:6px 5px}
+@media (min-width:1800px) {.chapter-experience.theme-showcase .home-featured-card {flex-basis:390px}}
+@media (max-width:1100px) {.chapter-experience.theme-showcase .home-featured-card {flex-basis:36vw}.chapter-experience.theme-showcase .campaign-menu .catalog-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:36px}.chapter-experience .home-extras {gap:18px}.chapter-experience .home-extras h2 {font-size:32px}.home-extra-fruits {width:184px}.home-extra h3 {font-size:23px}}
+@media (max-width:760px) {
+ .chapter-experience .home-chapter.chapter-panel {padding:0}
+ .chapter-experience .home-featured {padding:44px 0 36px}
+ .home-featured-heading {display:block;width:calc(100% - 40px);margin-bottom:20px}
+ .chapter-experience .home-featured h2 {font-size:34px;max-width:300px}
+ .home-full-menu {font-size:12px;margin-top:19px;gap:20px}
+ .chapter-experience.theme-showcase .home-featured-track {gap:18px;padding:0 20px 8px;scroll-padding-inline:20px}
+ .chapter-experience.theme-showcase .home-featured-card {flex-basis:calc(100vw - 80px);max-width:360px}
+ .chapter-experience .home-featured-card .product-heading h4 {font-size:25px;min-height:2.32em}
+ .home-featured-bottom {width:calc(100% - 40px);display:block;margin-top:14px}
+ .home-featured-bottom .flavor-hint {text-align:left;font-size:11px;margin-bottom:17px}
+ .home-featured-bottom .flavor-controls {justify-content:flex-start;gap:20px}
+ .chapter-experience .home-extras {display:grid;grid-template-columns:1fr 1fr;gap:26px 10px;width:calc(100% - 40px);padding:32px 0 44px}
+ .home-extras-heading {grid-column:1/-1}
+ .chapter-experience .home-extras h2 {font-size:33px;max-width:290px}
+ .home-extra {padding:0}
+ .home-extra>img {width:130px;height:130px;margin-bottom:16px}
+ .home-extra-fruits {width:150px;max-width:100%;height:130px;margin-bottom:16px}
+ .home-extra-fruits img {width:100px;height:100px}
+ .home-extra h3 {font-size:22px;min-height:2.2em}
+ .home-extra p {font-size:12px;min-height:4.8em;max-width:170px}
+ .home-extra>span {font-size:11px}
+ .catalog-nav {justify-content:space-between;gap:12px;padding:14px 16px}
+ .catalog-nav a {font-size:11px}
+ .chapter-experience.theme-showcase .campaign-menu>.section-heading {padding-bottom:22px}
+ .catalog-hint {font-size:11px;margin-top:12px}
+ .chapter-experience.theme-showcase .campaign-menu .menu-group>.shell {width:calc(100% - 32px)}
+ .chapter-experience.theme-showcase .campaign-menu .menu-group {padding:28px 0 34px}
+ .chapter-experience.theme-showcase .campaign-menu .menu-category-title {font-size:27px;margin-bottom:18px;gap:12px;padding-inline:4px}
+ .chapter-experience.theme-showcase .campaign-menu .catalog-grid {grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px;row-gap:28px}
+ .chapter-experience.theme-showcase .catalog-grid .flavor-item .ingredient-trigger {max-width:none;width:100%;margin:0 auto 10px}
+ .chapter-experience.theme-showcase .catalog-grid .product-heading h4,.chapter-experience.theme-showcase .catalog-grid .flavor-item>h3 {font-size:19px;line-height:1.15;overflow-wrap:normal}
+ .chapter-experience.theme-showcase .catalog-grid .flavor-item .product-info {padding:0 3px}
+ .chapter-experience .catalog-grid .brand-tag {font-size:9px}
+ .chapter-experience.theme-showcase .catalog-grid .flavor-item[data-kind=cup] .ingredient-trigger {width:100%;margin-bottom:20px}
+ .chapter-experience.theme-showcase .catalog-grid .ingredient-annotations {display:none}
+ .chapter-experience.theme-showcase .catalog-grid .ingredients-open .ingredient-trigger>img {opacity:1;filter:none}
+ .chapter-experience .campaign-menu .cup-bingsu-intro {font-size:12px;margin:0 4px 20px}
+ .chapter-experience .campaign-menu .mini-taiyaki-section {padding:0 0 34px}
+ .chapter-experience .mini-taiyaki-title {margin:-3px 4px 7px;font-size:17px}
+ .chapter-experience .mini-taiyaki-intro {margin:0 4px 20px;font-size:12px}
+ .chapter-experience .mini-taiyaki-grid {grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px;row-gap:28px}
+ .chapter-experience .mini-taiyaki-card>img {width:100%;margin-bottom:10px}
+ .chapter-experience .mini-taiyaki-card h3 {font-size:19px;line-height:1.15}
+ .chapter-experience .mini-taiyaki-card p {font-size:10px}
+ .chapter-experience .campaign-menu .coming-soon-section {padding-bottom:40px}
+ .chapter-experience .coming-soon-section .shell {padding:26px 20px 28px}
+ .chapter-experience .coming-soon-list {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;font-size:16px}
+ .chapter-experience .coming-soon-list li {padding-bottom:8px}
+ .chapter-experience .coming-soon-list li:last-child {font-size:18px}
+ .chapter-experience .campaign-menu .menu-group + .menu-group>.shell {padding-top:26px}
+ .chapter-experience .campaign-menu #single-cups {padding:0 0 34px}
+ .chapter-experience .catalog-detail-card .ingredient-annotation b {font-size:11px;padding:6px 4px;line-height:1.3}
+}
+@media (prefers-reduced-motion:reduce) {.home-extra img {transition:none!important}}
+
+/* Croffle launch, October 18, 2026 */
+.croffle-section{background:#f5eee3;padding:48px 0!important}.croffle-intro{font-size:18px;color:#52636b;margin:0 0 22px}.croffle-menu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 28px}.croffle-menu-item{padding:22px 0;border-top:1px solid #b6a78c}.croffle-name-price{display:flex;align-items:baseline;justify-content:space-between;gap:16px}.croffle-name-price h4{margin:0;font-size:23px;line-height:1.25;color:#1f4a5e}.croffle-menu-price{font-size:24px;font-weight:750;color:#a32c3b}.croffle-menu-item p{font-size:16px;line-height:1.5;color:#52636b;margin:10px 0 0}@media(max-width:900px){.croffle-menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:540px){.croffle-menu-grid{grid-template-columns:1fr;gap:0}.croffle-section{padding:32px 0!important}.croffle-name-price h4{font-size:21px}}
+
+.croffle-product-image{display:block;width:100%;height:220px;object-fit:contain}.croffle-addon{font-weight:700;text-align:center;margin-top:24px}
+
+@media(min-width:1100px){.croffle-menu-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.croffle-name-price h4{font-size:21px}}
