@@ -396,7 +396,7 @@ export function menu(ctx) {
   <section class="group wrap" id="croffles" aria-labelledby="h-croffles">
     <h2 id="h-croffles">${t('Premium Croffles')}</h2>
     <p class="group-lead">${t('Croissant meets waffle.')}</p>
-    <div class="grid grid-wide">${site.croffles.map(i => card(ctx, i)).join('')}</div>
+    <div class="grid grid-wide grid-count-${site.croffles.length}">${site.croffles.map(i => card(ctx, i)).join('')}</div>
   </section>
   <section class="group toppings wrap" id="toppings" aria-labelledby="h-toppings">
     <p class="kicker">${t('Make it your own')}</p>
@@ -565,7 +565,9 @@ ${page.canonical ? `<link rel="canonical" href="${url}">\n` : ''}<link rel="icon
 ${preload.join('\n')}
 <style>${css}</style>
 ${scripts}`;
-  const og = SITE + '/assets/sweet-snow-horizontal-right-blue-20261104.svg';
+  // The picture shown when the site is shared in a message or on social apps (1200×630). Template: build/src/share-picture.html
+  const og = SITE + '/assets/share-sweet-snow-20261112.jpg';
+  const ogAlt = 'Sweet Snow. Authentic Korean Bingsu in Garden Grove, California.';
   const json = data => `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
   const crumb = page.crumb ? json({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Sweet Snow', item: SITE + '/' }, { '@type': 'ListItem', position: 2, name: page.crumb, item: url }] }) : '';
   return `<meta charset="utf-8">
@@ -581,15 +583,16 @@ ${scripts}`;
 <meta property="og:title" content="${e(page.ogTitle)}">
 <meta property="og:description" content="${e(page.description)}">
 <meta property="og:image" content="${og}">
-<meta property="og:image:width" content="1275">
-<meta property="og:image:height" content="1408">
-<meta property="og:image:alt" content="Sweet Snow — Korean Dessert Cafe.">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${ogAlt}">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${e(page.ogTitle)}">
 <meta name="twitter:description" content="${e(page.description)}">
 <meta name="twitter:image" content="${og}">
-<meta name="twitter:image:alt" content="Sweet Snow — Korean Dessert Cafe.">
+<meta name="twitter:image:alt" content="${ogAlt}">
 <meta name="theme-color" content="${ctx.themeColor}">
 <meta name="geo.region" content="US-CA">
 <meta name="geo.placename" content="Garden Grove">

@@ -801,4 +801,13 @@ Object.assign(window.MENU.bingsu.flavors.find(f=>f.name==="Sweet Potato Cream Bi
 })();
 
 // Owner, 2026-11-12: Sweet Potato mini taiyaki is back. 7 pieces like the others. Price from Square.
-window.MENU.miniTaiyaki.flavors.push({name: "Sweet Potato", filling: "Sweet potato filling", price: 9.99, image: "/assets/mini-taiyaki/sweet-potato.png", squareName: "Sweet Potato Mini Taiyaki - 7 Pieces", inventoryName: "Sweet Potato Mini Taiyaki - 7 Pieces", soldOut: false});
+window.MENU.miniTaiyaki.flavors.push({name: "Sweet Potato", filling: "Sweet potato filling", price: 9.99, image: "/assets/mini-taiyaki-bags-20261108/sweet-potato-20261112.webp", squareName: "Sweet Potato Mini Taiyaki - 7 Pieces", inventoryName: "Sweet Potato Mini Taiyaki - 7 Pieces", soldOut: false});
+
+// Owner, 2026-11-12: Injeolmi Croffle is the recipe with house-made cream (same words as Square).
+// Owner, 2026-11-12: Plain Croffle added. Name, recipe and price from Square.
+(function(){
+  const croffles = window.MENU.squareMenu.croffles;
+  const injeolmi = croffles.find(c => c.name === "Injeolmi Croffle");
+  if (injeolmi) injeolmi.description = "House-Made Cream, Injeolmi Powder, Crushed Almonds";
+  if (!croffles.some(c => c.name === "Plain Croffle")) croffles.push({"ordinal": 24, "name": "Plain Croffle", "description": "Golden croffle dusted with powdered sugar", "availability": "LOCAL_CATALOG_AVAILABILITY_NORMAL", "price": {"amount": 499, "currency_code": "USD"}});
+})();

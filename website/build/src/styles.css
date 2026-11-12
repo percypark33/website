@@ -423,6 +423,7 @@ main>section{position:relative}
   .find-head{position:sticky;top:140px}
   .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:44px 26px}
   .grid-wide{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .grid-wide.grid-count-5{grid-template-columns:repeat(3,minmax(0,1fr))}
   .topping-grid{grid-template-columns:repeat(7,minmax(0,1fr))}
   .topping img{width:88px;height:88px}
   .tabs{margin-inline:0;padding-inline:0}
@@ -432,6 +433,9 @@ main>section{position:relative}
 }
 
 /* ---------- reduced motion ---------- */
+@media (min-width:1080px){
+  .grid-wide.grid-count-5{grid-template-columns:repeat(5,minmax(0,1fr));gap:44px 20px}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
   .js .build-stage .bl-snow,.js .build-stage .bl-drop{opacity:1;transform:none}

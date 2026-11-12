@@ -115,6 +115,7 @@ window.SITE_SETTINGS = {
     "Injeolmi Croffle": "/assets/croffles/injeolmi.png",
     "Biscoff Caramel Croffle": "/assets/croffles/biscoff.png",
     "Cookies and Cream Croffle": "/assets/croffles/oreo-tiramisu.png",
-    "Dubai Strawberry Croffle": "/assets/croffles/dubai-strawberry-icecream-20261023.png"
+    "Dubai Strawberry Croffle": "/assets/croffles/dubai-strawberry-icecream-20261023.png",
+    "Plain Croffle": "/assets/croffles/plain-powdered-sugar-20261025.png"
   }
 };

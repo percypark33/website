@@ -39,19 +39,26 @@ Every item on the site was compared with the live Square catalog. All bowls matc
 
 The website still shows no prices, so customers see no change. Tell me if any of these should not follow Square.
 
+## Decided by you on November 12, second round
+
+| What | Your decision | What I did |
+|---|---|---|
+| Sweet Potato photo | Create a new one | New bag photo made from your custard bag photo. Only the filling was changed, to match your own sweet potato photo. File: `assets/mini-taiyaki-bags-20261108/sweet-potato-20261112.webp`. Swap it for a real photo any time. |
+| Strawberry Cheesecake Cup | It is $12.99 | The site already shows it at $12.99 (menu file line 783). It is still missing in Square; see "Still open". |
+| Injeolmi Croffle recipe | The one with the cream | Now "House-Made Cream, Injeolmi Powder, Crushed Almonds", the same words as Square (menu file line 811). |
+| Plain Croffle | Add it | Added as the fifth croffle: "Golden croffle dusted with powdered sugar", $4.99, both from Square (menu file line 812). Photo: `assets/croffles/plain-powdered-sugar-20261025.png`. |
+| Prices | Hide | Prices stay hidden (`showPrices: false` in `site-settings.js`). |
+| Link preview picture | Make one | New 1200×630 picture with your logo, the tagline and the Shine Muscat bowl photo: `assets/share-sweet-snow-20261112.jpg`. The `og:image` and `twitter:image` tags now point to it. |
+
 ## Still open
 
-| # | What I found | What the redesign does now | Your call |
+| # | What I found | What the site does now | Your call |
 |---|---|---|---|
-| 1 | **Sweet Potato mini taiyaki has no bag photo.** The only photo (`assets/mini-taiyaki/sweet-potato.png`) is the older box photo with 5 pieces. The other five show the kraft bag. | Uses the older photo as it is. | Please send a bag photo like the others, or tell me to keep this one. |
-| 2 | **Strawberry Cheesecake Cup is not in Square.** The site shows it as available ($12.99 on menu file line 783). | Shown, same as the live site. | Is it on sale? Should it be added to Square, or marked coming soon? |
-| 3 | **Injeolmi Croffle recipe differs.** Square says "House-Made Cream, Injeolmi Powder, Crushed Almonds". The site says "Injeolmi Powder, Crushed Almonds, Mochi, condensed milk, Honey Drizzle". | Shows the site wording. | Which recipe is right? |
-| 4 | **Plain Croffle ($4.99) is active in Square** but is not on the live site. | Not shown. | Add it? |
-| 5 | The live site shows no prices (note on line 714 of the menu file). | Prices stay hidden. | Keep hidden, or show them? One switch: `showPrices` in `site-settings.js`. |
-| 6 | The "Check availability" links (Mango, Mango & Strawberry, Lychee Heaven, Hojicha Tiramisu, Mango Jelly Cup and all four croffles) come from the October 26 Square list. | Same links as the live site. Live "SOLD OUT / FEW LEFT" badges still come straight from Square. | Keep these links, or drop them? |
-| 7 | Extra Banana has no price in the file (line 576). Strawberry and Mango are $3. | No price (prices are hidden anyway). | What is the banana price? |
-| 8 | The link-preview picture (`og:image`) is a 1.8 MB SVG. Most apps (iMessage, Instagram, Facebook) cannot show SVG previews. A ready 1200×630 PNG exists: `assets/share-bunny-blue.png`. | Tag kept exactly as it was, as you asked. | I recommend switching to the PNG. Say yes and I change one line. |
-| 9 | Tagline: the file says "Korean Shaved Ice" (line 50), the logo says "Korean Dessert Cafe", you asked for "Authentic Korean Bingsu". | Shows "Authentic Korean Bingsu" next to the logo. Line 50 is not used on the site. | Nothing to do unless you want it changed. |
+| 1 | **Strawberry Cheesecake Cup is not in Square.** Adding it changes your register, so I need your yes on the exact item first. | Shown on the site at $12.99. No live "SOLD OUT / FEW LEFT" badge until Square has it. | Say yes to the draft I sent and I create it. |
+| 2 | The "Check availability" links (Mango, Mango & Strawberry, Lychee Heaven, Hojicha Tiramisu, Mango Jelly Cup and four croffles) come from the October 26 Square list. | Same links as before. Live "SOLD OUT / FEW LEFT" badges still come straight from Square. | Keep these links, or drop them? |
+| 3 | Extra Banana has no price in the file (line 576). Strawberry and Mango are $3. | No price (prices are hidden anyway). | What is the banana price? |
+| 4 | Tagline: the file says "Korean Shaved Ice" (line 50), the logo says "Korean Dessert Cafe", you asked for "Authentic Korean Bingsu". | Shows "Authentic Korean Bingsu" next to the logo. Line 50 is not used on the site. | Nothing to do unless you want it changed. |
+| 5 | The mini taiyaki photos show five pieces in the bag; the menu says seven. | Photos used as they are. | Fine to leave. A real photo with seven would be more exact. |
 
 Smaller wording differences between Square and the site (the site wording is kept):
 
@@ -90,5 +97,5 @@ These stay hidden, the same as the live site. Tell me if any should come back.
 
 - Korean words come from your own dictionary (`designs/language.js`) first.
 - New sections had no Korean. I wrote it in `website/build/ko-extra.mjs`. **Please read it and fix anything you would say differently.**
-- I did not translate item names. These names have no Korean in your dictionary yet, so they stay in English in Korean mode: Honeycomb x2, Sweet Potato Cream Bingsu, Biscoff Caramel Cup, Strawberry Cheesecake Cup, Matcha Mochi Ice Cream, and the four croffles.
+- I did not translate item names. These names have no Korean in your dictionary yet, so they stay in English in Korean mode: Honeycomb x2, Sweet Potato Cream Bingsu, Biscoff Caramel Cup, Strawberry Cheesecake Cup, Matcha Mochi Ice Cream, and the five croffles.
 - The small vertical sign in the hero says 정통 눈꽃빙수. That wording is mine. Tell me if you want different words, or none.

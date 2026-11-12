@@ -1,7 +1,7 @@
 # Where every menu item and price comes from
 
 Checked on November 12, 2026 against `website/menu-2026-august.js`.
-The redesign changed that file in two places only, both on your instruction: the cream top price on line `562` ($3 to $2), and new lines `792`–`804` at the end (prices checked against Square, and Sweet Potato mini taiyaki back). No other line moved.
+The redesign changed that file in two places only, both on your instruction: the cream top price on line `562` ($3 to $2), and new lines `792`–`813` at the end (prices checked against Square, Sweet Potato mini taiyaki back, the Injeolmi Croffle recipe with cream, and Plain Croffle). No other line moved.
 Numbers in `code` are line numbers in that file unless another file is named.
 
 How to read it: the file starts with the older recipes (lines 78–303 for bowls, 328–379 for cups). Later lines replace parts of them.
@@ -63,16 +63,17 @@ The website shows no prices right now (owner note on line `714`). Prices are lis
 | Custard | $8.99 | `719` | Filling text from `624`; "7 pieces" wording from `745` | `719` | The older line `624` says $6.99 for a 5-piece order. Matched to Square on `744`. |
 | Nutella | $8.99 | `719` | Filling text from `627`; "7 pieces" wording from `745` | `719` | The older line `627` says $6.99 for a 5-piece order. Matched to Square on `744`. |
 | Cheese | $9.99 | `719` | Filling text from `625`; "7 pieces" wording from `745` | `800` | The older line `625` says $6.99 for a 5-piece order. Matched to Square on `744`. Square now says $9.99; the older Square list said $8.99. |
-| Sweet Potato | $9.99 | `804` | Filling text from `804`; "7 pieces" wording from `745` | `804` | Back on the menu on your instruction. Square has it at $9.99. The older line `626` says $6.99 for a 5-piece order. **The only photo is the older 5-piece box photo.** |
+| Sweet Potato | $9.99 | `804` | Filling text from `804`; "7 pieces" wording from `745` | `804` | Back on the menu on your instruction. Square has it at $9.99. The older line `626` says $6.99 for a 5-piece order. The bag photo was made on November 12 from your custard bag photo, with the filling changed to match your sweet potato photo. |
 
 ## Premium croffles
 
 | Item | Price used | Name from | Recipe from | Price from | Notes |
 |---|---|---|---|---|---|
-| Injeolmi Croffle | $7.99 | `719` | `719` | `797` | Square now says $7.99; the older Square list said $6.99. Kept by the filter on `756`. Photo set in `site-settings.js` under photos. |
+| Injeolmi Croffle | $7.99 | `719` | `811` | `797` | Square now says $7.99; the older Square list said $6.99. Recipe changed to the one with house-made cream on your instruction (same words as Square). Kept by the filter on `756`. Photo set in `site-settings.js` under photos. |
 | Biscoff Caramel Croffle | $8.99 | `719` | `719` | `797` | Square now says $8.99; the older Square list said $7.99. Kept by the filter on `756`. Photo set in `site-settings.js` under photos. |
 | Cookies and Cream Croffle | $8.99 | `719` | `719` | `797` | Square now says $8.99; the older Square list said $7.99. Kept by the filter on `756`. Photo set in `site-settings.js` under photos. |
 | Dubai Strawberry Croffle | $11.99 | `719` | `719` | `719` | Kept by the filter on `756`. Photo set in `site-settings.js` under photos. |
+| Plain Croffle | $4.99 | `812` | `812` | `812` | Added on your instruction. Name, recipe and price are the ones in Square. Photo set in `site-settings.js` under photos. |
 
 ## Coming soon, not in the menu file
 

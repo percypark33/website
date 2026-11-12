@@ -18,6 +18,7 @@ export const EXTRA = {
   'Open now': '영업 중',
   'FEW LEFT': '소량 남음',
   'Extra Fruit': '과일 추가',
+  'Golden croffle dusted with powdered sugar': '슈가파우더를 뿌린 노릇한 크로플',
 
   // what is bingsu + the bowl that builds itself
   'Quality ingredients. Bringing new flavors.': '좋은 재료로, 새로운 맛을.',

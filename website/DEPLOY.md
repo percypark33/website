@@ -40,6 +40,8 @@ node build/build.mjs
 
 A photo without a small copy still works; the site uses the original file.
 
+The picture shown when the site is shared (link preview) is `assets/share-sweet-snow-20261112.jpg`, 1200×630. Its layout is `build/src/share-picture.html`: open it in a browser at 1200×630, take a screenshot, save it under a new file name and update the name in `build/lib/pages.mjs` (`const og`).
+
 ## Pages and behavior
 
 - `/`: hero item, the bowl that builds itself, croffle and cup features, our story (`/#brand-story`), find us, questions.

@@ -1512,41 +1512,41 @@
     }
    ]
   },
-  "/assets/mini-taiyaki/sweet-potato.png|card": {
-   "w": 958,
-   "h": 951,
+  "/assets/mini-taiyaki-bags-20261108/sweet-potato-20261112.webp|card": {
+   "w": 1162,
+   "h": 1179,
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/sweet-potato-627bb423-320.webp",
-     "bytes": 27538
+     "url": "/assets/site/img/sweet-potato-20261112-146bba7a-320.webp",
+     "bytes": 23892
     },
     {
      "w": 480,
-     "url": "/assets/site/img/sweet-potato-627bb423-480.webp",
-     "bytes": 52344
+     "url": "/assets/site/img/sweet-potato-20261112-146bba7a-480.webp",
+     "bytes": 42446
     },
     {
      "w": 720,
-     "url": "/assets/site/img/sweet-potato-627bb423-720.webp",
-     "bytes": 105690
+     "url": "/assets/site/img/sweet-potato-20261112-146bba7a-720.webp",
+     "bytes": 76786
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/sweet-potato-627bb423-320.avif",
-     "bytes": 14047
+     "url": "/assets/site/img/sweet-potato-20261112-146bba7a-320.avif",
+     "bytes": 13995
     },
     {
      "w": 480,
-     "url": "/assets/site/img/sweet-potato-627bb423-480.avif",
-     "bytes": 26303
+     "url": "/assets/site/img/sweet-potato-20261112-146bba7a-480.avif",
+     "bytes": 25584
     },
     {
      "w": 720,
-     "url": "/assets/site/img/sweet-potato-627bb423-720.avif",
-     "bytes": 51222
+     "url": "/assets/site/img/sweet-potato-20261112-146bba7a-720.avif",
+     "bytes": 47989
     }
    ]
   },
@@ -1737,6 +1737,44 @@
      "w": 720,
      "url": "/assets/site/img/dubai-strawberry-icecream-20261023-b461218c-720.avif",
      "bytes": 55777
+    }
+   ]
+  },
+  "/assets/croffles/plain-powdered-sugar-20261025.png|card": {
+   "w": 1536,
+   "h": 873,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/plain-powdered-sugar-20261025-9c18cc2f-320.webp",
+     "bytes": 23812
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/plain-powdered-sugar-20261025-9c18cc2f-480.webp",
+     "bytes": 49434
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/plain-powdered-sugar-20261025-9c18cc2f-720.webp",
+     "bytes": 105092
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/plain-powdered-sugar-20261025-9c18cc2f-320.avif",
+     "bytes": 13218
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/plain-powdered-sugar-20261025-9c18cc2f-480.avif",
+     "bytes": 26767
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/plain-powdered-sugar-20261025-9c18cc2f-720.avif",
+     "bytes": 55989
     }
    ]
   },
