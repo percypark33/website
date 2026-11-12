@@ -559,7 +559,7 @@ window.MENU = {
     ]
   },
 
-  creamTop: { title: "Add house-made cream top", price: "3" },
+  creamTop: { title: "Add house-made cream top", price: "2" },
 
   /* Extra fruit sits under the bowls (website + left TV),
      not with the topping boxes. */
@@ -788,3 +788,26 @@ window.MENU.bingsu.rotationOrder.push("Sweet Potato Cream Bingsu");
 
 // Owner correction: Coming Soon.
 Object.assign(window.MENU.bingsu.flavors.find(f=>f.name==="Sweet Potato Cream Bingsu"),{comingSoon:true,isNew:false});
+
+// Owner request, 2026-11-12: prices checked against Square (catalog as of 2026-11-12). Older prices stay above for reference.
+(function(){
+  const M = window.MENU;
+  const cups = {"Mango Jelly Cup": 10.99, "Injeolmi Jollypong Cup": 10.99, "Cookies and Cream Cup": 10.99};
+  M.cupBingsu.flavors.forEach(f => { if (cups[f.name]) f.price = cups[f.name]; });
+  const croffles = {"Injeolmi Croffle": 799, "Biscoff Caramel Croffle": 899, "Cookies and Cream Croffle": 899};
+  M.squareMenu.croffles.forEach(c => { if (croffles[c.name]) c.price.amount = croffles[c.name]; });
+  const cheese = M.miniTaiyaki.flavors.find(f => f.name === "Cheese");
+  if (cheese) cheese.price = 9.99;
+})();
+
+// Owner, 2026-11-12: Sweet Potato mini taiyaki is back. 7 pieces like the others. Price from Square.
+window.MENU.miniTaiyaki.flavors.push({name: "Sweet Potato", filling: "Sweet potato filling", price: 9.99, image: "/assets/mini-taiyaki-bags-20261108/sweet-potato-20261112.webp", squareName: "Sweet Potato Mini Taiyaki - 7 Pieces", inventoryName: "Sweet Potato Mini Taiyaki - 7 Pieces", soldOut: false});
+
+// Owner, 2026-11-12: Injeolmi Croffle is the recipe with house-made cream (same words as Square).
+// Owner, 2026-11-12: Plain Croffle added. Name, recipe and price from Square.
+(function(){
+  const croffles = window.MENU.squareMenu.croffles;
+  const injeolmi = croffles.find(c => c.name === "Injeolmi Croffle");
+  if (injeolmi) injeolmi.description = "House-Made Cream, Injeolmi Powder, Crushed Almonds";
+  if (!croffles.some(c => c.name === "Plain Croffle")) croffles.push({"ordinal": 24, "name": "Plain Croffle", "description": "Golden croffle dusted with powdered sugar", "availability": "LOCAL_CATALOG_AVAILABILITY_NORMAL", "price": {"amount": 499, "currency_code": "USD"}});
+})();

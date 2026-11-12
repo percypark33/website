@@ -1,0 +1,30 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:"Hahmlet";src:url(../../assets/site/fonts/hahmlet.woff2) format("woff2");font-weight:300 500}
+@font-face{font-family:"Plex";src:url(../../assets/site/fonts/plex-400.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"Plex";src:url(../../assets/site/fonts/plex-600.woff2) format("woff2");font-weight:600}
+*{box-sizing:border-box;margin:0}
+body{width:1200px;height:630px;overflow:hidden;position:relative;background:linear-gradient(180deg,#F7FBFE 0%,#EEF5FB 46%,#DCEAF6 100%);font-family:"Plex",sans-serif;color:#16324A}
+.halo{position:absolute;right:-150px;top:-135px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,#fff 0%,#fff 40%,rgba(255,255,255,0) 70%)}
+.bowl{position:absolute;right:16px;bottom:-34px;height:640px;filter:drop-shadow(0 30px 28px rgba(40,90,140,.22))}
+.copy{position:absolute;left:76px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:0}
+.logo{width:300px;height:auto;display:block;margin-left:-6px}
+.tag{font-family:"Hahmlet",serif;font-weight:300;font-size:74px;line-height:1.02;letter-spacing:-.035em;margin-top:38px}
+.tag span{display:block}
+.where{margin-top:30px;font-size:25px;font-weight:600;color:#245F92;display:flex;align-items:center;gap:14px}
+.where i{width:7px;height:7px;border-radius:50%;background:#70ADD9;display:block}
+.flake{position:absolute;border-radius:50%;background:#fff}
+.flake.far{background:#A9CBE6}
+</style></head><body>
+<div class="halo"></div>
+<img class="bowl" src="../../assets/bowl-shine-muscat-preview-20261026.png" alt="">
+<div class="copy">
+  <img class="logo" src="../../assets/site/img/logo-blue-336.webp" alt="">
+  <p class="tag"><span>Authentic</span><span>Korean Bingsu</span></p>
+  <p class="where">Garden Grove, California <i></i> sweetsnow.org</p>
+</div>
+<script>
+// a little still snow, same colours as the site's hero
+let s=7;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+for(let k=0;k<46;k++){const d=document.createElement('div');const far=r()<.55;const z=far?3+r()*4:5+r()*7;d.className='flake'+(far?' far':'');d.style.cssText=`left:${r()*1200}px;top:${r()*630}px;width:${z}px;height:${z}px;opacity:${far?.55:.9}`;document.body.insertBefore(d,document.querySelector('.bowl'));}
+</script>
+</body></html>
