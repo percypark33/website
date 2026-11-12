@@ -39,7 +39,7 @@ def slug(path):
     """File name plus a fingerprint of the photo, so a replaced photo gets a new address."""
     name = os.path.splitext(os.path.basename(path))[0]
     with open(os.path.join(ROOT, path.lstrip('/')), 'rb') as handle:
-        digest = hashlib.sha1(handle.read()).hexdigest()[:8]
+        digest = hashlib.sha1(handle.read() + b'trim-2').hexdigest()[:8]
     return re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-') + '-' + digest
 
 
@@ -53,9 +53,13 @@ def process(entry):
     has_alpha = image.mode in ('RGBA', 'LA', 'P')
     image = image.convert('RGBA' if has_alpha else 'RGB')
     if role in TRIM and has_alpha:
-        box = image.getbbox()
-        if box:
-            image = image.crop(box)
+        # Trim to the food itself. Faint see-through edges (soft shadows) are ignored when finding
+        # the edge, so every item ends up the same visual size; a small margin keeps the shadow.
+        alpha = np.asarray(image)[..., 3]
+        ys, xs = np.where(alpha > 24)
+        if len(xs):
+            pad = round(0.03 * max(xs.max() - xs.min(), ys.max() - ys.min()))
+            image = image.crop((max(0, xs.min() - pad), max(0, ys.min() - pad), min(image.width, xs.max() + 1 + pad), min(image.height, ys.max() + 1 + pad)))
     width, height = image.size
     variants, avif = [], []
     for target in WIDTHS[role]:
@@ -109,8 +113,7 @@ def logos():
     # Same maths as the colour filter inside sweet-snow-horizontal-right-blue-20261104.svg.
     alpha = np.clip(4 * a[..., 0] - 4 * a[..., 2] + 1, 0, 1)
     save(alpha, (112, 173, 217), 'logo-blue', (224, 336))      # the logo's own blue
-    save(alpha, (255, 255, 255), 'logo-white', (224, 336))
-    save(alpha, (22, 50, 74), 'logo-ink', (224, 336))
+    save(alpha, (255, 255, 255), 'logo-white', (224, 336))   # same as the white logo file, for dark looks
 
     arch = np.asarray(Image.open(os.path.join(ROOT, 'assets', 'sweet-snow-arched-logo.png')).convert('RGB')).astype(np.float32)
     arch_alpha = np.clip((255 - arch[..., 0]) / (255 - 112), 0, 1)

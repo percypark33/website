@@ -24,7 +24,7 @@ File and line for every item and price: see [MENU-SOURCES.md](MENU-SOURCES.md).
 | 8 | Tagline: the file says "Korean Shaved Ice" (line 50), the logo says "Korean Dessert Cafe", you asked for "Authentic Korean Bingsu". | Shows "Authentic Korean Bingsu" next to the logo. Line 50 is not used on the site. | Confirm. |
 | 9 | `menu-art.js` was not in the repo. It was deleted on October 7. | I restored the October 6 copy from the repo history, unchanged, and use it for the bowl that builds itself as you scroll. | OK to bring it back? |
 | 10 | Your Mango drawing shows coconut flakes. Today's Mango recipe has none. | The drawing is used as it is, only for the "how a bingsu is built" story. | Keep Mango, or pick another drawing (`buildBowl` in `site-settings.js`)? |
-| 11 | The hidden search-engine text on the live home page is out of date: its menu list is missing Strawberry Cheesecake Cup, Sweet Potato Cream Bingsu and Honeycomb x2. | The redesign writes this list from the menu file, so it always matches. Coming-soon items are left out, as before. | Nothing to do. |
+| 11 | The hidden search-engine menu list on the live home page is out of date: it is missing Strawberry Cheesecake Cup, which the visible menu shows. | The redesign writes this list from the menu file, so it always matches. Coming-soon items (Honeycomb x2, Sweet Potato Cream Bingsu) are left out, as before. | Nothing to do. |
 | 12 | The link-preview picture (`og:image`) is a 1.8 MB SVG. Most apps (iMessage, Instagram, Facebook) cannot show SVG previews. A ready 1200×630 PNG exists: `assets/share-bunny-blue.png`. | Tag kept exactly as it was, as you asked. | I recommend switching to the PNG. Say yes and I change one line. |
 
 ## In the files but not on the live site (kept hidden)

@@ -36,7 +36,7 @@ h2{font-size:clamp(2.1rem,7.4vw,3.6rem)}
 h3{font-family:var(--font-body);font-weight:600;font-size:1.06rem;line-height:1.3}
 .kicker{font-size:.84rem;font-weight:500;color:var(--accent-text);margin-bottom:.8rem}
 .lead{font-size:1.06rem;color:var(--ink-2);max-width:34rem;text-wrap:pretty}
-.link{display:inline-flex;align-items:center;gap:.45rem;font-weight:600;color:var(--accent-text);padding-block:.35rem;border-bottom:1.5px solid color-mix(in srgb,var(--accent-text) 30%,transparent);transition:border-color .2s,gap .2s}
+.link{display:inline-flex;align-items:center;gap:.45rem;font-weight:600;color:var(--accent-text);padding-block:.35rem;border-bottom:1.5px solid var(--line);border-bottom:1.5px solid color-mix(in srgb,var(--accent-text) 30%,transparent);transition:border-color .2s,gap .2s}
 .link:hover{border-color:var(--accent-text);gap:.7rem}
 
 /* ---------- buttons ---------- */
@@ -93,7 +93,7 @@ h3{font-family:var(--font-body);font-weight:600;font-size:1.06rem;line-height:1.
 .hero-title{font-size:clamp(3.1rem,15vw,4.3rem);line-height:.98}
 .hero-title span{display:block}
 .chip{display:inline-block;margin-top:1rem;padding:.3rem .8rem .36rem;border-radius:999px;border:1px solid var(--chip-line);background:var(--chip-bg);color:var(--accent-text);font-size:.8rem;font-weight:500}
-.hero-stage{position:relative;z-index:1;flex:1 0 auto;height:clamp(300px,86vw,430px);margin:-112px calc(-1 * var(--gutter)) 0;pointer-events:none}
+.hero-stage{position:relative;z-index:1;flex:1 0 auto;height:clamp(290px,82vw,420px);margin:-104px calc(-1 * var(--gutter)) 0;pointer-events:none}
 .hero-halo{position:absolute;right:-34vw;bottom:-16%;width:132vw;max-width:680px;aspect-ratio:1;border-radius:50%;background:var(--halo)}
 .hero-photo{position:absolute;right:-13vw;bottom:0;height:100%;width:auto;max-width:none;filter:drop-shadow(0 26px 24px var(--photo-shadow))}
 .hero-foot{position:relative;z-index:3;display:grid;gap:.8rem;justify-items:start;padding-top:1.1rem}

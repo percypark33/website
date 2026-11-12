@@ -255,7 +255,7 @@ byId.forEach((_, id) => { const section = doc.getElementById(id); if (section) o
 }
 /* ---------- menu: item sheet ---------- */
 const sheet = $('#item-sheet');
-if (sheet) {
+if (sheet && typeof sheet.showModal === 'function') {   // very old phones simply keep the card as it is
 let opener = null;
 const closeSheet = () => {
 if (!sheet.open) return;
