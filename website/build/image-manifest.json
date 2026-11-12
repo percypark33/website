@@ -1512,6 +1512,44 @@
     }
    ]
   },
+  "/assets/mini-taiyaki/sweet-potato.png|card": {
+   "w": 958,
+   "h": 951,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/sweet-potato-627bb423-320.webp",
+     "bytes": 27538
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/sweet-potato-627bb423-480.webp",
+     "bytes": 52344
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/sweet-potato-627bb423-720.webp",
+     "bytes": 105690
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/sweet-potato-627bb423-320.avif",
+     "bytes": 14047
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/sweet-potato-627bb423-480.avif",
+     "bytes": 26303
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/sweet-potato-627bb423-720.avif",
+     "bytes": 51222
+    }
+   ]
+  },
   "/assets/mochi-20261108/white-bowl-v3.webp|feature": {
    "w": 959,
    "h": 910,

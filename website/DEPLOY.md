@@ -17,7 +17,7 @@ node build/build.mjs
 
 | File | What it holds |
 |---|---|
-| `menu-2026-august.js` | Menu names, recipes, prices, hours. Unchanged; still shared with the TV menus. |
+| `menu-2026-august.js` | Menu names, recipes, prices, hours. Still shared with the TV menus. New owner changes are added as dated lines at the end. |
 | `site-settings.js` | The easy file: hero item, look, prices on/off, quick menu edits, links, photos. |
 | `menu-art.js` | The bowl drawings (restored from history; used by the scroll animation). |
 | `designs/language.js` | The owner's Korean dictionary. `build/ko-extra.mjs` adds words for new sections. |

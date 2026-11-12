@@ -150,8 +150,17 @@ function children(markup) {
   return out;
 }
 
+/* Parts that can be left out of a drawing (site-settings.js → buildBowlLeaveOut), so it matches
+   today's recipe. Each is recognised by the exact shape menu-art.js draws for it. Nothing is
+   redrawn and menu-art.js is not changed; the piece is simply not placed on the page. */
+const LEAVE_OUT = {
+  'coconut flakes': piece => /^<g transform="[^"]*">\s*<ellipse cx="0" cy="0" rx="6\.5" ry="2\.4"[^>]*\/>\s*<\/g>$/.test(piece)
+};
+
 export function buildArt(ctx) {
   const flavor = ctx.site.SETTINGS.buildBowl || 'Mango';
+  const leaveOut = (ctx.site.SETTINGS.buildBowlLeaveOut || []).map(name => LEAVE_OUT[String(name).toLowerCase()]).filter(Boolean);
+  const skip = piece => leaveOut.some(test => test(piece.trim()));
   const svg = ctx.site.ART.bowl(flavor).replace(/\s*\n\s*/g, ' ');
   const open = /^<svg[^>]*>/.exec(svg)[0];
   const inner = svg.slice(open.length, svg.lastIndexOf('</svg>'));
@@ -161,6 +170,7 @@ export function buildArt(ctx) {
   const out = [];
   let seenBowl = false;
   top.forEach((node, index) => {
+    if (skip(node)) return;
     if (node.startsWith('<defs')) return out.push(node);
     const isClip = node.startsWith('<g clip-path');
     const isMoundFill = index === 1;
@@ -170,7 +180,7 @@ export function buildArt(ctx) {
       const openTag = /^<g[^>]*>/.exec(node)[0];
       const parts = children(node.slice(openTag.length, node.lastIndexOf('</g>')));
       const syrup = parts.filter(p => /^<path[^>]*fill="none"/.test(p) || /^<path d="M13 69/.test(p) || /^<rect x="0" y="0"/.test(p));
-      const fruit = parts.filter(p => !syrup.includes(p));
+      const fruit = parts.filter(p => !syrup.includes(p) && !skip(p));
       return out.push(`${openTag}${layer('syrup', syrup.join(''))}${drop('fruit', fruit)}</g>`);
     }
     if (node.startsWith('<path') && !seenBowl && /fill="none"/.test(node)) return out.push(layer('snow', node));

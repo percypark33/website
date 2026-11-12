@@ -141,6 +141,10 @@ export function loadSite(root) {
   const heroItem = visible(all).find(i => i.name === SETTINGS.hero?.item) || visible(bowls)[0];
   if (SETTINGS.hero?.item && heroItem.name !== SETTINGS.hero.item) warnings.push(`site-settings.js → hero: no menu item is called "${SETTINGS.hero.item}". Showing "${heroItem.name}" instead.`);
 
+  for (const part of SETTINGS.buildBowlLeaveOut || []) {
+    if (String(part).toLowerCase() !== 'coconut flakes') warnings.push(`site-settings.js → buildBowlLeaveOut: "${part}" is not something the build can leave out yet. Only "coconut flakes" is known.`);
+  }
+
   const byName = name => visible(all).find(i => i.name === name);
   const pick = (names, label) => (names || []).map(n => byName(n) || (warnings.push(`site-settings.js → ${label}: no menu item is called "${n}".`), null)).filter(Boolean);
 

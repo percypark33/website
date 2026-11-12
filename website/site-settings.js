@@ -54,8 +54,12 @@ window.SITE_SETTINGS = {
   /* ---- THE BOWL THAT BUILDS ITSELF AS YOU SCROLL --------------
      Uses your drawing from menu-art.js. Any flavor drawn there
      works: "Mango", "Strawberry", "Mango & Strawberry",
-     "Matcha Strawberry", "Injeolmi", "Black Sesame" ...         */
+     "Matcha Strawberry", "Injeolmi", "Black Sesame" ...
+     `buildBowlLeaveOut` hides parts of the drawing that are not
+     in today's recipe. The drawing file itself is not changed.
+     To show them again, make it:  buildBowlLeaveOut: [],        */
   buildBowl: "Mango",
+  buildBowlLeaveOut: ["coconut flakes"],
 
   /* ---- TAGLINE AND LINKS -------------------------------------- */
   tagline: "Authentic Korean Bingsu",
