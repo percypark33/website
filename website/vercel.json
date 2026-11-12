@@ -71,5 +71,6 @@
       ]
     }
   ],
-  "buildCommand": "node build/build.mjs"
+  "buildCommand": "node build/build.mjs",
+  "outputDirectory": "."
 }
