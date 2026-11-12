@@ -22,6 +22,29 @@ function runBrowserFile(file, globals = {}) {
 export const slug = text => String(text).normalize('NFD').replace(/[̀-ͯ]/g, '')
   .toLowerCase().replace(/&/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
+/* For a misspelled item name, the closest real name (so the note can say "Did you mean …?"). */
+function nearest(name, names) {
+  const plain = text => text.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const distance = (a, b) => {
+    const row = Array.from({ length: b.length + 1 }, (_, i) => i);
+    for (let i = 1; i <= a.length; i++) {
+      let previous = row[0]; row[0] = i;
+      for (let j = 1; j <= b.length; j++) {
+        const keep = row[j];
+        row[j] = Math.min(row[j] + 1, row[j - 1] + 1, previous + (a[i - 1] === b[j - 1] ? 0 : 1));
+        previous = keep;
+      }
+    }
+    return row[b.length];
+  };
+  let best = null, bestScore = Infinity;
+  for (const candidate of names) {
+    const score = distance(plain(name), plain(candidate));
+    if (score < bestScore) { best = candidate; bestScore = score; }
+  }
+  return bestScore <= Math.max(2, Math.floor(plain(name).length / 4)) ? best : null;
+}
+
 const TOPPING_GROUPS = {
   finish: new Set(['condensed-milk', 'honey-drizzle', 'tajin', 'injeolmi-powder']),
   sweet: new Set(['coconut-jelly', 'mochi', 'red-beans', 'ice-cream-vanilla', 'ice-cream-yogurt', 'cheesecake-bites', 'brownie-bites', 'cookie-dough-bites', 'sprinkles'])
@@ -83,7 +106,7 @@ export function loadSite(root) {
   for (const [name, change] of Object.entries(SETTINGS.menuEdits || {})) {
     const item = all.find(i => i.name === name);
     if (!item) {
-      const close = all.map(i => i.name).find(n => n.toLowerCase().replace(/[^a-z]/g, '') === name.toLowerCase().replace(/[^a-z]/g, ''));
+      const close = nearest(name, all.map(i => i.name));
       warnings.push(`site-settings.js → menuEdits: no menu item is called "${name}".${close ? ` Did you mean "${close}"?` : ''}`);
       continue;
     }
