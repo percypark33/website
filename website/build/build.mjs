@@ -21,7 +21,14 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = new Set(process.argv.slice(2));
 const read = file => fs.readFileSync(path.join(ROOT, file), 'utf8');
 const hash = text => crypto.createHash('sha1').update(text).digest('hex').slice(0, 8);
+const HERO_SIZES = '(max-width: 859px) 88vw, 600px';
 const LOOKS = { 'milk-snow': '#F7FBFE', 'snow-day': '#70ADD9', 'moonlit-snow': '#061626' };
+
+// The first big photo is requested early. Browsers that cannot read AVIF skip this hint and use the WebP file.
+function preloadImage(entry, sizes) {
+  const list = entry.avif || entry.variants;
+  return `<link rel="preload" as="image"${entry.avif ? ' type="image/avif"' : ''} href="${list[Math.min(1, list.length - 1)].url}" imagesrcset="${list.map(v => `${v.url} ${v.w}w`).join(', ')}" imagesizes="${sizes}" fetchpriority="high">`;
+}
 
 function minifyCss(css) {
   return css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').replace(/\s*([{}:;,>])\s*/g, '$1').replace(/;}/g, '}').trim();
@@ -51,25 +58,27 @@ function main() {
     const ko = {};
     const note = text => { const k = translate(text); if (k !== text) ko[text] = k; return text; };
     const ctx = {
-      site, ko, blocks: {}, story: loadStory(ROOT), themeColor: LOOKS[look],
+      site, ko, blocks: {}, story: loadStory(ROOT), themeColor: LOOKS[look], sign: read('build/src/sign.svg').trim(), heroSizes: HERO_SIZES,
       t: text => pages.e(note(String(text))),
       ta: text => pages.e(note(String(text))),
       img(src, role, { alt = '', sizes = '100vw', eager = false, cls = '' } = {}) {
         if (!src) return '';
         usedImages.set(src + '|' + role, { src, role });
         const entry = manifest.images[src + '|' + role];
-        const loading = eager ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"';
+        const loading = eager ? (role === 'hero' ? 'fetchpriority="high" decoding="async"' : 'decoding="async"') : 'loading="lazy" decoding="async"';
         const klass = cls ? ` class="${cls}"` : '';
         if (!entry) return `<img${klass} src="${pages.e(src)}" alt="${alt}" ${loading}>`;
         const largest = entry.variants[entry.variants.length - 1];
         const fallback = entry.variants[Math.min(1, entry.variants.length - 1)];
-        return `<img${klass} src="${fallback.url}" srcset="${entry.variants.map(v => `${v.url} ${v.w}w`).join(', ')}" sizes="${sizes}" width="${largest.w}" height="${Math.round(entry.h * largest.w / entry.w)}" alt="${alt}" ${loading}>`;
+        const image = `<img${klass} src="${fallback.url}" srcset="${entry.variants.map(v => `${v.url} ${v.w}w`).join(', ')}" sizes="${sizes}" width="${largest.w}" height="${Math.round(entry.h * largest.w / entry.w)}" alt="${alt}" ${loading}>`;
+        if (!entry.avif) return image;
+        return `<picture><source type="image/avif" srcset="${entry.avif.map(v => `${v.url} ${v.w}w`).join(', ')}" sizes="${sizes}">${image}</picture>`;
       },
-      logo(name, alt, cls, sizes) {
+      logo(name, alt, cls, sizes, lazy = false) {
         const entry = manifest.logos[name];
         if (!entry) return `<img class="${cls}" src="/assets/sweet-snow-horizontal-right-blue-20261104.svg" alt="${pages.e(alt)}" width="1881" height="837">`;
         const v = entry.variants;
-        return `<img class="${cls}" src="${v[0].url}" srcset="${v.map(x => `${x.url} ${x.w}w`).join(', ')}" sizes="${sizes}" width="${v[0].w}" height="${Math.round(entry.h * v[0].w / entry.w)}" alt="${pages.e(alt)}">`;
+        return `<img class="${cls}" src="${v[0].url}" srcset="${v.map(x => `${x.url} ${x.w}w`).join(', ')}" sizes="${sizes}" width="${v[0].w}" height="${Math.round(entry.h * v[0].w / entry.w)}" alt="${pages.e(alt)}"${lazy ? ' loading="lazy" decoding="async"' : ''}>`;
       }
     };
     return ctx;
@@ -106,9 +115,9 @@ function main() {
   const preview = process.env.VERCEL_ENV === 'preview' || args.has('--preview');
   const warningBar = preview && site.warnings.length
     ? `<div class="build-warning" role="alert"><strong>Settings to check (only shown on previews):</strong><ul>${site.warnings.map(w => `<li>${pages.e(w)}</li>`).join('')}</ul></div>` : '';
-  const config = { schedule: site.schedule, ko: `/assets/site/ko.json?v=${hash(koJson)}`, video: fs.existsSync(path.join(out, 'video/hero-loop.mp4')) ? '/assets/site/video/hero-loop.mp4' : null };
+  const config = { schedule: site.schedule, ko: `/assets/site/ko.json?v=${hash(koJson)}` };
   // Old links such as /#croffles or /#visit keep working: they go to the page that now holds that section.
-  const legacy = `(function(){var h=location.hash,p=location.pathname.replace(/\\/$/,'')||'/';if(p!=='/'||!h)return;var m=['#menu','#menu-premium','#menu-classic','#menu-special','#menu-half-half','#single-cups','#food','#mini-taiyaki','#mini-sides','#croffles','#toppings','#drinks','#coming-soon'];if(m.indexOf(h)>-1||h.indexOf('#menu-item-')===0)location.replace('/menu'+(h==='#menu'||h==='#drinks'||h==='#coming-soon'?'':h==='#menu-premium'?'#menu-classic':h));else if(h==='#visit'||h==='#find-us')location.replace('/visit');})();`;
+  const legacy = `(function(){function go(){var h=location.hash,p=location.pathname.replace(/\\/$/,'')||'/';if(p!=='/'||!h)return;var m=['#menu','#menu-premium','#menu-classic','#menu-special','#menu-half-half','#single-cups','#food','#mini-taiyaki','#mini-sides','#croffles','#toppings','#drinks','#coming-soon'];if(m.indexOf(h)>-1||h.indexOf('#menu-item-')===0)location.replace('/menu'+(h==='#menu'||h==='#drinks'||h==='#coming-soon'?'':h==='#menu-premium'?'#menu-classic':h));else if(h==='#visit'||h==='#find-us')location.replace('/visit');}go();addEventListener('hashchange',go);})();`;
   const scripts = `<script>document.documentElement.classList.add('js');window.SWEET_SNOW=${JSON.stringify(config)};__LEGACY__</script>
 <script defer src="/assets/site/app.js?v=${hash(js)}"></script>
 <script defer src="/analytics-config.js?v=google-tags-sept24"></script>
@@ -116,10 +125,14 @@ function main() {
 
   for (const [key, { ctx, body }] of Object.entries(rendered)) {
     const page = pages.PAGES[key];
-    const preload = ['<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/hahmlet-latin.woff2" crossorigin>'];
+    const preload = ['<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/hahmlet.woff2" crossorigin>'];
+    if (key === 'menu' && site.groups.classic[0]) {
+      const entry = manifest.images[site.groups.classic[0].photo + '|card'];
+      if (entry) preload.push(preloadImage(entry, pages.CARD_SIZES));
+    }
     if (key === 'home') {
       const entry = manifest.images[site.hero.item.photo + '|hero'];
-      if (entry) preload.push(`<link rel="preload" as="image" href="${entry.variants[Math.min(1, entry.variants.length - 1)].url}" imagesrcset="${entry.variants.map(v => `${v.url} ${v.w}w`).join(', ')}" imagesizes="(max-width: 720px) 96vw, 560px" fetchpriority="high">`);
+      if (entry) preload.push(preloadImage(entry, HERO_SIZES));
     }
     const html = `<!DOCTYPE html>
 <html lang="en" class="look-${look}">
@@ -135,7 +148,7 @@ ${warningBar}${body}
   }
 
   const counts = `${site.groups.classic.length + site.groups.special.length + site.groups['half-half'].length} bowls, ${site.cups.length} cups, ${site.taiyaki.length} mini taiyaki, ${site.croffles.length} croffles, ${site.toppings.length} toppings`;
-  console.log(`Built index.html, menu.html, visit.html — ${counts}. Look: ${look}. Prices ${site.showPrices ? 'shown' : 'hidden'}.`);
+  console.log(`Built ${Object.values(pages.PAGES).map(p => p.file).join(', ')} — ${counts}. Look: ${look}. Prices ${site.showPrices ? 'shown' : 'hidden'}.`);
   if (site.warnings.length) console.log('\nThings to check:\n' + site.warnings.map(w => '  • ' + w).join('\n'));
 }
 

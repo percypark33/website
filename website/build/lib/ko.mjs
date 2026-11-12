@@ -15,18 +15,24 @@ export function loadKorean(root) {
   const window = {};
   const document = { readyState: 'loading', addEventListener() {}, documentElement: {}, body: null, querySelector: () => null };
   vm.runInContext(source, vm.createContext({ window, document, console, localStorage: { getItem: () => 'ko', setItem() {} } }), { filename: 'language.js' });
-  const dictionary = { ...(window.__ko || {}), ...EXTRA };
+  const dictionary = { ...EXTRA, ...(window.__ko || {}) }; // the owner's wording always wins
   const lower = new Map(Object.entries(dictionary).map(([k, v]) => [k.toLowerCase(), v]));
   const exact = key => (Object.prototype.hasOwnProperty.call(dictionary, key) ? dictionary[key] : lower.get(key.toLowerCase()));
-  const list = (text, separator) => {
+  // "a · b · c" ingredient lists translate part by part (unknown parts stay English).
+  // Comma lists translate only when every part is known, so sentences are never half-translated.
+  const list = (text, separator, needAll) => {
     const parts = text.split(separator);
     if (parts.length < 2) return null;
-    const done = parts.map(part => exact(part.trim()) ?? part);
-    return done.some((part, index) => part !== parts[index]) ? done.join(separator) : null;
+    const done = parts.map(part => exact(part.trim()));
+    if (needAll ? done.some(part => part === undefined) : done.every(part => part === undefined)) return null;
+    return done.map((part, index) => part ?? parts[index]).join(separator);
   };
+  const phrase = key => exact(key) ?? list(key, ' · ', false) ?? list(key, ', ', true);
   return text => {
     const key = String(text);
-    return exact(key) ?? list(key, ' · ') ?? list(key, ', ') ?? key;
+    const lead = 'Show ingredients for ';
+    if (key.startsWith(lead) && dictionary[lead]) return dictionary[lead] + (phrase(key.slice(lead.length)) ?? key.slice(lead.length));
+    return phrase(key) ?? key;
   };
 }
 

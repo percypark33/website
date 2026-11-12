@@ -8,7 +8,6 @@ const CONFIG = window.SWEET_SNOW || {};
 const $ = (selector, scope = doc) => scope.querySelector(selector);
 const $$ = (selector, scope = doc) => [...scope.querySelectorAll(selector)];
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-const saveData = !!(navigator.connection && navigator.connection.saveData);
 /* ---------- Korean ---------- */
 const LANG_KEY = 'sweet-snow-language';
 let lang = 'en';
@@ -24,7 +23,7 @@ const nodes = [];
 while (walker.nextNode()) nodes.push(walker.currentNode);
 for (const node of nodes) {
 const parent = node.parentElement;
-if (!parent || parent.closest('script,style,.lang,[data-i18n-block],[data-no-i18n]')) continue;
+if (!parent || parent.closest('script,style,.lang,[data-i18n-block],[data-words]')) continue;
 if (!originals.has(node)) originals.set(node, node.nodeValue);
 const source = originals.get(node);
 const core = source.trim();
@@ -54,6 +53,12 @@ const html = lang === 'ko' ? KO.blocks[block.dataset.i18nBlock] : blockOriginals
 if (html && block.dataset.shown !== lang) { block.innerHTML = html; block.dataset.shown = lang; }
 });
 translateTree(doc.body);
+$$('[data-words]').forEach(title => {
+const phrase = (lang === 'ko' && KO.text[title.dataset.words]) || title.dataset.words;
+if (title.dataset.shownWords === phrase) return;
+title.replaceChildren(...phrase.split(' ').flatMap((word, i) => { const span = doc.createElement('span'); span.textContent = word; return i ? [' ', span] : [span]; }));
+title.dataset.shownWords = phrase;
+});
 renderStatus();
 }
 async function setLanguage(next) {
@@ -200,15 +205,15 @@ update();
 }
 const canvas = $('[data-snow]');
 if (canvas) snow(canvas);
-/* A short ambient video can sit behind the hero photo (the photo itself stays on top, untouched). */
-if (stage && CONFIG.video && !reduced.matches && !saveData) {
-addEventListener('load', () => setTimeout(() => {
-const video = doc.createElement('video');
-Object.assign(video, { muted: true, loop: true, playsInline: true, autoplay: true, preload: 'auto', src: CONFIG.video });
-video.className = 'hero-video'; video.setAttribute('aria-hidden', 'true');
-stage.prepend(video);
-video.play().catch(() => video.remove());
-}, 600), { once: true });
+/* The hand-written font is only used far down the page, so it is fetched when the story gets close. */
+const storySection = $('.story');
+if (storySection && 'FontFace' in window && 'IntersectionObserver' in window) {
+const near = new IntersectionObserver(entries => {
+if (!entries[0].isIntersecting) return;
+near.disconnect();
+new FontFace('Gaegu', 'url(/assets/site/fonts/gaegu-700.woff2) format("woff2")', { weight: '700' }).load().then(face => doc.fonts.add(face)).catch(() => {});
+}, { rootMargin: '900px 0px' });
+near.observe(storySection);
 }
 /* ---------- the bowl that builds itself ---------- */
 const buildStage = $('[data-build-stage]');
@@ -260,9 +265,9 @@ sheet.addEventListener('animationend', () => { sheet.classList.remove('is-closin
 };
 const openSheet = cardEl => {
 opener = $('.card-hit', cardEl);
-const image = $('.card-photo img', cardEl).cloneNode();
-image.removeAttribute('loading'); image.sizes = '(max-width: 600px) 90vw, 480px';
-$('[data-sheet-photo]', sheet).replaceChildren(image);
+const holder = $('[data-sheet-photo]', sheet);
+holder.replaceChildren(($('.card-photo picture', cardEl) || $('.card-photo img', cardEl)).cloneNode(true));
+$$('source,img', holder).forEach(node => { node.sizes = '(max-width: 600px) 90vw, 480px'; node.removeAttribute('loading'); });
 $('[data-sheet-title]', sheet).textContent = $('.card-name', cardEl).textContent;
 const tags = $('[data-sheet-tags]', sheet);
 tags.replaceChildren(...$$('.card-meta > *', cardEl).map(node => node.cloneNode(true)));
@@ -277,9 +282,8 @@ sheet.scrollTop = 0;
 if (orderbar) orderbar.classList.add('is-hidden');
 };
 doc.addEventListener('click', event => {
-const hit = event.target.closest('.card-hit');
-if (!hit) return;
-const cardEl = hit.closest('.card');
+const cardEl = event.target.closest('.card');
+if (!cardEl || event.target.closest('a')) return;
 cardEl.classList.add('is-lifted');           // the card lifts, then its sheet rises
 setTimeout(() => { openSheet(cardEl); setTimeout(() => cardEl.classList.remove('is-lifted'), 300); }, reduced.matches ? 0 : 150);
 });

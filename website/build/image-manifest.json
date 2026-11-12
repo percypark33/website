@@ -7,17 +7,34 @@
     {
      "w": 480,
      "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-480.webp",
-     "bytes": 54716
+     "bytes": 48846
     },
     {
      "w": 720,
      "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-720.webp",
-     "bytes": 114816
+     "bytes": 103328
     },
     {
      "w": 1080,
      "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-1080.webp",
-     "bytes": 225160
+     "bytes": 196362
+    }
+   ],
+   "avif": [
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-480.avif",
+     "bytes": 24915
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-720.avif",
+     "bytes": 48146
+    },
+    {
+     "w": 1080,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-1080.avif",
+     "bytes": 88596
     }
    ]
   },
@@ -28,17 +45,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/biscoff-f835ade5-320.webp",
-     "bytes": 21820
+     "bytes": 20698
     },
     {
      "w": 480,
      "url": "/assets/site/img/biscoff-f835ade5-480.webp",
-     "bytes": 41614
+     "bytes": 39296
     },
     {
      "w": 720,
      "url": "/assets/site/img/biscoff-f835ade5-720.webp",
-     "bytes": 82450
+     "bytes": 77958
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/biscoff-f835ade5-320.avif",
+     "bytes": 11606
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/biscoff-f835ade5-480.avif",
+     "bytes": 21895
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/biscoff-f835ade5-720.avif",
+     "bytes": 42907
     }
    ]
   },
@@ -49,17 +83,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-320.webp",
-     "bytes": 26784
+     "bytes": 25424
     },
     {
      "w": 480,
      "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-480.webp",
-     "bytes": 51646
+     "bytes": 48806
     },
     {
      "w": 720,
      "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-720.webp",
-     "bytes": 101318
+     "bytes": 96022
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-320.avif",
+     "bytes": 14914
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-480.avif",
+     "bytes": 28823
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-720.avif",
+     "bytes": 57042
     }
    ]
   },
@@ -70,17 +121,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/mango-jelly-384050d5-320.webp",
-     "bytes": 31174
+     "bytes": 28766
     },
     {
      "w": 480,
      "url": "/assets/site/img/mango-jelly-384050d5-480.webp",
-     "bytes": 57182
+     "bytes": 53034
     },
     {
      "w": 720,
      "url": "/assets/site/img/mango-jelly-384050d5-720.webp",
-     "bytes": 98916
+     "bytes": 90808
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/mango-jelly-384050d5-320.avif",
+     "bytes": 19649
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/mango-jelly-384050d5-480.avif",
+     "bytes": 36432
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/mango-jelly-384050d5-720.avif",
+     "bytes": 63942
     }
    ]
   },
@@ -91,17 +159,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-320.webp",
-     "bytes": 19654
+     "bytes": 18548
     },
     {
      "w": 480,
      "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-480.webp",
-     "bytes": 37214
+     "bytes": 35136
     },
     {
      "w": 720,
      "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-720.webp",
-     "bytes": 73418
+     "bytes": 69244
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-320.avif",
+     "bytes": 11153
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-480.avif",
+     "bytes": 20654
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-720.avif",
+     "bytes": 39885
     }
    ]
   },
@@ -112,17 +197,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/cookies-cream-6add2f76-320.webp",
-     "bytes": 48962
+     "bytes": 46050
     },
     {
      "w": 480,
      "url": "/assets/site/img/cookies-cream-6add2f76-480.webp",
-     "bytes": 96088
+     "bytes": 90134
     },
     {
      "w": 720,
      "url": "/assets/site/img/cookies-cream-6add2f76-720.webp",
-     "bytes": 180642
+     "bytes": 169898
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cookies-cream-6add2f76-320.avif",
+     "bytes": 28868
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cookies-cream-6add2f76-480.avif",
+     "bytes": 56432
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cookies-cream-6add2f76-720.avif",
+     "bytes": 105883
     }
    ]
   },
@@ -133,12 +235,12 @@
     {
      "w": 380,
      "url": "/assets/site/img/winter-6f9b4b28-380.webp",
-     "bytes": 23622
+     "bytes": 21764
     },
     {
      "w": 760,
      "url": "/assets/site/img/winter-6f9b4b28-760.webp",
-     "bytes": 66864
+     "bytes": 62440
     }
    ]
   },
@@ -149,12 +251,12 @@
     {
      "w": 380,
      "url": "/assets/site/img/pastry-e3b4daf0-380.webp",
-     "bytes": 15882
+     "bytes": 14786
     },
     {
      "w": 760,
      "url": "/assets/site/img/pastry-e3b4daf0-760.webp",
-     "bytes": 40408
+     "bytes": 36660
     }
    ]
   },
@@ -165,12 +267,12 @@
     {
      "w": 380,
      "url": "/assets/site/img/family-time-f3ab70cf-380.webp",
-     "bytes": 29998
+     "bytes": 27832
     },
     {
      "w": 760,
      "url": "/assets/site/img/family-time-f3ab70cf-760.webp",
-     "bytes": 77414
+     "bytes": 71140
     }
    ]
   },
@@ -181,12 +283,12 @@
     {
      "w": 380,
      "url": "/assets/site/img/test-bowl-c19c5e0e-380.webp",
-     "bytes": 21086
+     "bytes": 19434
     },
     {
      "w": 760,
      "url": "/assets/site/img/test-bowl-c19c5e0e-760.webp",
-     "bytes": 54120
+     "bytes": 50114
     }
    ]
   },
@@ -197,12 +299,12 @@
     {
      "w": 380,
      "url": "/assets/site/img/behind-the-glass-bda94d78-380.webp",
-     "bytes": 17620
+     "bytes": 16398
     },
     {
      "w": 760,
      "url": "/assets/site/img/behind-the-glass-bda94d78-760.webp",
-     "bytes": 48754
+     "bytes": 44300
     }
    ]
   },
@@ -213,12 +315,12 @@
     {
      "w": 380,
      "url": "/assets/site/img/counter-632f0fa3-380.webp",
-     "bytes": 23398
+     "bytes": 21584
     },
     {
      "w": 760,
      "url": "/assets/site/img/counter-632f0fa3-760.webp",
-     "bytes": 68960
+     "bytes": 63698
     }
    ]
   },
@@ -229,12 +331,12 @@
     {
      "w": 380,
      "url": "/assets/site/img/cookies-and-cream-8379b655-380.webp",
-     "bytes": 23918
+     "bytes": 21872
     },
     {
      "w": 760,
      "url": "/assets/site/img/cookies-and-cream-8379b655-760.webp",
-     "bytes": 64790
+     "bytes": 60128
     }
    ]
   },
@@ -245,12 +347,12 @@
     {
      "w": 380,
      "url": "/assets/site/img/dubai-chocolate-214bdec7-380.webp",
-     "bytes": 26448
+     "bytes": 24598
     },
     {
      "w": 760,
      "url": "/assets/site/img/dubai-chocolate-214bdec7-760.webp",
-     "bytes": 83460
+     "bytes": 76116
     }
    ]
   },
@@ -261,12 +363,12 @@
     {
      "w": 380,
      "url": "/assets/site/img/lychee-heaven-5aea259c-380.webp",
-     "bytes": 22424
+     "bytes": 20598
     },
     {
      "w": 760,
      "url": "/assets/site/img/lychee-heaven-5aea259c-760.webp",
-     "bytes": 56334
+     "bytes": 51602
     }
    ]
   },
@@ -277,17 +379,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-black-sesame-natural-975ae241-320.webp",
-     "bytes": 35548
+     "bytes": 33742
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-black-sesame-natural-975ae241-480.webp",
-     "bytes": 67472
+     "bytes": 64232
     },
     {
      "w": 577,
      "url": "/assets/site/img/bowl-black-sesame-natural-975ae241-577.webp",
-     "bytes": 89176
+     "bytes": 83858
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-black-sesame-natural-975ae241-320.avif",
+     "bytes": 18857
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-black-sesame-natural-975ae241-480.avif",
+     "bytes": 34611
+    },
+    {
+     "w": 577,
+     "url": "/assets/site/img/bowl-black-sesame-natural-975ae241-577.avif",
+     "bytes": 45705
     }
    ]
   },
@@ -298,17 +417,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-injeolmi-jollypong-preview-20261026-5a2790a2-320.webp",
-     "bytes": 29724
+     "bytes": 28070
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-injeolmi-jollypong-preview-20261026-5a2790a2-480.webp",
-     "bytes": 57846
+     "bytes": 54444
     },
     {
      "w": 720,
      "url": "/assets/site/img/bowl-injeolmi-jollypong-preview-20261026-5a2790a2-720.webp",
-     "bytes": 111918
+     "bytes": 104356
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-injeolmi-jollypong-preview-20261026-5a2790a2-320.avif",
+     "bytes": 16871
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-injeolmi-jollypong-preview-20261026-5a2790a2-480.avif",
+     "bytes": 30811
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-injeolmi-jollypong-preview-20261026-5a2790a2-720.avif",
+     "bytes": 58852
     }
    ]
   },
@@ -319,17 +455,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-mango-natural-edb3ba33-320.webp",
-     "bytes": 23376
+     "bytes": 21810
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-mango-natural-edb3ba33-480.webp",
-     "bytes": 43398
+     "bytes": 40452
     },
     {
      "w": 597,
      "url": "/assets/site/img/bowl-mango-natural-edb3ba33-597.webp",
-     "bytes": 59612
+     "bytes": 55418
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-mango-natural-edb3ba33-320.avif",
+     "bytes": 13715
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-mango-natural-edb3ba33-480.avif",
+     "bytes": 24976
+    },
+    {
+     "w": 597,
+     "url": "/assets/site/img/bowl-mango-natural-edb3ba33-597.avif",
+     "bytes": 34857
     }
    ]
   },
@@ -340,17 +493,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-strawberry-realphoto-natural-1591f6ca-320.webp",
-     "bytes": 31052
+     "bytes": 29418
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-strawberry-realphoto-natural-1591f6ca-480.webp",
-     "bytes": 59624
+     "bytes": 56434
     },
     {
      "w": 557,
      "url": "/assets/site/img/bowl-strawberry-realphoto-natural-1591f6ca-557.webp",
-     "bytes": 73776
+     "bytes": 68822
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-strawberry-realphoto-natural-1591f6ca-320.avif",
+     "bytes": 16230
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-strawberry-realphoto-natural-1591f6ca-480.avif",
+     "bytes": 30401
+    },
+    {
+     "w": 557,
+     "url": "/assets/site/img/bowl-strawberry-realphoto-natural-1591f6ca-557.avif",
+     "bytes": 38545
     }
    ]
   },
@@ -361,17 +531,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-cookies-cream-natural-cdba78f8-320.webp",
-     "bytes": 26432
+     "bytes": 25154
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-cookies-cream-natural-cdba78f8-480.webp",
-     "bytes": 50700
+     "bytes": 47798
     },
     {
      "w": 623,
      "url": "/assets/site/img/bowl-cookies-cream-natural-cdba78f8-623.webp",
-     "bytes": 71592
+     "bytes": 67118
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-cookies-cream-natural-cdba78f8-320.avif",
+     "bytes": 15234
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-cookies-cream-natural-cdba78f8-480.avif",
+     "bytes": 27033
+    },
+    {
+     "w": 623,
+     "url": "/assets/site/img/bowl-cookies-cream-natural-cdba78f8-623.avif",
+     "bytes": 38483
     }
    ]
   },
@@ -382,17 +569,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-matcha-strawberry-natural-b1d050b6-320.webp",
-     "bytes": 29958
+     "bytes": 28400
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-matcha-strawberry-natural-b1d050b6-480.webp",
-     "bytes": 57924
+     "bytes": 54424
     },
     {
      "w": 612,
      "url": "/assets/site/img/bowl-matcha-strawberry-natural-b1d050b6-612.webp",
-     "bytes": 80726
+     "bytes": 76028
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-b1d050b6-320.avif",
+     "bytes": 16472
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-b1d050b6-480.avif",
+     "bytes": 29681
+    },
+    {
+     "w": 612,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-b1d050b6-612.avif",
+     "bytes": 42745
     }
    ]
   },
@@ -403,17 +607,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-lychee-realphoto-natural-bc7656af-320.webp",
-     "bytes": 24930
+     "bytes": 23532
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-lychee-realphoto-natural-bc7656af-480.webp",
-     "bytes": 46502
+     "bytes": 43774
     },
     {
      "w": 624,
      "url": "/assets/site/img/bowl-lychee-realphoto-natural-bc7656af-624.webp",
-     "bytes": 65662
+     "bytes": 60308
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-lychee-realphoto-natural-bc7656af-320.avif",
+     "bytes": 14115
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-lychee-realphoto-natural-bc7656af-480.avif",
+     "bytes": 25806
+    },
+    {
+     "w": 624,
+     "url": "/assets/site/img/bowl-lychee-realphoto-natural-bc7656af-624.avif",
+     "bytes": 38066
     }
    ]
   },
@@ -424,17 +645,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-hojicha-syrup-natural-3e400aa3-320.webp",
-     "bytes": 32826
+     "bytes": 31068
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-hojicha-syrup-natural-3e400aa3-480.webp",
-     "bytes": 65348
+     "bytes": 61724
     },
     {
      "w": 582,
      "url": "/assets/site/img/bowl-hojicha-syrup-natural-3e400aa3-582.webp",
-     "bytes": 85466
+     "bytes": 80296
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-hojicha-syrup-natural-3e400aa3-320.avif",
+     "bytes": 17630
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-hojicha-syrup-natural-3e400aa3-480.avif",
+     "bytes": 32635
+    },
+    {
+     "w": 582,
+     "url": "/assets/site/img/bowl-hojicha-syrup-natural-3e400aa3-582.avif",
+     "bytes": 44296
     }
    ]
   },
@@ -445,17 +683,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-matcha-banana-natural-8a1b7ca3-320.webp",
-     "bytes": 31060
+     "bytes": 29282
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-matcha-banana-natural-8a1b7ca3-480.webp",
-     "bytes": 61046
+     "bytes": 57740
     },
     {
      "w": 632,
      "url": "/assets/site/img/bowl-matcha-banana-natural-8a1b7ca3-632.webp",
-     "bytes": 90432
+     "bytes": 85394
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-matcha-banana-natural-8a1b7ca3-320.avif",
+     "bytes": 16137
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-matcha-banana-natural-8a1b7ca3-480.avif",
+     "bytes": 29162
+    },
+    {
+     "w": 632,
+     "url": "/assets/site/img/bowl-matcha-banana-natural-8a1b7ca3-632.avif",
+     "bytes": 44779
     }
    ]
   },
@@ -466,17 +721,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-strawnana-natural-290e1971-320.webp",
-     "bytes": 27490
+     "bytes": 26082
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-strawnana-natural-290e1971-480.webp",
-     "bytes": 54310
+     "bytes": 51398
     },
     {
      "w": 625,
      "url": "/assets/site/img/bowl-strawnana-natural-290e1971-625.webp",
-     "bytes": 80124
+     "bytes": 75336
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-strawnana-natural-290e1971-320.avif",
+     "bytes": 14332
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-strawnana-natural-290e1971-480.avif",
+     "bytes": 26374
+    },
+    {
+     "w": 625,
+     "url": "/assets/site/img/bowl-strawnana-natural-290e1971-625.avif",
+     "bytes": 39513
     }
    ]
   },
@@ -487,17 +759,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-320.webp",
-     "bytes": 26638
+     "bytes": 25522
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-480.webp",
-     "bytes": 51966
+     "bytes": 48846
     },
     {
      "w": 720,
      "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-720.webp",
-     "bytes": 109734
+     "bytes": 103328
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-320.avif",
+     "bytes": 12192
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-480.avif",
+     "bytes": 24915
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-shine-muscat-preview-20261026-5b0385bb-720.avif",
+     "bytes": 48146
     }
    ]
   },
@@ -508,17 +797,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-honeycomb-x2-20261101-ec5657d2-320.webp",
-     "bytes": 25834
+     "bytes": 24396
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-honeycomb-x2-20261101-ec5657d2-480.webp",
-     "bytes": 50324
+     "bytes": 46946
     },
     {
      "w": 720,
      "url": "/assets/site/img/bowl-honeycomb-x2-20261101-ec5657d2-720.webp",
-     "bytes": 100782
+     "bytes": 92102
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-honeycomb-x2-20261101-ec5657d2-320.avif",
+     "bytes": 14985
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-honeycomb-x2-20261101-ec5657d2-480.avif",
+     "bytes": 29590
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-honeycomb-x2-20261101-ec5657d2-720.avif",
+     "bytes": 57705
     }
    ]
   },
@@ -529,17 +835,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-sweet-potato-cream-20261109-0ce87de4-320.webp",
-     "bytes": 30488
+     "bytes": 29056
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-sweet-potato-cream-20261109-0ce87de4-480.webp",
-     "bytes": 57532
+     "bytes": 54838
     },
     {
      "w": 720,
      "url": "/assets/site/img/bowl-sweet-potato-cream-20261109-0ce87de4-720.webp",
-     "bytes": 116258
+     "bytes": 110234
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-sweet-potato-cream-20261109-0ce87de4-320.avif",
+     "bytes": 13809
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-sweet-potato-cream-20261109-0ce87de4-480.avif",
+     "bytes": 25116
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-sweet-potato-cream-20261109-0ce87de4-720.avif",
+     "bytes": 47713
     }
    ]
   },
@@ -550,17 +873,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-half-half-natural-70c94c80-320.webp",
-     "bytes": 26166
+     "bytes": 24612
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-half-half-natural-70c94c80-480.webp",
-     "bytes": 49344
+     "bytes": 46212
     },
     {
      "w": 634,
      "url": "/assets/site/img/bowl-half-half-natural-70c94c80-634.webp",
-     "bytes": 73860
+     "bytes": 68682
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-half-half-natural-70c94c80-320.avif",
+     "bytes": 13994
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-half-half-natural-70c94c80-480.avif",
+     "bytes": 25562
+    },
+    {
+     "w": 634,
+     "url": "/assets/site/img/bowl-half-half-natural-70c94c80-634.avif",
+     "bytes": 39511
     }
    ]
   },
@@ -571,17 +911,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-453f18f4-320.webp",
-     "bytes": 23162
+     "bytes": 21888
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-453f18f4-480.webp",
-     "bytes": 44840
+     "bytes": 42108
     },
     {
      "w": 720,
      "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-453f18f4-720.webp",
-     "bytes": 93500
+     "bytes": 88360
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-453f18f4-320.avif",
+     "bytes": 11632
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-453f18f4-480.avif",
+     "bytes": 22013
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-453f18f4-720.avif",
+     "bytes": 43734
     }
    ]
   },
@@ -592,17 +949,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-mango-lychee-20261028-65e5f1e6-320.webp",
-     "bytes": 22432
+     "bytes": 20934
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-mango-lychee-20261028-65e5f1e6-480.webp",
-     "bytes": 41868
+     "bytes": 38976
     },
     {
      "w": 720,
      "url": "/assets/site/img/bowl-mango-lychee-20261028-65e5f1e6-720.webp",
-     "bytes": 82448
+     "bytes": 77306
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-mango-lychee-20261028-65e5f1e6-320.avif",
+     "bytes": 12094
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-mango-lychee-20261028-65e5f1e6-480.avif",
+     "bytes": 22167
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-mango-lychee-20261028-65e5f1e6-720.avif",
+     "bytes": 43006
     }
    ]
   },
@@ -613,17 +987,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/bowl-strawberry-shine-20261028-8c593882-320.webp",
-     "bytes": 29594
+     "bytes": 28136
     },
     {
      "w": 480,
      "url": "/assets/site/img/bowl-strawberry-shine-20261028-8c593882-480.webp",
-     "bytes": 59220
+     "bytes": 56106
     },
     {
      "w": 720,
      "url": "/assets/site/img/bowl-strawberry-shine-20261028-8c593882-720.webp",
-     "bytes": 125124
+     "bytes": 118684
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-strawberry-shine-20261028-8c593882-320.avif",
+     "bytes": 13956
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-strawberry-shine-20261028-8c593882-480.avif",
+     "bytes": 26825
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-strawberry-shine-20261028-8c593882-720.avif",
+     "bytes": 54031
     }
    ]
   },
@@ -634,17 +1025,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-320.webp",
-     "bytes": 19654
+     "bytes": 18548
     },
     {
      "w": 480,
      "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-480.webp",
-     "bytes": 37214
+     "bytes": 35136
     },
     {
      "w": 720,
      "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-720.webp",
-     "bytes": 73418
+     "bytes": 69244
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-320.avif",
+     "bytes": 11153
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-480.avif",
+     "bytes": 20654
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-mango-poprocks-20261106-1ac35b11-720.avif",
+     "bytes": 39885
     }
    ]
   },
@@ -655,17 +1063,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/mango-jelly-384050d5-320.webp",
-     "bytes": 31174
+     "bytes": 28766
     },
     {
      "w": 480,
      "url": "/assets/site/img/mango-jelly-384050d5-480.webp",
-     "bytes": 57182
+     "bytes": 53034
     },
     {
      "w": 720,
      "url": "/assets/site/img/mango-jelly-384050d5-720.webp",
-     "bytes": 98916
+     "bytes": 90808
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/mango-jelly-384050d5-320.avif",
+     "bytes": 19649
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/mango-jelly-384050d5-480.avif",
+     "bytes": 36432
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/mango-jelly-384050d5-720.avif",
+     "bytes": 63942
     }
    ]
   },
@@ -676,17 +1101,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/injeolmi-jollypong-acaef359-320.webp",
-     "bytes": 41956
+     "bytes": 39288
     },
     {
      "w": 480,
      "url": "/assets/site/img/injeolmi-jollypong-acaef359-480.webp",
-     "bytes": 83030
+     "bytes": 77448
     },
     {
      "w": 720,
      "url": "/assets/site/img/injeolmi-jollypong-acaef359-720.webp",
-     "bytes": 156370
+     "bytes": 143258
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/injeolmi-jollypong-acaef359-320.avif",
+     "bytes": 24569
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/injeolmi-jollypong-acaef359-480.avif",
+     "bytes": 47686
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/injeolmi-jollypong-acaef359-720.avif",
+     "bytes": 88599
     }
    ]
   },
@@ -697,17 +1139,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/cookies-cream-6add2f76-320.webp",
-     "bytes": 48962
+     "bytes": 46050
     },
     {
      "w": 480,
      "url": "/assets/site/img/cookies-cream-6add2f76-480.webp",
-     "bytes": 96088
+     "bytes": 90134
     },
     {
      "w": 720,
      "url": "/assets/site/img/cookies-cream-6add2f76-720.webp",
-     "bytes": 180642
+     "bytes": 169898
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cookies-cream-6add2f76-320.avif",
+     "bytes": 28868
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cookies-cream-6add2f76-480.avif",
+     "bytes": 56432
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cookies-cream-6add2f76-720.avif",
+     "bytes": 105883
     }
    ]
   },
@@ -718,17 +1177,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/cups-viet-coffee-20261101-ebffce4b-320.webp",
-     "bytes": 39700
+     "bytes": 37116
     },
     {
      "w": 480,
      "url": "/assets/site/img/cups-viet-coffee-20261101-ebffce4b-480.webp",
-     "bytes": 75034
+     "bytes": 70048
     },
     {
      "w": 720,
      "url": "/assets/site/img/cups-viet-coffee-20261101-ebffce4b-720.webp",
-     "bytes": 135930
+     "bytes": 127146
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cups-viet-coffee-20261101-ebffce4b-320.avif",
+     "bytes": 24122
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cups-viet-coffee-20261101-ebffce4b-480.avif",
+     "bytes": 44093
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cups-viet-coffee-20261101-ebffce4b-720.avif",
+     "bytes": 79075
     }
    ]
   },
@@ -739,17 +1215,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/matcha-red-bean-crunch-a3ac053f-320.webp",
-     "bytes": 43150
+     "bytes": 41154
     },
     {
      "w": 480,
      "url": "/assets/site/img/matcha-red-bean-crunch-a3ac053f-480.webp",
-     "bytes": 86224
+     "bytes": 79986
     },
     {
      "w": 720,
      "url": "/assets/site/img/matcha-red-bean-crunch-a3ac053f-720.webp",
-     "bytes": 164586
+     "bytes": 153398
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/matcha-red-bean-crunch-a3ac053f-320.avif",
+     "bytes": 25531
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/matcha-red-bean-crunch-a3ac053f-480.avif",
+     "bytes": 49786
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/matcha-red-bean-crunch-a3ac053f-720.avif",
+     "bytes": 94304
     }
    ]
   },
@@ -760,17 +1253,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/cups-biscoff-caramel-20261101-c2e03b4c-320.webp",
-     "bytes": 46308
+     "bytes": 43296
     },
     {
      "w": 480,
      "url": "/assets/site/img/cups-biscoff-caramel-20261101-c2e03b4c-480.webp",
-     "bytes": 88934
+     "bytes": 82096
     },
     {
      "w": 720,
      "url": "/assets/site/img/cups-biscoff-caramel-20261101-c2e03b4c-720.webp",
-     "bytes": 164726
+     "bytes": 153520
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cups-biscoff-caramel-20261101-c2e03b4c-320.avif",
+     "bytes": 27538
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cups-biscoff-caramel-20261101-c2e03b4c-480.avif",
+     "bytes": 50928
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cups-biscoff-caramel-20261101-c2e03b4c-720.avif",
+     "bytes": 94113
     }
    ]
   },
@@ -781,17 +1291,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/cups-strawberry-cheesecake-glaze-20261109-82950fb5-320.webp",
-     "bytes": 35932
+     "bytes": 33824
     },
     {
      "w": 480,
      "url": "/assets/site/img/cups-strawberry-cheesecake-glaze-20261109-82950fb5-480.webp",
-     "bytes": 71386
+     "bytes": 67646
     },
     {
      "w": 720,
      "url": "/assets/site/img/cups-strawberry-cheesecake-glaze-20261109-82950fb5-720.webp",
-     "bytes": 141930
+     "bytes": 135848
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cups-strawberry-cheesecake-glaze-20261109-82950fb5-320.avif",
+     "bytes": 15554
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cups-strawberry-cheesecake-glaze-20261109-82950fb5-480.avif",
+     "bytes": 30025
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cups-strawberry-cheesecake-glaze-20261109-82950fb5-720.avif",
+     "bytes": 54853
     }
    ]
   },
@@ -802,17 +1329,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/dubai-chocolate-8ad2bbeb-320.webp",
-     "bytes": 28048
+     "bytes": 26694
     },
     {
      "w": 480,
      "url": "/assets/site/img/dubai-chocolate-8ad2bbeb-480.webp",
-     "bytes": 54876
+     "bytes": 50566
     },
     {
      "w": 720,
      "url": "/assets/site/img/dubai-chocolate-8ad2bbeb-720.webp",
-     "bytes": 112282
+     "bytes": 103920
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/dubai-chocolate-8ad2bbeb-320.avif",
+     "bytes": 13926
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/dubai-chocolate-8ad2bbeb-480.avif",
+     "bytes": 26321
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/dubai-chocolate-8ad2bbeb-720.avif",
+     "bytes": 53394
     }
    ]
   },
@@ -823,17 +1367,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/red-beans-377b90d4-320.webp",
-     "bytes": 24654
+     "bytes": 23288
     },
     {
      "w": 480,
      "url": "/assets/site/img/red-beans-377b90d4-480.webp",
-     "bytes": 46934
+     "bytes": 43704
     },
     {
      "w": 720,
      "url": "/assets/site/img/red-beans-377b90d4-720.webp",
-     "bytes": 97738
+     "bytes": 90262
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/red-beans-377b90d4-320.avif",
+     "bytes": 12760
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/red-beans-377b90d4-480.avif",
+     "bytes": 23958
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/red-beans-377b90d4-720.avif",
+     "bytes": 49350
     }
    ]
   },
@@ -844,17 +1405,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/custard-9445f53f-320.webp",
-     "bytes": 26160
+     "bytes": 24700
     },
     {
      "w": 480,
      "url": "/assets/site/img/custard-9445f53f-480.webp",
-     "bytes": 50138
+     "bytes": 46204
     },
     {
      "w": 720,
      "url": "/assets/site/img/custard-9445f53f-720.webp",
-     "bytes": 103462
+     "bytes": 94886
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/custard-9445f53f-320.avif",
+     "bytes": 13131
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/custard-9445f53f-480.avif",
+     "bytes": 24810
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/custard-9445f53f-720.avif",
+     "bytes": 50222
     }
    ]
   },
@@ -865,17 +1443,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/nutella-421c3166-320.webp",
-     "bytes": 25526
+     "bytes": 23954
     },
     {
      "w": 480,
      "url": "/assets/site/img/nutella-421c3166-480.webp",
-     "bytes": 48200
+     "bytes": 44442
     },
     {
      "w": 720,
      "url": "/assets/site/img/nutella-421c3166-720.webp",
-     "bytes": 98080
+     "bytes": 90002
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/nutella-421c3166-320.avif",
+     "bytes": 12573
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/nutella-421c3166-480.avif",
+     "bytes": 23658
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/nutella-421c3166-720.avif",
+     "bytes": 47575
     }
    ]
   },
@@ -886,17 +1481,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/cheese-1ff3f37c-320.webp",
-     "bytes": 26476
+     "bytes": 24954
     },
     {
      "w": 480,
      "url": "/assets/site/img/cheese-1ff3f37c-480.webp",
-     "bytes": 50984
+     "bytes": 46734
     },
     {
      "w": 720,
      "url": "/assets/site/img/cheese-1ff3f37c-720.webp",
-     "bytes": 105258
+     "bytes": 97652
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cheese-1ff3f37c-320.avif",
+     "bytes": 13196
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cheese-1ff3f37c-480.avif",
+     "bytes": 24877
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cheese-1ff3f37c-720.avif",
+     "bytes": 51541
     }
    ]
   },
@@ -907,17 +1519,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/white-bowl-v3-da1da428-320.webp",
-     "bytes": 25842
+     "bytes": 23600
     },
     {
      "w": 480,
      "url": "/assets/site/img/white-bowl-v3-da1da428-480.webp",
-     "bytes": 49534
+     "bytes": 44684
     },
     {
      "w": 720,
      "url": "/assets/site/img/white-bowl-v3-da1da428-720.webp",
-     "bytes": 105014
+     "bytes": 95758
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/white-bowl-v3-da1da428-320.avif",
+     "bytes": 12391
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/white-bowl-v3-da1da428-480.avif",
+     "bytes": 23848
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/white-bowl-v3-da1da428-720.avif",
+     "bytes": 46966
     }
    ]
   },
@@ -928,17 +1557,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/injeolmi-eab3ee99-320.webp",
-     "bytes": 23350
+     "bytes": 22224
     },
     {
      "w": 480,
      "url": "/assets/site/img/injeolmi-eab3ee99-480.webp",
-     "bytes": 47120
+     "bytes": 44786
     },
     {
      "w": 720,
      "url": "/assets/site/img/injeolmi-eab3ee99-720.webp",
-     "bytes": 99166
+     "bytes": 94344
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/injeolmi-eab3ee99-320.avif",
+     "bytes": 11725
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/injeolmi-eab3ee99-480.avif",
+     "bytes": 22745
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/injeolmi-eab3ee99-720.avif",
+     "bytes": 47281
     }
    ]
   },
@@ -949,17 +1595,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/biscoff-f835ade5-320.webp",
-     "bytes": 21820
+     "bytes": 20698
     },
     {
      "w": 480,
      "url": "/assets/site/img/biscoff-f835ade5-480.webp",
-     "bytes": 41614
+     "bytes": 39296
     },
     {
      "w": 720,
      "url": "/assets/site/img/biscoff-f835ade5-720.webp",
-     "bytes": 82450
+     "bytes": 77958
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/biscoff-f835ade5-320.avif",
+     "bytes": 11606
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/biscoff-f835ade5-480.avif",
+     "bytes": 21895
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/biscoff-f835ade5-720.avif",
+     "bytes": 42907
     }
    ]
   },
@@ -970,17 +1633,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/oreo-tiramisu-65655039-320.webp",
-     "bytes": 23382
+     "bytes": 22212
     },
     {
      "w": 480,
      "url": "/assets/site/img/oreo-tiramisu-65655039-480.webp",
-     "bytes": 46162
+     "bytes": 43774
     },
     {
      "w": 720,
      "url": "/assets/site/img/oreo-tiramisu-65655039-720.webp",
-     "bytes": 93512
+     "bytes": 88438
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/oreo-tiramisu-65655039-320.avif",
+     "bytes": 13130
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/oreo-tiramisu-65655039-480.avif",
+     "bytes": 25745
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/oreo-tiramisu-65655039-720.avif",
+     "bytes": 51413
     }
    ]
   },
@@ -991,17 +1671,34 @@
     {
      "w": 320,
      "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-320.webp",
-     "bytes": 26784
+     "bytes": 25424
     },
     {
      "w": 480,
      "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-480.webp",
-     "bytes": 51646
+     "bytes": 48806
     },
     {
      "w": 720,
      "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-720.webp",
-     "bytes": 101318
+     "bytes": 96022
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-320.avif",
+     "bytes": 14914
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-480.avif",
+     "bytes": 28823
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/dubai-strawberry-icecream-20261023-45cae220-720.avif",
+     "bytes": 57042
     }
    ]
   },
@@ -1524,12 +2221,12 @@
     {
      "w": 480,
      "url": "/assets/site/img/qt-golden-market-original-28a85980-480.webp",
-     "bytes": 36566
+     "bytes": 34116
     },
     {
      "w": 750,
      "url": "/assets/site/img/qt-golden-market-original-28a85980-750.webp",
-     "bytes": 74610
+     "bytes": 70234
     }
    ]
   },
@@ -1540,12 +2237,12 @@
     {
      "w": 480,
      "url": "/assets/site/img/sweet-snow-storefront-straight-8a57f218-480.webp",
-     "bytes": 42836
+     "bytes": 39278
     },
     {
      "w": 960,
      "url": "/assets/site/img/sweet-snow-storefront-straight-8a57f218-960.webp",
-     "bytes": 128100
+     "bytes": 118438
     }
    ]
   }
@@ -1556,14 +2253,14 @@
    "h": 645,
    "variants": [
     {
-     "w": 240,
-     "url": "/assets/site/img/logo-blue-240.webp",
-     "bytes": 19326
+     "w": 224,
+     "url": "/assets/site/img/logo-blue-224.webp",
+     "bytes": 10500
     },
     {
-     "w": 480,
-     "url": "/assets/site/img/logo-blue-480.webp",
-     "bytes": 50330
+     "w": 336,
+     "url": "/assets/site/img/logo-blue-336.webp",
+     "bytes": 17468
     }
    ]
   },
@@ -1572,14 +2269,14 @@
    "h": 645,
    "variants": [
     {
-     "w": 240,
-     "url": "/assets/site/img/logo-white-240.webp",
-     "bytes": 9580
+     "w": 224,
+     "url": "/assets/site/img/logo-white-224.webp",
+     "bytes": 3564
     },
     {
-     "w": 480,
-     "url": "/assets/site/img/logo-white-480.webp",
-     "bytes": 26112
+     "w": 336,
+     "url": "/assets/site/img/logo-white-336.webp",
+     "bytes": 6064
     }
    ]
   },
@@ -1588,14 +2285,14 @@
    "h": 645,
    "variants": [
     {
-     "w": 240,
-     "url": "/assets/site/img/logo-ink-240.webp",
-     "bytes": 16890
+     "w": 224,
+     "url": "/assets/site/img/logo-ink-224.webp",
+     "bytes": 8380
     },
     {
-     "w": 480,
-     "url": "/assets/site/img/logo-ink-480.webp",
-     "bytes": 45026
+     "w": 336,
+     "url": "/assets/site/img/logo-ink-336.webp",
+     "bytes": 13874
     }
    ]
   },
@@ -1604,14 +2301,14 @@
    "h": 434,
    "variants": [
     {
-     "w": 320,
-     "url": "/assets/site/img/arch-blue-320.webp",
-     "bytes": 31114
+     "w": 200,
+     "url": "/assets/site/img/arch-blue-200.webp",
+     "bytes": 8788
     },
     {
-     "w": 640,
-     "url": "/assets/site/img/arch-blue-640.webp",
-     "bytes": 75712
+     "w": 400,
+     "url": "/assets/site/img/arch-blue-400.webp",
+     "bytes": 22286
     }
    ]
   },
@@ -1620,14 +2317,14 @@
    "h": 434,
    "variants": [
     {
-     "w": 320,
-     "url": "/assets/site/img/arch-white-320.webp",
-     "bytes": 15396
+     "w": 200,
+     "url": "/assets/site/img/arch-white-200.webp",
+     "bytes": 3454
     },
     {
-     "w": 640,
-     "url": "/assets/site/img/arch-white-640.webp",
-     "bytes": 38720
+     "w": 400,
+     "url": "/assets/site/img/arch-white-400.webp",
+     "bytes": 8548
     }
    ]
   }

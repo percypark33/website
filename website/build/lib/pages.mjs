@@ -60,7 +60,7 @@ function footer(ctx) {
   const handle = L.instagram.replace(/\/$/, '').split('/').pop();
   return `<footer class="site-footer" id="visit">
   <div class="wrap footer-grid">
-    <div class="footer-brand">${logo('arch-blue', 'Sweet Snow. ' + site.SETTINGS.tagline, 'footer-logo', '200px')}</div>
+    <div class="footer-brand">${logo('arch-blue', 'Sweet Snow. ' + site.SETTINGS.tagline, 'footer-logo', '200px', true)}</div>
     <section aria-labelledby="f-visit"><h2 id="f-visit">${t('Visit us')}</h2><address>${t(site.brand.venue)}<br>${e(site.brand.street)}<br>${e(site.brand.city)}</address><a class="link" href="${e(L.maps)}" target="_blank" rel="noopener">${t('Get directions')}${ICON.out}</a></section>
     <section aria-labelledby="f-hours"><h2 id="f-hours">${t('Hours')}</h2>${hoursRows(ctx)}<p class="status" data-status></p></section>
     <section aria-labelledby="f-follow"><h2 id="f-follow">${t('Follow along')}</h2><a class="link" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON.out}</a></section>
@@ -107,14 +107,17 @@ function tags(ctx, item) {
   return out.join('');
 }
 
-function card(ctx, item, role = 'card') {
+export const CARD_SIZES = '(max-width: 599px) 39vw, (max-width: 859px) 27vw, 240px';
+
+function card(ctx, item, eager = false) {
+  const role = 'card';
   const { t, ta, img, site } = ctx;
   const parts = item.ing.split(item.kind === 'croffle' ? /,\s*/ : /\s*·\s*/).filter(Boolean);
   const alt = item.kind === 'cup' ? item.name + ' bingsu' : item.kind === 'hot' ? item.name + ' mini taiyaki' : item.preview ? item.name + ' — serving preview' : item.name;
-  const sizes = '(max-width: 560px) 44vw, (max-width: 1000px) 30vw, 260px';
+  const sizes = CARD_SIZES;
   return `<article class="card card-${item.kind}${item.comingSoon ? ' is-soon' : ''}" id="${item.id}" data-name="${e(item.name)}" data-inventory-name="${e(item.inventoryName)}" data-kind="${item.kind}" data-ing="${e(parts.join('|'))}"${item.note ? ` data-note="${e(item.note)}"` : ''}${site.showPrices && item.price !== null ? ` data-price="${e(money(item.price))}"` : ''}>
   <button class="card-hit" type="button" aria-haspopup="dialog" aria-label="${ta('Show ingredients for ' + item.name)}">
-    <span class="card-photo">${img(item.photo, role, { alt: ta(alt), sizes })}</span>
+    <span class="card-photo">${img(item.photo, role, { alt: ta(alt), sizes, eager })}</span>
   </button>
   <div class="card-body">
     <h3 class="card-name">${t(item.name)}</h3>${site.showPrices && item.price !== null ? `<p class="card-price">${e(money(item.price))}</p>` : ''}
@@ -196,12 +199,12 @@ function hero(ctx) {
   <div class="hero-inner wrap">
     <div class="hero-copy">
       <p class="hero-tagline">${t(site.SETTINGS.tagline)}</p>
-      <h1 id="hero-title" class="hero-title" aria-label="${ta(h.title)}">${words.map(w => `<span>${t(w)}</span>`).join(' ')}</h1>
+      <h1 id="hero-title" class="hero-title" aria-label="${ta(h.title)}" data-words="${e(h.title)}">${words.map(w => `<span>${e(w)}</span>`).join(' ')}</h1>
       ${h.label ? `<p class="chip">${t(h.label)}</p>` : ''}
     </div>
     <div class="hero-stage" data-hero-stage>
       <div class="hero-halo" aria-hidden="true"></div>
-      ${img(h.item.photo, 'hero', { alt: ta(h.item.name), sizes: '(max-width: 859px) 100vw, 600px', eager: true, cls: 'hero-photo' })}
+      ${img(h.item.photo, 'hero', { alt: ta(h.item.name), sizes: ctx.heroSizes, eager: true, cls: 'hero-photo' })}
     </div>
     <div class="hero-foot">
       <p class="hero-text">${t(h.text)}</p>
@@ -211,7 +214,7 @@ function hero(ctx) {
         <a class="link hero-menu-link" href="/menu">${t('Explore the menu')}${ICON.arrow}</a>
       </div>
     </div>
-    <p class="hero-sign" lang="ko" aria-hidden="true">정통 눈꽃빙수</p>
+    <p class="hero-sign" aria-hidden="true">${ctx.sign}</p>
   </div>
   <canvas class="snow" data-snow aria-hidden="true"></canvas>
 </section>`;
@@ -266,7 +269,7 @@ function features(ctx) {
       <p>${t('Croissant dough pressed in a waffle iron. Golden, flaky layers with your favorite toppings.')}</p>
       <a class="link" href="/menu#croffles">${t('Explore croffles')}${ICON.arrow}</a>
     </div>
-    <div class="feature-food feature-food-2">${site.homeCroffles.map(i => figure(i, '(max-width: 720px) 80vw, 420px')).join('')}</div>
+    <div class="feature-food feature-food-2">${site.homeCroffles.map(i => figure(i, '(max-width: 859px) 44vw, 330px')).join('')}</div>
   </div>
 </section>
 <section class="feature feature-cups" aria-labelledby="home-cups-title">
@@ -277,7 +280,7 @@ function features(ctx) {
       <p>${t('Our premium milk snow, layered with fruit, syrups and toppings. All the joy of bingsu, in a cup.')}</p>
       <a class="link" href="/menu#single-cups">${t('Explore cup bingsu')}${ICON.arrow}</a>
     </div>
-    <div class="feature-food feature-food-3">${site.homeCups.map(i => figure(i, '(max-width: 720px) 30vw, 240px')).join('')}</div>
+    <div class="feature-food feature-food-3">${site.homeCups.map(i => figure(i, '(max-width: 859px) 29vw, 220px')).join('')}</div>
   </div>
 </section>`;
 }
@@ -363,7 +366,7 @@ export function menu(ctx) {
   <nav class="cats" aria-label="${ta('Menu categories')}" data-cats><div class="cats-track wrap">${cats.map(([id, label]) => `<a href="#${id}">${t(label)}</a>`).join('')}</div></nav>
   ${groups.map(([id, label, items]) => `<section class="group wrap" id="${id}" aria-labelledby="h-${id}">
     <h2 id="h-${id}">${t(label)}</h2>
-    <div class="grid">${items.map(i => card(ctx, i)).join('')}</div>
+    <div class="grid">${items.map((i, n) => card(ctx, i, id === 'menu-classic' && n < 2)).join('')}</div>
   </section>`).join('\n  ')}
   <section class="group wrap" id="single-cups" aria-labelledby="h-cups">
     <h2 id="h-cups">${t(site.cupMeta.title)}</h2>
@@ -432,6 +435,45 @@ export function visit(ctx) {
 ${footer(ctx)}`;
 }
 
+/* ---------- small text pages (privacy, thanks, not found) ---------- */
+
+const TEXT_PAGES = {
+  privacy: {
+    kicker: 'Sweet Snow', title: 'Website privacy', updated: 'Updated September 24, 2026',
+    body: [
+      'Sweet Snow uses Google Analytics and the Google Ads tag to understand website visits, menu engagement, and advertising performance. These services may use cookies and online identifiers and receive technical information about your browser and device.',
+      'Our website tracking records page visits, viewed menu sections, navigation, Instagram link clicks, and form submission attempts. An attempt does not confirm that a message was received. Our tracking code does not send the text you enter in forms or count in-store and kiosk purchases as website sales.',
+      'Google signals and advertising personalization are disabled in our website tag configuration. The tags do not load when your browser sends Global Privacy Control or Do Not Track. You can also control cookies in your browser or use <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">Google’s Analytics opt-out browser add-on</a>.',
+      'Learn <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses information from sites that use its services</a>. Links to external sites, including Instagram, are subject to those sites’ privacy practices.',
+      'For questions, contact Sweet Snow in-store or through <a href="https://www.instagram.com/sweetsnow_oc/" rel="noopener">our Instagram account</a>.'
+    ]
+  },
+  thanks: {
+    kicker: 'Thank you', title: 'We got it.',
+    body: ['Thanks for writing. We read every idea — and if you left an email, we’ll write back.', 'Until then, come say hi at QT Golden Market Place.']
+  },
+  notfound: {
+    kicker: '404 · Page not found', title: 'That one melted away.',
+    body: ['We couldn’t find the page you were looking for. The menu, though, is right where you left it.']
+  }
+};
+
+export function textPage(ctx, key) {
+  const page = TEXT_PAGES[key];
+  return `${header(ctx, key)}
+<main id="main" class="text-page wrap">
+  <p class="kicker">${e(page.kicker)}</p>
+  <h1>${e(page.title)}</h1>
+  ${page.updated ? `<p class="updated">${e(page.updated)}</p>` : ''}
+  ${page.body.map(p => `<p>${p}</p>`).join('\n  ')}
+  <p class="text-page-back"><a class="btn btn-primary" href="/menu">${ctx.t('Explore the menu')}</a></p>
+</main>
+${footer(ctx)}`;
+}
+export const privacy = ctx => textPage(ctx, 'privacy');
+export const thanks = ctx => textPage(ctx, 'thanks');
+export const notfound = ctx => textPage(ctx, 'notfound');
+
 /* ---------- <head> ---------- */
 
 export function business(site) {
@@ -494,12 +536,25 @@ export const PAGES = {
     title: 'Visit Sweet Snow | Garden Grove Hours & Directions',
     ogTitle: 'Visit Sweet Snow | Garden Grove Hours & Directions',
     description: 'Find Sweet Snow inside QT Golden Market Place at 9772 Garden Grove Blvd, Garden Grove. View our hours, entrance guide, pickup link and directions.'
-  }
+  },
+  // Small pages keep the short <head> they had before.
+  privacy: { file: 'privacy.html', path: '/privacy', bodyClass: 'page-text', simple: true, title: 'Website privacy — Sweet Snow', description: 'How the Sweet Snow website uses Google Analytics and the Google Ads tag, and how to opt out.', canonical: true },
+  thanks: { file: 'thanks.html', path: '/thanks', bodyClass: 'page-text', simple: true, title: 'Got it — Sweet Snow', robots: 'noindex' },
+  notfound: { file: '404.html', path: '/404', bodyClass: 'page-text', simple: true, title: 'Page not found — Sweet Snow', robots: 'noindex' }
 };
 
 export function head(ctx, key, { css, preload = [], scripts = '' }) {
   const page = PAGES[key];
   const url = SITE + page.path;
+  if (page.simple) return `<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${e(page.title)}</title>
+${page.description ? `<meta name="description" content="${e(page.description)}">\n` : ''}${page.robots ? `<meta name="robots" content="${page.robots}">\n` : ''}<meta name="theme-color" content="${ctx.themeColor}">
+${page.canonical ? `<link rel="canonical" href="${url}">\n` : ''}<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-sweetsnow-20261110.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-sweetsnow-20261110.png">
+${preload.join('\n')}
+<style>${css}</style>
+${scripts}`;
   const og = SITE + '/assets/sweet-snow-horizontal-right-blue-20261104.svg';
   const json = data => `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
   const crumb = page.crumb ? json({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Sweet Snow', item: SITE + '/' }, { '@type': 'ListItem', position: 2, name: page.crumb, item: url }] }) : '';
