@@ -17,16 +17,21 @@
 
 window.CATERING_SETTINGS = {
 
-  /* ---- WHICH DESIGN ---------------------------------------------
-     "bunny"  Snow Bunny: the website's look, with the bunny and doodles
-     "cloud"  Cotton Cloud: pastel sky, clouds, soft and round
-     "diary"  Sticker Diary: scrapbook with polaroids, tape and stickers
+  /* ---- THE DESIGNS -----------------------------------------------
+     There are three, and all three are always live at their own
+     address, so different ads can land on different designs:
 
-     showSamples: true also builds one page per design so you can
-     compare them at sweetsnow.org/catering/designs. Set it to false
-     once you have chosen.                                           */
+       sweetsnow.org/catering/bunny   Snow Bunny: the website's look,
+                                      with the bunny and doodles
+       sweetsnow.org/catering/cloud   Cotton Cloud: pastel sky, clouds,
+                                      soft and round
+       sweetsnow.org/catering/diary   Sticker Diary: scrapbook with
+                                      polaroids, tape and stickers
+
+     `design` is the one that sweetsnow.org/catering itself shows.
+     See all three side by side at sweetsnow.org/catering/designs.
+     Every booking email says which design the guest was on.         */
   design: "bunny",
-  showSamples: true,
 
   /* ---- IS CATERING ANNOUNCED YET? ----------------------------
      false = the page works for anyone who has the link (your

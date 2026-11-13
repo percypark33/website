@@ -5,6 +5,8 @@
 .d-diary .k-page h1,.d-diary .k-page h2{font-family:var(--k-hand);font-weight:700;letter-spacing:-.02em;word-spacing:-.14em;line-height:.95}
 .d-diary .k-hero h1{font-size:clamp(3.4rem,15.5vw,6.2rem)}
 .d-diary .k-page h2{font-size:clamp(2.7rem,10.5vw,4.2rem)}
+/* a hand-drawn squiggle under each section title */
+.d-diary .k-page h2::after{content:"";display:block;width:min(10rem,58%);height:12px;margin-top:.14em;background:url("data:image/svg+xml,%3Csvg xmlns='http%3A//www.w3.org/2000/svg' viewBox='0 0 120 12'%3E%3Cpath d='M2 7c10-6 18 6 28 0s18-6 28 0 18 6 28 0 18-6 30 0' fill='none' stroke='%23F7B8CB' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat}
 .d-diary .k-hero-copy .kicker{padding:.15rem .7rem;background:var(--k-butter);color:var(--ink);font-family:var(--k-hand);font-weight:700;font-size:1.15rem;rotate:-2deg}
 .d-diary .k-facts li::before{border-radius:2px;background:var(--k-pink);rotate:45deg}
 
@@ -34,7 +36,7 @@
 @keyframes k-stamp{0%{opacity:0;transform:scale(1.7)}70%{opacity:1;transform:scale(.94)}100%{opacity:1;transform:none}}
 
 /* how to book: a checklist on a notepad */
-.d-diary .k-step-list{gap:0;padding:1.1rem 1.2rem 1.3rem;border-radius:6px;background:#fff repeating-linear-gradient(transparent 0 2.35rem,#DFEAF4 2.35rem calc(2.35rem + 1px));box-shadow:var(--shadow-2);rotate:-.5deg}
+.d-diary .k-step-list{gap:0;padding:1.1rem 1.2rem 1.3rem;border-radius:6px;background:#fff repeating-linear-gradient(transparent 0 2.35rem,#EAF1F8 2.35rem calc(2.35rem + 1px));box-shadow:var(--shadow-2);rotate:-.5deg}
 .d-diary .k-step-list li{padding:.6rem 0;border-radius:0;background:none;box-shadow:none}
 .d-diary .k-step-num{border-radius:7px;background:#fff;box-shadow:inset 0 0 0 2.5px var(--ink);color:var(--accent-text);font-family:var(--k-hand);font-weight:700;font-size:1.5rem}
 .d-diary .k-step-list h3{font-family:var(--k-hand);font-weight:700;font-size:1.45rem;line-height:1}
@@ -61,6 +63,13 @@
 .d-diary .k-bowl-name{font-family:var(--k-hand);font-weight:700;letter-spacing:0;font-size:1.25rem}
 .d-diary .k-extra{border-radius:8px}
 .d-diary .k-extra h3{font-family:var(--k-hand);font-weight:700;letter-spacing:0;font-size:1.7rem;line-height:1}
+
+/* the booking card is taped onto the page */
+.d-diary .k-book-panel{position:relative}
+.d-diary .k-book-panel::before{content:"";position:absolute;z-index:2;left:50%;top:-13px;width:92px;height:26px;translate:-50% 0;rotate:2deg;background:rgba(255,224,138,.88);box-shadow:0 1px 2px rgba(22,50,74,.14)}
+.d-diary .k-extra{position:relative}
+.d-diary .k-extra::before{content:"";position:absolute;left:18px;top:-11px;width:58px;height:20px;rotate:-5deg;background:rgba(247,184,203,.82);box-shadow:0 1px 2px rgba(22,50,74,.14)}
+.d-diary .k-extra:nth-child(2)::before{left:auto;right:18px;rotate:4deg;background:rgba(112,173,217,.6)}
 
 /* the chat: notes on lined paper */
 .d-diary .k-chat,.d-diary .k-form,.d-diary .k-done{border-radius:10px}

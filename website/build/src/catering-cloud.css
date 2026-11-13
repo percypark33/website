@@ -17,6 +17,12 @@
 .d-cloud .k-hero-art>.k-star:nth-of-type(1){left:5%;top:2%;width:30px;height:30px}
 .d-cloud .k-hero-art>.k-star:nth-of-type(3){right:6%;top:16%;width:22px;height:22px}
 .d-cloud .k-sparkle{right:22%;top:-2%;fill:#fff}
+/* two small clouds drift past in the sky */
+.d-cloud .k-hero::before,.d-cloud .k-hero::after{content:"";position:absolute;z-index:1;width:150px;height:76px;border-radius:38px;opacity:.9;background:radial-gradient(circle at 30% 50%,#fff 27px,transparent 28px),radial-gradient(circle at 58% 38%,#fff 30px,transparent 31px),linear-gradient(#fff,#fff) 50% 100%/100% 46% no-repeat;pointer-events:none}
+.d-cloud .k-hero::before{left:-52px;top:20%}
+.d-cloud .k-hero::after{right:-58px;top:47%;scale:.78}
+.js .d-cloud .k-hero::before{animation:k-drift 11s ease-in-out infinite}
+.js .d-cloud .k-hero::after{animation:k-drift 13s ease-in-out -5s infinite}
 .js .d-cloud .k-hero-bowl{animation:bowl-in 1s var(--ease) both,float 6s ease-in-out 1.2s infinite}
 .js .d-cloud .k-hero-bowl-1{animation-delay:.15s,1.6s}
 .js .d-cloud .k-hero-bowl-3{animation-delay:.3s,2s}
@@ -81,5 +87,8 @@
   .d-cloud .k-book-in{grid-template-columns:minmax(0,1fr);justify-items:center}
   .d-cloud .k-book-copy{position:static}
   .d-cloud .k-book-panel{width:min(100%,640px)}
-  .d-cloud .k-bowls{justify-content:center;grid-template-columns:repeat(auto-fit,minmax(140px,170px))}
+  .d-cloud .k-hero::before{left:6%;top:24%;scale:1.2}
+  .d-cloud .k-hero::after{right:7%;top:40%;scale:1}
+  .d-cloud .k-bowls{display:flex;flex-wrap:wrap;justify-content:center;gap:26px 22px}
+  .d-cloud .k-bowls li{flex:0 0 150px}
 }

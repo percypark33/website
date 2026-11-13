@@ -45,7 +45,7 @@ const KNOWN_FORMS = {
 const FIELD_LABELS = {
   name: "Name", phone: "Phone", email: "Email", event: "Event", date: "Event date", guests: "Guests", tier: "Tier",
   taiyaki: "Taiyaki add-on", appointment_day: "Appointment day", appointment_time: "Appointment time",
-  question: "Question", notes: "Notes", source: "Sent from",
+  question: "Question", notes: "Notes", source: "Sent from", design: "Page design", ad: "Ad",
 };
 /* A link that opens Google Calendar with the appointment filled in, so the owner can keep it with one tap. */
 function calendarLink(data) {

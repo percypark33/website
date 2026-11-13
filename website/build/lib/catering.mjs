@@ -2,11 +2,13 @@
    its thank-you page, and the three design samples.
 
    The page keeps the main website's look (same colours, typefaces, buttons)
-   and adds a cuter concept on top. There are three to choose from:
-     bunny   Snow Bunny      the bunny and doodles
-     cloud   Cotton Cloud    pastel sky and clouds
-     diary   Sticker Diary   scrapbook with polaroids, tape and stickers
-   catering-settings.js picks one with `design`.
+   and adds a cuter concept on top. There are three, each a complete page:
+     bunny   Snow Bunny      the bunny and doodles          /catering/bunny
+     cloud   Cotton Cloud    pastel sky and clouds          /catering/cloud
+     diary   Sticker Diary   scrapbook, polaroids, tape     /catering/diary
+   All three are always built, so different ads can land on different
+   designs. catering-settings.js picks the one shown at /catering itself
+   with `design`. Every booking says which design it came from.
 
    Everything shown comes from catering/catering-settings.js and the menu:
    a menu change (name, photo, hidden item) carries over by itself. */
@@ -67,7 +69,7 @@ export function loadCatering(root, site) {
   const side = (block, title) => ({ show: !!block && block.show !== false, title: text(block?.title) || title, text: text(block?.text) });
   const answers = Object.fromEntries(Object.entries(S.answers || {}).map(([key, value]) => [key, text(value)]).filter(([, value]) => value));
   return {
-    design, showSamples: S.showSamples === true, announce: S.announce === true,
+    design, announce: S.announce === true,
     title: text(S.title) || 'Sweet Snow Catering', headline: text(S.headline) || 'Sweet Snow Catering', text: text(S.text),
     heroItems: list(S.heroItems).map(name => named(text(name), 'heroItems')).filter(Boolean).slice(0, 3),
     facts: list(S.facts).map(text).filter(Boolean),
@@ -102,7 +104,7 @@ const ICON_ARROW = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><pat
 
 /* ---------- header and footer (a landing page keeps them short) ---------- */
 
-function header(ctx) {
+function header(ctx, here = false) {
   const { t, ta, logo } = ctx;
   return `<a class="skip" href="#main">${t('Skip to content')}</a>
 <header class="k-header" data-header>
@@ -110,7 +112,7 @@ function header(ctx) {
     <a class="k-brand" href="/" aria-label="${ta('Sweet Snow home')}">${logo('logo-blue', 'Sweet Snow', 'k-brand-logo', '112px')}</a>
     <div class="k-header-actions">
       <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ko" aria-pressed="false" lang="ko">한국어</button></div>
-      <a class="btn btn-primary k-header-book" href="/catering#book">${t('Book')}</a>
+      <a class="btn btn-primary k-header-book" href="${here ? '' : '/catering'}#book">${t('Book')}</a>
     </div>
   </div>
 </header>`;
@@ -169,7 +171,7 @@ function hero(ctx, design) {
     </div>
     ${heroArt(ctx, design)}
   </div>
-  ${design === 'bunny' ? '<canvas class="snow" data-snow aria-hidden="true"></canvas>' : ''}
+  ${design === 'bunny' ? '<svg class="k-hill" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90V54C190 10 410 4 640 34s410 28 560-8v64Z"/></svg><canvas class="snow" data-snow aria-hidden="true"></canvas>' : ''}
 </section>`;
 }
 
@@ -303,7 +305,7 @@ function chatLines(ctx) {
     </div>`;
 }
 
-function book(ctx) {
+function book(ctx, design) {
   const { t, ta, site } = ctx;
   const C = site.catering;
   const A = C.appointments;
@@ -319,7 +321,7 @@ function book(ctx) {
       ${notes.length ? `<ul class="k-book-notes">${notes.map(note => `<li>${t(note)}</li>`).join('')}</ul>` : ''}
       <p class="k-book-insta">${t('Rather message us?')} <a class="link" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON_OUT}</a></p>
     </div>
-    <div class="k-book-panel" data-appt-panel>
+    <div class="k-book-panel" data-appt-panel data-design="${design}">
       <div class="k-chat" data-chat hidden>
         <div class="k-chat-head">${BUNNY}<p><b>Snow</b><span>${t('Catering helper')}</span></p></div>
         <ol class="k-chat-log" role="log" aria-live="polite" aria-label="${ta('Chat with Snow')}" data-chat-log></ol>
@@ -334,6 +336,8 @@ function book(ctx) {
       <form class="k-form" id="cateringForm" method="post" action="/api/form" data-catering-form>
         <input type="hidden" name="form-name" value="catering-appointment">
         <input type="hidden" name="source" value="form">
+        <input type="hidden" name="design" value="${e(DESIGNS[design].name)}">
+        <input type="hidden" name="ad" value="">
         <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <div class="k-field"><label for="cf-name">${t('Your name')}</label><input id="cf-name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
         <div class="k-row">
@@ -380,14 +384,14 @@ function book(ctx) {
 
 function landing(ctx, design) {
   const { t } = ctx;
-  return `${header(ctx)}
+  return `${header(ctx, true)}
 <main id="main" class="k-page">
 ${hero(ctx, design)}
 ${steps(ctx)}
 ${tiers(ctx)}
 ${eventMenu(ctx)}
 ${extras(ctx)}
-${book(ctx)}
+${book(ctx, design)}
 </main>
 ${footer(ctx)}
 <div class="k-bar" data-catering-bar><a class="btn btn-primary" href="#book">${t('Book an appointment')}</a></div>`;
@@ -408,21 +412,21 @@ export function cateringThanks(ctx) {
 ${footer(ctx)}`;
 }
 
-/* The page that lists the three designs side by side, while the owner is choosing. */
+/* For the owner: the three designs side by side, each with the address an ad can point to. */
 function designChooser(ctx) {
   const chosen = ctx.site.catering.design;
   return `${header(ctx)}
 <main id="main" class="text-page wrap k-chooser">
   <p class="kicker">Sweet Snow Catering</p>
-  <h1>Three designs</h1>
-  <p>Open each one on your phone, then tell Claude which you like. Or write its name next to <code>design</code> in <code>catering-settings.js</code>.</p>
-  <ul class="k-chooser-list">${Object.entries(DESIGNS).map(([key, design], i) => `<li><a class="k-chooser-card" href="/catering/design-${key}"><img src="/catering/samples/${key}.jpg" width="390" height="844" alt="" loading="lazy"><b>${i + 1}. ${e(design.name)}</b><span>${e(design.note)}</span>${key === chosen ? '<em>Showing at /catering now</em>' : ''}</a></li>`).join('')}</ul>
+  <h1>Three designs, three addresses</h1>
+  <p>Each design is a complete landing page with its own address, so different ads can land on different designs. Every booking email says which design it came from.</p>
+  <ul class="k-chooser-list">${Object.entries(DESIGNS).map(([key, design], i) => `<li><a class="k-chooser-card" href="/catering/${key}"><img src="/catering/samples/${key}.jpg" width="390" height="844" alt="" loading="lazy"><b>${i + 1}. ${e(design.name)}</b><span>${e(design.note)}</span><code>sweetsnow.org/catering/${key}</code>${key === chosen ? '<em>Also what sweetsnow.org/catering shows</em>' : ''}</a></li>`).join('')}</ul>
 </main>
 ${footer(ctx)}`;
 }
 
-const sampleTemplates = Object.fromEntries(Object.keys(DESIGNS).map(key => ['cateringDesign_' + key, ctx => landing(ctx, key)]));
-export const templates = { catering, cateringThanks, cateringDesigns: designChooser, ...sampleTemplates };
+const designTemplates = Object.fromEntries(Object.keys(DESIGNS).map(key => ['cateringDesign_' + key, ctx => landing(ctx, key)]));
+export const templates = { catering, cateringThanks, cateringDesigns: designChooser, ...designTemplates };
 
 export function pageSet(site) {
   const C = site.catering;
@@ -435,9 +439,9 @@ export function pageSet(site) {
     catering: { file: 'catering/index.html', path: '/catering', bodyClass: `page-catering d-${C.design}`, design: C.design, crumb: 'Catering', own: true, noMenuSchema: true, robots: C.announce ? '' : 'noindex', ...meta },
     cateringThanks: { file: 'catering/thanks.html', path: '/catering/thanks', bodyClass: 'page-text page-catering', simple: true, own: true, plain: true, title: 'Request sent — Sweet Snow Catering', robots: 'noindex' }
   };
-  if (C.showSamples) {
-    pages.cateringDesigns = { file: 'catering/designs.html', path: '/catering/designs', bodyClass: 'page-text page-catering', simple: true, own: true, plain: true, title: 'Three designs — Sweet Snow Catering', robots: 'noindex' };
-    for (const key of Object.keys(DESIGNS)) pages['cateringDesign_' + key] = { file: `catering/design-${key}.html`, path: `/catering/design-${key}`, bodyClass: `page-catering d-${key}`, design: key, own: true, noMenuSchema: true, robots: 'noindex', ...meta };
-  }
+  // Each design at its own address. They are the same page in different clothes, so search engines are
+  // pointed at /catering alone (`path` is what the page names as its canonical address).
+  for (const key of Object.keys(DESIGNS)) pages['cateringDesign_' + key] = { file: `catering/${key}.html`, path: '/catering', bodyClass: `page-catering d-${key}`, design: key, own: true, noMenuSchema: true, robots: 'noindex', ...meta };
+  pages.cateringDesigns = { file: 'catering/designs.html', path: '/catering/designs', bodyClass: 'page-text page-catering', simple: true, own: true, plain: true, title: 'Three designs — Sweet Snow Catering', robots: 'noindex' };
   return pages;
 }

@@ -14,6 +14,11 @@
   const now = new Date();
   const today = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
   const isEmail = text => /^[^\s@<>,;]+@[^\s@<>,;]+\.[^\s@<>,;]+$/.test(text);
+  /* Which design the guest is on, and which ad brought them (the utm_ tags on the link), go along with every request. */
+  const design = form.elements.design.value;
+  const tags = new URLSearchParams(location.search);
+  const ad = ['utm_source', 'utm_campaign', 'utm_content'].map(key => tags.get(key)).filter(Boolean).join(' / ').slice(0, 160);
+  form.elements.ad.value = ad;
   const isPhone = text => text.replace(/\D/g, '').length >= 7;
   const post = fields => fetch('/api/form', {
     method: 'POST',
@@ -128,7 +133,7 @@
       ask(step + 1);
     };
     const fields = () => ({
-      'form-name': 'catering-appointment', source: 'chat', 'bot-field': '',
+      'form-name': 'catering-appointment', source: 'chat', design, ad, 'bot-field': '',
       name: data.name || '', phone: isEmail(data.contact || '') ? '' : data.contact || '', email: isEmail(data.contact || '') ? data.contact : '',
       event: data.event || '', date: data.date || '', guests: data.guests || '', tier: data.tier || '', taiyaki: data.addon || '',
       appointment_day: data.appt_date || '', appointment_time: data.appt_time || ''
@@ -155,7 +160,7 @@
     const sendQuestion = async () => {
       step = null;
       await say('sending');
-      const sent = await post({ 'form-name': 'catering-question', source: 'chat', 'bot-field': '', question: data.question, phone: isEmail(data.contact) ? '' : data.contact, email: isEmail(data.contact) ? data.contact : '' });
+      const sent = await post({ 'form-name': 'catering-question', source: 'chat', design, ad, 'bot-field': '', question: data.question, phone: isEmail(data.contact) ? '' : data.contact, email: isEmail(data.contact) ? data.contact : '' });
       if (sent) { mode = 'menu'; data = {}; await say('questionSent', 'more'); offer('topics', topic); } else failed(sendQuestion);
     };
     const restart = () => { data = {}; mode = 'booking'; ask(0); };

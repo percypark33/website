@@ -140,8 +140,6 @@ function main() {
   const cateringCss = design => (cateringStyles[design || ''] ||= minifyCss(baseCss + '\n' + read('build/src/catering.css') + (design ? '\n' + read(`build/src/catering-${design}.css`) : '')));
   let cateringScripts = () => scripts;
   if (site.catering) {
-    // The design samples exist only while the owner is choosing.
-    if (!site.catering.showSamples) for (const file of ['designs.html', ...Object.keys(catering.DESIGNS).map(key => `design-${key}.html`)]) fs.rmSync(path.join(ROOT, 'catering', file), { force: true });
     const cateringJs = minifyJs(read('build/src/catering.js'));
     const cateringKoJson = JSON.stringify({ text: cateringKo, blocks: {} });
     fs.writeFileSync(path.join(out, 'catering.js'), cateringJs);
@@ -186,7 +184,7 @@ ${warningBar}${body}
 
   const counts = `${site.groups.classic.length + site.groups.special.length + site.groups['half-half'].length} bowls, ${site.cups.length} cups, ${site.taiyaki.length} mini taiyaki, ${site.croffles.length} croffles, ${site.toppings.length} toppings`;
   console.log(`Built ${Object.values(pageSet).map(p => p.file).join(', ')} — ${counts}. Look: ${look}. Prices ${site.showPrices ? 'shown' : 'hidden'}.`);
-  if (site.catering) console.log(`Catering: "${catering.DESIGNS[site.catering.design].name}" design, ${site.catering.tiers.length} tiers, ${site.catering.menu.classic.length} classic and ${site.catering.menu.special.length} special bingsu on the event menu${site.catering.showSamples ? ', plus the three design samples at catering/designs.html' : ''}. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'}`);
+  if (site.catering) console.log(`Catering: "${catering.DESIGNS[site.catering.design].name}" design, ${site.catering.tiers.length} tiers, ${site.catering.menu.classic.length} classic and ${site.catering.menu.special.length} special bingsu on the event menu. All three designs are also at /catering/bunny, /catering/cloud and /catering/diary. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'}`);
   if (site.warnings.length) console.log('\nThings to check:\n' + site.warnings.map(w => '  • ' + w).join('\n'));
 }
 

@@ -4,17 +4,19 @@ The catering landing page: **`sweetsnow.org/catering`**. Instagram ads and your 
 
 What it shows, in order: our bingsu and a **Book an appointment** button, how to book, the three tiers, the event menu, the extras on the side (taiyaki add-on, pre-made cups), and booking with Snow the chat helper or a form.
 
-## Choosing the design
+## The three designs
 
-There are three designs, all based on the main website's look with a cuter concept:
+There are three designs, all based on the main website's look with a cuter concept. Each is a complete landing page with its own address, so different ads can land on different designs:
 
-| `design` | Name | What it is |
+| Address | Name | What it is |
 |---|---|---|
-| `"bunny"` | Snow Bunny | Closest to the website: milk-blue and airy, with the bunny, falling snow and doodles |
-| `"cloud"` | Cotton Cloud | A pastel sky: bowls on a cloud, soft pink and butter yellow, everything round |
-| `"diary"` | Sticker Diary | A scrapbook: polaroids with tape, stickers, dotted paper, handwritten titles |
+| `sweetsnow.org/catering/bunny` | Snow Bunny | Closest to the website: milk-blue and airy, with the bunny, falling snow and doodles |
+| `sweetsnow.org/catering/cloud` | Cotton Cloud | A pastel sky: bowls on a cloud, soft pink and butter yellow, everything round |
+| `sweetsnow.org/catering/diary` | Sticker Diary | A scrapbook: polaroids with tape, stickers, dotted paper, handwritten titles |
 
-While `showSamples` is `true`, all three are side by side at **`sweetsnow.org/catering/designs`**. Write the one you want next to `design`, then set `showSamples: false` and the sample pages go away. You can switch designs later the same way.
+`sweetsnow.org/catering` itself shows the one written next to `design` in the settings file. See all three side by side at **`sweetsnow.org/catering/designs`**.
+
+Every booking email says which design the guest was on ("Page design"), and which ad brought them if the ad's link has `utm_` tags, for example `sweetsnow.org/catering/cloud?utm_source=instagram&utm_campaign=spring`. That is how to tell which design brings more bookings.
 
 ## You only edit one file
 
@@ -22,7 +24,7 @@ While `showSamples` is `true`, all three are side by side at **`sweetsnow.org/ca
 
 | To change | Edit |
 |---|---|
-| The design | `design` |
+| Which design `sweetsnow.org/catering` shows | `design` |
 | The big headline and the words under it | `headline`, `text` |
 | The three bowls at the top | `heroItems` |
 | The small facts under the buttons | `facts` |
@@ -62,11 +64,10 @@ Requests go to `CONTACT_EMAIL`, which is already set in Vercel (or to `FORM_TO_E
 
 ## Before pointing ads at it
 
-- [ ] You have chosen the design
+- [ ] `design` is the one you want at `sweetsnow.org/catering`
 - [ ] The tiers and prices are right (or "Ask for a quote" is what you want)
 - [ ] The facts taken from the team plan are right: "For 50 to 200+ guests", "Same milk base and Korean snow machine as our shop"
 - [ ] `RESEND_API_KEY` is in Vercel and a test booking reached your inbox
-- [ ] `showSamples: false`
 
 While `announce` is `false`, the page works for anyone who has the link (ads included), is not in the main website's menu, and asks search engines to skip it.
 
@@ -74,7 +75,7 @@ While `announce` is `false`, the page works for anyone who has the link (ads inc
 
 - Templates and drawings: `build/lib/catering.mjs`. Styles: `build/src/catering.css` (shared) plus `build/src/catering-<design>.css`, layered on the main site's `styles.css` and look file. Script (Snow, the form): `build/src/catering.js`. The pages also load the shared `assets/site/app.js` for the language switch, the header and the falling snow.
 - Snow's lines are plain text in a hidden block of the page (`[data-chat-lines]`), so they translate like any other text. Korean wording: the `// catering` lines in `build/ko-extra.mjs`. Bingsu names follow the owner's dictionary in `designs/language.js`.
-- `node build/build.mjs` writes `catering/index.html`, `catering/thanks.html`, `assets/site/catering.js`, `assets/site/ko-catering.json` and, while `showSamples` is on, `catering/designs.html` and `catering/design-<design>.html`. Do not edit those by hand. `catering/samples/*.jpg` are the phone screenshots shown on the designs page; delete the folder once a design is chosen.
+- `node build/build.mjs` writes `catering/index.html`, `catering/thanks.html`, `catering/bunny.html`, `catering/cloud.html`, `catering/diary.html`, `catering/designs.html`, `assets/site/catering.js` and `assets/site/ko-catering.json`. Do not edit those by hand. The three design pages are marked noindex and name `/catering` as their canonical address. `catering/samples/*.jpg` are the phone screenshots shown on the designs page; retake them after a design changes.
 - `api/form.js`: forms `catering-appointment` and `catering-question`.
 - With `announce: false` the other pages build byte for byte as before. With `announce: true` every main-site page gains the menu link (`build/src/nav-catering.css` keeps five links on one line) and `sitemap.xml` gains `/catering`.
 - Sources: the "Sweet Snow Catering — Team Plan" deck (who books, guest range, same milk base and machine) and the owner's brief of Nov 13 (bingsu made the normal way; tiers Basic, Premium, Special; taiyaki add-on; pre-made cups on the side; landing page for Instagram ads).
