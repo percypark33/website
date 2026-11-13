@@ -646,7 +646,7 @@ ${scripts}`;
 <meta name="geo.region" content="US-CA">
 <meta name="geo.placename" content="Garden Grove">
 <meta name="geo.position" content="33.7729;-117.9619">
-${key === 'home' ? '<meta name="google-site-verification" content="2lnQl08cF9lgbSSqGyEk-Xq40hLfFrQtXf04Fs4-niM">\n' : ''}<link rel="manifest" href="/site.webmanifest?v=20261022">
+${key === 'home' ? '<meta name="google-site-verification" content="2lnQl08cF9lgbSSqGyEk-Xq40hLfFrQtXf04Fs4-niM">\n' : ''}<link rel="manifest" href="/site.webmanifest?v=20261113">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-sweetsnow-20261113-32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-sweetsnow-20261113-96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-sweetsnow-20261113-192.png">

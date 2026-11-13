@@ -35,6 +35,9 @@ const LOGO_W = 2400, LOGO_H = Math.round(2400 * size[1] / size[0]);
 const pictures = {
   // The whole logo, white on blue, as in the file.
   logo: doc(`0 0 ${size[0]} ${size[1]}`, `<rect width="${size[0]}" height="${size[1]}" fill="${BLUE}"/><path fill-rule="evenodd" d="${words.d}" fill="#fff"/><path fill-rule="evenodd" d="${flake.d}" fill="#fff"/>${bunny('#fff', BLUE, 'none')}`, LOGO_W, LOGO_H),
+  // The whole logo in blue on a clear background, cropped to the artwork (for the share picture and anywhere else it is handy).
+  // The body hides the part of the board behind it, as in the file.
+  logoBlue: doc('486 414 5752 2409', `<defs><mask id="behind" maskUnits="userSpaceOnUse" x="0" y="0" width="${size[0]}" height="${size[1]}"><rect width="${size[0]}" height="${size[1]}" fill="#fff"/><path d="${body.d}" fill="#000"/></mask></defs><path fill-rule="evenodd" d="${words.d}" fill="${BLUE}"/><path fill-rule="evenodd" d="${flake.d}" fill="${BLUE}"/><g mask="url(#behind)">${boardPath('none', BLUE)}</g><path d="${lines.d}" fill="${BLUE}"/>`, 1600, Math.round(1600 * 2409 / 5752)),
   // The bunny alone for light pages: blue lines, white inside, clear background.
   bunny: doc(`${BOX.x} ${BOX.y} ${BOX.w} ${BOX.h}`, bunny(BLUE, '#fff', '#fff'), 1200, Math.round(1200 * BOX.h / BOX.w))
 };
@@ -50,6 +53,7 @@ const shoot = async (markup, w, h, file, clear = true, behind = 'transparent') =
   console.log('wrote', file);
 };
 await shoot(pictures.logo, LOGO_W, LOGO_H, 'assets/brand/sweet-snow-logo-20261112.png', false, BLUE);
+await shoot(pictures.logoBlue, 1600, Math.round(1600 * 2409 / 5752), 'assets/brand/sweet-snow-logo-blue-20261112.png');
 await shoot(pictures.bunny, 1200, Math.round(1200 * BOX.h / BOX.w), 'assets/brand/sweet-snow-bunny-20261112.png');
 
 // The smallest circle that holds the whole bunny, so it sits centred in the round icon.

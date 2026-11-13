@@ -48,10 +48,16 @@ The logo file from the owner is `assets/brand/sweet-snow-logo-20261112.pdf` (whi
 | File | Used for |
 |---|---|
 | `assets/site/img/logo-blue-*.webp`, `logo-white-*.webp` | The logo in the header |
+| `assets/site/img/arch-blue-*.webp`, `arch-white-*.webp` | The arched logo in the footer. The arched words and snowflakes come from `assets/sweet-snow-arched-logo.png`; its older bunny (no goggles) is swapped for the logo bunny by `build/images.py`. The result is also saved as `assets/brand/sweet-snow-arched-logo-20261113.png`. |
 | `assets/site/img/bunny-*.webp` | Snow, the bunny on the catering pages and the home catering card (blue lines, white inside) |
-| `assets/favicon-sweetsnow-20261113-*.png` | The round tab icon: the white bunny on a blue circle |
+| `assets/favicon-sweetsnow-20261113-*.png` | The round tab icon: the white bunny on a blue circle. Also the app icon in `site.webmanifest` and the icon of the form reply page (`api/form.js`). |
 | `assets/apple-touch-sweetsnow-20261113.png` | The iPhone home-screen icon (square; the phone rounds the corners) |
 | `assets/brand/sweet-snow-logo-20261112.png` | The logo named in the search-engine data |
+| `assets/brand/sweet-snow-logo-blue-20261112.png` | The logo in blue on a clear background, used by the share picture layout |
+
+The logo files in `assets/site/img` carry a short code in their name (for example `logo-blue-5d44df48-224.webp`). The code changes when the picture changes. Browsers keep these files for a year, so a new picture must have a new name; the build picks up the names by itself.
+
+Older logo files still sit in `assets/` (`logo-primary.png`, `sweet-snow-logo-20261022.png`, `sweet-snow-round-logo-20261022.png`, `sweet-snow-stacked-logo.png`, `share-bunny-blue.png`, `share-card.png`, `bunny-blue-icon-*.png`, `sweet-snow-horizontal-right-*`, `icon-*.png`, and the tab icons dated before 20261113). No page of the website shows them any more.
 
 To use a new logo file: put the PDF in `assets/brand/`, set its name at the top of `build/brand.mjs`, then run:
 

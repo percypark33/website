@@ -17,7 +17,7 @@ import re
 import sys
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'assets', 'site', 'img')
@@ -87,8 +87,13 @@ def process(entry):
 
 
 def logos():
-    """The logo, unchanged, as small transparent files (the original is 1.8 MB)."""
+    """The logo, unchanged, as small transparent files."""
     out = {}
+
+    def fingerprint(image):
+        # Browsers keep everything in assets/site for a year. A new picture must get a new file name,
+        # or people who visited before keep seeing the old one.
+        return hashlib.sha1(image.tobytes() + b'logo-1').hexdigest()[:8]
 
     def save(alpha, rgb, name, widths):
         h, w = alpha.shape
@@ -97,13 +102,14 @@ def logos():
         pixels[..., 3] = (alpha * 255).astype(np.uint8)
         image = Image.fromarray(pixels, 'RGBA')
         image = image.crop(image.getbbox())
+        tag = fingerprint(image)
         variants = []
         for target in widths:
             resized = image.resize((target, round(image.height * target / image.width)), Image.LANCZOS)
             # 16 steps of transparency are plenty for one flat colour and make the file about a third smaller.
             data = np.asarray(resized).copy()
             data[..., 3] = (np.round(data[..., 3] / 17) * 17).astype(np.uint8)
-            file = f'{name}-{target}.webp'
+            file = f'{name}-{tag}-{target}.webp'
             Image.fromarray(data, 'RGBA').save(os.path.join(OUT, file), 'WEBP', lossless=True, quality=100, method=6)
             variants.append({'w': target, 'url': '/assets/site/img/' + file, 'bytes': os.path.getsize(os.path.join(OUT, file))})
         out[name] = {'w': image.width, 'h': image.height, 'variants': variants}
@@ -119,10 +125,11 @@ def logos():
     # The logo bunny on its own (blue lines, white inside), for the catering pages.
     bunny = Image.open(os.path.join(ROOT, 'assets', 'brand', 'sweet-snow-bunny-20261112.png')).convert('RGBA')
     bunny = bunny.crop(bunny.getbbox())
+    tag = fingerprint(bunny)
     variants = []
     blue = np.array([115, 174, 220], np.float32)
     for target in (96, 176, 352):
-        file = f'bunny-{target}.webp'
+        file = f'bunny-{tag}-{target}.webp'
         data = np.asarray(bunny.resize((target, round(bunny.height * target / bunny.width)), Image.LANCZOS)).astype(np.float32)
         # Every pixel is the logo's blue, white, or a soft edge between the two. Sixteen steps of each keep the
         # two colours exact and make the file about a quarter of the size.
@@ -134,9 +141,28 @@ def logos():
         variants.append({'w': target, 'url': '/assets/site/img/' + file, 'bytes': os.path.getsize(os.path.join(OUT, file))})
     out['bunny'] = {'w': bunny.width, 'h': bunny.height, 'variants': variants}
 
-    arch = np.asarray(Image.open(os.path.join(ROOT, 'assets', 'sweet-snow-arched-logo.png')).convert('RGB')).astype(np.float32)
-    arch_alpha = np.clip((255 - arch[..., 0]) / (255 - 112), 0, 1)
-    save(arch_alpha, (112, 173, 217), 'arch-blue', (200, 400))
+    # The arched logo in the footer. The arched words and snowflakes are the owner's own
+    # (assets/sweet-snow-arched-logo.png). That file was drawn with an older bunny that has no goggles,
+    # so the bunny in the middle is swapped for the logo bunny: every logo then shows the same one.
+    arched = Image.open(os.path.join(ROOT, 'assets', 'sweet-snow-arched-logo.png')).convert('RGB')
+    ink = arched.getchannel('R').point(lambda v: 255 if v < 225 else 0)
+    ImageDraw.floodfill(ink, (242, 283), 128)                      # a point on the older bunny's outline
+    old = ink.point(lambda v: 255 if v == 128 else 0)
+    if np.count_nonzero(np.asarray(old)) < 10000:
+        raise SystemExit('images.py: could not find the older bunny in sweet-snow-arched-logo.png. Did that file change?')
+    words = ink.point(lambda v: 255 if v == 255 else 0)
+    # Wipe the older bunny with its soft edge, but never touch a letter or a snowflake.
+    wipe = ImageChops.subtract(old.filter(ImageFilter.MaxFilter(5)), words.filter(ImageFilter.MaxFilter(3)))
+    arched.paste((255, 255, 255), mask=wipe)
+    width = 284                                                    # the largest size that keeps clear of the words
+    fresh = bunny.resize((width, round(bunny.height * width / bunny.width)), Image.LANCZOS)
+    arched = arched.convert('RGBA')
+    arched.alpha_composite(fresh, (432 - fresh.width // 2, 310 - fresh.height // 2))
+    arched = arched.convert('RGB')
+    arched.save(os.path.join(ROOT, 'assets', 'brand', 'sweet-snow-arched-logo-20261113.png'), optimize=True)
+    arch = np.asarray(arched).astype(np.float32)
+    arch_alpha = np.clip((255 - arch[..., 0]) / (255 - 115), 0, 1)
+    save(arch_alpha, (115, 174, 220), 'arch-blue', (200, 400))
     save(arch_alpha, (255, 255, 255), 'arch-white', (200, 400))
     return out
 
