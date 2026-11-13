@@ -88,7 +88,7 @@ window.CATERING_SETTINGS = {
   tiers: [
     { name: "Basic",   text: "Two classic bingsu on your event menu.",              picks: ["Classic", "Classic"],            addOn: "", price: "", guests: "" },
     { name: "Premium", text: "Two classic bingsu and one special bingsu.",          picks: ["Classic", "Classic", "Special"], addOn: "", price: "", guests: "" },
-    { name: "Special", text: "Three bingsu of your choice: one classic, two special.", picks: ["Classic", "Special", "Special"], addOn: "Mini taiyaki add-on available", price: "", guests: "" }
+    { name: "Special", text: "Three bingsu of your choice: one classic, two special.", picks: ["Classic", "Special", "Special"], addOn: "", price: "", guests: "" }   // to bring the taiyaki add-on back:  addOn: "Mini taiyaki add-on available"  (and show: true under taiyaki below)
   ],
 
   /* ---- THE EVENT MENU ---------------------------------------------
@@ -97,15 +97,18 @@ window.CATERING_SETTINGS = {
      To leave one off the event menu, write its name in `leaveOut`.   */
   leaveOut: [],
 
-  /* ---- ON THE SIDE ------------------------------------------------- */
+  /* ---- ON THE SIDE -------------------------------------------------
+     Catering is bingsu only for now, so the taiyaki add-on is off.
+     To bring it back: `show: true` here, and put the add-on line
+     back on the Special tier above.                                   */
   taiyaki: {
-    show: true,
+    show: false,
     title: "Mini taiyaki add-on",
     text: "Small filled, fish-shaped pastries. Add them with the Special tier."
   },
   preMade: {
     show: true,
-    title: "Pre-made cups, on the side",
+    title: "Pre-made cups",
     text: "Bingsu in a sealed paper cup, labeled by flavor. Ask about it at your appointment."
   },
 
@@ -143,7 +146,7 @@ window.CATERING_SETTINGS = {
   answers: {
     how: "Tell me about your event and pick a day for your appointment. We confirm by email or text, plan your menu together, and send you a quote.",
     price: "The price depends on your guest count and tier. We send a quote after your appointment.",
-    taiyaki: "Mini taiyaki can be added with the Special tier.",
+    taiyaki: "Catering is bingsu only for now. You can find mini taiyaki at our shop.",   // with the add-on back: "Mini taiyaki can be added with the Special tier." 
     preMade: "We also make pre-made bingsu in sealed paper cups, labeled by flavor. Ask about it at your appointment.",
     guests: "We cater events of 50 to 200+ guests."
   }

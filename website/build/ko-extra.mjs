@@ -135,6 +135,7 @@ export const EXTRA = {
   'Tell me about your event and pick a day for your appointment. We confirm by email or text, plan your menu together, and send you a quote.': '행사에 대해 알려주시고 상담 날짜를 골라 주세요. 이메일이나 문자로 확정해 드리고, 메뉴를 함께 정한 뒤 견적을 보내 드려요.',
   'The price depends on your guest count and tier. We send a quote after your appointment.': '가격은 인원수와 패키지에 따라 달라져요. 상담 후 견적을 보내 드립니다.',
   'Mini taiyaki can be added with the Special tier.': '미니 붕어빵은 스페셜 패키지에 추가할 수 있어요.',
+  'Catering is bingsu only for now. You can find mini taiyaki at our shop.': '케이터링은 지금은 빙수만 준비해 드려요. 미니 붕어빵은 매장에서 만나보세요.',
   'We also make pre-made bingsu in sealed paper cups, labeled by flavor. Ask about it at your appointment.': '밀봉한 종이컵에 맛별 라벨을 붙인 미리 만든 빙수도 준비해 드려요. 상담 때 문의해 주세요.',
   'We cater events of 50 to 200+ guests.': '50명부터 200명 이상의 행사까지 준비해 드려요.',
   'Lovely. What are we celebrating?': '좋아요! 어떤 행사인가요?',

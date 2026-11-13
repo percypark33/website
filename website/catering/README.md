@@ -4,7 +4,7 @@ Catering is a page of the website, like Menu and Our story: **`sweetsnow.org/cat
 
 For Instagram ads, use one of the three design addresses below. They are the same page without the website's menu, so a guest who taps an ad stays on booking.
 
-What it shows, in order: our bingsu and a **Book an appointment** button, how to book, the three tiers, the event menu, the extras on the side (taiyaki add-on, pre-made cups), and booking with Snow the chat helper or a form.
+What it shows, in order: our bingsu and a **Book an appointment** button, how to book, the three tiers, the event menu, pre-made cups on the side, and booking with Snow the chat helper or a form.
 
 ## The three designs
 
@@ -33,6 +33,12 @@ The home page of `sweetsnow.org` has a catering card after the cup bingsu. It sh
 | Take the card off the home page | `show: false` |
 | Change the words | `title`, `text` |
 | Remove the "Explore catering" link | `link: false` |
+
+## Catering is bingsu only for now
+
+The mini taiyaki add-on is switched off: no add-on line on the Special tier, no taiyaki card, no taiyaki question in the chat, no taiyaki box in the form. A guest who types "taiyaki" to Snow is told catering is bingsu only for now.
+
+To bring it back, in the settings file: put `addOn: "Mini taiyaki add-on available"` on the Special tier, set `show: true` under `taiyaki`, and change `answers` → `taiyaki` back (the old wording is in the note next to each line).
 
 ## You only edit one file
 
