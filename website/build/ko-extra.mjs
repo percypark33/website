@@ -83,7 +83,7 @@ export const EXTRA = {
   'We bring the milk snow and make every bowl the way we do at our shop. Book an appointment and we will plan it with you.': '우유 눈꽃을 직접 가져가 매장에서 만드는 그대로 한 그릇씩 만들어 드립니다. 상담을 예약하시면 함께 준비해 드려요.',
   'For 50 to 200+ guests': '50명부터 200명 이상까지',
   'Same milk base and Korean snow machine as our shop': '매장과 같은 우유 베이스, 같은 한국 눈꽃빙수 기계',
-  'Let’s plan your party!': '파티를 함께 준비해요!',
+  "Let's plan your party!": '파티를 함께 준비해요!',
   'made fresh at your event': '행사장에서 바로 만들어요',
   'made fresh!': '갓 만든 빙수!',
   'How to book': '예약 방법',

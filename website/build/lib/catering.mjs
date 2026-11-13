@@ -152,7 +152,7 @@ function heroArt(ctx, design) {
       <div class="hero-halo k-halo" aria-hidden="true"></div>
       ${DOODLE.sparkle}${DOODLE.heart}${DOODLE.flake}
       ${photo(items[0], 1, '(max-width: 859px) 80vw, 520px')}
-      <div class="k-peek" aria-hidden="true">${BUNNY}<p class="k-bubble">${t('Let’s plan your party!')}</p></div>
+      <div class="k-peek" aria-hidden="true">${BUNNY}<p class="k-bubble">${t("Let's plan your party!")}</p></div>
       <p class="k-note" aria-hidden="true">${t('made fresh at your event')}${DOODLE.arrow}</p>
     </div>`;
 }
