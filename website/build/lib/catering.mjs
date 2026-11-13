@@ -67,9 +67,11 @@ export function loadCatering(root, site) {
 
   const A = S.appointments || {};
   const side = (block, title) => ({ show: !!block && block.show !== false, title: text(block?.title) || title, text: text(block?.text) });
+  const H = S.homePage || {};
+  const home = { show: H.show === true, label: text(H.label), title: text(H.title) || text(S.title) || 'Sweet Snow Catering', text: text(H.text), link: H.link === true };
   const answers = Object.fromEntries(Object.entries(S.answers || {}).map(([key, value]) => [key, text(value)]).filter(([, value]) => value));
   return {
-    design, announce: S.announce === true,
+    design, announce: S.announce === true, home,
     title: text(S.title) || 'Sweet Snow Catering', headline: text(S.headline) || 'Sweet Snow Catering', text: text(S.text),
     heroItems: list(S.heroItems).map(name => named(text(name), 'heroItems')).filter(Boolean).slice(0, 3),
     facts: list(S.facts).map(text).filter(Boolean),
@@ -101,6 +103,39 @@ const BOWL = '<svg class="k-mini-bowl" viewBox="0 0 28 24" aria-hidden="true"><p
 const CUP = '<svg class="k-cup" viewBox="0 0 200 200" aria-hidden="true"><path class="k-cup-body" d="M22 60H178L160 178Q159 188 148 188H52Q41 188 40 178Z"/><path class="k-cup-band" d="M26.6 90H173.4L162.7 160H37.3Z"/><rect class="k-cup-lid" x="12" y="30" width="176" height="32" rx="9"/><rect class="k-cup-seal" x="146" y="40" width="18" height="40" rx="5"/></svg>';
 const ICON_OUT = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const ICON_ARROW = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+/* ---------- the catering section on the main home page ---------- */
+
+/* A card after the cup bingsu, in the main site's own look. It carries a
+   "Coming soon" tag while catering-settings.js → homePage.label says so.
+   Styles: build/src/home-catering.css, loaded by the home page only. */
+export function homeSection(ctx) {
+  const { t, ta, img, site } = ctx;
+  const C = site.catering;
+  const H = C.home;
+  // The middle bowl is the big one.
+  const bowls = C.heroItems.map((item, n) => `<span class="hc-bowl hc-bowl-${n + 1}">${img(item.photo, 'card', { alt: ta(item.name + ' bingsu'), sizes: n === 1 ? '(max-width: 859px) 38vw, 230px' : '(max-width: 859px) 30vw, 180px' })}</span>`).join('');
+  const tier = item => `<li class="hc-tier"><h3>${t(item.name)}</h3>${item.picks.length ? `<ul class="hc-picks">${item.picks.map(kind => `<li class="hc-pick hc-pick-${kind}">${t(kind === 'classic' ? 'Classic' : 'Special')}</li>`).join('')}</ul>` : ''}${item.addOn ? `<p class="hc-addon">${t(item.addOn)}</p>` : ''}</li>`;
+  return `
+<section class="home-catering" id="catering" aria-labelledby="home-catering-title">
+  <div class="wrap hc-wrap">
+    <div class="hc-peek" aria-hidden="true">${BUNNY}</div>
+    <div class="hc-panel">
+      <div class="hc-copy">
+        ${H.label ? `<p class="hc-flag"><span class="tag tag-soon">${t(H.label)}</span></p>` : ''}
+        <h2 id="home-catering-title">${t(H.title)}</h2>
+        ${H.text ? `<p>${t(H.text)}</p>` : ''}
+        ${H.link ? `<a class="link" href="/catering">${t('Explore catering')}${ICON_ARROW}</a>` : ''}
+      </div>
+      ${bowls ? `<div class="hc-bowls">${bowls}</div>` : ''}
+      ${C.tiers.length ? `<div class="hc-tiers">
+        <p class="hc-tiers-lead"><strong>${t('Three tiers')}</strong><span>${t('Each tier sets how many bingsu go on your event menu. You choose the flavors.')}</span></p>
+        <ol class="hc-tier-list">${C.tiers.map(tier).join('')}</ol>
+      </div>` : ''}
+    </div>
+  </div>
+</section>`;
+}
 
 /* ---------- header and footer (a landing page keeps them short) ---------- */
 

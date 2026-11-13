@@ -18,6 +18,21 @@ There are three designs, all based on the main website's look with a cuter conce
 
 Every booking email says which design the guest was on ("Page design"), and which ad brought them if the ad's link has `utm_` tags, for example `sweetsnow.org/catering/cloud?utm_source=instagram&utm_campaign=spring`. That is how to tell which design brings more bookings.
 
+## The catering section on the home page
+
+The home page of `sweetsnow.org` has a catering section after the cup bingsu, tagged **Coming soon**. It shows the three bowls from `heroItems` and the three tiers. It has no link to the catering page yet, so home page visitors cannot start a booking while it says coming soon.
+
+It is the `homePage` part of the settings file:
+
+| To do this | Change |
+|---|---|
+| Take the section off the home page | `show: false` |
+| Change or remove the tag | `label: "Now booking"`, or `label: ""` for no tag |
+| Change the words | `title`, `text` |
+| Add an "Explore catering" link to the catering page | `link: true` |
+
+When catering opens: set `label: ""` (or new words) and `link: true`.
+
 ## You only edit one file
 
 **`catering-settings.js`**. Open it on GitHub, tap the pencil, change the words, and publish the same way as the rest of the site ([how to publish](../../docs/HOW-TO-UPDATE.md#publish)). Each part of the file has a short note above it.
@@ -36,6 +51,7 @@ Every booking email says which design the guest was on ("Page design"), and whic
 | The event types guests can pick | `events` |
 | The times of day guests can ask for | `appointments` → `times` |
 | What Snow answers to quick questions | `answers` |
+| The catering section on the home page | `homePage` |
 | Put "Catering" in the main website's menu | `announce: true` |
 
 The event menu lists every Classic and Special bingsu on the main menu by itself (coming-soon items are left out), with its photo. If an item is renamed or hidden on the menu, the preview link shows a yellow bar that names the line to fix.
@@ -77,5 +93,6 @@ While `announce` is `false`, the page works for anyone who has the link (ads inc
 - Snow's lines are plain text in a hidden block of the page (`[data-chat-lines]`), so they translate like any other text. Korean wording: the `// catering` lines in `build/ko-extra.mjs`. Bingsu names follow the owner's dictionary in `designs/language.js`.
 - `node build/build.mjs` writes `catering/index.html`, `catering/thanks.html`, `catering/bunny.html`, `catering/cloud.html`, `catering/diary.html`, `catering/designs.html`, `assets/site/catering.js` and `assets/site/ko-catering.json`. Do not edit those by hand. The three design pages are marked noindex and name `/catering` as their canonical address. `catering/samples/*.jpg` are the phone screenshots shown on the designs page; retake them after a design changes.
 - `api/form.js`: forms `catering-appointment` and `catering-question`.
+- The home page section is `homeSection` in `build/lib/catering.mjs`, with styles in `build/src/home-catering.css`. Only `index.html` loads those styles. It sits at `/#catering`. With `homePage.show: false` the home page builds without it, byte for byte.
 - With `announce: false` the other pages build byte for byte as before. With `announce: true` every main-site page gains the menu link (`build/src/nav-catering.css` keeps five links on one line) and `sitemap.xml` gains `/catering`.
 - Sources: the "Sweet Snow Catering — Team Plan" deck (who books, guest range, same milk base and machine) and the owner's brief of Nov 13 (bingsu made the normal way; tiers Basic, Premium, Special; taiyaki add-on; pre-made cups on the side; landing page for Instagram ads).

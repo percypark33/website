@@ -48,6 +48,7 @@ The picture shown when the site is shared (link preview) is `assets/share-sweet-
 - `/`: hero item, the bowl that builds itself, croffle and cup features, our story (`/#brand-story`), find us, questions.
 - `/menu`: Classic `#menu-classic`, Special `#menu-special`, Fruit Half & Half `#menu-half-half`, Cups `#single-cups`, Food `#food` (and `#mini-sides`), Croffles `#croffles`, Toppings `#toppings`. Each item keeps its `#menu-item-…` address.
 - `/visit`: location guide `#find-us`, hours, directions.
+- `/#catering`: the catering section on the home page, tagged "Coming soon". Switched on and worded in `catering/catering-settings.js` → `homePage`; styles in `build/src/home-catering.css`, loaded by the home page only.
 - `/privacy` and `/thanks`: supporting pages.
 - `/catering`: the catering landing page, where Instagram ads land. The main site's look plus a cute design (`build/src/catering.css` and `catering-<design>.css`). All three designs are always live at `/catering/bunny`, `/catering/cloud` and `/catering/diary`; `/catering` shows the one named in the settings. How to book `#how`, tiers `#tiers`, the event menu `#menu`, booking `#book` (Snow the chat helper and a form). `/catering/thanks` is where the form lands without the page script; `/catering/designs` shows the three designs side by side. Not in the menu or the sitemap until `announce: true`.
 - Old links such as `/#croffles` or `/#visit` are sent to the page that now holds that section.

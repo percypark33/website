@@ -55,7 +55,7 @@ Leave `title` or `text` as `""` to use the menu name and recipe.
 
 ## Change the catering page
 
-Catering has its own easy file: **`website/catering/catering-settings.js`**. The design, the headline, the tiers and prices, and what the chat helper says are all there. The steps are in [`website/catering/README.md`](../website/catering/README.md).
+Catering has its own easy file: **`website/catering/catering-settings.js`**. The design, the headline, the tiers and prices, what the chat helper says, and the "Coming soon" catering section on the home page (`homePage`) are all there. The steps are in [`website/catering/README.md`](../website/catering/README.md).
 
 ## Publish
 

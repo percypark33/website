@@ -1,0 +1,58 @@
+/* CATERING ON THE HOME PAGE — a card after the cup bingsu, in the main
+   site's own look, with Snow the bunny peeking over the top. Loaded by the
+   home page only, and only while catering-settings.js → homePage.show is true. */
+.home-catering{background:var(--band);padding-bottom:clamp(56px,11vw,112px);overflow:hidden}
+:lang(ko) .home-catering{word-break:keep-all}
+.hc-wrap{position:relative;padding-top:66px}
+.hc-peek{position:absolute;top:0;right:clamp(34px,9vw,104px);width:88px}
+.hc-peek svg{display:block;width:100%;height:auto;overflow:visible}
+.hc-peek .k-bunny-line{fill:#fff;stroke:var(--brand);stroke-width:3}
+.hc-peek .k-bunny-pink{fill:#F7B8CB;opacity:.8}
+.hc-peek .k-bunny-ink{fill:var(--ink)}
+.hc-peek .k-bunny-smile{stroke:var(--ink);stroke-width:2.4}
+.hc-panel{position:relative;display:grid;gap:clamp(22px,4.5vw,40px);padding:clamp(24px,5.5vw,56px);border-radius:calc(var(--radius) + 10px);background:var(--surface);box-shadow:var(--shadow-1)}
+.hc-copy{display:grid;gap:.9rem;justify-items:start}
+.hc-copy p:not(.hc-flag){color:var(--ink-2);max-width:27rem;text-wrap:pretty}
+.hc-flag .tag{min-height:28px;padding:0 .8rem;font-size:.8rem}
+
+/* three bowls, the middle one in front */
+.hc-bowls{position:relative;display:grid;grid-template-columns:1fr 1.3fr 1fr;align-items:end;width:100%;max-width:520px;margin-inline:auto}
+.hc-bowls::before{content:"";position:absolute;left:2%;right:2%;top:16%;bottom:-8%;border-radius:50%;background:radial-gradient(closest-side,var(--band) 0%,var(--band) 45%,rgba(237,244,250,0) 100%)}
+.hc-bowl{position:relative;display:block}
+.hc-bowl img{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 12px var(--photo-shadow))}
+.hc-bowl-1{margin-right:-12%}
+.hc-bowl-2{z-index:1}
+.hc-bowl-3{margin-left:-12%}
+
+/* the three tiers */
+.hc-tiers{display:grid;gap:.6rem;padding-top:clamp(20px,4vw,30px);border-top:1px solid var(--line)}
+.hc-tiers-lead{display:grid;gap:.2rem;font-size:.94rem;color:var(--ink-2);max-width:36rem}
+.hc-tiers-lead strong{font-size:.84rem;font-weight:500;color:var(--accent-text)}
+.hc-tier-list{display:grid;list-style:none;margin:0;padding:0}
+.hc-tier{display:grid;gap:.5rem;padding:.9rem 0;border-top:1px dashed var(--line)}
+.hc-tier:first-child{border-top:0}
+.hc-tier h3{font-family:var(--font-display);font-weight:400;font-size:1.3rem;letter-spacing:-.02em;line-height:1.1}
+.hc-picks{display:flex;flex-wrap:wrap;gap:.35rem;list-style:none;margin:0;padding:0}
+.hc-pick{display:inline-flex;align-items:center;min-height:26px;padding:0 .7rem;border-radius:999px;font-size:.78rem;font-weight:600;background:var(--tag-bg);color:var(--tag-ink)}
+.hc-pick-special{background:#FFE6EE;color:#8A2F52}
+.hc-addon{font-size:.84rem;color:var(--ink-2)}
+
+/* Snow ducks behind the card now and then, and comes back up */
+@media (prefers-reduced-motion:no-preference){
+  .js .hc-peek svg{animation:hc-peek 7s var(--ease) infinite}
+}
+@keyframes hc-peek{0%,58%,100%{transform:translateY(0)}68%,80%{transform:translateY(30px)}}
+
+@media (min-width:600px){
+  .hc-tier{grid-template-columns:7rem minmax(0,1fr);align-items:center;gap:.35rem .9rem}
+  .hc-addon{grid-column:2}
+}
+
+@media (min-width:860px){
+  .hc-panel{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center}
+  .hc-tiers{grid-column:1 / -1}
+  .hc-tier-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hc-tier{grid-template-columns:minmax(0,1fr);align-items:start;align-content:start;gap:.6rem;padding:.2rem 1.4rem;border-top:0;border-left:1px dashed var(--line)}
+  .hc-tier:first-child{padding-left:0;border-left:0}
+  .hc-addon{grid-column:1}
+}

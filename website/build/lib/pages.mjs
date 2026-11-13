@@ -329,7 +329,7 @@ export function home(ctx) {
 <main id="main">
 ${hero(ctx)}
 ${build(ctx)}
-${features(ctx)}
+${features(ctx)}${ctx.cateringHome ? ctx.cateringHome() : ''}
 ${story(ctx)}
 ${findTeaser(ctx)}
 ${faq(ctx)}

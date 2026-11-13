@@ -41,6 +41,26 @@ window.CATERING_SETTINGS = {
              sweetsnow.org, and the page is listed for Google.     */
   announce: false,
 
+  /* ---- ON THE HOME PAGE OF SWEETSNOW.ORG ------------------------
+     A catering section on the home page, after the cup bingsu.
+     It shows the three bowls and the three tiers from this file.
+
+     show    true  = the section is on the home page
+             false = it is not
+     label   the small tag on it. Leave "" for no tag.
+     title   the big words
+     text    the line under them
+     link    false = no link (right while it says "Coming soon")
+             true  = adds "Explore catering", which opens the
+                     catering page                                  */
+  homePage: {
+    show: true,
+    label: "Coming soon",
+    title: "Sweet Snow Catering",
+    text: "Fresh bingsu, made at your event. We bring the milk snow and make every bowl the way we do at our shop.",
+    link: false
+  },
+
   /* ---- TOP OF THE PAGE ---------------------------------------- */
   title: "Sweet Snow Catering",
   headline: "Fresh bingsu, made at your event.",

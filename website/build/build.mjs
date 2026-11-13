@@ -55,6 +55,7 @@ function main() {
   const manifestFile = path.join(ROOT, 'build/image-manifest.json');
   const manifest = fs.existsSync(manifestFile) ? JSON.parse(fs.readFileSync(manifestFile, 'utf8')) : { images: {}, logos: {} };
   const translate = loadKorean(ROOT);
+  const onHome = !!site.catering?.home.show;
   const usedImages = new Map();
 
   const makeContext = () => {
@@ -82,7 +83,9 @@ function main() {
         if (!entry) return `<img class="${cls}" src="/assets/sweet-snow-horizontal-right-blue-20261104.svg" alt="${pages.e(alt)}" width="1881" height="837">`;
         const v = entry.variants;
         return `<img class="${cls}" src="${v[0].url}" srcset="${v.map(x => `${x.url} ${x.w}w`).join(', ')}" sizes="${sizes}" width="${v[0].w}" height="${Math.round(entry.h * v[0].w / entry.w)}" alt="${pages.e(alt)}"${lazy ? ' loading="lazy" decoding="async"' : ''}>`;
-      }
+      },
+      // The catering section on the home page (catering-settings.js → homePage).
+      cateringHome: () => (onHome ? catering.homeSection(ctx) : '')
     };
     return ctx;
   };
@@ -91,6 +94,8 @@ function main() {
   // While catering is announced, the menu has a fifth link and needs a little more room.
   const baseCss = read('build/src/styles.css') + '\n' + read(`build/src/look-${look}.css`) + (site.catering?.announce ? '\n' + read('build/src/nav-catering.css') : '');
   const css = minifyCss(baseCss);
+  // Only the home page carries the styles of its catering section.
+  const homeCss = onHome ? minifyCss(baseCss + '\n' + read('build/src/home-catering.css')) : css;
   const js = minifyJs(read('build/src/app.js'));
   const out = path.join(ROOT, 'assets/site');
   fs.mkdirSync(out, { recursive: true });
@@ -171,7 +176,7 @@ function main() {
     const html = `<!DOCTYPE html>
 <html lang="en" class="look-${look}">
 <head>
-${pages.head(ctx, key, { page, css: page.own ? cateringCss(page.design) : css, preload, scripts: (page.own ? cateringScripts(!page.simple) : scripts).replace('__LEGACY__', key === 'home' ? legacy : '') })}
+${pages.head(ctx, key, { page, css: page.own ? cateringCss(page.design) : key === 'home' ? homeCss : css, preload, scripts: (page.own ? cateringScripts(!page.simple) : scripts).replace('__LEGACY__', key === 'home' ? legacy : '') })}
 </head>
 <body class="${page.bodyClass}">
 ${warningBar}${body}
@@ -184,7 +189,7 @@ ${warningBar}${body}
 
   const counts = `${site.groups.classic.length + site.groups.special.length + site.groups['half-half'].length} bowls, ${site.cups.length} cups, ${site.taiyaki.length} mini taiyaki, ${site.croffles.length} croffles, ${site.toppings.length} toppings`;
   console.log(`Built ${Object.values(pageSet).map(p => p.file).join(', ')} — ${counts}. Look: ${look}. Prices ${site.showPrices ? 'shown' : 'hidden'}.`);
-  if (site.catering) console.log(`Catering: "${catering.DESIGNS[site.catering.design].name}" design, ${site.catering.tiers.length} tiers, ${site.catering.menu.classic.length} classic and ${site.catering.menu.special.length} special bingsu on the event menu. All three designs are also at /catering/bunny, /catering/cloud and /catering/diary. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'}`);
+  if (site.catering) console.log(`Catering: "${catering.DESIGNS[site.catering.design].name}" design, ${site.catering.tiers.length} tiers, ${site.catering.menu.classic.length} classic and ${site.catering.menu.special.length} special bingsu on the event menu. All three designs are also at /catering/bunny, /catering/cloud and /catering/diary. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'} Home page section: ${site.catering.home.show ? `on${site.catering.home.label ? `, tagged "${site.catering.home.label}"` : ''}${site.catering.home.link ? ', with a link to the catering page' : ', no link'}` : 'off'}.`);
   if (site.warnings.length) console.log('\nThings to check:\n' + site.warnings.map(w => '  • ' + w).join('\n'));
 }
 
