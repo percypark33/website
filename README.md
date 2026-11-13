@@ -6,7 +6,7 @@ Public website source is in [`website/`](website/). This repository is kept sepa
 
 - [Website source](website/)
 - [How to update the website](docs/HOW-TO-UPDATE.md): change a price, a menu item, the hero item, and publish
-- [Sweet Snow Catering](website/catering/): the catering site (pre-made bingsu cups, tiers, appointments)
+- [Sweet Snow Catering](website/catering/): the catering landing page (tiers, event menu, booking with the chat helper)
 - [Where every menu item and price comes from](docs/MENU-SOURCES.md)
 - [Menu differences to decide](docs/MENU-DIFFERENCES.md)
 - [Publishing and how the pages are built](website/DEPLOY.md)

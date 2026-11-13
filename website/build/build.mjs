@@ -5,7 +5,7 @@
            site-settings.js      (hero item, look, quick edits, photos)
            menu-art.js           (the bowl drawings)
            designs/language.js, designs/brand-story.js (Korean words, family letter)
-           catering/catering-settings.js (catering flavors, tiers, appointments)
+           catering/catering-settings.js (the catering landing page: design, tiers, appointments)
    Writes  index.html, menu.html, visit.html, catering/*.html and assets/site/*
 
    Run:    node build/build.mjs
@@ -135,10 +135,13 @@ function main() {
 <script defer src="/analytics.js?v=seo-20261031"></script>`;
   const scripts = scriptsFor(config);
 
-  /* --- catering: a design of its own. Its styles, typefaces, script and Korean file are loaded only by the catering pages --- */
-  let cateringCss = css, cateringScripts = () => scripts;
+  /* --- catering: the landing page. The main site's styles, plus its own and one of three cute designs, loaded only by the catering pages --- */
+  const cateringStyles = {};
+  const cateringCss = design => (cateringStyles[design || ''] ||= minifyCss(baseCss + '\n' + read('build/src/catering.css') + (design ? '\n' + read(`build/src/catering-${design}.css`) : '')));
+  let cateringScripts = () => scripts;
   if (site.catering) {
-    cateringCss = minifyCss(read('build/src/catering.css'));
+    // The design samples exist only while the owner is choosing.
+    if (!site.catering.showSamples) for (const file of ['designs.html', ...Object.keys(catering.DESIGNS).map(key => `design-${key}.html`)]) fs.rmSync(path.join(ROOT, 'catering', file), { force: true });
     const cateringJs = minifyJs(read('build/src/catering.js'));
     const cateringKoJson = JSON.stringify({ text: cateringKo, blocks: {} });
     fs.writeFileSync(path.join(out, 'catering.js'), cateringJs);
@@ -157,8 +160,8 @@ function main() {
 
   for (const [key, { ctx, body }] of Object.entries(rendered)) {
     const page = pageSet[key];
-    const preload = page.own ? [...catering.FONT_PRELOADS] : ['<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/hahmlet.woff2" crossorigin>'];
-    if (page.own) ctx.themeColor = catering.THEME_COLOR;
+    const preload = ['<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/hahmlet.woff2" crossorigin>'];
+    if (page.design === 'diary') preload.push('<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/gaegu-700.woff2" crossorigin>');
     if (key === 'menu' && site.groups.classic[0]) {
       const entry = manifest.images[site.groups.classic[0].photo + '|card'];
       if (entry) preload.push(preloadImage(entry, pages.CARD_SIZES));
@@ -170,7 +173,7 @@ function main() {
     const html = `<!DOCTYPE html>
 <html lang="en" class="look-${look}">
 <head>
-${pages.head(ctx, key, { page, css: page.own ? cateringCss : css, preload, scripts: (page.own ? cateringScripts(!page.simple) : scripts).replace('__LEGACY__', key === 'home' ? legacy : '') })}
+${pages.head(ctx, key, { page, css: page.own ? cateringCss(page.design) : css, preload, scripts: (page.own ? cateringScripts(!page.simple) : scripts).replace('__LEGACY__', key === 'home' ? legacy : '') })}
 </head>
 <body class="${page.bodyClass}">
 ${warningBar}${body}
@@ -183,7 +186,7 @@ ${warningBar}${body}
 
   const counts = `${site.groups.classic.length + site.groups.special.length + site.groups['half-half'].length} bowls, ${site.cups.length} cups, ${site.taiyaki.length} mini taiyaki, ${site.croffles.length} croffles, ${site.toppings.length} toppings`;
   console.log(`Built ${Object.values(pageSet).map(p => p.file).join(', ')} — ${counts}. Look: ${look}. Prices ${site.showPrices ? 'shown' : 'hidden'}.`);
-  if (site.catering) console.log(`Catering: ${site.catering.flavors.length} cup flavors in ${site.catering.tiers.length} tiers. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'} Appointments: ${[site.catering.appointments.bookingLink && 'booking calendar', site.catering.appointments.form && 'request form'].filter(Boolean).join(' and ') || 'by Instagram message until bookingLink is set'}.`);
+  if (site.catering) console.log(`Catering: "${catering.DESIGNS[site.catering.design].name}" design, ${site.catering.tiers.length} tiers, ${site.catering.menu.classic.length} classic and ${site.catering.menu.special.length} special bingsu on the event menu${site.catering.showSamples ? ', plus the three design samples at catering/designs.html' : ''}. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'}`);
   if (site.warnings.length) console.log('\nThings to check:\n' + site.warnings.map(w => '  • ' + w).join('\n'));
 }
 

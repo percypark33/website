@@ -1,5 +1,6 @@
-/* POST /api/form — receives the catering appointment request on /catering
- * (catering-appointment) and the two older ballots (menu-idea, coming-soon-vote).
+/* POST /api/form — receives the catering landing page's appointment requests and
+ * questions (catering-appointment, catering-question; from the chat helper or the
+ * form) and the two older ballots (menu-idea, coming-soon-vote).
  *
  * The site runs on Vercel, which does not have Netlify Forms, so this function
  * is the form backend. It delivers each submission to whichever of these is
@@ -30,10 +31,33 @@ const KNOWN_FORMS = {
   // `oneOf`: at least one field of each group is needed. `back`, `thanks` and `offline` send guests to the catering pages.
   "catering-appointment": {
     required: ["name", "date", "guests"], oneOf: [["phone", "email"]], label: "Catering appointment request",
-    thanks: "/catering/thanks", back: { href: "/catering#appointment", text: "Back to the catering form" },
+    thanks: "/catering/thanks", back: { href: "/catering#book", text: "Back to catering" },
     offline: { title: "Your request was not sent", text: "The catering form is not connected yet, so your request did not reach us. Please message the same details to us on Instagram <a href=\"https://www.instagram.com/sweetsnow_oc/\" rel=\"noopener\">@sweetsnow_oc</a> and we will set up your appointment there." },
+    calendar: true,
+  },
+  "catering-question": {
+    required: ["question"], oneOf: [["phone", "email"]], label: "Catering question",
+    thanks: "/catering/thanks", back: { href: "/catering#book", text: "Back to catering" },
+    offline: { title: "Your question was not sent", text: "The catering chat is not connected yet. Please message us on Instagram <a href=\"https://www.instagram.com/sweetsnow_oc/\" rel=\"noopener\">@sweetsnow_oc</a>." },
   },
 };
+// How each field is named in the email, in this order. Anything else follows under its own name.
+const FIELD_LABELS = {
+  name: "Name", phone: "Phone", email: "Email", event: "Event", date: "Event date", guests: "Guests", tier: "Tier",
+  taiyaki: "Taiyaki add-on", appointment_day: "Appointment day", appointment_time: "Appointment time",
+  question: "Question", notes: "Notes", source: "Sent from",
+};
+/* A link that opens Google Calendar with the appointment filled in, so the owner can keep it with one tap. */
+function calendarLink(data) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(data.appointment_day || "")) return "";
+  const day = new Date(data.appointment_day + "T00:00:00Z");
+  if (Number.isNaN(day.getTime())) return "";
+  const stamp = (d) => d.toISOString().slice(0, 10).replace(/-/g, "");
+  const next = new Date(day.getTime() + 86400000);
+  const details = Object.keys(FIELD_LABELS).filter((k) => data[k]).map((k) => `${FIELD_LABELS[k]}: ${data[k]}`).join("\n");
+  const query = new URLSearchParams({ action: "TEMPLATE", text: `Catering appointment: ${data.name || "guest"}`, dates: `${stamp(day)}/${stamp(next)}`, details });
+  return "https://calendar.google.com/calendar/render?" + query;
+}
 const DEFAULT_BACK = { href: "/community#vote", text: "Back to the idea box" };
 const escapeHtml = (text) => String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const recipients = () => (process.env.FORM_TO_EMAIL || process.env.CONTACT_EMAIL || "").split(",").map((s) => s.trim()).filter(Boolean);
@@ -138,17 +162,23 @@ module.exports = async (req, res) => {
     return page(res, 503, "Our idea box isn't connected yet", "Sorry — we couldn't save your message. Please send it to us on Instagram <a href=\"https://www.instagram.com/sweetsnow_oc/\" rel=\"noopener\">@sweetsnow_oc</a> or tell us in store.");
   }
 
+  const known = Object.keys(FIELD_LABELS).filter((k) => data[k]).map((k) => `${FIELD_LABELS[k]}: ${data[k]}`);
+  const other = Object.entries(data).filter(([k, v]) => !(k in FIELD_LABELS) && v).map(([k, v]) => `${k}: ${v}`);
+  const calendar = spec.calendar ? calendarLink(data) : "";
   const text = [
     `${spec.label} from sweetsnow.org`,
     `When: ${submittedAt}`,
     "",
-    ...Object.entries(data).map(([k, v]) => `${k}: ${v}`),
+    ...known,
+    ...other,
+    ...(calendar ? ["", "Add this appointment to your Google Calendar:", calendar] : []),
   ].join("\n");
+  const who = String(data.name || "").replace(/[\r\n]+/g, " ").slice(0, 60);
 
   // Only a plain, single email address is ever used as the reply-to.
   const replyTo = /^[^\s@<>,;]+@[^\s@<>,;]+\.[^\s@<>,;]+$/.test(data.email || "") ? data.email : undefined;
   const sends = [
-    ...(hasResend ? [sendResend(`[sweetsnow.org] ${spec.label}`, text, replyTo)] : []),
+    ...(hasResend ? [sendResend(`[sweetsnow.org] ${spec.label}${who ? " from " + who : ""}`, text, replyTo)] : []),
     ...(hasWebhook ? [sendWebhook(payload)] : []),
   ];
   const results = await Promise.allSettled(sends);

@@ -1,132 +1,121 @@
 /* ============================================================
    SWEET SNOW CATERING — SETTINGS  (the easy file)
    ------------------------------------------------------------
-   Change something here, save, and the catering site rebuilds
-   itself:  sweetsnow.org/catering
+   Change something here, save, and the catering landing page
+   rebuilds itself:  sweetsnow.org/catering
 
-   What catering is: pre-made bingsu from our menu, in a sealable
-   paper cup, with a label for each flavor.
+   What catering is: bingsu made the way we make it at the shop,
+   for your event. Guests book an appointment first.
 
    Rules (same as website/site-settings.js):
      - Keep the quote marks "" around every piece of text.
      - Keep the commas at the end of each line.
      - Anything after //  is a private note; it never shows.
-     - Flavor names must match the menu exactly, for example
-       "Mango Jelly Cup".
+     - Bingsu names must match the menu exactly, for example
+       "Mango" or "Matcha Strawberry".
    ============================================================ */
 
 window.CATERING_SETTINGS = {
 
+  /* ---- WHICH DESIGN ---------------------------------------------
+     "bunny"  Snow Bunny: the website's look, with the bunny and doodles
+     "cloud"  Cotton Cloud: pastel sky, clouds, soft and round
+     "diary"  Sticker Diary: scrapbook with polaroids, tape and stickers
+
+     showSamples: true also builds one page per design so you can
+     compare them at sweetsnow.org/catering/designs. Set it to false
+     once you have chosen.                                           */
+  design: "bunny",
+  showSamples: true,
+
   /* ---- IS CATERING ANNOUNCED YET? ----------------------------
-     false = the site works for anyone who has the link, but it is
-             not in the main website's menu and Google is asked to
-             skip it.
+     false = the page works for anyone who has the link (your
+             Instagram ads can point to it), but it is not in the
+             main website's menu and Google is asked to skip it.
      true  = "Catering" is added to the menu and footer of
-             sweetsnow.org, and the site is listed for Google.     */
+             sweetsnow.org, and the page is listed for Google.     */
   announce: false,
 
   /* ---- TOP OF THE PAGE ---------------------------------------- */
   title: "Sweet Snow Catering",
-  headline: "Same snow. New places.",
-  text: "Pre-made bingsu from our menu, sealed in a paper cup and labeled by flavor. Ready for your event.",
-  sticker: "By appointment",          // the round yellow sticker. Leave "" to hide.
-
-  /* ---- THE THREE THINGS TO KNOW (the yellow band) --------------
-     A short word and one line each.                               */
-  points: [
-    ["Pre-made", "Bingsu from our menu, made ahead at Sweet Snow in Garden Grove."],
-    ["Sealed", "A paper ice cream cup with a lid that seals."],
-    ["Labeled", "Every cup wears its flavor, so guests can pick their own."]
-  ],
-
-  /* ---- SMALL FACTS UNDER THE BUTTONS ---------------------------
-     From the catering team plan. Change or remove any line.       */
-  facts: [
+  headline: "Fresh bingsu, made at your event.",
+  text: "We bring the milk snow and make every bowl the way we do at our shop. Book an appointment and we will plan it with you.",
+  heroItems: ["Strawberry", "Mango", "Matcha Strawberry"],      // the three bowls shown at the top
+  facts: [                                                       // from the catering team plan. Change or remove any line.
     "For 50 to 200+ guests",
     "Same milk base and Korean snow machine as our shop"
   ],
 
-  /* ---- LABEL COLORS ---------------------------------------------
-     The color of each flavor's label on the cup drawings. Use the
-     colors of your real labels here. A flavor without a line gets
-     a color by itself.                                             */
-  labels: {
-    "Mango Jelly Cup": "#FFB81C",
-    "Injeolmi Jollypong Cup": "#D9A066",
-    "Cookies and Cream Cup": "#2E2A3B",
-    "Strawberry Mango Popping Candy Cup": "#FF5A6E",
-    "Viet Coffee Cup": "#8A5A3C",
-    "Matcha Red Bean Cup": "#7DB548",
-    "Biscoff Caramel Cup": "#E08A3C",
-    "Strawberry Cheesecake Cup": "#FF9FB8"
-  },
-
-  /* ---- THE TIERS ------------------------------------------------
-     One block per tier, smallest first. Add or remove blocks freely.
-
+  /* ---- THE THREE TIERS -------------------------------------------
      name     what the tier is called
      text     one short line about it
-     price    for example "$9 per cup". Leave "" to show "Ask for a quote".
-     guests   for example "50 to 100 guests". Leave "" to hide.
-     items    the cup flavors in this tier, spelled exactly as on the
-              menu. Names, photos and what is inside come from the menu.
-
-     buildUp: true means each tier includes every flavor in the tiers
-     before it, so a tier only lists the flavors it adds.            */
-  buildUp: true,
+     picks    what goes on the event menu: one word per bingsu,
+              "Classic" or "Special"
+     addOn    an optional extra, for example the taiyaki add-on.
+              Leave "" for none.
+     price    for example "$12 per guest". Leave "" to show
+              "Ask for a quote".
+     guests   for example "50 to 100 guests". Leave "" to hide.      */
   tiers: [
-    {
-      name: "First Snow",
-      text: "Three classic flavors.",
-      price: "",
-      guests: "",
-      items: ["Mango Jelly Cup", "Injeolmi Jollypong Cup", "Cookies and Cream Cup"]
-    },
-    {
-      name: "Snow Day",
-      text: "Adds three more flavors.",
-      price: "",
-      guests: "",
-      items: ["Strawberry Mango Popping Candy Cup", "Viet Coffee Cup", "Matcha Red Bean Cup"]
-    },
-    {
-      name: "Snowed In",
-      text: "Every cup flavor on our menu.",
-      price: "",
-      guests: "",
-      items: ["Biscoff Caramel Cup", "Strawberry Cheesecake Cup"]
-    }
+    { name: "Basic",   text: "Two classic bingsu on your event menu.",              picks: ["Classic", "Classic"],            addOn: "", price: "", guests: "" },
+    { name: "Premium", text: "Two classic bingsu and one special bingsu.",          picks: ["Classic", "Classic", "Special"], addOn: "", price: "", guests: "" },
+    { name: "Special", text: "Three bingsu of your choice: one classic, two special.", picks: ["Classic", "Special", "Special"], addOn: "Mini taiyaki add-on available", price: "", guests: "" }
   ],
 
-  /* ---- WHO IT IS FOR (from the catering team plan) --------------- */
+  /* ---- THE EVENT MENU ---------------------------------------------
+     The Classic and Special bingsu guests can choose from. They come
+     from the menu by themselves (coming-soon items are left out).
+     To leave one off the event menu, write its name in `leaveOut`.   */
+  leaveOut: [],
+
+  /* ---- ON THE SIDE ------------------------------------------------- */
+  taiyaki: {
+    show: true,
+    title: "Mini taiyaki add-on",
+    text: "Small filled, fish-shaped pastries. Add them with the Special tier."
+  },
+  preMade: {
+    show: true,
+    title: "Pre-made cups, on the side",
+    text: "Bingsu in a sealed paper cup, labeled by flavor. Ask about it at your appointment."
+  },
+
+  /* ---- WHO IT IS FOR (from the catering team plan) ----------------- */
   events: [
-    "Weddings and engagements",
-    "First birthdays (돌잔치)",
-    "Corporate and office events",
-    "Schools and churches",
-    "Birthdays and private parties",
-    "Festivals and night markets",
-    "Korean community events"
+    "Wedding or engagement",
+    "First birthday (돌잔치)",
+    "Corporate or office event",
+    "School or church event",
+    "Birthday or private party",
+    "Festival or night market",
+    "Korean community event"
   ],
 
-  /* ---- APPOINTMENTS -------------------------------------------
-     bookingLink  The link to your booking calendar (a Google Calendar
-                  booking page, for example). Paste it between the
-                  quotes and the page shows a "Pick a time" button.
-                  While it is "", the page asks guests to message
-                  you on Instagram to book.
-     form         true = also show a request form on the page. It
-                  needs email delivery set up first (see README.md
-                  in this folder). false = no form.
+  /* ---- APPOINTMENTS -----------------------------------------------
+     Guests book with the chat helper or the form. Each request is
+     emailed to you (see README.md in this folder for the one-time
+     email setup).
+
+     times        the parts of the day a guest can ask for
      leadTime     for example "Please book at least 7 days ahead."
      serviceArea  for example "Serving Orange County."
-     Leave either as "" to hide it.                                */
+     Leave either as "" to hide it.                                   */
   appointments: {
-    title: "Book an appointment",
-    text: "Every catering order starts with an appointment, so we can plan it around your event.",
-    bookingLink: "",
-    form: false,
+    title: "Book your appointment",
+    text: "Chat with Snow, our catering helper. It takes about a minute, and your request goes straight to our inbox.",
+    times: ["Morning", "Afternoon", "Evening"],
     leadTime: "",
     serviceArea: ""
+  },
+
+  /* ---- WHAT THE CHAT HELPER SAYS -------------------------------------
+     Short answers to the quick questions. The tier answer is written
+     from the tiers above by itself.                                    */
+  answers: {
+    how: "Tell me about your event and pick a day for your appointment. We confirm by email or text, plan your menu together, and send you a quote.",
+    price: "The price depends on your guest count and tier. We send a quote after your appointment.",
+    taiyaki: "Mini taiyaki can be added with the Special tier.",
+    preMade: "We also make pre-made bingsu in sealed paper cups, labeled by flavor. Ask about it at your appointment.",
+    guests: "We cater events of 50 to 200+ guests."
   }
 };

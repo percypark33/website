@@ -23,7 +23,7 @@ node build/build.mjs
 | `designs/language.js` | The owner's Korean dictionary. `build/ko-extra.mjs` adds words for new sections. |
 | `designs/brand-story.js` | The family letter and photo captions, English and Korean. |
 | `topping-image-manifest.json` | Topping names, Korean names and pictures. |
-| `catering/catering-settings.js` | The catering site: headline, flavors and label colors, tiers, appointments, and whether catering is announced. See [`catering/README.md`](catering/README.md). |
+| `catering/catering-settings.js` | The catering landing page: which of three designs, headline, tiers, appointments, the chat helper's answers, and whether catering is announced. See [`catering/README.md`](catering/README.md). |
 | `build/` | The machinery: `build.mjs`, page templates in `lib/`, styles and script in `src/`. |
 | `assets/site/` | Built files: small WebP photos, fonts, `app.js`, `ko.json`. |
 | `index.html`, `menu.html`, `visit.html`, `privacy.html`, `thanks.html`, `404.html`, `catering/index.html`, `catering/thanks.html` | Built output. Do not edit by hand; they are rewritten on every build. |
@@ -41,8 +41,6 @@ node build/build.mjs
 
 A photo without a small copy still works; the site uses the original file.
 
-The catering typefaces alone: `python3 build/fonts.py catering`.
-
 The picture shown when the site is shared (link preview) is `assets/share-sweet-snow-20261112.jpg`, 1200×630. Its layout is `build/src/share-picture.html`: open it in a browser at 1200×630, take a screenshot, save it under a new file name and update the name in `build/lib/pages.mjs` (`const og`).
 
 ## Pages and behavior
@@ -51,10 +49,10 @@ The picture shown when the site is shared (link preview) is `assets/share-sweet-
 - `/menu`: Classic `#menu-classic`, Special `#menu-special`, Fruit Half & Half `#menu-half-half`, Cups `#single-cups`, Food `#food` (and `#mini-sides`), Croffles `#croffles`, Toppings `#toppings`. Each item keeps its `#menu-item-…` address.
 - `/visit`: location guide `#find-us`, hours, directions.
 - `/privacy` and `/thanks`: supporting pages.
-- `/catering`: the catering site, with a design of its own (`build/src/catering.css`, Lilita One and Outfit). Flavors `#flavors`, tiers `#tiers`, who it is for `#events`, how it works `#how`, booking an appointment `#book` (a booking calendar link; a request form can be switched on). `/catering/thanks` is where the request form lands without the page script. Not in the menu or the sitemap until `announce: true`.
+- `/catering`: the catering landing page, where Instagram ads land. The main site's look plus one of three cute designs (`build/src/catering.css` and `catering-<design>.css`). How to book `#how`, tiers `#tiers`, the event menu `#menu`, booking `#book` (Snow the chat helper and a form). `/catering/thanks` is where the form lands without the page script; `/catering/designs` compares the three designs while `showSamples` is on. Not in the menu or the sitemap until `announce: true`.
 - Old links such as `/#croffles` or `/#visit` are sent to the page that now holds that section.
 - `api/inventory.js`: Square availability (SOLD OUT / FEW LEFT badges).
-- `api/form.js`: form delivery, used by the optional catering request form (off by default). Needs `RESEND_API_KEY` (with `FORM_TO_EMAIL` or `CONTACT_EMAIL`) or `FORM_WEBHOOK_URL`; without one, guests are told their request was not sent.
+- `api/form.js`: emails each catering appointment request and question to the owner. Needs `RESEND_API_KEY` (recipients come from `FORM_TO_EMAIL` or `CONTACT_EMAIL`) or `FORM_WEBHOOK_URL`; without one, guests are told their request was not sent.
 - `tv/`: TV menu boards. Not touched by the build.
 
 The older page scripts and styles in `designs/` are no longer loaded by the pages. They are kept for the TV sources and for reference.

@@ -1,9 +1,12 @@
-/* SWEET SNOW CATERING — the catering site: one page and its thank-you page.
+/* SWEET SNOW CATERING — the catering landing page (where Instagram ads land),
+   its thank-you page, and the three design samples.
 
-   Catering has its own design, separate from the main website: its own
-   header and footer, typefaces (Lilita One, Outfit), colours and motion.
-   What it sells is pre-made bingsu from the menu in a sealable paper cup
-   with a label for each flavor, so the cup and its label carry the design.
+   The page keeps the main website's look (same colours, typefaces, buttons)
+   and adds a cuter concept on top. There are three to choose from:
+     bunny   Snow Bunny      the bunny and doodles
+     cloud   Cotton Cloud    pastel sky and clouds
+     diary   Sticker Diary   scrapbook with polaroids, tape and stickers
+   catering-settings.js picks one with `design`.
 
    Everything shown comes from catering/catering-settings.js and the menu:
    a menu change (name, photo, hidden item) carries over by itself. */
@@ -13,20 +16,11 @@ import { runBrowserFile, nearest, slug } from './data.mjs';
 import { e } from './pages.mjs';
 
 export const SETTINGS_FILE = 'catering/catering-settings.js';
-export const THEME_COLOR = '#17223F';
-export const FONT_PRELOADS = ['lilita.woff2', 'outfit.woff2'].map(file => `<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/${file}" crossorigin>`);
-
-/* ---------- colours ---------- */
-
-const NAVY = '#17223F';
-const SPARE_LABELS = ['#5AA9E6', '#B58CF0', '#3CC5A8', '#FFB81C', '#FF5A6E', '#7DB548'];   // for a flavor with no colour in the settings
-const luminance = colour => {
-  const [r, g, b] = [1, 3, 5].map(at => parseInt(colour.slice(at, at + 2), 16) / 255).map(v => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+export const DESIGNS = {
+  bunny: { name: 'Snow Bunny', note: 'Closest to the website today: milk-blue and airy, with the bunny, falling snow and little doodles.' },
+  cloud: { name: 'Cotton Cloud', note: 'A pastel sky: bowls floating on a cloud, soft pink and butter yellow next to the blue, everything round.' },
+  diary: { name: 'Sticker Diary', note: 'A scrapbook: polaroids with tape, stickers, dotted paper and handwritten titles.' }
 };
-const contrast = (a, b) => { const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x); return (hi + 0.05) / (lo + 0.05); };
-/* The words on a label are navy or white, whichever reads better on that label. */
-const inkOn = colour => (contrast(colour, NAVY) >= contrast(colour, '#FFFFFF') ? NAVY : '#FFFFFF');
 
 /* ---------- settings ---------- */
 
@@ -39,93 +33,84 @@ export function loadCatering(root, site) {
   const text = value => String(value ?? '').trim();
   const list = value => (Array.isArray(value) ? value : []);
 
-  const menu = [...site.cups, ...site.groups.classic, ...site.groups.special, ...site.groups['half-half'], ...site.taiyaki, ...site.croffles];
-  const full = item => (item.kind === 'hot' ? item.name + ' Mini Taiyaki' : item.name);
-  const labels = S.labels && typeof S.labels === 'object' ? S.labels : {};
-  for (const name of Object.keys(labels)) {
-    if (!menu.some(item => full(item) === name)) { const close = nearest(name, menu.map(full)); warn(`labels: no menu item is called "${name}".${close ? ` Did you mean "${close}"?` : ''}`); }
-  }
-  const flavors = [];                                        // every flavor on the site, once, in tier order
-  const find = (name, where) => {
-    const known = flavors.find(flavor => flavor.full === name);
-    if (known) return known;
-    const item = menu.find(i => full(i) === name) || menu.find(i => i.name === name);
-    if (!item) {
-      const close = nearest(name, menu.map(full));
-      warn(`${where}: no menu item is called "${name}".${close ? ` Did you mean "${close}"?` : ''}`);
-      return null;
-    }
-    let colour = text(labels[full(item)]);
-    if (colour && !/^#[0-9a-f]{6}$/i.test(colour)) { warn(`labels: "${colour}" for "${full(item)}" is not a colour like "#FFB81C". Using a spare colour.`); colour = ''; }
-    colour = (colour || SPARE_LABELS[flavors.length % SPARE_LABELS.length]).toUpperCase();
-    const flavor = {
-      ...item, full: full(item), short: item.name.replace(/ (Croffle|Cup)$/, ''), key: slug(full(item)),
-      colour, ink: inkOn(colour), parts: item.ing.split(item.kind === 'croffle' ? /,\s*/ : /\s*·\s*/).map(part => part.trim()).filter(Boolean)
-    };
-    flavors.push(flavor);
-    return flavor;
+  let design = text(S.design).toLowerCase() || 'bunny';
+  if (!DESIGNS[design]) { warn(`design: "${S.design}" is not one of ${Object.keys(DESIGNS).join(', ')}. Using "bunny".`); design = 'bunny'; }
+
+  const bowls = [...site.groups.classic, ...site.groups.special, ...site.groups['half-half']];
+  const named = (name, where) => {
+    const item = bowls.find(bowl => bowl.name === name);
+    if (item) return item;
+    const close = nearest(name, bowls.map(bowl => bowl.name));
+    warn(`${where}: no bingsu is called "${name}".${close ? ` Did you mean "${close}"?` : ''}`);
+    return null;
   };
+  const leaveOut = list(S.leaveOut).map(text).filter(name => named(name, 'leaveOut'));
+  const onMenu = group => site.groups[group].filter(bowl => !bowl.comingSoon && !leaveOut.includes(bowl.name));
+  const menu = { classic: onMenu('classic'), special: onMenu('special') };
 
   const ids = new Set();
-  let running = 0;
-  const buildUp = S.buildUp !== false;
   const tiers = list(S.tiers).map((tier, index) => {
     const name = text(tier.name) || `Tier ${index + 1}`;
     let id = 'tier-' + (slug(name) || index + 1);
     while (ids.has(id)) id += '-' + (index + 1);
     ids.add(id);
-    const items = [...new Set(list(tier.items).map(item => find(text(item), `tiers → "${name}"`)).filter(Boolean))];
-    running = buildUp ? running + items.length : items.length;
-    return { id, name, text: text(tier.text), price: text(tier.price), guests: text(tier.guests), items, count: running };
+    const picks = list(tier.picks).map(pick => text(pick).toLowerCase()).filter(pick => {
+      if (pick === 'classic' || pick === 'special') return true;
+      warn(`tiers → "${name}" → picks: "${pick}" should be "Classic" or "Special".`);
+      return false;
+    });
+    return { id, name, text: text(tier.text), picks, addOn: text(tier.addOn), price: text(tier.price), guests: text(tier.guests) };
   });
-  if (!tiers.length) warn('tiers: there are no tiers yet, so the site has no flavors to show.');
+  if (!tiers.length) warn('tiers: there are no tiers yet.');
 
   const A = S.appointments || {};
-  const link = text(A.bookingLink);
-  const linkOk = /^https:\/\//.test(link);
-  if (link && !linkOk) warn(`appointments → bookingLink: "${link}" should start with https://. The "Pick a time" button is hidden until it does.`);
+  const side = (block, title) => ({ show: !!block && block.show !== false, title: text(block?.title) || title, text: text(block?.text) });
+  const answers = Object.fromEntries(Object.entries(S.answers || {}).map(([key, value]) => [key, text(value)]).filter(([, value]) => value));
   return {
-    announce: S.announce === true,
-    title: text(S.title) || 'Sweet Snow Catering', headline: text(S.headline) || text(S.title) || 'Sweet Snow Catering', text: text(S.text), sticker: text(S.sticker),
-    points: list(S.points).map(point => list(point).map(text)).filter(point => point[0]),
+    design, showSamples: S.showSamples === true, announce: S.announce === true,
+    title: text(S.title) || 'Sweet Snow Catering', headline: text(S.headline) || 'Sweet Snow Catering', text: text(S.text),
+    heroItems: list(S.heroItems).map(name => named(text(name), 'heroItems')).filter(Boolean).slice(0, 3),
     facts: list(S.facts).map(text).filter(Boolean),
-    flavors, buildUp, tiers,
+    tiers, menu,
+    taiyaki: { ...side(S.taiyaki, 'Mini taiyaki add-on'), items: site.taiyaki.slice(0, 3) },
+    preMade: side(S.preMade, 'Pre-made cups, on the side'),
     events: list(S.events).map(text).filter(Boolean),
     appointments: {
-      title: text(A.title) || 'Book an appointment', text: text(A.text),
-      bookingLink: linkOk ? link : '', form: A.form === true, leadTime: text(A.leadTime), serviceArea: text(A.serviceArea)
-    }
+      title: text(A.title) || 'Book your appointment', text: text(A.text),
+      times: list(A.times).map(text).filter(Boolean), leadTime: text(A.leadTime), serviceArea: text(A.serviceArea)
+    },
+    answers
   };
 }
 
-/* ---------- the cup ----------
-   One drawing, used at every size: a squat paper ice cream cup, a lid that seals, a seal tab,
-   and a label band in the flavor's colour. The words on the label are real
-   text laid over the band, so they wrap, translate and stay readable. */
+/* ---------- little drawings ---------- */
 
-const CUP_ART = `<svg class="c-cup-art" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><path class="c-cup-body" d="M22 60H178L160 178Q159 188 148 188H52Q41 188 40 178Z"/><path class="c-cup-shade" d="M148 60H178L160 178Q159 188 148 188H130Z"/><path class="c-cup-band" d="M26.6 90H173.4L162.7 160H37.3Z"/><g class="c-cup-lid"><rect x="12" y="30" width="176" height="32" rx="9"/><path d="M24 49H176"/></g><rect class="c-cup-seal" x="146" y="40" width="18" height="40" rx="5"/></svg>`;
+const DOODLE = {
+  sparkle: '<svg class="k-doodle k-sparkle" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5c.9 5.6 2.9 7.6 8.5 8.5-5.6.9-7.6 2.9-8.5 8.5-.9-5.6-2.9-7.6-8.5-8.5 5.6-.9 7.6-2.9 8.5-8.5Z"/></svg>',
+  heart: '<svg class="k-doodle k-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5C5.6 15.9 3 12.6 3 9.2 3 6.5 5.1 4.5 7.6 4.5c1.7 0 3.3.9 4.4 2.5 1.1-1.6 2.7-2.5 4.4-2.5 2.5 0 4.6 2 4.6 4.7 0 3.4-2.6 6.7-9 11.3Z"/></svg>',
+  star: '<svg class="k-doodle k-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6 14.7 9l6.8.5-5.2 4.4 1.7 6.7L12 17l-6 3.6 1.7-6.7L2.5 9.5 9.3 9Z" stroke-linejoin="round"/></svg>',
+  flake: '<svg class="k-doodle k-flake" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17M12 6l-2.2-2.2M12 6l2.2-2.2M12 18l-2.2 2.2M12 18l2.2 2.2" fill="none" stroke-linecap="round"/></svg>',
+  arrow: '<svg class="k-doodle k-arrow" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 8c16-6 36 0 44 22M48 30l-9-3M48 30l2-10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+};
+/* Snow, the bunny who helps with booking. */
+const BUNNY = '<svg class="k-bunny" viewBox="0 0 120 130" aria-hidden="true"><g class="k-bunny-line"><ellipse cx="42" cy="36" rx="13" ry="33" transform="rotate(-9 42 36)"/><ellipse cx="78" cy="36" rx="13" ry="33" transform="rotate(9 78 36)"/><ellipse cx="60" cy="88" rx="45" ry="37"/></g><g class="k-bunny-pink"><ellipse cx="42" cy="38" rx="5.5" ry="20" transform="rotate(-9 42 38)"/><ellipse cx="78" cy="38" rx="5.5" ry="20" transform="rotate(9 78 38)"/><ellipse cx="34" cy="97" rx="8" ry="5.5"/><ellipse cx="86" cy="97" rx="8" ry="5.5"/></g><g class="k-bunny-ink"><circle cx="45" cy="84" r="4.2"/><circle cx="75" cy="84" r="4.2"/><ellipse cx="60" cy="93" rx="3.6" ry="2.6"/></g><path class="k-bunny-smile" d="M60 96v4m-7 2q7 6 14 0" fill="none" stroke-linecap="round"/></svg>';
+const CLOUD = '<svg class="k-cloud" viewBox="0 0 640 230" preserveAspectRatio="none" aria-hidden="true"><path d="M86 226a72 72 0 0 1 4-144 96 96 0 0 1 176-34 118 118 0 0 1 208 22 84 84 0 0 1 96 156Z"/></svg>';
+const BOWL = '<svg class="k-mini-bowl" viewBox="0 0 28 24" aria-hidden="true"><path class="k-mini-snow" d="M5 12c0-5 4-9 9-9s9 4 9 9Z"/><path class="k-mini-dish" d="M2.5 12h23l-3.4 8.2a3 3 0 0 1-2.8 1.8H8.7a3 3 0 0 1-2.8-1.8Z"/></svg>';
+const CUP = '<svg class="k-cup" viewBox="0 0 200 200" aria-hidden="true"><path class="k-cup-body" d="M22 60H178L160 178Q159 188 148 188H52Q41 188 40 178Z"/><path class="k-cup-band" d="M26.6 90H173.4L162.7 160H37.3Z"/><rect class="k-cup-lid" x="12" y="30" width="176" height="32" rx="9"/><rect class="k-cup-seal" x="146" y="40" width="18" height="40" rx="5"/></svg>';
+const ICON_OUT = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ICON_ARROW = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-const cupStyle = (flavor, index) => `--label:${flavor.colour};--label-ink:${flavor.ink};--i:${index}`;
-const labelClass = flavor => 'c-cup-label' + (flavor.short.length > 18 ? ' is-long' : '');     // long names are set a little smaller
-/* `quiet` is for a cup whose name is also written beside it: screen readers then hear the name once. */
-const cup = (flavor, words, index = 0, quiet = false) => `<span class="c-cup" style="${cupStyle(flavor, index)}">${CUP_ART}<span class="${labelClass(flavor)}"${quiet ? ' aria-hidden="true"' : ''}>${words}</span></span>`;
-
-const ICON_OUT = '<svg class="c-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const bookWords = C => (C.appointments.form ? 'Request an appointment' : 'Book an appointment');
-
-/* ---------- header and footer ---------- */
+/* ---------- header and footer (a landing page keeps them short) ---------- */
 
 function header(ctx) {
-  const { t, ta, logo, site } = ctx;
-  const C = site.catering;
-  return `<a class="c-skip" href="#main">${t('Skip to content')}</a>
-<header class="c-header" data-header>
-  <div class="c-wrap c-header-row">
-    <a class="c-brand" href="/catering" aria-label="${ta(C.title)}">${logo('logo-white', '', 'c-brand-logo', '112px')}<span class="c-brand-word">${t('Catering')}</span></a>
-    <nav class="c-nav" aria-label="${ta('Catering')}"><a href="/catering#flavors">${t('Flavors')}</a><a href="/catering#tiers">${t('Tiers')}</a><a href="/catering#how">${t('How it works')}</a><a href="/">${t('Visit the shop')}</a></nav>
-    <div class="c-header-actions">
-      <div class="lang c-lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ko" aria-pressed="false" lang="ko">한국어</button></div>
-      <a class="c-btn c-btn-sun c-btn-small c-header-book" href="/catering#book">${t(bookWords(C))}</a>
+  const { t, ta, logo } = ctx;
+  return `<a class="skip" href="#main">${t('Skip to content')}</a>
+<header class="k-header" data-header>
+  <div class="wrap k-header-row">
+    <a class="k-brand" href="/" aria-label="${ta('Sweet Snow home')}">${logo('logo-blue', 'Sweet Snow', 'k-brand-logo', '112px')}</a>
+    <div class="k-header-actions">
+      <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ko" aria-pressed="false" lang="ko">한국어</button></div>
+      <a class="btn btn-primary k-header-book" href="/catering#book">${t('Book')}</a>
     </div>
   </div>
 </header>`;
@@ -133,262 +118,326 @@ function header(ctx) {
 
 function footer(ctx) {
   const { t, logo, site } = ctx;
-  const C = site.catering;
   const L = site.SETTINGS.links;
   const handle = L.instagram.replace(/\/$/, '').split('/').pop();
-  return `<footer class="c-footer">
-  <div class="c-wrap c-footer-grid">
-    <div class="c-footer-brand">${logo('arch-white', 'Sweet Snow. ' + site.SETTINGS.tagline, 'c-footer-logo', '180px', true)}<p>${t(C.title)}</p></div>
-    <div><h2>${t('Book')}</h2><p><a href="/catering#book">${t(bookWords(C))}</a></p><p><a href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON_OUT}</a></p></div>
-    <div><h2>${t('The shop')}</h2><address>${t(site.brand.venue)}<br>${e(site.brand.street)}<br>${e(site.brand.city)}</address><p><a href="/">sweetsnow.org</a></p></div>
-    <div><h2>${t('More')}</h2><p><a href="/menu">${t('Our menu')}</a></p><p><a href="/privacy">${t('Privacy')}</a></p></div>
+  return `<footer class="k-footer">
+  <div class="wrap k-footer-row">
+    ${logo('arch-blue', 'Sweet Snow. ' + site.SETTINGS.tagline, 'k-footer-logo', '150px', true)}
+    <address>${t(site.brand.venue)}<br>${e(site.brand.street)}, ${e(site.brand.city)}</address>
+    <p class="k-footer-links"><a class="link" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON_OUT}</a><a class="link" href="/">sweetsnow.org</a><a class="link" href="/menu">${t('Our menu')}</a><a class="link" href="/privacy">${t('Privacy')}</a></p>
   </div>
 </footer>`;
 }
 
-/* ---------- the page ---------- */
+/* ---------- the top of the page: one per design ---------- */
 
-function hero(ctx) {
+function heroArt(ctx, design) {
+  const { t, ta, img, site } = ctx;
+  const items = site.catering.heroItems;
+  if (!items.length) return '';
+  const photo = (item, n, sizes) => img(item.photo, 'card', { alt: ta(item.name + ' bingsu'), sizes, eager: true, cls: 'k-hero-bowl k-hero-bowl-' + n });
+  if (design === 'cloud') return `<div class="k-hero-art">
+      ${DOODLE.star}${DOODLE.sparkle}${DOODLE.star}
+      ${CLOUD}
+      <div class="k-hero-bowls">${items.map((item, n) => photo(item, n + 1, '(max-width: 859px) 34vw, 240px')).join('')}</div>
+    </div>`;
+  if (design === 'diary') return `<div class="k-hero-art">
+      ${items.map((item, n) => `<figure class="k-polaroid k-polaroid-${n + 1}">${photo(item, n + 1, '(max-width: 859px) 40vw, 220px')}<figcaption>${t(item.name)}</figcaption></figure>`).join('')}
+      ${DOODLE.heart}${DOODLE.star}${DOODLE.sparkle}
+      <p class="k-stamp" aria-hidden="true">${t('made fresh!')}</p>
+    </div>`;
+  return `<div class="k-hero-art">
+      <div class="hero-halo k-halo" aria-hidden="true"></div>
+      ${DOODLE.sparkle}${DOODLE.heart}${DOODLE.flake}
+      ${photo(items[0], 1, '(max-width: 859px) 80vw, 520px')}
+      <div class="k-peek" aria-hidden="true">${BUNNY}<p class="k-bubble">${t('Let’s plan your party!')}</p></div>
+      <p class="k-note" aria-hidden="true">${t('made fresh at your event')}${DOODLE.arrow}</p>
+    </div>`;
+}
+
+function hero(ctx, design) {
   const { t, site } = ctx;
   const C = site.catering;
-  const middle = (C.flavors.length - 1) / 2;
-  // The cups arrive from the middle outwards, then each lid drops on and seals.
-  const lineup = C.flavors.map((flavor, k) => cup(flavor, t(flavor.short), Math.round(Math.abs(k - middle)))).join('');
-  return `<section class="c-hero" aria-labelledby="c-title">
-  <div class="c-wrap c-hero-copy">
-    <h1 id="c-title"><span class="c-hero-brand">${t(C.title)}</span> <span class="c-hero-line">${t(C.headline)}</span></h1>
-    ${C.text ? `<p class="c-hero-lead">${t(C.text)}</p>` : ''}
-    <p class="c-hero-actions"><a class="c-btn c-btn-sun" href="#book">${t(bookWords(C))}</a>${C.flavors.length ? `<a class="c-link" href="#flavors">${t('See the flavors')}</a>` : ''}</p>
-    ${C.facts.length ? `<ul class="c-hero-facts">${C.facts.map(fact => `<li>${t(fact)}</li>`).join('')}</ul>` : ''}
+  return `<section class="k-hero" aria-labelledby="k-title">
+  <div class="wrap k-hero-in">
+    <div class="k-hero-copy">
+      <p class="kicker">${t(C.title)}</p>
+      <h1 id="k-title">${t(C.headline)}</h1>
+      ${C.text ? `<p class="lead">${t(C.text)}</p>` : ''}
+      <p class="k-hero-actions"><a class="btn btn-primary" href="#book">${t('Book an appointment')}</a><a class="link" href="#tiers">${t('See the tiers')}${ICON_ARROW}</a></p>
+      ${C.facts.length ? `<ul class="k-facts">${C.facts.map(fact => `<li>${t(fact)}</li>`).join('')}</ul>` : ''}
+    </div>
+    ${heroArt(ctx, design)}
   </div>
-  ${C.flavors.length ? `<div class="c-lineup" aria-hidden="true">${lineup}${C.sticker ? `<span class="c-sticker"><span>${t(C.sticker)}</span></span>` : ''}</div>` : ''}
+  ${design === 'bunny' ? '<canvas class="snow" data-snow aria-hidden="true"></canvas>' : ''}
 </section>`;
 }
 
-function points(ctx) {
-  const { t, ta, site } = ctx;
-  const C = site.catering;
-  if (!C.points.length) return '';
-  return `<section class="c-points" aria-label="${ta('What you get')}">
-  <ul class="c-wrap c-points-list">${C.points.map(([word, line]) => `<li><h2>${t(word)}</h2>${line ? `<p>${t(line)}</p>` : ''}</li>`).join('')}</ul>
-</section>`;
-}
+/* ---------- how to book, the tiers, the event menu ---------- */
 
-function flavors(ctx) {
-  const { t, ta, img, site } = ctx;
-  const C = site.catering;
-  if (!C.flavors.length) return '';
-  const first = C.flavors[0];
-  const tab = (flavor, k) => `<button class="c-tab" type="button" role="tab" id="ft-${flavor.key}" aria-controls="fp-${flavor.key}" aria-selected="${k === 0}" tabindex="${k === 0 ? 0 : -1}" data-flavor="${flavor.key}" data-label="${flavor.colour}" data-ink="${flavor.ink}" style="${cupStyle(flavor, k)}"><span class="c-tab-dot" aria-hidden="true"></span><span>${t(flavor.short)}</span></button>`;
-  const panel = (flavor, k) => `<div class="c-inside${k === 0 ? ' is-on' : ''}" role="tabpanel" id="fp-${flavor.key}" aria-labelledby="ft-${flavor.key}" tabindex="0" style="${cupStyle(flavor, k)}">
-        <div class="c-inside-photo">${img(flavor.photo, 'card', { alt: ta(flavor.full), sizes: '(max-width: 859px) 46vw, 260px' })}</div>
-        <div class="c-inside-copy">
-          <h3>${t(flavor.short)}</h3>
-          <p class="c-inside-note">${t('What is inside')}</p>
-          <ul class="c-chips">${flavor.parts.map((part, i) => `<li style="--i:${i}">${t(part)}</li>`).join('')}</ul>
-        </div>
-      </div>`;
-  return `<section class="c-flavors" id="flavors" aria-labelledby="flavors-title" data-flavors>
-  <div class="c-wrap">
-    <div class="c-head">
-      <h2 id="flavors-title">${t('A label for every flavor')}</h2>
-      <p class="c-lead">${t('Pick a flavor to see its label and what is inside the cup.')}</p>
-    </div>
-    <div class="c-flavor-grid">
-      <div class="c-tabs" role="tablist" aria-label="${ta('Flavors')}">${C.flavors.map(tab).join('')}</div>
-      <div class="c-stage" aria-hidden="true">
-        <span class="c-cup c-cup-big" data-stage-cup style="${cupStyle(first, 0)}">${CUP_ART}${C.flavors.map((flavor, k) => `<span class="${labelClass(flavor)}" data-stage-label="${flavor.key}"${k === 0 ? '' : ' hidden'}>${t(flavor.short)}</span>`).join('')}</span>
-      </div>
-      <div class="c-panels">
-      ${C.flavors.map(panel).join('\n      ')}
-      </div>
-    </div>
+function steps(ctx) {
+  const { t } = ctx;
+  const list = [
+    ['Tell us about your event', 'Chat with Snow or fill in the form. It takes about a minute.'],
+    ['We confirm your appointment', 'You hear back from us by email or text.'],
+    ['We plan your menu', 'Pick your bingsu together and get your quote.']
+  ];
+  return `<section class="k-steps" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <h2 id="how-title">${t('How to book')}</h2>
+    <ol class="k-step-list">${list.map(([title, text], i) => `<li><span class="k-step-num" aria-hidden="true">${i + 1}</span><h3>${t(title)}</h3><p>${t(text)}</p></li>`).join('')}</ol>
+    <p class="k-steps-cta"><a class="btn btn-primary" href="#book">${t('Book an appointment')}</a></p>
   </div>
 </section>`;
 }
-
-/* Tier cards take turns through the brand colours, like price tags. */
-const TONES = [['#FFFFFF', NAVY], ['#FFC83D', NAVY], ['#2457F5', '#FFFFFF']];
 
 function tiers(ctx) {
   const { t, site } = ctx;
   const C = site.catering;
   if (!C.tiers.length) return '';
-  let nth = 0;
-  const shelf = (tier, index) => {
-    const [tone, ink] = TONES[index % TONES.length];
-    return `<li class="c-shelf${ink === NAVY ? '' : ' is-deep'}" id="${tier.id}" style="--tone:${tone};--tone-ink:${ink}">
-      <div class="c-tag">
-        <p class="c-tag-step">${t('Tier ' + (index + 1))}</p>
-        <h3>${t(tier.name)}</h3>
-        ${tier.text ? `<p class="c-tag-text">${t(tier.text)}</p>` : ''}
-        <p class="c-tag-facts"><span><b>${tier.count}</b> ${t(tier.count === 1 ? 'flavor' : 'flavors')}</span><span>${t(tier.price || 'Ask for a quote')}</span>${tier.guests ? `<span>${t(tier.guests)}</span>` : ''}</p>
-        <a class="c-btn c-btn-navy c-btn-small" href="#book" data-tier="${e(tier.name)}">${t(C.appointments.form ? 'Request this tier' : 'Book this tier')}</a>
-      </div>
-      <div class="c-shelf-side">
-        ${C.buildUp && index > 0 ? `<p class="c-shelf-plus">${t('Every flavor above, plus')}</p>` : ''}
-        <ul class="c-shelf-cups">${tier.items.map(flavor => `<li><a href="#flavors" data-show-flavor="${flavor.key}">${cup(flavor, t(flavor.short), nth++, true)}<span class="c-shelf-name">${t(flavor.short)}</span></a></li>`).join('')}</ul>
-      </div>
+  const pick = kind => `<li class="k-pick k-pick-${kind}">${BOWL}<span>${t(kind === 'classic' ? 'Classic' : 'Special')}</span></li>`;
+  const card = (tier, index) => `<li class="k-tier k-tier-${index + 1}" id="${tier.id}">
+      <p class="k-tier-step">${t('Tier ' + (index + 1))}</p>
+      <h3>${t(tier.name)}</h3>
+      ${tier.text ? `<p class="k-tier-text">${t(tier.text)}</p>` : ''}
+      ${tier.picks.length ? `<ul class="k-picks" aria-label="${t(tier.name)}">${tier.picks.map(pick).join('')}</ul>` : ''}
+      ${tier.addOn ? `<p class="k-addon">${t(tier.addOn)}</p>` : ''}
+      <p class="k-tier-facts"><span>${t(tier.price || 'Ask for a quote')}</span>${tier.guests ? `<span>${t(tier.guests)}</span>` : ''}</p>
+      <a class="btn btn-quiet k-tier-book" href="#book" data-tier="${e(tier.name)}">${t('Book this tier')}</a>
     </li>`;
-  };
-  return `<section class="c-tiers" id="tiers" aria-labelledby="tiers-title">
-  <div class="c-wrap">
-    <div class="c-head">
-      <h2 id="tiers-title">${t('Tiers built from our menu')}</h2>
-      <p class="c-lead">${t('Each tier opens up more flavors to choose from. Tell us your guest count and we will put a quote together.')}</p>
+  return `<section class="k-tiers" id="tiers" aria-labelledby="tiers-title">
+  <div class="wrap">
+    <div class="k-head">
+      <h2 id="tiers-title">${t('Pick your tier')}</h2>
+      <p class="lead">${t('Each tier sets how many bingsu go on your event menu. You choose the flavors.')}</p>
     </div>
-    <ol class="c-shelves" data-seal>
-    ${C.tiers.map(shelf).join('\n    ')}
+    <ol class="k-tier-list">
+    ${C.tiers.map(card).join('\n    ')}
     </ol>
   </div>
 </section>`;
 }
 
-function events(ctx) {
-  const { t, site } = ctx;
+function eventMenu(ctx) {
+  const { t, ta, img, site } = ctx;
   const C = site.catering;
-  if (!C.events.length) return '';
-  return `<section class="c-events" id="events" aria-labelledby="events-title">
-  <div class="c-wrap">
-    <h2 id="events-title">${t('Made for')}</h2>
-    <ul class="c-events-list">${C.events.map(event => `<li>${t(event)}</li>`).join('')}</ul>
+  const group = (kind, label, lead, items) => (items.length ? `<div class="k-group k-group-${kind}">
+      <h3>${BOWL}${t(label)}</h3>
+      <p class="k-group-lead">${t(lead)}</p>
+      <ul class="k-bowls">${items.map(item => `<li><span class="k-bowl-photo">${img(item.photo, 'card', { alt: ta(item.name + ' bingsu'), sizes: '(max-width: 859px) 40vw, 200px' })}</span><span class="k-bowl-name">${t(item.name)}</span></li>`).join('')}</ul>
+    </div>` : '');
+  if (!C.menu.classic.length && !C.menu.special.length) return '';
+  return `<section class="k-menu" id="menu" aria-labelledby="menu-title">
+  <div class="wrap">
+    <div class="k-head">
+      <h2 id="menu-title">${t('The event menu')}</h2>
+      <p class="lead">${t('Made the way we make it at our shop: real milk shaved into soft snow, then fruit, syrups and toppings.')}</p>
+    </div>
+    ${group('classic', 'Classic', 'The flavors everyone knows.', C.menu.classic)}
+    ${group('special', 'Special', 'Our layered, loaded bowls.', C.menu.special)}
   </div>
 </section>`;
 }
 
-function how(ctx) {
-  const { t, site } = ctx;
-  const A = site.catering.appointments;
-  const first = A.form ? ['Send your request', 'Your event date, guest count and the tier you like.']
-    : A.bookingLink ? ['Pick a time', 'Choose an open time on our booking calendar.']
-    : ['Message us', 'Send us a message on Instagram to set up your appointment.'];
-  const steps = [first,
-    ['Choose a tier and flavors', 'Tell us your guest count and the flavors you like. We send you a quote.'],
-    ['We make, seal and label', 'Your cups are made at Sweet Snow, sealed, and labeled by flavor for your event.']];
-  return `<section class="c-how" id="how" aria-labelledby="how-title">
-  <div class="c-wrap">
-    <h2 id="how-title">${t('How it works')}</h2>
-    <ol class="c-steps">${steps.map(([title, text], i) => `<li><span class="c-step-num" aria-hidden="true">${i + 1}</span><h3>${t(title)}</h3><p>${t(text)}</p></li>`).join('')}</ol>
+function extras(ctx) {
+  const { t, img, site } = ctx;
+  const C = site.catering;
+  if (!C.taiyaki.show && !C.preMade.show) return '';
+  return `<section class="k-extras" aria-labelledby="extras-title">
+  <div class="wrap">
+    <h2 id="extras-title">${t('On the side')}</h2>
+    <ul class="k-extra-list">
+      ${C.taiyaki.show ? `<li class="k-extra"><div class="k-extra-art k-extra-taiyaki">${C.taiyaki.items.map(item => img(item.photo, 'card', { alt: '', sizes: '110px' })).join('')}</div><div><h3>${t(C.taiyaki.title)}</h3><p>${t(C.taiyaki.text)}</p></div></li>` : ''}
+      ${C.preMade.show ? `<li class="k-extra"><div class="k-extra-art k-extra-cups">${CUP}${CUP}${CUP}</div><div><h3>${t(C.preMade.title)}</h3><p>${t(C.preMade.text)}</p></div></li>` : ''}
+    </ul>
   </div>
 </section>`;
+}
+
+/* ---------- booking: the chat helper and the form ---------- */
+
+function chatLines(ctx) {
+  const { t, site } = ctx;
+  const C = site.catering;
+  const line = (key, text) => (text ? `<p data-k="${key}">${t(text)}</p>` : '');
+  const quick = (name, options) => `<ul data-quick="${name}">${options.map(([label, value, go]) => `<li${value ? ` data-value="${e(value)}"` : ''}${go ? ` data-go="${go}"` : ''}>${t(label)}</li>`).join('')}</ul>`;
+  const addOnTiers = C.tiers.filter(tier => tier.addOn).map(tier => tier.name);
+  const topics = [['Book an appointment', '', 'book'], ['The tiers', '', 'tiers'], ['How it works', '', 'how'], ['Prices', '', 'price'],
+    ...(C.taiyaki.show ? [['Taiyaki add-on', '', 'taiyaki']] : []), ...(C.preMade.show ? [['Pre-made cups', '', 'preMade']] : []), ['Ask a question', '', 'question']];
+  return `<div hidden data-chat-lines data-addon-tiers="${e(addOnTiers.join('|'))}">
+      ${line('greet', 'Hi, I am Snow, the Sweet Snow catering helper.')}
+      ${line('offer', 'I can book your appointment or answer a quick question. What would you like?')}
+      ${line('more', 'Anything else?')}
+      ${line('fallback', 'I am a simple helper, so I did not catch that. Pick one of these and I will help.')}
+      ${Object.entries(C.answers).map(([key, text]) => line('a-' + key, text)).join('')}
+      ${C.tiers.map((tier, i) => `<p data-k="a-tiers-${i}"><b>${t(tier.name)}</b> ${t(tier.text)}${tier.addOn ? ' ' + t(tier.addOn) + '.' : ''}</p>`).join('')}
+      ${line('askEvent', 'Lovely. What are we celebrating?')}
+      ${line('askDate', 'When is your event?')}
+      ${line('askGuests', 'About how many guests?')}
+      ${line('askTier', 'Which tier are you thinking of?')}
+      ${line('askAddon', 'Would you like to add mini taiyaki?')}
+      ${line('askApptDate', 'Which day works for your appointment?')}
+      ${line('askApptTime', 'What time of day is best?')}
+      ${line('askName', 'What is your name?')}
+      ${line('askContact', 'What is the best phone number or email to reach you?')}
+      ${line('askQuestion', 'Sure. What would you like to ask?')}
+      ${line('badDate', 'That date has already passed. Could you pick another?')}
+      ${line('badGuests', 'A number works best here, like 80.')}
+      ${line('badContact', 'That does not look like a phone number or an email. Could you try again?')}
+      ${line('badChoice', 'Pick one of the buttons below.')}
+      ${line('confirm', 'Here is your request. Shall I send it?')}
+      ${line('sending', 'Sending')}
+      ${line('sent', 'Sent! We will confirm your appointment by email or text.')}
+      ${line('questionSent', 'Got it. We will reply by email or text.')}
+      ${line('failed', 'I could not send that. Copy your request and message it to us on Instagram, and we will set up your appointment there.')}
+      ${line('copied', 'Copied. Paste it in a message to us on Instagram.')}
+      ${[['Event', 'event'], ['Event date', 'date'], ['Guests', 'guests'], ['Tier', 'tier'], ['Taiyaki add-on', 'addon'], ['Appointment', 'appt'], ['Name', 'name'], ['Contact', 'contact'], ['Question', 'question']].map(([label, key]) => line('l-' + key, label)).join('')}
+      ${quick('topics', topics)}
+      ${quick('events', [...C.events.map(event => [event, event]), ['Something else', 'Other']])}
+      ${quick('guests', ['50', '100', '150', '200+'].map(n => [n, n]))}
+      ${quick('tiers', [...C.tiers.map(tier => [tier.name, tier.name]), ['Not sure yet', 'Not sure yet']])}
+      ${quick('yesno', [['Yes please', 'Yes'], ['No thanks', 'No']])}
+      ${quick('times', [...C.appointments.times.map(time => [time, time]), ['Any time', 'Any time']])}
+      ${quick('confirm', [['Send it', '', 'send'], ['Start over', '', 'restart']])}
+      ${quick('failed', [['Copy my request', '', 'copy'], ['Try again', '', 'send']])}
+    </div>`;
 }
 
 function book(ctx) {
-  const { t, site } = ctx;
+  const { t, ta, site } = ctx;
   const C = site.catering;
   const A = C.appointments;
   const L = site.SETTINGS.links;
   const handle = L.instagram.replace(/\/$/, '').split('/').pop();
   const notes = [A.leadTime, A.serviceArea].filter(Boolean);
-  // Three ways to book, chosen in catering-settings.js: a booking calendar, a request form, or (until the calendar link is in) a message.
-  const ticket = A.bookingLink
-    ? `<div class="c-ticket-body">
-        <h3>${t('Pick a time for your appointment')}</h3>
-        <p>${t('Our booking calendar shows the open times. Choose one, and add your event date, guest count and the tier you like.')}</p>
-        <p class="c-ticket-actions"><a class="c-btn c-btn-navy" href="${e(A.bookingLink)}" target="_blank" rel="noopener noreferrer">${t('Pick a time')}${ICON_OUT}</a></p>
-      </div>`
-    : `<div class="c-ticket-body">
-        <h3>${t('Message us to book')}</h3>
-        <p>${t('Send us a message on Instagram with your event date, guest count and the tier you like. We will set up your appointment there.')}</p>
-        <p class="c-ticket-actions"><a class="c-btn c-btn-navy" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON_OUT}</a></p>
-      </div>`;
-  const form = `<form class="c-form" id="cateringForm" method="post" action="/api/form" data-catering-form>
-        <input type="hidden" name="form-name" value="catering-appointment">
-        <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <div class="c-field"><label for="cf-name">${t('Your name')}</label><input id="cf-name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
-        <div class="c-row">
-          <div class="c-field"><label for="cf-phone">${t('Phone')}</label><input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40" aria-describedby="cf-contact-hint"></div>
-          <div class="c-field"><label for="cf-email">${t('Email')}</label><input id="cf-email" name="email" type="email" autocomplete="email" maxlength="160" aria-describedby="cf-contact-hint"></div>
-        </div>
-        <p class="c-hint" id="cf-contact-hint">${t('Phone or email. One is enough.')}</p>
-        <p class="c-error" data-error="contact" hidden>${t('Add a phone number or an email so we can reach you.')}</p>
-        <div class="c-row">
-          <div class="c-field"><label for="cf-date">${t('Event date')}</label><input id="cf-date" name="date" type="date" required></div>
-          <div class="c-field"><label for="cf-guests">${t('Number of guests')}</label><input id="cf-guests" name="guests" type="number" inputmode="numeric" min="1" max="5000" required></div>
-        </div>
-        <div class="c-row">
-          <div class="c-field"><label for="cf-tier">${t('Tier')}</label><select id="cf-tier" name="tier"><option value="Not sure yet">${t('Not sure yet')}</option>${C.tiers.map(tier => `<option value="${e(tier.name)}">${t(tier.name)}</option>`).join('')}</select></div>
-          <div class="c-field"><label for="cf-location">${t('City or venue')}</label><input id="cf-location" name="location" type="text" autocomplete="off" maxlength="160"></div>
-        </div>
-        <div class="c-field"><label for="cf-notes">${t('Anything else we should know?')}</label><textarea id="cf-notes" name="notes" rows="4" maxlength="1500"></textarea></div>
-        <button class="c-btn c-btn-navy" type="submit" data-send><span data-send-idle>${t('Send request')}</span><span data-send-busy hidden>${t('Sending')}</span></button>
-        <p class="c-privacy">${t('We use these details only to reply about your event.')} <a href="/privacy">${t('Privacy')}</a></p>
-      </form>
-      <div class="c-ticket-body" data-form-sent tabindex="-1" hidden>
-        <h3>${t('Request sent')}</h3>
-        <p>${t('We have your details and will reach out to set up your appointment.')}</p>
+  const option = (label, value = label) => `<option value="${e(value)}">${t(label)}</option>`;
+  return `<section class="k-book" id="book" aria-labelledby="book-title">
+  <div class="wrap k-book-in">
+    <div class="k-book-copy">
+      <h2 id="book-title">${t(A.title)}</h2>
+      ${A.text ? `<p class="lead">${t(A.text)}</p>` : ''}
+      ${notes.length ? `<ul class="k-book-notes">${notes.map(note => `<li>${t(note)}</li>`).join('')}</ul>` : ''}
+      <p class="k-book-insta">${t('Rather message us?')} <a class="link" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON_OUT}</a></p>
+    </div>
+    <div class="k-book-panel" data-appt-panel>
+      <div class="k-chat" data-chat hidden>
+        <div class="k-chat-head">${BUNNY}<p><b>Snow</b><span>${t('Catering helper')}</span></p></div>
+        <ol class="k-chat-log" role="log" aria-live="polite" aria-label="${ta('Chat with Snow')}" data-chat-log></ol>
+        <div class="k-chat-quick" data-chat-quick></div>
+        <form class="k-chat-form" data-chat-form autocomplete="off" novalidate>
+          <label class="k-sr" for="chat-input">${t('Your message')}</label>
+          <input id="chat-input" type="text" maxlength="300" data-chat-input>
+          <button class="btn btn-primary" type="submit">${t('Send')}</button>
+        </form>
+        <p class="k-switch"><button type="button" data-use-form>${t('Use the form instead')}</button></p>
       </div>
-      <div class="c-ticket-body" data-form-failed tabindex="-1" hidden>
+      <form class="k-form" id="cateringForm" method="post" action="/api/form" data-catering-form>
+        <input type="hidden" name="form-name" value="catering-appointment">
+        <input type="hidden" name="source" value="form">
+        <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="k-field"><label for="cf-name">${t('Your name')}</label><input id="cf-name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
+        <div class="k-row">
+          <div class="k-field"><label for="cf-phone">${t('Phone')}</label><input id="cf-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40" aria-describedby="cf-contact-hint"></div>
+          <div class="k-field"><label for="cf-email">${t('Email')}</label><input id="cf-email" name="email" type="email" autocomplete="email" maxlength="160" aria-describedby="cf-contact-hint"></div>
+        </div>
+        <p class="k-hint" id="cf-contact-hint">${t('Phone or email. One is enough.')}</p>
+        <p class="k-error" data-error="contact" hidden>${t('Add a phone number or an email so we can reach you.')}</p>
+        <div class="k-row">
+          <div class="k-field"><label for="cf-event">${t('Event')}</label><select id="cf-event" name="event">${option('Not sure yet')}${C.events.map(event => option(event)).join('')}${option('Something else', 'Other')}</select></div>
+          <div class="k-field"><label for="cf-tier">${t('Tier')}</label><select id="cf-tier" name="tier">${option('Not sure yet')}${C.tiers.map(tier => option(tier.name)).join('')}</select></div>
+        </div>
+        <div class="k-row">
+          <div class="k-field"><label for="cf-date">${t('Event date')}</label><input id="cf-date" name="date" type="date" required></div>
+          <div class="k-field"><label for="cf-guests">${t('Number of guests')}</label><input id="cf-guests" name="guests" type="number" inputmode="numeric" min="1" max="5000" required></div>
+        </div>
+        <div class="k-row">
+          <div class="k-field"><label for="cf-appt-date">${t('Appointment day')}</label><input id="cf-appt-date" name="appointment_day" type="date"></div>
+          <div class="k-field"><label for="cf-appt-time">${t('Time of day')}</label><select id="cf-appt-time" name="appointment_time">${option('Any time')}${A.times.map(time => option(time)).join('')}</select></div>
+        </div>
+        ${C.taiyaki.show ? `<label class="k-check"><input type="checkbox" name="taiyaki" value="Yes"><span>${t('Add mini taiyaki (Special tier)')}</span></label>` : ''}
+        <div class="k-field"><label for="cf-notes">${t('Anything else we should know?')}</label><textarea id="cf-notes" name="notes" rows="3" maxlength="1500"></textarea></div>
+        <button class="btn btn-primary" type="submit" data-send><span data-send-idle>${t('Send request')}</span><span data-send-busy hidden>${t('Sending')}</span></button>
+        <p class="k-privacy">${t('We use these details only to reply about your event.')} <a href="/privacy">${t('Privacy')}</a></p>
+        <p class="k-switch" data-chat-only hidden><button type="button" data-use-chat>${t('Back to the chat')}</button></p>
+      </form>
+      <div class="k-done" data-form-sent tabindex="-1" hidden>
+        <h3>${t('Request sent')}</h3>
+        <p>${t('We will confirm your appointment by email or text.')}</p>
+      </div>
+      <div class="k-done" data-form-failed tabindex="-1" hidden>
         <h3>${t('Your request was not sent')}</h3>
         <p>${t('The form could not reach us. Copy your request and message it to us on Instagram, and we will set up your appointment there.')}</p>
-        <p class="c-ticket-actions"><button class="c-btn c-btn-navy" type="button" data-copy><span data-copy-idle>${t('Copy my request')}</span><span data-copy-done hidden>${t('Copied')}</span></button><a class="c-btn c-btn-plain" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON_OUT}</a></p>
-        <p><button class="c-retry" type="button" data-retry>${t('Back to the form')}</button></p>
-      </div>`;
-  return `<section class="c-book" id="book" aria-labelledby="book-title">
-  <div class="c-wrap c-book-grid">
-    <div class="c-book-copy">
-      <h2 id="book-title">${t(A.title)}</h2>
-      ${A.text ? `<p class="c-lead">${t(A.text)}</p>` : ''}
-      ${notes.length ? `<ul class="c-book-notes">${notes.map(note => `<li>${t(note)}</li>`).join('')}</ul>` : ''}
-      ${A.form && A.bookingLink ? `<p><a class="c-btn c-btn-sun" href="${e(A.bookingLink)}" target="_blank" rel="noopener noreferrer">${t('Pick a time')}${ICON_OUT}</a></p>` : ''}
+        <p class="k-done-actions"><button class="btn btn-primary" type="button" data-copy><span data-copy-idle>${t('Copy my request')}</span><span data-copy-done hidden>${t('Copied')}</span></button><a class="btn btn-quiet" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON_OUT}</a></p>
+        <p><button class="k-retry" type="button" data-retry>${t('Back to the form')}</button></p>
+      </div>
     </div>
-    <div class="c-ticket" data-appt-panel>
-      ${A.form ? form : ticket}
-    </div>
+    ${chatLines(ctx)}
   </div>
 </section>`;
 }
 
-export function catering(ctx) {
-  const { t, site } = ctx;
-  const html = `${header(ctx)}
-<main id="main">
-${hero(ctx)}
-${points(ctx)}
-${flavors(ctx)}
+/* ---------- pages ---------- */
+
+function landing(ctx, design) {
+  const { t } = ctx;
+  return `${header(ctx)}
+<main id="main" class="k-page">
+${hero(ctx, design)}
+${steps(ctx)}
 ${tiers(ctx)}
-${events(ctx)}
-${how(ctx)}
+${eventMenu(ctx)}
+${extras(ctx)}
 ${book(ctx)}
 </main>
 ${footer(ctx)}
-<div class="c-bar" data-catering-bar><a class="c-btn c-btn-sun" href="#book">${t(bookWords(site.catering))}</a></div>`;
-  // Korean: a label's short name ("Mango Jelly") borrows the owner's wording for the full menu name
-  // ("Mango Jelly Cup") when no other flavor on the page shares that short name.
-  const all = site.catering.flavors;
-  for (const flavor of all) {
-    const alone = all.every(other => other.short !== flavor.short || other === flavor);
-    if (alone && ctx.ko[flavor.full] && !ctx.ko[flavor.short]) ctx.ko[flavor.short] = ctx.ko[flavor.full];
-  }
-  return html;
+<div class="k-bar" data-catering-bar><a class="btn btn-primary" href="#book">${t('Book an appointment')}</a></div>`;
 }
 
-/* Where the request form lands when the browser sends it without the page script. */
+export const catering = ctx => landing(ctx, ctx.site.catering.design);
+
+/* Where the form lands when the browser sends it without the page script. */
 export function cateringThanks(ctx) {
   const { t } = ctx;
   return `${header(ctx)}
-<main id="main" class="c-plain">
-  <div class="c-wrap">
-    <h1>${t('Request sent')}</h1>
-    <p class="c-lead">${t('We have your details and will reach out to set up your appointment.')}</p>
-    <p><a class="c-btn c-btn-sun" href="/catering">${t('Back to catering')}</a></p>
-  </div>
+<main id="main" class="text-page wrap">
+  <p class="kicker">${t(ctx.site.catering.title)}</p>
+  <h1>${t('Request sent')}</h1>
+  <p>${t('We will confirm your appointment by email or text.')}</p>
+  <p class="text-page-back"><a class="btn btn-primary" href="/catering">${t('Back to catering')}</a></p>
 </main>
 ${footer(ctx)}`;
 }
 
-export const templates = { catering, cateringThanks };
+/* The page that lists the three designs side by side, while the owner is choosing. */
+function designChooser(ctx) {
+  const chosen = ctx.site.catering.design;
+  return `${header(ctx)}
+<main id="main" class="text-page wrap k-chooser">
+  <p class="kicker">Sweet Snow Catering</p>
+  <h1>Three designs</h1>
+  <p>Open each one on your phone, then tell Claude which you like. Or write its name next to <code>design</code> in <code>catering-settings.js</code>.</p>
+  <ul class="k-chooser-list">${Object.entries(DESIGNS).map(([key, design], i) => `<li><a class="k-chooser-card" href="/catering/design-${key}"><img src="/catering/samples/${key}.jpg" width="390" height="844" alt="" loading="lazy"><b>${i + 1}. ${e(design.name)}</b><span>${e(design.note)}</span>${key === chosen ? '<em>Showing at /catering now</em>' : ''}</a></li>`).join('')}</ul>
+</main>
+${footer(ctx)}`;
+}
+
+const sampleTemplates = Object.fromEntries(Object.keys(DESIGNS).map(key => ['cateringDesign_' + key, ctx => landing(ctx, key)]));
+export const templates = { catering, cateringThanks, cateringDesigns: designChooser, ...sampleTemplates };
 
 export function pageSet(site) {
   const C = site.catering;
-  return {
-    catering: {
-      file: 'catering/index.html', path: '/catering', bodyClass: 'page-catering', crumb: 'Catering', own: true, noMenuSchema: true,
-      robots: C.announce ? '' : 'noindex',
-      title: 'Sweet Snow Catering | Pre-Made Bingsu Cups for Events',
-      ogTitle: 'Sweet Snow Catering | Pre-Made Bingsu Cups for Events',
-      description: 'Pre-made Korean bingsu from the Sweet Snow menu, sealed in paper cups and labeled by flavor for your event. See the flavors and tiers, and book an appointment.'
-    },
-    cateringThanks: { file: 'catering/thanks.html', path: '/catering/thanks', bodyClass: 'page-catering page-catering-plain', simple: true, own: true, title: 'Request sent — Sweet Snow Catering', robots: 'noindex' }
+  const meta = {
+    title: 'Sweet Snow Catering | Fresh Korean Bingsu for Your Event',
+    ogTitle: 'Sweet Snow Catering | Fresh Korean Bingsu for Your Event',
+    description: 'Korean bingsu made fresh at your event, the way Sweet Snow makes it in Garden Grove. See the tiers and the event menu, and book an appointment in a minute.'
   };
+  const pages = {
+    catering: { file: 'catering/index.html', path: '/catering', bodyClass: `page-catering d-${C.design}`, design: C.design, crumb: 'Catering', own: true, noMenuSchema: true, robots: C.announce ? '' : 'noindex', ...meta },
+    cateringThanks: { file: 'catering/thanks.html', path: '/catering/thanks', bodyClass: 'page-text page-catering', simple: true, own: true, plain: true, title: 'Request sent — Sweet Snow Catering', robots: 'noindex' }
+  };
+  if (C.showSamples) {
+    pages.cateringDesigns = { file: 'catering/designs.html', path: '/catering/designs', bodyClass: 'page-text page-catering', simple: true, own: true, plain: true, title: 'Three designs — Sweet Snow Catering', robots: 'noindex' };
+    for (const key of Object.keys(DESIGNS)) pages['cateringDesign_' + key] = { file: `catering/design-${key}.html`, path: `/catering/design-${key}`, bodyClass: `page-catering d-${key}`, design: key, own: true, noMenuSchema: true, robots: 'noindex', ...meta };
+  }
+  return pages;
 }

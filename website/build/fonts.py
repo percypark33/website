@@ -2,15 +2,11 @@
 """Makes the small web-font files in assets/site/fonts from the originals in build/fonts-src.
 
 Only needed again if the typefaces change:   pip install fonttools brotli && python3 build/fonts.py
-The fonts are Hahmlet, IBM Plex Sans KR and Gaegu, plus Lilita One and Outfit for the
-catering pages (all SIL Open Font License).
-
-Only the catering fonts:   python3 build/fonts.py catering
+The fonts are Hahmlet, IBM Plex Sans KR and Gaegu (all SIL Open Font License).
 """
 import io
 import os
 import re
-import sys
 
 from fontTools import subset
 from fontTools.pens.svgPathPen import SVGPathPen
@@ -69,19 +65,8 @@ def sign():
     print('sign.svg', len(svg), 'bytes')
 
 
-def catering():
-    """Catering has its own two typefaces: Lilita One for titles (the lettering of the printed
-    flyers) and Outfit for text (the typeface of the catering team plan)."""
-    outfit = instancer.instantiateVariableFont(TTFont(os.path.join(SRC, 'outfit-latin.woff2')), {'wght': (400, 700)})
-    make(reload(outfit), 'outfit.woff2')
-    make(TTFont(os.path.join(ROOT, 'designs', 'fonts', 'LilitaOne-Regular.ttf')), 'lilita.woff2')
-
-
 def main():
     os.makedirs(OUT, exist_ok=True)
-    catering()
-    if sys.argv[1:] == ['catering']:
-        return
     # Hahmlet: keep only the weights the site uses (300 for titles, 400 for item names).
     hahmlet = instancer.instantiateVariableFont(TTFont(os.path.join(SRC, 'hahmlet-latin.woff2')), {'wght': (300, 500)})
     make(reload(hahmlet), 'hahmlet.woff2')
