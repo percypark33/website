@@ -96,8 +96,9 @@ const DOODLE = {
   flake: '<svg class="k-doodle k-flake" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17M12 6l-2.2-2.2M12 6l2.2-2.2M12 18l-2.2 2.2M12 18l2.2 2.2" fill="none" stroke-linecap="round"/></svg>',
   arrow: '<svg class="k-doodle k-arrow" viewBox="0 0 60 40" aria-hidden="true"><path d="M4 8c16-6 36 0 44 22M48 30l-9-3M48 30l2-10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 };
-/* Snow, the bunny who helps with booking. */
-const BUNNY = '<svg class="k-bunny" viewBox="0 0 120 130" aria-hidden="true"><g class="k-bunny-line"><ellipse cx="42" cy="36" rx="13" ry="33" transform="rotate(-9 42 36)"/><ellipse cx="78" cy="36" rx="13" ry="33" transform="rotate(9 78 36)"/><ellipse cx="60" cy="88" rx="45" ry="37"/></g><g class="k-bunny-pink"><ellipse cx="42" cy="38" rx="5.5" ry="20" transform="rotate(-9 42 38)"/><ellipse cx="78" cy="38" rx="5.5" ry="20" transform="rotate(9 78 38)"/><ellipse cx="34" cy="97" rx="8" ry="5.5"/><ellipse cx="86" cy="97" rx="8" ry="5.5"/></g><g class="k-bunny-ink"><circle cx="45" cy="84" r="4.2"/><circle cx="75" cy="84" r="4.2"/><ellipse cx="60" cy="93" rx="3.6" ry="2.6"/></g><path class="k-bunny-smile" d="M60 96v4m-7 2q7 6 14 0" fill="none" stroke-linecap="round"/></svg>';
+/* Snow, the bunny who helps with booking: the bunny from the logo, used as drawn
+   (assets/brand/sweet-snow-logo-20261112.pdf → build/brand.mjs → build/images.py). */
+const bunny = (ctx, sizes, lazy = true) => ctx.logo('bunny', '', 'k-bunny', sizes, lazy);
 const CLOUD = '<svg class="k-cloud" viewBox="0 0 640 230" preserveAspectRatio="none" aria-hidden="true"><path d="M86 226a72 72 0 0 1 4-144 96 96 0 0 1 176-34 118 118 0 0 1 208 22 84 84 0 0 1 96 156Z"/></svg>';
 const BOWL = '<svg class="k-mini-bowl" viewBox="0 0 28 24" aria-hidden="true"><path class="k-mini-snow" d="M5 12c0-5 4-9 9-9s9 4 9 9Z"/><path class="k-mini-dish" d="M2.5 12h23l-3.4 8.2a3 3 0 0 1-2.8 1.8H8.7a3 3 0 0 1-2.8-1.8Z"/></svg>';
 const CUP = '<svg class="k-cup" viewBox="0 0 200 200" aria-hidden="true"><path class="k-cup-body" d="M22 60H178L160 178Q159 188 148 188H52Q41 188 40 178Z"/><path class="k-cup-band" d="M26.6 90H173.4L162.7 160H37.3Z"/><rect class="k-cup-lid" x="12" y="30" width="176" height="32" rx="9"/><rect class="k-cup-seal" x="146" y="40" width="18" height="40" rx="5"/></svg>';
@@ -119,7 +120,7 @@ export function homeSection(ctx) {
   return `
 <section class="home-catering" id="catering" aria-labelledby="home-catering-title">
   <div class="wrap hc-wrap">
-    <div class="hc-peek" aria-hidden="true">${BUNNY}</div>
+    <div class="hc-peek" aria-hidden="true">${bunny(ctx, '104px')}</div>
     <div class="hc-panel">
       <div class="hc-copy">
         ${C.tag ? `<p class="hc-flag"><span class="tag tag-soon">${t(C.tag)}</span></p>` : ''}
@@ -187,7 +188,7 @@ function heroArt(ctx, design) {
       <div class="hero-halo k-halo" aria-hidden="true"></div>
       ${DOODLE.sparkle}${DOODLE.heart}${DOODLE.flake}
       ${photo(items[0], 1, '(max-width: 859px) 80vw, 520px')}
-      <div class="k-peek" aria-hidden="true">${BUNNY}<p class="k-bubble">${t("Let's plan your party!")}</p></div>
+      <div class="k-peek" aria-hidden="true">${bunny(ctx, '(max-width: 859px) 36vw, 190px', false)}<p class="k-bubble">${t("Let's plan your party!")}</p></div>
       <p class="k-note" aria-hidden="true">${t('made fresh at your event')}${DOODLE.arrow}</p>
     </div>`;
 }
@@ -358,7 +359,7 @@ function book(ctx, design) {
     </div>
     <div class="k-book-panel" data-appt-panel data-design="${design}">
       <div class="k-chat" data-chat hidden>
-        <div class="k-chat-head">${BUNNY}<p><b>Snow</b><span>${t('Catering helper')}</span></p></div>
+        <div class="k-chat-head">${bunny(ctx, '48px')}<p><b>Snow</b><span>${t('Catering helper')}</span></p></div>
         <ol class="k-chat-log" role="log" aria-live="polite" aria-label="${ta('Chat with Snow')}" data-chat-log></ol>
         <div class="k-chat-quick" data-chat-quick></div>
         <form class="k-chat-form" data-chat-form autocomplete="off" novalidate>

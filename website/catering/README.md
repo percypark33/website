@@ -12,7 +12,7 @@ There are three designs, all based on the main website's look with a cuter conce
 
 | Address | Name | What it is |
 |---|---|---|
-| `sweetsnow.org/catering/bunny` | Snow Bunny | Closest to the website: milk-blue and airy, with the bunny, falling snow and doodles |
+| `sweetsnow.org/catering/bunny` | Snow Bunny | Closest to the website: milk-blue and airy, with the logo bunny, falling snow and doodles |
 | `sweetsnow.org/catering/cloud` | Cotton Cloud | A pastel sky: bowls on a cloud, soft pink and butter yellow, everything round |
 | `sweetsnow.org/catering/diary` | Sticker Diary | A scrapbook: polaroids with tape, stickers, dotted paper, handwritten titles |
 
@@ -42,7 +42,7 @@ The home page of `sweetsnow.org` has a catering card after the cup bingsu. It sh
 |---|---|
 | Which design `sweetsnow.org/catering` shows | `design` |
 | The big headline and the words under it | `headline`, `text` |
-| The three bowls at the top | `heroItems` |
+| The three bowls at the top | `heroItems`. The first name is the big bowl on the catering page (now Lychee & Shine Muscat). |
 | The small facts under the buttons | `facts` |
 | A tier's name, words, price or guest count | `tiers` |
 | How many bingsu a tier has | `picks` in that tier: one `"Classic"` or `"Special"` per bingsu |

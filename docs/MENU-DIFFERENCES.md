@@ -48,7 +48,7 @@ The website still shows no prices, so customers see no change. Tell me if any of
 | Injeolmi Croffle recipe | The one with the cream | Now "House-Made Cream, Injeolmi Powder, Crushed Almonds", the same words as Square (menu file line 811). |
 | Plain Croffle | Add it | Added as the fifth croffle: "Golden croffle dusted with powdered sugar", $4.99, both from Square (menu file line 812). Photo: `assets/croffles/plain-powdered-sugar-20261025.png`. |
 | Prices | Hide | Prices stay hidden (`showPrices: false` in `site-settings.js`). |
-| Link preview picture | Make one | New 1200×630 picture with your logo, the tagline and the Shine Muscat bowl photo: `assets/share-sweet-snow-20261112.jpg`. The `og:image` and `twitter:image` tags now point to it. |
+| Link preview picture | Make one | New 1200×630 picture with your logo, the tagline and the Shine Muscat bowl photo: `assets/share-sweet-snow-20261113.jpg`. The `og:image` and `twitter:image` tags now point to it. |
 
 ## Still open
 

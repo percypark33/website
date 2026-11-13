@@ -69,7 +69,7 @@ window.CATERING_SETTINGS = {
   title: "Sweet Snow Catering",
   headline: "Fresh bingsu, made at your event.",
   text: "We bring the milk snow and make every bowl the way we do at our shop. Book an appointment and we will plan it with you.",
-  heroItems: ["Strawberry", "Mango", "Matcha Strawberry"],      // the three bowls shown at the top
+  heroItems: ["Lychee & Shine Muscat", "Mango", "Matcha Strawberry"],      // the three bowls shown at the top. The first one is the big bowl on the catering page.
   facts: [                                                       // from the catering team plan. Change or remove any line.
     "For 50 to 200+ guests",
     "Same milk base and Korean snow machine as our shop"

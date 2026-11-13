@@ -41,7 +41,29 @@ node build/build.mjs
 
 A photo without a small copy still works; the site uses the original file.
 
-The picture shown when the site is shared (link preview) is `assets/share-sweet-snow-20261112.jpg`, 1200×630. Its layout is `build/src/share-picture.html`: open it in a browser at 1200×630, take a screenshot, save it under a new file name and update the name in `build/lib/pages.mjs` (`const og`).
+### Logo, bunny and tab icon (only when the logo changes)
+
+The logo file from the owner is `assets/brand/sweet-snow-logo-20261112.pdf` (white on the logo's blue, `#73AEDC`, goggles filled in). Everything below is made from it and is never redrawn:
+
+| File | Used for |
+|---|---|
+| `assets/site/img/logo-blue-*.webp`, `logo-white-*.webp` | The logo in the header |
+| `assets/site/img/bunny-*.webp` | Snow, the bunny on the catering pages and the home catering card (blue lines, white inside) |
+| `assets/favicon-sweetsnow-20261113-*.png` | The round tab icon: the white bunny on a blue circle |
+| `assets/apple-touch-sweetsnow-20261113.png` | The iPhone home-screen icon (square; the phone rounds the corners) |
+| `assets/brand/sweet-snow-logo-20261112.png` | The logo named in the search-engine data |
+
+To use a new logo file: put the PDF in `assets/brand/`, set its name at the top of `build/brand.mjs`, then run:
+
+```bash
+node build/brand.mjs                    # needs pdftocairo and Playwright; not run on Vercel
+python3 build/images.py --logos-only
+node build/build.mjs
+```
+
+Give the tab icon a new date in its file name (`STAMP` in `build/brand.mjs`, and the same names in `build/lib/pages.mjs`), because browsers keep old tab icons for a long time.
+
+The picture shown when the site is shared (link preview) is `assets/share-sweet-snow-20261113.jpg`, 1200×630. Its layout is `build/src/share-picture.html`: open it in a browser at 1200×630, take a screenshot, save it under a new file name and update the name in `build/lib/pages.mjs` (`const og`).
 
 ## Pages and behavior
 
