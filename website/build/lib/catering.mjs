@@ -60,15 +60,16 @@ export function loadCatering(root, site) {
 
   const A = S.appointments || {};
   const link = text(A.bookingLink);
-  if (link && !/^https:\/\//.test(link)) warn(`appointments → bookingLink: "${link}" should start with https://. The "Pick a time" button is hidden until it does.`);
+  const linkOk = /^https:\/\//.test(link);
+  if (link && !linkOk) warn(`appointments → bookingLink: "${link}" should start with https://. The "Pick a time" button is hidden until it does.`);
   return {
     announce: S.announce === true,
     title: text(S.title) || 'Sweet Snow Catering', label: text(S.label), text: text(S.text),
     heroItems: pick(S.heroItems, 'heroItems').slice(0, 3),
     buildUp: S.buildUp !== false, tiers,
     appointments: {
-      title: text(A.title) || 'Request an appointment', text: text(A.text),
-      bookingLink: /^https:\/\//.test(link) ? link : '', leadTime: text(A.leadTime), serviceArea: text(A.serviceArea)
+      title: text(A.title) || 'Book an appointment', text: text(A.text),
+      bookingLink: linkOk ? link : '', form: A.form === true, leadTime: text(A.leadTime), serviceArea: text(A.serviceArea)
     },
     frozenMilk: { show: F.show !== false && shapes.length > 0, title: text(F.title) || 'Frozen Shaped Milk Collection', text: text(F.text), note: text(F.note), shapes },
     website: text(S.website) || 'sweetsnow.org', flyerLine: text(S.flyerLine)
@@ -165,7 +166,7 @@ function tierList(ctx) {
         <h3 class="tier-name">${t(tier.name)}</h3>
         ${tier.text ? `<p class="tier-text">${t(tier.text)}</p>` : ''}
         <p class="tier-facts"><span>${t(tier.price || 'Ask for a quote')}</span>${tier.guests ? `<span>${t(tier.guests)}</span>` : ''}</p>
-        <a class="tier-pick" href="#appointment" data-tier="${e(tier.name)}">${t('Request this tier')}${ICON.arrow}</a>
+        <a class="tier-pick" href="#appointment" data-tier="${e(tier.name)}">${t(C.appointments.form ? 'Request this tier' : 'Book this tier')}${ICON.arrow}</a>
       </div>
       <div class="tier-body">
         ${C.buildUp && index > 0 ? `<p class="tier-plus">${t('Everything in the tier above, plus')}</p>` : ''}
@@ -206,7 +207,7 @@ function hero(ctx) {
       ${C.label ? `<p class="kicker">${t(C.label)}</p>` : ''}
       <h1 id="cat-title">${t(C.title)}</h1>
       ${C.text ? `<p class="lead">${t(C.text)}</p>` : ''}
-      <p class="cat-hero-actions"><a class="btn btn-primary" href="#appointment">${t('Request an appointment')}</a>${C.tiers.length ? `<a class="link" href="#tiers">${t('See the tiers')}${ICON.arrow}</a>` : ''}</p>
+      <p class="cat-hero-actions"><a class="btn btn-primary" href="#appointment">${t(C.appointments.form ? 'Request an appointment' : 'Book an appointment')}</a>${C.tiers.length ? `<a class="link" href="#tiers">${t('See the tiers')}${ICON.arrow}</a>` : ''}</p>
     </div>
     ${C.heroItems.length ? `<div class="cat-hero-stage">
       <div class="cat-halo" aria-hidden="true"></div>
@@ -240,12 +241,24 @@ function appointment(ctx) {
   const A = C.appointments;
   const L = site.SETTINGS.links;
   const handle = L.instagram.replace(/\/$/, '').split('/').pop();
-  const steps = [
-    ['Send your request', 'Your event date, guest count and the tier you like.'],
-    ['We reach out', 'We contact you to set up your appointment.'],
-    ['We plan it together', 'Flavors, timing and your quote.']
-  ];
+  // Three ways to book, chosen in catering-settings.js: a request form, a booking calendar, or (until the calendar link is in) a message.
+  const tell = ['Tell us about your event', 'Your event date, guest count and the tier you like.'];
+  const plan = ['We plan it together', 'Flavors, timing and your quote.'];
+  const steps = A.form ? [['Send your request', tell[1]], ['We reach out', 'We contact you to set up your appointment.'], plan]
+    : A.bookingLink ? [['Pick a time', 'Choose an open time on our booking calendar.'], tell, plan]
+    : [['Message us', 'Send us a message on Instagram.'], tell, plan];
   const notes = [A.leadTime, A.serviceArea].filter(Boolean);
+  const book = A.bookingLink
+    ? `<div class="appt-done">
+        <h3>${t('Pick a time for your appointment')}</h3>
+        <p>${t('Our booking calendar shows the open times. Choose one, and add your event date, guest count and the tier you like.')}</p>
+        <p class="appt-done-actions"><a class="btn btn-primary" href="${e(A.bookingLink)}" target="_blank" rel="noopener noreferrer">${t('Pick a time')}${ICON.out}</a></p>
+      </div>`
+    : `<div class="appt-done">
+        <h3>${t('Message us to book')}</h3>
+        <p>${t('Send us a message on Instagram with your event date, guest count and the tier you like. We will set up your appointment there.')}</p>
+        <p class="appt-done-actions"><a class="btn btn-primary" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON.out}</a></p>
+      </div>`;
   return `<section class="appt" id="appointment" aria-labelledby="appt-title">
   <div class="wrap appt-inner">
     <div class="appt-copy">
@@ -253,10 +266,10 @@ function appointment(ctx) {
       ${A.text ? `<p class="lead">${t(A.text)}</p>` : ''}
       <ol class="appt-steps">${steps.map(([title, text], i) => `<li><span class="appt-num" aria-hidden="true">${i + 1}</span><div><h3>${t(title)}</h3><p>${t(text)}</p></div></li>`).join('')}</ol>
       ${notes.length ? `<ul class="appt-notes">${notes.map(note => `<li>${t(note)}</li>`).join('')}</ul>` : ''}
-      ${A.bookingLink ? `<p><a class="btn btn-quiet" href="${e(A.bookingLink)}" target="_blank" rel="noopener noreferrer">${t('Pick a time')}${ICON.out}</a></p>` : ''}
+      ${A.form && A.bookingLink ? `<p><a class="btn btn-quiet" href="${e(A.bookingLink)}" target="_blank" rel="noopener noreferrer">${t('Pick a time')}${ICON.out}</a></p>` : ''}
     </div>
-    <div class="appt-panel">
-      <form class="appt-form" id="cateringForm" method="post" action="/api/form" data-catering-form>
+    <div class="appt-panel" data-appt-panel>
+      ${!A.form ? book : `<form class="appt-form" id="cateringForm" method="post" action="/api/form" data-catering-form>
         <input type="hidden" name="form-name" value="catering-appointment">
         <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <div class="field"><label for="cf-name">${t('Your name')}</label><input id="cf-name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
@@ -288,7 +301,7 @@ function appointment(ctx) {
         <p>${t('The form could not reach us. Copy your request and message it to us on Instagram, and we will set up your appointment there.')}</p>
         <p class="appt-done-actions"><button class="btn btn-primary" type="button" data-copy><span data-copy-idle>${t('Copy my request')}</span><span data-copy-done hidden>${t('Copied')}</span></button><a class="btn btn-quiet" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON.out}</a></p>
         <p><button class="appt-retry" type="button" data-retry>${t('Back to the form')}</button></p>
-      </div>
+      </div>`}
     </div>
   </div>
 </section>`;
@@ -298,7 +311,7 @@ export function catering(ctx) {
   const { t } = ctx;
   // The floating bar on phones leads to the form here, not to ordering.
   const bar = `<div class="orderbar" data-orderbar data-catering-bar>
-  <a class="orderbar-main" href="#appointment"><span>${t('Request an appointment')}</span></a>
+  <a class="orderbar-main" href="#appointment"><span>${t(ctx.site.catering.appointments.form ? 'Request an appointment' : 'Book an appointment')}</span></a>
   ${ctx.site.catering.tiers.length ? `<a class="orderbar-side" href="#tiers"><span>${t('Tiers')}</span></a>` : ''}
 </div>`;
   return `${header(ctx, 'catering')}

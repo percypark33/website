@@ -4,7 +4,7 @@ Everything for catering lives in this folder.
 
 | Address | What it is |
 |---|---|
-| `sweetsnow.org/catering` | The catering page: tiers, the frozen shaped milk collection, the appointment form |
+| `sweetsnow.org/catering` | The catering page: tiers, the frozen shaped milk collection, booking an appointment |
 | `sweetsnow.org/catering/frozen-milk-flyer` | The flyer, with Print and Download buttons |
 | `sweetsnow.org/catering/frozen-milk-flyer.png` | The flyer as a picture (Instagram, 8 × 10 in print) |
 | `sweetsnow.org/catering/frozen-milk-flyer.pdf` | The flyer as a PDF for a print shop |
@@ -19,7 +19,7 @@ Everything for catering lives in this folder.
 | What is in a tier | `items` inside that tier. Spell names exactly as on the menu |
 | Add or remove a tier | Add or remove a `{ ... }` block in `tiers` |
 | The shapes in the frozen milk collection | `frozenMilk` → `shapes` |
-| A booking calendar link, lead time, service area | `appointments` |
+| The booking calendar link, lead time, service area | `appointments` |
 | Put "Catering" in the website menu | `announce: true` |
 
 Photos and menu names come from the menu by themselves. If an item is renamed or hidden on the menu, the preview link shows a yellow bar that names the line to fix.
@@ -40,9 +40,21 @@ To use a real photo, upload a cut-out PNG to `catering/photos/` and write:
 
 After changing shapes or flyer words, the flyer page updates by itself. The downloadable picture and PDF do not, so ask Claude to "refresh the flyer files". Until then the preview link shows a reminder.
 
-## Appointment requests
+## Appointments
 
-The form sends each request to `/api/form`, the same function the website already had. **It needs one delivery setting in Vercel before requests reach you.** Until then a guest who sends the form is told it was not sent and is shown how to message the same details on Instagram.
+Guests book on your calendar. Paste the calendar's link into `appointments` → `bookingLink` and the page shows a **Pick a time** button:
+
+```js
+bookingLink: "https://calendar.app.google/your-link",
+```
+
+To make the calendar in Google Calendar: [create an appointment schedule](https://support.google.com/calendar/answer/10729749), then [copy its booking page link](https://support.google.com/calendar/answer/10733297). Asking for the event date, guest count and tier on the booking form saves a round of messages.
+
+While `bookingLink` is `""`, the page asks guests to message @sweetsnow_oc on Instagram to book.
+
+### The request form (optional, off)
+
+`form: true` adds a request form to the page. It sends each request to `/api/form`, the function the website already had, and **needs one delivery setting in Vercel first**. Without it, a guest who sends the form is told it was not sent and is shown how to message the same details on Instagram.
 
 Pick one, in Vercel → Project `sweet-snow` → Settings → Environment Variables:
 
@@ -51,13 +63,11 @@ Pick one, in Vercel → Project `sweet-snow` → Settings → Environment Variab
 | `RESEND_API_KEY` | Each request is emailed to you with [Resend](https://resend.com) (free plan). It goes to `FORM_TO_EMAIL`, or to `CONTACT_EMAIL` (already set) if that is empty. Replying to the email writes straight back to the guest |
 | `FORM_WEBHOOK_URL` | Each request is posted to that address (Zapier, Make, a Google Sheet script) |
 
-If you take bookings with an online calendar instead, paste its link into `appointments` → `bookingLink` and a "Pick a time" button appears next to the form.
-
 ## Before announcing
 
 - [ ] Tier names, contents and prices are right
 - [ ] The frozen milk shapes match the real collection
-- [ ] A test request from the page reached you
+- [ ] The booking calendar link is in, and **Pick a time** opens your calendar
 - [ ] Then set `announce: true`
 
 While `announce` is `false`, the page works for anyone who has the link, is not in the website menu, and asks search engines to skip it.

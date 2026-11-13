@@ -1,11 +1,17 @@
-/* SWEET SNOW CATERING — the appointment form on /catering.
+/* SWEET SNOW CATERING — the appointment section on /catering.
 Without this script the form still works: the browser sends it and lands on /catering/thanks. */
 (() => {
 'use strict';
 const doc = document;
+/* On phones the floating button steps aside while the booking panel itself is on screen. */
+const panel = doc.querySelector('[data-appt-panel]');
+const bar = doc.querySelector('[data-catering-bar]');
+if (panel && bar && 'IntersectionObserver' in window) {
+new IntersectionObserver(entries => bar.classList.toggle('is-hidden', entries[0].isIntersecting), { rootMargin: '0px 0px -25% 0px' }).observe(panel);
+}
+/* The rest is for the request form, when catering-settings.js switches it on. */
 const form = doc.querySelector('[data-catering-form]');
 if (!form) return;
-const panel = form.parentElement;
 const sent = panel.querySelector('[data-form-sent]');
 const failed = panel.querySelector('[data-form-failed]');
 const button = form.querySelector('[data-send]');
@@ -86,9 +92,4 @@ copy.querySelector('[data-copy-done]').hidden = false;
 setTimeout(() => { copy.querySelector('[data-copy-idle]').hidden = false; copy.querySelector('[data-copy-done]').hidden = true; }, 2400);
 });
 failed.querySelector('[data-retry]').addEventListener('click', () => { show(form); fields.name.focus(); });
-/* On phones the floating button steps aside while the form itself is on screen. */
-const bar = doc.querySelector('[data-catering-bar]');
-if (bar && 'IntersectionObserver' in window) {
-new IntersectionObserver(entries => bar.classList.toggle('is-hidden', entries[0].isIntersecting), { rootMargin: '0px 0px -25% 0px' }).observe(panel);
-}
 })();

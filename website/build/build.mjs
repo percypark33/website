@@ -191,7 +191,7 @@ ${warningBar}${body}
 
   const counts = `${site.groups.classic.length + site.groups.special.length + site.groups['half-half'].length} bowls, ${site.cups.length} cups, ${site.taiyaki.length} mini taiyaki, ${site.croffles.length} croffles, ${site.toppings.length} toppings`;
   console.log(`Built ${Object.values(pageSet).map(p => p.file).join(', ')} — ${counts}. Look: ${look}. Prices ${site.showPrices ? 'shown' : 'hidden'}.`);
-  if (site.catering) console.log(`Catering: ${site.catering.tiers.length} tiers, ${site.catering.frozenMilk.shapes.length} frozen milk shapes${site.catering.frozenMilk.show ? ', flyer at ' + catering.FLYER_FILE : ''}. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'}`);
+  if (site.catering) console.log(`Catering: ${site.catering.tiers.length} tiers, ${site.catering.frozenMilk.shapes.length} frozen milk shapes${site.catering.frozenMilk.show ? ', flyer at ' + catering.FLYER_FILE : ''}. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'} Appointments: ${[site.catering.appointments.bookingLink && 'booking calendar', site.catering.appointments.form && 'request form'].filter(Boolean).join(' and ') || 'by Instagram message until bookingLink is set'}.`);
   if (site.warnings.length) console.log('\nThings to check:\n' + site.warnings.map(w => '  • ' + w).join('\n'));
 }
 

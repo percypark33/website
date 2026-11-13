@@ -81,17 +81,22 @@ window.CATERING_SETTINGS = {
   ],
 
   /* ---- APPOINTMENTS -------------------------------------------
-     bookingLink  If you use an online calendar (Square Appointments,
-                  Google Calendar booking page), paste its link here
-                  and a "Pick a time" button appears. Leave "" to
-                  use only the request form.
+     bookingLink  The link to your booking calendar (a Google Calendar
+                  booking page, for example). Paste it between the
+                  quotes and the page shows a "Pick a time" button.
+                  While it is "", the page asks guests to message
+                  you on Instagram to book.
+     form         true = also show a request form on the page. It
+                  needs email delivery set up first (see README.md
+                  in this folder). false = no form.
      leadTime     for example "Please book at least 7 days ahead."
      serviceArea  for example "Serving Orange County."
      Leave either as "" to hide it.                                */
   appointments: {
-    title: "Request an appointment",
-    text: "Tell us about your event. We will reach out to set up your appointment.",
+    title: "Book an appointment",
+    text: "Every catering order starts with an appointment, so we can plan it around your event.",
     bookingLink: "",
+    form: false,
     leadTime: "",
     serviceArea: ""
   },
