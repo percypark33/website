@@ -2330,12 +2330,12 @@
    "variants": [
     {
      "w": 224,
-     "url": "/assets/site/img/logo-blue-224.webp",
+     "url": "/assets/site/img/logo-blue-5d44df48-224.webp",
      "bytes": 9608
     },
     {
      "w": 336,
-     "url": "/assets/site/img/logo-blue-336.webp",
+     "url": "/assets/site/img/logo-blue-5d44df48-336.webp",
      "bytes": 15408
     }
    ]
@@ -2346,12 +2346,12 @@
    "variants": [
     {
      "w": 224,
-     "url": "/assets/site/img/logo-white-224.webp",
+     "url": "/assets/site/img/logo-white-41d8a5b8-224.webp",
      "bytes": 3354
     },
     {
      "w": 336,
-     "url": "/assets/site/img/logo-white-336.webp",
+     "url": "/assets/site/img/logo-white-41d8a5b8-336.webp",
      "bytes": 5412
     }
    ]
@@ -2362,17 +2362,17 @@
    "variants": [
     {
      "w": 96,
-     "url": "/assets/site/img/bunny-96.webp",
+     "url": "/assets/site/img/bunny-44ef11ea-96.webp",
      "bytes": 1642
     },
     {
      "w": 176,
-     "url": "/assets/site/img/bunny-176.webp",
+     "url": "/assets/site/img/bunny-44ef11ea-176.webp",
      "bytes": 3466
     },
     {
      "w": 352,
-     "url": "/assets/site/img/bunny-352.webp",
+     "url": "/assets/site/img/bunny-44ef11ea-352.webp",
      "bytes": 7032
     }
    ]
@@ -2383,13 +2383,13 @@
    "variants": [
     {
      "w": 200,
-     "url": "/assets/site/img/arch-blue-200.webp",
-     "bytes": 8788
+     "url": "/assets/site/img/arch-blue-2a27ad30-200.webp",
+     "bytes": 8110
     },
     {
      "w": 400,
-     "url": "/assets/site/img/arch-blue-400.webp",
-     "bytes": 22286
+     "url": "/assets/site/img/arch-blue-2a27ad30-400.webp",
+     "bytes": 20488
     }
    ]
   },
@@ -2399,13 +2399,13 @@
    "variants": [
     {
      "w": 200,
-     "url": "/assets/site/img/arch-white-200.webp",
-     "bytes": 3454
+     "url": "/assets/site/img/arch-white-6b240056-200.webp",
+     "bytes": 3010
     },
     {
      "w": 400,
-     "url": "/assets/site/img/arch-white-400.webp",
-     "bytes": 8548
+     "url": "/assets/site/img/arch-white-6b240056-400.webp",
+     "bytes": 7096
     }
    ]
   }

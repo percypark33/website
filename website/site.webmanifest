@@ -9,8 +9,14 @@
   "lang": "en-US",
   "icons": [
     {
-      "src": "/assets/sweet-snow-round-logo-20261022.png",
-      "sizes": "1275x1408",
+      "src": "/assets/favicon-sweetsnow-20261113-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/favicon-sweetsnow-20261113-512.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     }
