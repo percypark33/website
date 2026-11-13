@@ -23,9 +23,10 @@ node build/build.mjs
 | `designs/language.js` | The owner's Korean dictionary. `build/ko-extra.mjs` adds words for new sections. |
 | `designs/brand-story.js` | The family letter and photo captions, English and Korean. |
 | `topping-image-manifest.json` | Topping names, Korean names and pictures. |
+| `catering/catering-settings.js` | Catering: tiers, appointment words, the frozen shaped milk shapes, and whether catering is announced. See [`catering/README.md`](catering/README.md). |
 | `build/` | The machinery: `build.mjs`, page templates in `lib/`, styles and script in `src/`. |
 | `assets/site/` | Built files: small WebP photos, fonts, `app.js`, `ko.json`. |
-| `index.html`, `menu.html`, `visit.html`, `privacy.html`, `thanks.html`, `404.html` | Built output. Do not edit by hand; they are rewritten on every build. |
+| `index.html`, `menu.html`, `visit.html`, `privacy.html`, `thanks.html`, `404.html`, `catering/index.html`, `catering/thanks.html`, `catering/frozen-milk-flyer.html` | Built output. Do not edit by hand; they are rewritten on every build. |
 
 If `site-settings.js` or the menu file has a typo, the build stops, the deployment fails, and the live site keeps the last good version. A wrong item name does not stop the build; it is listed in the build log and shown in a yellow bar on preview links only.
 
@@ -40,6 +41,13 @@ node build/build.mjs
 
 A photo without a small copy still works; the site uses the original file.
 
+The frozen shaped milk flyer has a picture and a PDF for download. After the flyer changes:
+
+```bash
+node build/build.mjs
+node build/flyer-image.mjs     # needs Playwright
+```
+
 The picture shown when the site is shared (link preview) is `assets/share-sweet-snow-20261112.jpg`, 1200×630. Its layout is `build/src/share-picture.html`: open it in a browser at 1200×630, take a screenshot, save it under a new file name and update the name in `build/lib/pages.mjs` (`const og`).
 
 ## Pages and behavior
@@ -48,9 +56,10 @@ The picture shown when the site is shared (link preview) is `assets/share-sweet-
 - `/menu`: Classic `#menu-classic`, Special `#menu-special`, Fruit Half & Half `#menu-half-half`, Cups `#single-cups`, Food `#food` (and `#mini-sides`), Croffles `#croffles`, Toppings `#toppings`. Each item keeps its `#menu-item-…` address.
 - `/visit`: location guide `#find-us`, hours, directions.
 - `/privacy` and `/thanks`: supporting pages.
+- `/catering`: tiers `#tiers`, frozen shaped milk `#frozen-milk`, appointment form `#appointment`. `/catering/frozen-milk-flyer` is the flyer; `/catering/thanks` is where the form lands without the page script. Not in the menu or the sitemap until `announce: true`.
 - Old links such as `/#croffles` or `/#visit` are sent to the page that now holds that section.
 - `api/inventory.js`: Square availability (SOLD OUT / FEW LEFT badges).
-- `api/form.js`: existing form integration.
+- `api/form.js`: form delivery, used by the catering appointment form. Needs `RESEND_API_KEY` (with `FORM_TO_EMAIL` or `CONTACT_EMAIL`) or `FORM_WEBHOOK_URL`; without one, guests are told their request was not sent.
 - `tv/`: TV menu boards. Not touched by the build.
 
 The older page scripts and styles in `designs/` are no longer loaded by the pages. They are kept for the TV sources and for reference.

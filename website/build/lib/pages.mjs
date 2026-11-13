@@ -8,7 +8,7 @@ const money = value => (value === null || value === undefined ? '' : '$' + (Numb
 
 /* ---------- shared pieces ---------- */
 
-const ICON = {
+export const ICON = {
   arrow: '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   out: '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   close: '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
@@ -17,10 +17,11 @@ const ICON = {
   dash: '<img class="pay dash" src="/assets/doordash-logo.svg" width="26" height="15" alt="">'
 };
 
-function header(ctx, page) {
+export function header(ctx, page) {
   const { t, ta, logo, site } = ctx;
   const L = site.SETTINGS.links;
   const nav = [['Home', '/', 'home'], ['Menu', '/menu', 'menu'], ['Our story', '/#brand-story', 'story'], ['Find us', '/visit', 'visit']];
+  if (site.catering?.announce) nav.splice(2, 0, ['Catering', '/catering', 'catering']);
   const links = nav.map(([label, href, key]) => `<a href="${href}"${key === page ? ' aria-current="page"' : ''}>${t(label)}</a>`).join('');
   return `<a class="skip" href="#main">${t('Skip to content')}</a>
 <header class="site-header" data-header>
@@ -54,7 +55,8 @@ function hoursRows(ctx) {
     </dl>`;
 }
 
-function footer(ctx) {
+/* `bar` replaces the floating order bar on pages with their own main action (catering). */
+export function footer(ctx, bar) {
   const { t, ta, logo, site } = ctx;
   const L = site.SETTINGS.links;
   const handle = L.instagram.replace(/\/$/, '').split('/').pop();
@@ -68,13 +70,13 @@ function footer(ctx) {
   <nav class="wrap footer-links" aria-label="${ta('Footer navigation')}">
     <a href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}${t('Order online')}</a>
     <a href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}${t('Delivery with DoorDash')}</a>
-    <a href="/privacy">${t('Privacy')}</a>
+    ${site.catering?.announce ? `<a href="/catering">${t('Catering')}</a>\n    ` : ''}<a href="/privacy">${t('Privacy')}</a>
   </nav>
 </footer>
-<div class="orderbar" data-orderbar>
+${bar || `<div class="orderbar" data-orderbar>
   <a class="orderbar-main" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
   <a class="orderbar-side" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery')}</span></a>
-</div>`;
+</div>`}`;
 }
 
 function faq(ctx) {
@@ -553,8 +555,7 @@ export const PAGES = {
   notfound: { file: '404.html', path: '/404', bodyClass: 'page-text', simple: true, title: 'Page not found — Sweet Snow', robots: 'noindex' }
 };
 
-export function head(ctx, key, { css, preload = [], scripts = '' }) {
-  const page = PAGES[key];
+export function head(ctx, key, { css, preload = [], scripts = '', page = PAGES[key] }) {
   const url = SITE + page.path;
   if (page.simple) return `<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -575,7 +576,7 @@ ${scripts}`;
 <title>${e(page.title)}</title>
 <meta name="description" content="${e(page.description)}">
 <meta name="author" content="Sweet Snow">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="${page.robots || 'index, follow'}">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sweet Snow">
@@ -603,7 +604,7 @@ ${key === 'home' ? '<meta name="google-site-verification" content="2lnQl08cF9lgb
 ${preload.join('\n')}
 <style>${css}</style>
 ${json(business(ctx.site))}
-${key === 'visit' ? '' : json(menuSchema(ctx.site))}
+${key === 'visit' || page.noMenuSchema ? '' : json(menuSchema(ctx.site))}
 ${crumb}
 ${scripts}`;
 }

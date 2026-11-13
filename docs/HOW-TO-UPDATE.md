@@ -53,6 +53,10 @@ hero: {
 
 Leave `title` or `text` as `""` to use the menu name and recipe.
 
+## Change the catering page or the flyer
+
+Catering has its own easy file: **`website/catering/catering-settings.js`**. Tiers, prices, the frozen shaped milk shapes and the appointment words are all there. The steps are in [`website/catering/README.md`](../website/catering/README.md).
+
 ## Publish
 
 1. Tap **Commit changes**.

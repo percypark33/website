@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 
-function runBrowserFile(file, globals = {}) {
+export function runBrowserFile(file, globals = {}) {
   const source = fs.readFileSync(file, 'utf8');
   const window = { ...globals };
   window.window = window;
@@ -23,7 +23,7 @@ export const slug = text => String(text).normalize('NFD').replace(/[̀-ͯ]/g, ''
   .toLowerCase().replace(/&/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 /* For a misspelled item name, the closest real name (so the note can say "Did you mean …?"). */
-function nearest(name, names) {
+export function nearest(name, names) {
   const plain = text => text.toLowerCase().replace(/[^a-z0-9]/g, '');
   const distance = (a, b) => {
     const row = Array.from({ length: b.length + 1 }, (_, i) => i);

@@ -1,0 +1,12 @@
+/* Added to every page only while catering is announced (catering-settings.js → announce: true):
+   five menu links instead of four, kept on one line on tablets and small laptops. */
+.nav a,.lang button{white-space:nowrap}
+.drawer-nav a:nth-child(5){animation-delay:.16s}
+@media (min-width:860px) and (max-width:1059px){
+  .nav{gap:0}
+  .nav a{padding:.5rem .58rem;font-size:.88rem}
+  .bar{gap:.6rem}
+  .bar-actions{gap:.5rem}
+  .btn-order{padding:0 .95rem}
+  .brand-logo{width:112px}
+}

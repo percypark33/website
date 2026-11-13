@@ -1,0 +1,121 @@
+/* SWEET SNOW CATERING — styles for /catering only. Colours and typefaces
+   come from the look file, the same as every other page. */
+
+/* ---------- top of the page ---------- */
+.cat-hero{position:relative;margin-top:calc(-1 * var(--header-h));padding-top:var(--header-h);background:var(--hero-bg);overflow:hidden;isolation:isolate}
+.cat-hero-inner{display:grid;gap:clamp(12px,4vw,28px);padding-top:clamp(20px,5vw,56px)}
+.cat-hero-copy{position:relative;z-index:2;display:grid;gap:.9rem;justify-items:start}
+.cat-hero-copy .kicker{margin-bottom:0}
+.cat-hero h1{font-size:clamp(3rem,13.5vw,5.8rem)}
+.cat-hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.3rem;margin-top:.4rem}
+/* on phones the floating bar already carries this button */
+.cat-hero-actions .btn{display:none}
+.cat-hero-stage{position:relative;display:flex;align-items:flex-end;justify-content:center;padding-bottom:clamp(22px,5vw,44px)}
+.cat-halo{position:absolute;left:50%;bottom:-58%;width:min(128vw,760px);aspect-ratio:1;translate:-50% 0;border-radius:50%;background:var(--halo)}
+/* three cups, each a little taller than the last, like the tiers */
+.cat-hero-photo{position:relative;height:auto;min-width:0;filter:drop-shadow(0 18px 16px var(--photo-shadow))}
+.cat-hero-photo-1{width:29%}
+.cat-hero-photo-2{width:33%;margin-left:-2%}
+.cat-hero-photo-3{width:39%;margin-left:-2%}
+.js .cat-hero-photo{animation:bowl-in .9s var(--ease) both}
+.js .cat-hero-photo-2{animation-delay:.08s}
+.js .cat-hero-photo-3{animation-delay:.16s}
+
+/* ---------- the tier list ---------- */
+.tiers{padding-block:clamp(56px,10vw,104px)}
+.tiers-head{display:grid;gap:.9rem;margin-bottom:clamp(24px,5vw,44px)}
+.tier-list{display:grid;gap:14px}
+.tier{display:grid;border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow-1)}
+.tier-label{display:grid;gap:.45rem;align-content:start;justify-items:start;padding:1.3rem 1.3rem 1.2rem;background:var(--tier-bg);color:var(--tier-ink)}
+.tier-label *:focus-visible{outline-color:var(--tier-ink)}
+.tier-step{font-size:.84rem;font-weight:600}
+.tier-name{font-family:var(--font-display);font-weight:var(--display-weight);letter-spacing:var(--display-tracking);font-size:clamp(2.1rem,8.4vw,2.7rem);line-height:1.05}
+.tier-text{font-size:.95rem;max-width:23rem}
+.tier-facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:.35rem}
+.tier-facts span{display:inline-flex;align-items:center;min-height:28px;padding:0 .75rem;border-radius:999px;font-size:.8rem;font-weight:600;box-shadow:inset 0 0 0 1.5px currentColor}
+.tier-pick{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;font-weight:600;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:5px;transition:gap .2s}
+.tier-pick:hover{gap:.7rem}
+.tier-body{display:grid;gap:1.15rem;align-content:start;min-width:0;padding:1.2rem 1.3rem 1.4rem}
+.tier-plus{font-size:.92rem;font-weight:600;color:var(--accent-text)}
+.tier-group h4{font-size:.8rem;font-weight:600;color:var(--ink-2);margin-bottom:.6rem}
+.tier-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:16px 8px}
+.tier-items li{display:grid;justify-items:center;align-content:start;gap:.45rem;text-align:center;font-size:.78rem;font-weight:500;line-height:1.25}
+.tier-items img{width:100%;max-width:100px;height:86px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 7px 6px var(--photo-shadow))}
+/* croffles are wide and low, so their row needs less height */
+.tier-items-wide img{height:66px}
+.tier-extras{display:flex;flex-wrap:wrap;gap:7px}
+.tier-extras li{padding:.42rem .8rem;border-radius:999px;background:var(--bg);box-shadow:inset 0 0 0 1px var(--line);font-size:.86rem;font-weight:500}
+
+/* ---------- frozen shaped milk: white milk on the logo's blue ---------- */
+.frozen{padding-block:clamp(56px,10vw,104px);background:linear-gradient(180deg,#80B7DE 0%,#5F9FD0 100%);color:var(--ink);--focus:#16324A}
+.frozen-head{display:grid;gap:.9rem;margin-bottom:clamp(28px,5vw,48px)}
+.frozen .lead{color:var(--ink)}
+.ice-defs{position:absolute}
+.frozen-shapes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 10px}
+.frozen-shapes li{display:grid;justify-items:center;gap:.35rem;text-align:center;font-family:var(--font-display);font-size:1.12rem;letter-spacing:-.02em;line-height:1.2}
+.ice{width:100%;max-width:150px;height:auto;overflow:visible;filter:drop-shadow(0 12px 10px rgba(22,60,100,.3))}
+.ice-photo{aspect-ratio:1;object-fit:contain}
+.frozen-note{margin-top:1.4rem;font-size:.92rem;font-weight:500}
+.frozen-links{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.4rem;margin-top:clamp(28px,5vw,44px)}
+.frozen .link{color:var(--ink);border-bottom-color:rgba(22,50,74,.45)}
+.frozen .link:hover{border-bottom-color:var(--ink)}
+
+/* ---------- appointment ---------- */
+.appt{padding-block:clamp(56px,10vw,104px);background:var(--band)}
+.appt-inner{display:grid;gap:clamp(28px,6vw,56px)}
+.appt-copy{display:grid;gap:.9rem;align-content:start;justify-items:start}
+.appt-steps{display:grid;gap:1.1rem;margin-top:.9rem}
+.appt-steps li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start}
+.appt-num{display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--ink);color:var(--bg);font-size:.85rem;font-weight:600}
+.appt-steps p{color:var(--ink-2)}
+.appt-notes{display:grid;gap:.3rem;margin-top:.4rem;font-weight:500}
+.appt-form,.appt-done{display:grid;gap:1.05rem;padding:clamp(1.2rem,4vw,2rem);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow-1)}
+.appt-row{display:grid;gap:1.05rem}
+.field{display:grid;gap:.4rem;align-content:start;min-width:0}
+.field label{font-size:.88rem;font-weight:600}
+.field input,.field select,.field textarea{display:block;width:100%;min-width:0;min-height:48px;padding:.6rem .85rem;border:1px solid #7A91A5;border-radius:14px;background:var(--bg);color:var(--ink);font:inherit;font-size:1rem;line-height:1.3}
+.field textarea{min-height:112px;resize:vertical}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:var(--ink-2)}
+.field [aria-invalid="true"]{border-color:#B3261E;box-shadow:0 0 0 1px #B3261E}
+.appt-hint{margin-top:-.55rem;font-size:.82rem;color:var(--ink-2)}
+.appt-error{margin-top:-.55rem;font-size:.88rem;font-weight:600;color:#8A2A10}
+.appt-form .btn{justify-self:start;min-width:11rem}
+.appt-form .btn[disabled]{opacity:.65;cursor:progress}
+.appt-privacy{font-size:.82rem;color:var(--ink-2)}
+.appt-privacy a,.appt-retry{text-decoration:underline;text-underline-offset:3px}
+.appt-done{justify-items:start}
+.appt-done h3{font-family:var(--font-display);font-weight:var(--display-weight);letter-spacing:var(--display-tracking);font-size:clamp(1.9rem,6.4vw,2.5rem);line-height:1.1}
+.appt-done>p{color:var(--ink-2);max-width:32rem}
+.appt-done-actions{display:flex;flex-wrap:wrap;gap:.7rem}
+.appt-retry{min-height:44px;font-weight:600;color:var(--accent-text)}
+
+/* Korean breaks lines between words here, never inside one */
+:lang(ko) .catering-page{word-break:keep-all}
+
+/* ---------- wider screens ---------- */
+@media (min-width:600px){
+  .appt-row{grid-template-columns:1fr 1fr}
+  .frozen-shapes{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+  .tier-items{grid-template-columns:repeat(auto-fill,minmax(96px,1fr))}
+}
+@media (min-width:860px){
+  html:has(.page-catering){scroll-padding-top:120px}
+  .cat-hero{margin-top:-110px;padding-top:110px}
+  .cat-hero-inner{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:end;column-gap:40px;min-height:min(calc(100svh - 110px),560px);padding-top:32px}
+  .cat-hero-copy{align-self:center;padding-bottom:56px}
+  .cat-hero h1{font-size:clamp(4.2rem,7.4vw,6.4rem)}
+  .cat-hero-actions .btn{display:inline-flex}
+  .cat-halo{width:124%;bottom:-66%}
+  .tier-list{gap:18px}
+  .tier{grid-template-columns:minmax(250px,.36fr) minmax(0,1fr)}
+  .tier-label{padding:1.8rem}
+  .tier-body{padding:1.6rem 1.8rem 1.8rem}
+  .tier-items{grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:20px 12px}
+  .tier-items li{font-size:.84rem}
+  .tier-items img{max-width:124px;height:108px}
+  .tier-items-wide img{height:80px}
+  .frozen-shapes{gap:32px 18px}
+  .frozen-shapes li{font-size:1.3rem}
+  .appt-inner{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:start}
+  .appt-copy{position:sticky;top:134px}
+}
