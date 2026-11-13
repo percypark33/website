@@ -5,7 +5,8 @@
            site-settings.js      (hero item, look, quick edits, photos)
            menu-art.js           (the bowl drawings)
            designs/language.js, designs/brand-story.js (Korean words, family letter)
-   Writes  index.html, menu.html, visit.html and assets/site/*
+           catering/catering-settings.js (the catering landing page: design, tiers, appointments)
+   Writes  index.html, menu.html, our-story.html, visit.html, catering/*.html and assets/site/*
 
    Run:    node build/build.mjs
    Vercel runs this by itself on every change (see vercel.json). */
@@ -16,6 +17,7 @@ import { fileURLToPath } from 'node:url';
 import { loadSite } from './lib/data.mjs';
 import { loadKorean, loadStory } from './lib/ko.mjs';
 import * as pages from './lib/pages.mjs';
+import * as catering from './lib/catering.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = new Set(process.argv.slice(2));
@@ -42,6 +44,7 @@ function main() {
   let site;
   try {
     site = loadSite(ROOT);
+    site.catering = catering.loadCatering(ROOT, site);
   } catch (error) {
     console.error('\nThe website was NOT rebuilt.\n' + error.message + '\nFix the file and save again. The live website keeps the last good version.\n');
     process.exit(1);
@@ -52,6 +55,7 @@ function main() {
   const manifestFile = path.join(ROOT, 'build/image-manifest.json');
   const manifest = fs.existsSync(manifestFile) ? JSON.parse(fs.readFileSync(manifestFile, 'utf8')) : { images: {}, logos: {} };
   const translate = loadKorean(ROOT);
+  const onHome = !!site.catering?.home.show;
   const usedImages = new Map();
 
   const makeContext = () => {
@@ -79,24 +83,36 @@ function main() {
         if (!entry) return `<img class="${cls}" src="/assets/sweet-snow-horizontal-right-blue-20261104.svg" alt="${pages.e(alt)}" width="1881" height="837">`;
         const v = entry.variants;
         return `<img class="${cls}" src="${v[0].url}" srcset="${v.map(x => `${x.url} ${x.w}w`).join(', ')}" sizes="${sizes}" width="${v[0].w}" height="${Math.round(entry.h * v[0].w / entry.w)}" alt="${pages.e(alt)}"${lazy ? ' loading="lazy" decoding="async"' : ''}>`;
-      }
+      },
+      // The catering section on the home page (catering-settings.js → homePage).
+      cateringHome: () => (onHome ? catering.homeSection(ctx) : '')
     };
     return ctx;
   };
 
   /* --- render --- */
-  const css = minifyCss(read('build/src/styles.css') + '\n' + read(`build/src/look-${look}.css`));
+  // While catering is announced, the menu has a fifth link and needs a little more room.
+  const baseCss = read('build/src/styles.css') + '\n' + read(`build/src/look-${look}.css`) + (site.catering?.announce ? '\n' + read('build/src/nav-catering.css') : '');
+  const css = minifyCss(baseCss);
+  // Only the home page carries the styles of its catering section.
+  const homeCss = onHome ? minifyCss(baseCss + '\n' + read('build/src/home-catering.css')) : css;
   const js = minifyJs(read('build/src/app.js'));
   const out = path.join(ROOT, 'assets/site');
   fs.mkdirSync(out, { recursive: true });
   fs.writeFileSync(path.join(out, 'app.js'), js);
 
+  // The catering pages come from the catering folder. Without that folder the site builds as before.
+  const pageSet = { ...pages.PAGES, ...(site.catering ? catering.pageSet(site) : {}) };
+  const templates = { ...pages, ...catering.templates };
   const allKo = {};
   const allBlocks = {};
+  const cateringKo = {};
   const rendered = {};
-  for (const key of Object.keys(pages.PAGES)) {
+  for (const key of Object.keys(pageSet)) {
     const ctx = makeContext();
-    rendered[key] = { ctx, body: pages[key](ctx) };
+    rendered[key] = { ctx, body: templates[key](ctx) };
+    // Catering keeps its Korean words in its own file, so a catering edit never re-publishes the other pages.
+    if (pageSet[key].own) { Object.assign(cateringKo, ctx.ko); continue; }
     Object.assign(allKo, ctx.ko);
     Object.assign(allBlocks, ctx.blocks);
   }
@@ -107,7 +123,7 @@ function main() {
 
   // Words the page script puts together itself (open-now status, stock badges, the item sheet).
   for (const phrase of ['Open now · until ', 'Open now', 'Closed now', 'Next open ', 'today', 'tomorrow', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'SOLD OUT', 'FEW LEFT', 'Open navigation', 'Close navigation', 'Show ingredients for ', 'Milk base']) {
-    const k = translate(phrase); if (k !== phrase) allKo[phrase] = k;
+    const k = translate(phrase); if (k !== phrase) { allKo[phrase] = k; cateringKo[phrase] = k; }
   }
   const koJson = JSON.stringify({ text: allKo, blocks: allBlocks });
   fs.writeFileSync(path.join(out, 'ko.json'), koJson);
@@ -117,15 +133,38 @@ function main() {
     ? `<div class="build-warning" role="alert"><strong>Settings to check (only shown on previews):</strong><ul>${site.warnings.map(w => `<li>${pages.e(w)}</li>`).join('')}</ul></div>` : '';
   const config = { schedule: site.schedule, ko: `/assets/site/ko.json?v=${hash(koJson)}` };
   // Old links such as /#croffles or /#visit keep working: they go to the page that now holds that section.
-  const legacy = `(function(){function go(){var h=location.hash,p=location.pathname.replace(/\\/$/,'')||'/';if(p!=='/'||!h)return;var m=['#menu','#menu-premium','#menu-classic','#menu-special','#menu-half-half','#single-cups','#food','#mini-taiyaki','#mini-sides','#croffles','#toppings','#drinks','#coming-soon'];if(m.indexOf(h)>-1||h.indexOf('#menu-item-')===0)location.replace('/menu'+(h==='#menu'||h==='#drinks'||h==='#coming-soon'?'':h==='#menu-premium'?'#menu-classic':h));else if(h==='#visit'||h==='#find-us')location.replace('/visit');}go();addEventListener('hashchange',go);})();`;
-  const scripts = `<script>document.documentElement.classList.add('js');window.SWEET_SNOW=${JSON.stringify(config)};__LEGACY__</script>
-<script defer src="/assets/site/app.js?v=${hash(js)}"></script>
+  const legacy = `(function(){function go(){var h=location.hash,p=location.pathname.replace(/\\/$/,'')||'/';if(p!=='/'||!h)return;var m=['#menu','#menu-premium','#menu-classic','#menu-special','#menu-half-half','#single-cups','#food','#mini-taiyaki','#mini-sides','#croffles','#toppings','#drinks','#coming-soon'];if(m.indexOf(h)>-1||h.indexOf('#menu-item-')===0)location.replace('/menu'+(h==='#menu'||h==='#drinks'||h==='#coming-soon'?'':h==='#menu-premium'?'#menu-classic':h));else if(h==='#visit'||h==='#find-us')location.replace('/visit');else if(h==='#brand-story')location.replace('/our-story');}go();addEventListener('hashchange',go);})();`;
+  const scriptsFor = (settings, extra = '') => `<script>document.documentElement.classList.add('js');window.SWEET_SNOW=${JSON.stringify(settings)};__LEGACY__</script>
+<script defer src="/assets/site/app.js?v=${hash(js)}"></script>${extra}
 <script defer src="/analytics-config.js?v=google-tags-sept24"></script>
 <script defer src="/analytics.js?v=seo-20261031"></script>`;
+  const scripts = scriptsFor(config);
+
+  /* --- catering: the landing page. The main site's styles, plus its own and one of three cute designs, loaded only by the catering pages --- */
+  const cateringStyles = {};
+  const cateringCss = design => (cateringStyles[design || ''] ||= minifyCss(baseCss + '\n' + read('build/src/catering.css') + (design ? '\n' + read(`build/src/catering-${design}.css`) : '')));
+  let cateringScripts = () => scripts;
+  if (site.catering) {
+    const cateringJs = minifyJs(read('build/src/catering.js'));
+    const cateringKoJson = JSON.stringify({ text: cateringKo, blocks: {} });
+    fs.writeFileSync(path.join(out, 'catering.js'), cateringJs);
+    fs.writeFileSync(path.join(out, 'ko-catering.json'), cateringKoJson);
+    const settings = { schedule: site.schedule, ko: `/assets/site/ko-catering.json?v=${hash(cateringKoJson)}` };
+    cateringScripts = withForm => scriptsFor(settings, withForm ? `\n<script defer src="/assets/site/catering.js?v=${hash(cateringJs)}"></script>` : '');
+    // "Catering" is listed for search engines only once it is announced.
+    const sitemapFile = path.join(ROOT, 'sitemap.xml');
+    if (fs.existsSync(sitemapFile)) {
+      const line = '  <url><loc>https://www.sweetsnow.org/catering</loc></url>\n';
+      const now = fs.readFileSync(sitemapFile, 'utf8');
+      const next = site.catering.announce ? now.replace(line, '').replace('</urlset>', line + '</urlset>') : now.replace(line, '');
+      if (next !== now) fs.writeFileSync(sitemapFile, next);
+    }
+  }
 
   for (const [key, { ctx, body }] of Object.entries(rendered)) {
-    const page = pages.PAGES[key];
+    const page = pageSet[key];
     const preload = ['<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/hahmlet.woff2" crossorigin>'];
+    if (key === 'story' || page.design === 'diary') preload.push('<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/gaegu-700.woff2" crossorigin>');
     if (key === 'menu' && site.groups.classic[0]) {
       const entry = manifest.images[site.groups.classic[0].photo + '|card'];
       if (entry) preload.push(preloadImage(entry, pages.CARD_SIZES));
@@ -137,18 +176,20 @@ function main() {
     const html = `<!DOCTYPE html>
 <html lang="en" class="look-${look}">
 <head>
-${pages.head(ctx, key, { css, preload, scripts: scripts.replace('__LEGACY__', key === 'home' ? legacy : '') })}
+${pages.head(ctx, key, { page, css: page.own ? cateringCss(page.design) : key === 'home' ? homeCss : css, preload, scripts: (page.own ? cateringScripts(!page.simple) : scripts).replace('__LEGACY__', key === 'home' ? legacy : '') })}
 </head>
 <body class="${page.bodyClass}">
 ${warningBar}${body}
 </body>
 </html>
 `;
+    fs.mkdirSync(path.dirname(path.join(ROOT, page.file)), { recursive: true });
     fs.writeFileSync(path.join(ROOT, page.file), html);
   }
 
   const counts = `${site.groups.classic.length + site.groups.special.length + site.groups['half-half'].length} bowls, ${site.cups.length} cups, ${site.taiyaki.length} mini taiyaki, ${site.croffles.length} croffles, ${site.toppings.length} toppings`;
-  console.log(`Built ${Object.values(pages.PAGES).map(p => p.file).join(', ')} — ${counts}. Look: ${look}. Prices ${site.showPrices ? 'shown' : 'hidden'}.`);
+  console.log(`Built ${Object.values(pageSet).map(p => p.file).join(', ')} — ${counts}. Look: ${look}. Prices ${site.showPrices ? 'shown' : 'hidden'}.`);
+  if (site.catering) console.log(`Catering: "${catering.DESIGNS[site.catering.design].name}" design, ${site.catering.tiers.length} tiers, ${site.catering.menu.classic.length} classic and ${site.catering.menu.special.length} special bingsu on the event menu. All three designs are also at /catering/bunny, /catering/cloud and /catering/diary. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'} ${site.catering.tag ? `Tagged "${site.catering.tag}". ` : ''}Home page section: ${site.catering.home.show ? `on${site.catering.home.link ? ', with a link to the catering page' : ', no link'}` : 'off'}.`);
   if (site.warnings.length) console.log('\nThings to check:\n' + site.warnings.map(w => '  • ' + w).join('\n'));
 }
 
