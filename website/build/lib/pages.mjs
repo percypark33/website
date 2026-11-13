@@ -8,7 +8,7 @@ const money = value => (value === null || value === undefined ? '' : '$' + (Numb
 
 /* ---------- shared pieces ---------- */
 
-export const ICON = {
+const ICON = {
   arrow: '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   out: '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   close: '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
@@ -17,7 +17,7 @@ export const ICON = {
   dash: '<img class="pay dash" src="/assets/doordash-logo.svg" width="26" height="15" alt="">'
 };
 
-export function header(ctx, page) {
+function header(ctx, page) {
   const { t, ta, logo, site } = ctx;
   const L = site.SETTINGS.links;
   const nav = [['Home', '/', 'home'], ['Menu', '/menu', 'menu'], ['Our story', '/#brand-story', 'story'], ['Find us', '/visit', 'visit']];
@@ -55,8 +55,7 @@ function hoursRows(ctx) {
     </dl>`;
 }
 
-/* `bar` replaces the floating order bar on pages with their own main action (catering). */
-export function footer(ctx, bar) {
+function footer(ctx) {
   const { t, ta, logo, site } = ctx;
   const L = site.SETTINGS.links;
   const handle = L.instagram.replace(/\/$/, '').split('/').pop();
@@ -73,10 +72,10 @@ export function footer(ctx, bar) {
     ${site.catering?.announce ? `<a href="/catering">${t('Catering')}</a>\n    ` : ''}<a href="/privacy">${t('Privacy')}</a>
   </nav>
 </footer>
-${bar || `<div class="orderbar" data-orderbar>
+<div class="orderbar" data-orderbar>
   <a class="orderbar-main" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
   <a class="orderbar-side" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery')}</span></a>
-</div>`}`;
+</div>`;
 }
 
 function faq(ctx) {

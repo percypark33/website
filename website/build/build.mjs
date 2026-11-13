@@ -5,7 +5,7 @@
            site-settings.js      (hero item, look, quick edits, photos)
            menu-art.js           (the bowl drawings)
            designs/language.js, designs/brand-story.js (Korean words, family letter)
-           catering/catering-settings.js (catering tiers, appointments, frozen milk flyer)
+           catering/catering-settings.js (catering flavors, tiers, appointments)
    Writes  index.html, menu.html, visit.html, catering/*.html and assets/site/*
 
    Run:    node build/build.mjs
@@ -116,15 +116,6 @@ function main() {
     return;
   }
 
-  // The flyer page is always current. Its picture and PDF are saved by build/flyer-image.mjs, so say when they fall behind.
-  if (site.catering?.frozenMilk.show) {
-    const flyerHtml = catering.flyer(makeContext(), minifyCss(read('build/src/flyer.css')));
-    fs.writeFileSync(path.join(ROOT, catering.FLYER_FILE), flyerHtml);
-    const stampFile = path.join(ROOT, catering.FLYER_STAMP);
-    const stamp = fs.existsSync(stampFile) ? JSON.parse(fs.readFileSync(stampFile, 'utf8')).madeFrom : '';
-    if (stamp !== hash(flyerHtml)) site.warnings.push('The flyer page changed, but the flyer picture and PDF that people download are still the old ones. Ask Claude to "refresh the flyer files" (node build/flyer-image.mjs).');
-  }
-
   // Words the page script puts together itself (open-now status, stock badges, the item sheet).
   for (const phrase of ['Open now · until ', 'Open now', 'Closed now', 'Next open ', 'today', 'tomorrow', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'SOLD OUT', 'FEW LEFT', 'Open navigation', 'Close navigation', 'Show ingredients for ', 'Milk base']) {
     const k = translate(phrase); if (k !== phrase) { allKo[phrase] = k; cateringKo[phrase] = k; }
@@ -144,10 +135,10 @@ function main() {
 <script defer src="/analytics.js?v=seo-20261031"></script>`;
   const scripts = scriptsFor(config);
 
-  /* --- catering: its own styles, script and Korean file, loaded only by the catering pages --- */
+  /* --- catering: a design of its own. Its styles, typefaces, script and Korean file are loaded only by the catering pages --- */
   let cateringCss = css, cateringScripts = () => scripts;
   if (site.catering) {
-    cateringCss = minifyCss(baseCss + '\n' + read('build/src/catering.css'));
+    cateringCss = minifyCss(read('build/src/catering.css'));
     const cateringJs = minifyJs(read('build/src/catering.js'));
     const cateringKoJson = JSON.stringify({ text: cateringKo, blocks: {} });
     fs.writeFileSync(path.join(out, 'catering.js'), cateringJs);
@@ -166,7 +157,8 @@ function main() {
 
   for (const [key, { ctx, body }] of Object.entries(rendered)) {
     const page = pageSet[key];
-    const preload = ['<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/hahmlet.woff2" crossorigin>'];
+    const preload = page.own ? [...catering.FONT_PRELOADS] : ['<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/hahmlet.woff2" crossorigin>'];
+    if (page.own) ctx.themeColor = catering.THEME_COLOR;
     if (key === 'menu' && site.groups.classic[0]) {
       const entry = manifest.images[site.groups.classic[0].photo + '|card'];
       if (entry) preload.push(preloadImage(entry, pages.CARD_SIZES));
@@ -178,7 +170,7 @@ function main() {
     const html = `<!DOCTYPE html>
 <html lang="en" class="look-${look}">
 <head>
-${pages.head(ctx, key, { page, css: page.own && !page.simple ? cateringCss : css, preload, scripts: (page.own ? cateringScripts(!page.simple) : scripts).replace('__LEGACY__', key === 'home' ? legacy : '') })}
+${pages.head(ctx, key, { page, css: page.own ? cateringCss : css, preload, scripts: (page.own ? cateringScripts(!page.simple) : scripts).replace('__LEGACY__', key === 'home' ? legacy : '') })}
 </head>
 <body class="${page.bodyClass}">
 ${warningBar}${body}
@@ -191,7 +183,7 @@ ${warningBar}${body}
 
   const counts = `${site.groups.classic.length + site.groups.special.length + site.groups['half-half'].length} bowls, ${site.cups.length} cups, ${site.taiyaki.length} mini taiyaki, ${site.croffles.length} croffles, ${site.toppings.length} toppings`;
   console.log(`Built ${Object.values(pageSet).map(p => p.file).join(', ')} — ${counts}. Look: ${look}. Prices ${site.showPrices ? 'shown' : 'hidden'}.`);
-  if (site.catering) console.log(`Catering: ${site.catering.tiers.length} tiers, ${site.catering.frozenMilk.shapes.length} frozen milk shapes${site.catering.frozenMilk.show ? ', flyer at ' + catering.FLYER_FILE : ''}. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'} Appointments: ${[site.catering.appointments.bookingLink && 'booking calendar', site.catering.appointments.form && 'request form'].filter(Boolean).join(' and ') || 'by Instagram message until bookingLink is set'}.`);
+  if (site.catering) console.log(`Catering: ${site.catering.flavors.length} cup flavors in ${site.catering.tiers.length} tiers. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'} Appointments: ${[site.catering.appointments.bookingLink && 'booking calendar', site.catering.appointments.form && 'request form'].filter(Boolean).join(' and ') || 'by Instagram message until bookingLink is set'}.`);
   if (site.warnings.length) console.log('\nThings to check:\n' + site.warnings.map(w => '  • ' + w).join('\n'));
 }
 

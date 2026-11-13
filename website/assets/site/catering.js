@@ -1,15 +1,89 @@
-/* SWEET SNOW CATERING — the appointment section on /catering.
-Without this script the form still works: the browser sends it and lands on /catering/thanks. */
+/* SWEET SNOW CATERING — what moves on /catering: the flavor labels, the lids
+that seal as the tiers scroll in, the booking panel and the request form.
+Language switching and the header come from the site's shared script. */
 (() => {
 'use strict';
 const doc = document;
-/* On phones the floating button steps aside while the booking panel itself is on screen. */
+const root = doc.documentElement;
+const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+/* ---------- a label for every flavor ---------- */
+const flavors = doc.querySelector('[data-flavors]');
+if (flavors) {
+const tabs = [...flavors.querySelectorAll('[role="tab"]')];
+const panels = [...flavors.querySelectorAll('[role="tabpanel"]')];
+const stage = flavors.querySelector('.c-stage');
+const stageCup = flavors.querySelector('[data-stage-cup]');
+const stageLabels = [...flavors.querySelectorAll('[data-stage-label]')];
+const select = (tab, focus) => {
+const key = tab.dataset.flavor;
+for (const other of tabs) {
+const on = other === tab;
+other.setAttribute('aria-selected', String(on));
+other.tabIndex = on ? 0 : -1;
+}
+for (const panel of panels) panel.classList.toggle('is-on', panel.id === 'fp-' + key);
+stageCup.style.setProperty('--label', tab.dataset.label);
+stageCup.style.setProperty('--label-ink', tab.dataset.ink);
+for (const label of stageLabels) label.hidden = label.dataset.stageLabel !== key;
+stage.classList.remove('is-swapping');
+void stage.offsetWidth;
+stage.classList.add('is-swapping');
+if (focus) tab.focus();
+tab.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduced.matches ? 'auto' : 'smooth' });
+};
+for (const tab of tabs) tab.addEventListener('click', () => select(tab));
+flavors.querySelector('[role="tablist"]').addEventListener('keydown', event => {
+let i = tabs.findIndex(tab => tab.getAttribute('aria-selected') === 'true');
+if (event.key === 'ArrowRight' || event.key === 'ArrowDown') i = (i + 1) % tabs.length;
+else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') i = (i + tabs.length - 1) % tabs.length;
+else if (event.key === 'Home') i = 0;
+else if (event.key === 'End') i = tabs.length - 1;
+else return;
+event.preventDefault();
+select(tabs[i], true);
+});
+doc.addEventListener('click', event => {
+const link = event.target.closest('[data-show-flavor]');
+const tab = link && tabs.find(candidate => candidate.dataset.flavor === link.dataset.showFlavor);
+if (tab) select(tab);
+});
+}
+/* ---------- tiers: the lids seal when the shelves scroll into view ---------- */
+const shelves = doc.querySelector('[data-seal]');
+if (shelves) {
+if (!('IntersectionObserver' in window) || reduced.matches) shelves.classList.add('is-sealed');
+else {
+const once = new IntersectionObserver(entries => {
+if (!entries[0].isIntersecting) return;
+once.disconnect();
+shelves.classList.add('is-sealed');
+}, { rootMargin: '0px 0px -18% 0px' });
+once.observe(shelves);
+}
+}
+/* ---------- Korean titles get a face as round as the English one ---------- */
+const loadKoreanTitles = () => {
+if (root.lang !== 'ko' || doc.querySelector('link[data-catering-ko]')) return;
+const link = doc.createElement('link');
+link.rel = 'stylesheet';
+link.href = 'https://fonts.googleapis.com/css2?family=Jua&display=swap';
+link.dataset.cateringKo = '';
+doc.head.append(link);
+};
+new MutationObserver(loadKoreanTitles).observe(root, { attributes: true, attributeFilter: ['lang'] });
+loadKoreanTitles();
+/* ---------- on phones the floating button steps aside while the same button, or the booking panel, is on screen ---------- */
 const panel = doc.querySelector('[data-appt-panel]');
 const bar = doc.querySelector('[data-catering-bar]');
 if (panel && bar && 'IntersectionObserver' in window) {
-new IntersectionObserver(entries => bar.classList.toggle('is-hidden', entries[0].isIntersecting), { rootMargin: '0px 0px -25% 0px' }).observe(panel);
+const seen = new Map();
+const watch = new IntersectionObserver(entries => {
+for (const entry of entries) seen.set(entry.target, entry.isIntersecting);
+bar.classList.toggle('is-hidden', [...seen.values()].some(Boolean));
+});
+for (const target of [panel, doc.querySelector('.c-hero-actions')]) if (target) watch.observe(target);
 }
-/* The rest is for the request form, when catering-settings.js switches it on. */
+/* ---------- the request form, when catering-settings.js switches it on ---------- */
 const form = doc.querySelector('[data-catering-form]');
 if (!form) return;
 const sent = panel.querySelector('[data-form-sent]');

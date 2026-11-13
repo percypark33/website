@@ -1,13 +1,10 @@
 # Sweet Snow Catering
 
-Everything for catering lives in this folder.
+The catering site: **`sweetsnow.org/catering`**.
 
-| Address | What it is |
-|---|---|
-| `sweetsnow.org/catering` | The catering page: tiers, the frozen shaped milk collection, booking an appointment |
-| `sweetsnow.org/catering/frozen-milk-flyer` | The flyer, with Print and Download buttons |
-| `sweetsnow.org/catering/frozen-milk-flyer.png` | The flyer as a picture (Instagram, 8 × 10 in print) |
-| `sweetsnow.org/catering/frozen-milk-flyer.pdf` | The flyer as a PDF for a print shop |
+What it offers: pre-made bingsu from our menu, in a sealable paper cup, with a label for each flavor. Guests book an appointment; there is no online ordering.
+
+It has its own design, separate from the main website: navy, bright blue and yellow (the colors of the catering team plan), the chunky lettering of our printed flyers, and a paper cup whose label changes with the flavor.
 
 ## You only edit one file
 
@@ -15,30 +12,34 @@ Everything for catering lives in this folder.
 
 | To change | Edit |
 |---|---|
+| The big headline and the words under it | `headline`, `text` |
+| The three words in the yellow band | `points` |
+| The small facts under the buttons | `facts` |
+| A flavor's label color | `labels` |
 | A tier's name, words, price or guest count | `tiers` |
-| What is in a tier | `items` inside that tier. Spell names exactly as on the menu |
+| Which flavors are in a tier | `items` inside that tier. Spell names exactly as on the menu |
 | Add or remove a tier | Add or remove a `{ ... }` block in `tiers` |
-| The shapes in the frozen milk collection | `frozenMilk` → `shapes` |
+| Who it is for | `events` |
 | The booking calendar link, lead time, service area | `appointments` |
-| Put "Catering" in the website menu | `announce: true` |
+| Put "Catering" in the main website's menu | `announce: true` |
 
-Photos and menu names come from the menu by themselves. If an item is renamed or hidden on the menu, the preview link shows a yellow bar that names the line to fix.
+Flavor names, photos and what is inside each cup come from the menu by themselves. If an item is renamed or hidden on the menu, the preview link shows a yellow bar that names the line to fix.
+
+### Label colors
+
+Each flavor's label on the cup drawings takes its color from `labels`:
+
+```js
+"Mango Jelly Cup": "#FFB81C",
+```
+
+Put the colors of your real labels here. The words on a label turn navy or white by themselves, whichever reads better on that color. A flavor with no line gets a spare color.
 
 ### Tier prices
 
-`price: ""` shows "Ask for a quote". Write `price: "$9 per guest"` (any wording) to show a price. `guests: "20 to 40 guests"` adds a second label.
+`price: ""` shows "Ask for a quote". Write `price: "$9 per cup"` (any wording) to show a price. `guests: "50 to 100 guests"` adds a second label.
 
-### Frozen milk shapes
-
-Drawings that exist: `bunny`, `bear`, `heart`, `star`, `snowflake`, `fish`, `flower`, `cloud`, `round`. For a shape that is not on the list, ask Claude to draw it.
-
-To use a real photo, upload a cut-out PNG to `catering/photos/` and write:
-
-```js
-{ name: "Bunny", photo: "/catering/photos/bunny.png" },
-```
-
-After changing shapes or flyer words, the flyer page updates by itself. The downloadable picture and PDF do not, so ask Claude to "refresh the flyer files". Until then the preview link shows a reminder.
+With `buildUp: true`, each tier includes every flavor in the tiers before it, so a tier lists only the flavors it adds. The flavor count on each tier is added up for you.
 
 ## Appointments
 
@@ -65,18 +66,19 @@ Pick one, in Vercel → Project `sweet-snow` → Settings → Environment Variab
 
 ## Before announcing
 
-- [ ] Tier names, contents and prices are right
-- [ ] The frozen milk shapes match the real collection
+- [ ] The flavors and tiers are right, and prices are in (or "Ask for a quote" is what you want)
+- [ ] The label colors match your real labels
+- [ ] The facts taken from the team plan still hold for pre-made cups: "For 50 to 200+ guests", "Same milk base and Korean snow machine as our shop"
 - [ ] The booking calendar link is in, and **Pick a time** opens your calendar
 - [ ] Then set `announce: true`
 
-While `announce` is `false`, the page works for anyone who has the link, is not in the website menu, and asks search engines to skip it.
+While `announce` is `false`, the site works for anyone who has the link, is not in the main website's menu, and asks search engines to skip it.
 
 ## For Claude
 
-- Templates and drawings: `build/lib/catering.mjs`. Styles: `build/src/catering.css`, `build/src/flyer.css`. Form script: `build/src/catering.js`.
-- `node build/build.mjs` writes `catering/index.html`, `catering/thanks.html`, `catering/frozen-milk-flyer.html`, `assets/site/catering.js` and `assets/site/ko-catering.json`. Do not edit those by hand.
-- `node build/flyer-image.mjs` (needs Playwright) writes the flyer PNG, PDF and `frozen-milk-flyer.json`.
-- `qr-catering.svg` points to `https://www.sweetsnow.org/catering`. `flyer-logo.webp` is the blue logo at flyer size.
-- Korean wording for this page: the `// catering page` lines in `build/ko-extra.mjs`.
-- With `announce: false` the other pages build byte for byte as before. With `announce: true` every page gains the menu link (`build/src/nav-catering.css` keeps five links on one line) and `sitemap.xml` gains `/catering`.
+- Templates and the cup drawing: `build/lib/catering.mjs`. Styles: `build/src/catering.css` (standalone: the catering pages do not load the main site's styles). Script: `build/src/catering.js`. The pages also load the shared `assets/site/app.js` for the language switch and the header.
+- Typefaces: Lilita One (titles) and Outfit (text), both SIL Open Font License. `python3 build/fonts.py catering` makes `assets/site/fonts/lilita.woff2` and `outfit.woff2`. Korean titles load Jua from Google Fonts only when Korean is chosen.
+- `node build/build.mjs` writes `catering/index.html`, `catering/thanks.html`, `assets/site/catering.js` and `assets/site/ko-catering.json`. Do not edit those by hand.
+- Korean wording: the `// catering site` lines in `build/ko-extra.mjs`. Flavor names follow the owner's dictionary in `designs/language.js`.
+- With `announce: false` the other pages build byte for byte as before. With `announce: true` every main-site page gains the menu link (`build/src/nav-catering.css` keeps five links on one line) and `sitemap.xml` gains `/catering`.
+- Sources for the design: the "Sweet Snow Catering — Team Plan" deck (colors, who books, guest range, "Same snow. New places."), and the page structure common to dessert catering sites (offer, what is in the cup, tiers, who it is for, how it works, booking).
