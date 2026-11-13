@@ -108,12 +108,31 @@ def logos():
             variants.append({'w': target, 'url': '/assets/site/img/' + file, 'bytes': os.path.getsize(os.path.join(OUT, file))})
         out[name] = {'w': image.width, 'h': image.height, 'variants': variants}
 
-    source = Image.open(os.path.join(ROOT, 'assets', 'sweet-snow-horizontal-right-original-20261104.png')).convert('RGB')
-    a = np.asarray(source).astype(np.float32) / 255
-    # Same maths as the colour filter inside sweet-snow-horizontal-right-blue-20261104.svg.
-    alpha = np.clip(4 * a[..., 0] - 4 * a[..., 2] + 1, 0, 1)
-    save(alpha, (112, 173, 217), 'logo-blue', (224, 336))      # the logo's own blue
-    save(alpha, (255, 255, 255), 'logo-white', (224, 336))   # same as the white logo file, for dark looks
+    # The owner's logo file (assets/brand/sweet-snow-logo-20261112.pdf), turned into a picture by build/brand.mjs:
+    # white artwork on the logo's blue, #73AEDC. How white a pixel is tells how much ink is there.
+    source = Image.open(os.path.join(ROOT, 'assets', 'brand', 'sweet-snow-logo-20261112.png')).convert('RGB')
+    a = np.asarray(source).astype(np.float32)
+    alpha = np.clip((a[..., 0] - 115) / (255 - 115), 0, 1)
+    save(alpha, (115, 174, 220), 'logo-blue', (224, 336))      # the logo's own blue
+    save(alpha, (255, 255, 255), 'logo-white', (224, 336))   # the same artwork in white, for dark looks
+
+    # The logo bunny on its own (blue lines, white inside), for the catering pages.
+    bunny = Image.open(os.path.join(ROOT, 'assets', 'brand', 'sweet-snow-bunny-20261112.png')).convert('RGBA')
+    bunny = bunny.crop(bunny.getbbox())
+    variants = []
+    blue = np.array([115, 174, 220], np.float32)
+    for target in (96, 176, 352):
+        file = f'bunny-{target}.webp'
+        data = np.asarray(bunny.resize((target, round(bunny.height * target / bunny.width)), Image.LANCZOS)).astype(np.float32)
+        # Every pixel is the logo's blue, white, or a soft edge between the two. Sixteen steps of each keep the
+        # two colours exact and make the file about a quarter of the size.
+        mix = np.round(np.clip((255 - data[..., 0]) / (255 - blue[0]), 0, 1) * 15) / 15
+        small = np.empty(data.shape, np.uint8)
+        small[..., :3] = np.round(255 - mix[..., None] * (255 - blue))
+        small[..., 3] = np.round(data[..., 3] / 17) * 17
+        Image.fromarray(small, 'RGBA').save(os.path.join(OUT, file), 'WEBP', lossless=True, quality=100, method=6)
+        variants.append({'w': target, 'url': '/assets/site/img/' + file, 'bytes': os.path.getsize(os.path.join(OUT, file))})
+    out['bunny'] = {'w': bunny.width, 'h': bunny.height, 'variants': variants}
 
     arch = np.asarray(Image.open(os.path.join(ROOT, 'assets', 'sweet-snow-arched-logo.png')).convert('RGB')).astype(np.float32)
     arch_alpha = np.clip((255 - arch[..., 0]) / (255 - 112), 0, 1)

@@ -22,10 +22,6 @@ html:has(.page-catering){scroll-padding-top:calc(var(--header-h) + 12px)}
 /* ---------- little drawings ---------- */
 .k-doodle{position:absolute;width:26px;height:26px;fill:var(--brand);stroke:var(--brand);stroke-width:0;pointer-events:none}
 .k-flake,.k-arrow{fill:none;stroke-width:2}
-.k-bunny-line{fill:#fff;stroke:var(--brand);stroke-width:3}
-.k-bunny-pink{fill:var(--k-pink);opacity:.8}
-.k-bunny-ink{fill:var(--ink)}
-.k-bunny-smile{stroke:var(--ink);stroke-width:2.4}
 .k-mini-bowl{width:1.4em;height:auto;flex:none}
 .k-mini-snow{fill:#fff;stroke:currentColor;stroke-width:1.6}
 .k-mini-dish{fill:currentColor}
@@ -116,7 +112,7 @@ html:has(.page-catering){scroll-padding-top:calc(var(--header-h) + 12px)}
 /* the chat helper */
 .k-chat{border-radius:28px;background:var(--surface);box-shadow:var(--shadow-2);overflow:hidden}
 .k-chat-head{display:flex;align-items:center;gap:.7rem;padding:.75rem 1.1rem;background:var(--k-blue-soft)}
-.k-chat-head .k-bunny{width:44px;height:auto;flex:none}
+.k-chat-head .k-bunny{width:48px;height:auto;flex:none}
 .k-chat-head p{display:grid;line-height:1.2}
 .k-chat-head b{font-weight:600}
 .k-chat-head span{font-size:.82rem;color:var(--ink-2)}

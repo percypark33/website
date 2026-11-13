@@ -2325,34 +2325,55 @@
  },
  "logos": {
   "logo-blue": {
-   "w": 1585,
-   "h": 645,
+   "w": 2051,
+   "h": 832,
    "variants": [
     {
      "w": 224,
      "url": "/assets/site/img/logo-blue-224.webp",
-     "bytes": 10500
+     "bytes": 9608
     },
     {
      "w": 336,
      "url": "/assets/site/img/logo-blue-336.webp",
-     "bytes": 17468
+     "bytes": 15408
     }
    ]
   },
   "logo-white": {
-   "w": 1585,
-   "h": 645,
+   "w": 2051,
+   "h": 832,
    "variants": [
     {
      "w": 224,
      "url": "/assets/site/img/logo-white-224.webp",
-     "bytes": 3564
+     "bytes": 3354
     },
     {
      "w": 336,
      "url": "/assets/site/img/logo-white-336.webp",
-     "bytes": 6064
+     "bytes": 5412
+    }
+   ]
+  },
+  "bunny": {
+   "w": 1136,
+   "h": 1090,
+   "variants": [
+    {
+     "w": 96,
+     "url": "/assets/site/img/bunny-96.webp",
+     "bytes": 1642
+    },
+    {
+     "w": 176,
+     "url": "/assets/site/img/bunny-176.webp",
+     "bytes": 3466
+    },
+    {
+     "w": 352,
+     "url": "/assets/site/img/bunny-352.webp",
+     "bytes": 7032
     }
    ]
   },

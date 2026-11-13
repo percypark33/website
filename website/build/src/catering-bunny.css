@@ -2,8 +2,8 @@
 .d-bunny .k-hero-art{height:clamp(300px,82vw,430px);margin-inline:calc(-1 * var(--gutter))}
 .d-bunny .k-halo{right:-30vw;bottom:-16%;width:130vw;max-width:700px}
 .d-bunny .k-hero-bowl{position:absolute;right:-9vw;bottom:2%;z-index:2;height:92%;width:auto;max-width:none}
-/* Snow peeks up from behind the bowl and says hello */
-.d-bunny .k-peek{position:absolute;left:5vw;bottom:-4%;width:31%;max-width:150px}
+/* Snow, the logo bunny, rides in next to the bowl and says hello */
+.d-bunny .k-peek{position:absolute;left:4vw;bottom:3%;z-index:5;width:36%;max-width:170px}
 .d-bunny .k-peek .k-bunny{position:relative;z-index:1;width:100%;height:auto}
 .d-bunny .k-bubble{position:absolute;z-index:3;left:30%;bottom:94%;width:max-content;max-width:9.6rem;padding:.5rem .8rem .55rem;border-radius:16px 16px 16px 4px;background:#fff;box-shadow:var(--shadow-1);font-family:var(--k-hand);font-weight:700;font-size:1.2rem;line-height:1.05;color:var(--ink)}
 .d-bunny .k-note{position:absolute;left:6vw;top:1%;z-index:3;max-width:7.6rem;font-family:var(--k-hand);font-weight:700;font-size:1.3rem;line-height:1.02;color:var(--accent-text);rotate:-5deg}
@@ -19,7 +19,7 @@
 .js .d-bunny .k-hero-art>.k-doodle{animation:k-twinkle 3.4s ease-in-out infinite}
 .js .d-bunny .k-hero-art>.k-heart{animation-delay:1.1s}
 .js .d-bunny .k-hero-art>.k-flake{animation-delay:2s}
-@keyframes k-peek{from{transform:translateY(70%)}to{transform:none}}
+@keyframes k-peek{from{opacity:0;transform:translateX(-70%) rotate(-10deg)}to{opacity:1;transform:none}}
 @keyframes k-twinkle{0%,100%{opacity:1;scale:1}50%{opacity:.5;scale:.8}}
 
 /* the bowl and the bunny sit in a hill of snow */
@@ -44,7 +44,7 @@
   .d-bunny .k-hero-art{height:auto;aspect-ratio:1/.92;margin:0}
   .d-bunny .k-halo{right:auto;left:50%;bottom:auto;top:50%;translate:-50% -50%;width:112%;max-width:none}
   .d-bunny .k-hero-bowl{right:2%;bottom:6%;height:86%}
-  .d-bunny .k-peek{left:0;width:27%;max-width:170px}
+  .d-bunny .k-peek{left:0;width:27%;max-width:190px}
   .d-bunny .k-note{left:0;top:4%;font-size:1.5rem;max-width:9rem}
   .d-bunny .k-bubble{font-size:1.35rem;max-width:11rem}
 }

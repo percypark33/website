@@ -80,7 +80,7 @@ function main() {
       },
       logo(name, alt, cls, sizes, lazy = false) {
         const entry = manifest.logos[name];
-        if (!entry) return `<img class="${cls}" src="/assets/sweet-snow-horizontal-right-blue-20261104.svg" alt="${pages.e(alt)}" width="1881" height="837">`;
+        if (!entry) return `<img class="${cls}" src="/assets/brand/sweet-snow-logo-20261112.png" alt="${pages.e(alt)}" width="2400" height="1103">`;
         const v = entry.variants;
         return `<img class="${cls}" src="${v[0].url}" srcset="${v.map(x => `${x.url} ${x.w}w`).join(', ')}" sizes="${sizes}" width="${v[0].w}" height="${Math.round(entry.h * v[0].w / entry.w)}" alt="${pages.e(alt)}"${lazy ? ' loading="lazy" decoding="async"' : ''}>`;
       },

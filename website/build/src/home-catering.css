@@ -1,15 +1,11 @@
 /* CATERING ON THE HOME PAGE — a card after the cup bingsu, in the main
-   site's own look, with Snow the bunny peeking over the top. Loaded by the
+   site's own look, with Snow, the logo bunny, riding along the top. Loaded by the
    home page only, and only while catering-settings.js → homePage.show is true. */
 .home-catering{background:var(--band);padding-bottom:clamp(56px,11vw,112px);overflow:hidden}
 :lang(ko) .home-catering{word-break:keep-all}
-.hc-wrap{position:relative;padding-top:66px}
-.hc-peek{position:absolute;top:0;right:clamp(34px,9vw,104px);width:88px}
-.hc-peek svg{display:block;width:100%;height:auto;overflow:visible}
-.hc-peek .k-bunny-line{fill:#fff;stroke:var(--brand);stroke-width:3}
-.hc-peek .k-bunny-pink{fill:#F7B8CB;opacity:.8}
-.hc-peek .k-bunny-ink{fill:var(--ink)}
-.hc-peek .k-bunny-smile{stroke:var(--ink);stroke-width:2.4}
+.hc-wrap{position:relative;padding-top:78px}
+.hc-peek{position:absolute;z-index:2;top:0;right:clamp(34px,9vw,104px);width:90px}
+.hc-peek .k-bunny{display:block;width:100%;height:auto}
 .hc-panel{position:relative;display:grid;gap:clamp(22px,4.5vw,40px);padding:clamp(24px,5.5vw,56px);border-radius:calc(var(--radius) + 10px);background:var(--surface);box-shadow:var(--shadow-1)}
 .hc-copy{display:grid;gap:.9rem;justify-items:start}
 .hc-copy p:not(.hc-flag){color:var(--ink-2);max-width:27rem;text-wrap:pretty}
@@ -37,11 +33,11 @@
 .hc-pick-special{background:#FFE6EE;color:#8A2F52}
 .hc-addon{font-size:.84rem;color:var(--ink-2)}
 
-/* Snow ducks behind the card now and then, and comes back up */
+/* Snow glides a little along the top of the card */
 @media (prefers-reduced-motion:no-preference){
-  .js .hc-peek svg{animation:hc-peek 7s var(--ease) infinite}
+  .js .hc-peek .k-bunny{animation:hc-peek 6s ease-in-out infinite}
 }
-@keyframes hc-peek{0%,58%,100%{transform:translateY(0)}68%,80%{transform:translateY(30px)}}
+@keyframes hc-peek{0%,100%{transform:none}50%{transform:translateX(-16px) rotate(-4deg)}}
 
 @media (min-width:600px){
   .hc-tier{grid-template-columns:7rem minmax(0,1fr);align-items:center;gap:.35rem .9rem}

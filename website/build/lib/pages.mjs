@@ -541,7 +541,7 @@ export function business(site) {
     .sort((a, b) => day.indexOf(a.dayOfWeek[0]) === 0 ? 1 : order(day.indexOf(a.dayOfWeek[0])) - order(day.indexOf(b.dayOfWeek[0])));
   return {
     '@context': 'https://schema.org', '@type': 'IceCreamShop', '@id': SITE + '/#business', name: 'Sweet Snow', url: SITE,
-    image: SITE + '/assets/sweet-snow-horizontal-right-blue-20261104.svg', logo: SITE + '/assets/sweet-snow-horizontal-right-blue-20261104.svg',
+    image: SITE + '/assets/brand/sweet-snow-logo-20261112.png', logo: SITE + '/assets/brand/sweet-snow-logo-20261112.png',
     description: 'Korean bingsu, mini taiyaki, and customizable toppings inside QT Golden Market Place, Garden Grove, CA.',
     servesCuisine: ['Korean', 'Dessert'], priceRange: '$$',
     address: { '@type': 'PostalAddress', streetAddress: '9772 Garden Grove Blvd', addressLocality: 'Garden Grove', addressRegion: 'CA', postalCode: '92844', addressCountry: 'US' },
@@ -607,13 +607,15 @@ export function head(ctx, key, { css, preload = [], scripts = '', page = PAGES[k
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${e(page.title)}</title>
 ${page.description ? `<meta name="description" content="${e(page.description)}">\n` : ''}${page.robots ? `<meta name="robots" content="${page.robots}">\n` : ''}<meta name="theme-color" content="${ctx.themeColor}">
-${page.canonical ? `<link rel="canonical" href="${url}">\n` : ''}<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-sweetsnow-20261110.png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-sweetsnow-20261110.png">
+${page.canonical ? `<link rel="canonical" href="${url}">\n` : ''}<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-sweetsnow-20261113-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-sweetsnow-20261113-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-sweetsnow-20261113-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-sweetsnow-20261113.png">
 ${preload.join('\n')}
 <style>${css}</style>
 ${scripts}`;
   // The picture shown when the site is shared in a message or on social apps (1200×630). Template: build/src/share-picture.html
-  const og = SITE + '/assets/share-sweet-snow-20261112.jpg';
+  const og = SITE + '/assets/share-sweet-snow-20261113.jpg';
   const ogAlt = 'Sweet Snow. Authentic Korean Bingsu in Garden Grove, California.';
   const json = data => `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
   const crumb = page.crumb ? json({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Sweet Snow', item: SITE + '/' }, { '@type': 'ListItem', position: 2, name: page.crumb, item: url }] }) : '';
@@ -645,8 +647,10 @@ ${scripts}`;
 <meta name="geo.placename" content="Garden Grove">
 <meta name="geo.position" content="33.7729;-117.9619">
 ${key === 'home' ? '<meta name="google-site-verification" content="2lnQl08cF9lgbSSqGyEk-Xq40hLfFrQtXf04Fs4-niM">\n' : ''}<link rel="manifest" href="/site.webmanifest?v=20261022">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-sweetsnow-20261110.png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-sweetsnow-20261110.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-sweetsnow-20261113-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-sweetsnow-20261113-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-sweetsnow-20261113-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-sweetsnow-20261113.png">
 ${preload.join('\n')}
 <style>${css}</style>
 ${json(business(ctx.site))}
