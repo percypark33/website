@@ -33,13 +33,20 @@ window.CATERING_SETTINGS = {
      Every booking email says which design the guest was on.         */
   design: "bunny",
 
-  /* ---- IS CATERING ANNOUNCED YET? ----------------------------
-     false = the page works for anyone who has the link (your
-             Instagram ads can point to it), but it is not in the
-             main website's menu and Google is asked to skip it.
-     true  = "Catering" is added to the menu and footer of
-             sweetsnow.org, and the page is listed for Google.     */
-  announce: false,
+  /* ---- IS CATERING A PAGE OF THE WEBSITE? ---------------------
+     true  = "Catering" is in the menu and footer of sweetsnow.org.
+             sweetsnow.org/catering has the website's menu at the
+             top, like Menu and Our story, and Google may list it.
+     false = the page works for anyone who has the link, but it
+             is not in the website's menu and Google is asked to
+             skip it.                                              */
+  announce: true,
+
+  /* ---- THE "COMING SOON" TAG ----------------------------------
+     The small tag shown with catering: on the home page and at
+     the top of every catering page. When catering opens, make it
+     ""  and the tag goes away everywhere.                         */
+  tag: "Coming soon",
 
   /* ---- ON THE HOME PAGE OF SWEETSNOW.ORG ------------------------
      A catering section on the home page, after the cup bingsu.
@@ -47,18 +54,15 @@ window.CATERING_SETTINGS = {
 
      show    true  = the section is on the home page
              false = it is not
-     label   the small tag on it. Leave "" for no tag.
      title   the big words
      text    the line under them
-     link    false = no link (right while it says "Coming soon")
-             true  = adds "Explore catering", which opens the
-                     catering page                                  */
+     link    true  = "Explore catering" opens the catering page
+             false = no link                                        */
   homePage: {
     show: true,
-    label: "Coming soon",
     title: "Sweet Snow Catering",
     text: "Fresh bingsu, made at your event. We bring the milk snow and make every bowl the way we do at our shop.",
-    link: false
+    link: true
   },
 
   /* ---- TOP OF THE PAGE ---------------------------------------- */

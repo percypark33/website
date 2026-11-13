@@ -194,6 +194,12 @@ main>section{position:relative}
 .sl-signoff{margin-top:.6rem}
 .sl-name{font-family:"Gaegu",var(--font-body);font-weight:700;font-size:1.7rem;color:var(--ink);line-height:1.2}
 .story-next,.next{margin-top:clamp(28px,5vw,48px)}
+/* our story: its own page, and the short preview on the home page */
+.page-story .story{padding-block:clamp(28px,6vw,64px) 0}
+.story-head{width:100%}
+.story-teaser-inner{display:grid;gap:clamp(20px,5vw,56px);align-items:center}
+.story-teaser-copy{display:grid;gap:1.3rem;justify-items:start}
+.story-teaser .letter{margin:0}
 .next{padding-bottom:clamp(40px,8vw,72px)}
 
 /* find teaser + visit */
@@ -414,8 +420,11 @@ main>section{position:relative}
   .feature-cups .feature-copy{order:2}
   .feature-cups .feature-inner{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
   .story-inner{grid-template-columns:minmax(0,1fr)}
+  .story-teaser-inner{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
   .story-photos{justify-content:center;flex-wrap:wrap;overflow:visible;margin:0;padding:0;gap:22px}
   .polaroid{flex:0 0 200px}
+  .story-teaser .story-photos{flex-wrap:nowrap;gap:14px}
+  .story-teaser .polaroid{flex:0 1 172px;min-width:0}
   .find-teaser-inner{grid-template-columns:1.2fr 1fr;align-items:center}
   .find-steps{overflow:visible;margin:0;padding:0;gap:28px}
   .find-steps li{flex:1 1 0;max-width:none}

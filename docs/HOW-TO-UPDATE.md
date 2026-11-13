@@ -55,7 +55,7 @@ Leave `title` or `text` as `""` to use the menu name and recipe.
 
 ## Change the catering page
 
-Catering has its own easy file: **`website/catering/catering-settings.js`**. The design, the headline, the tiers and prices, what the chat helper says, and the "Coming soon" catering section on the home page (`homePage`) are all there. The steps are in [`website/catering/README.md`](../website/catering/README.md).
+Catering has its own easy file: **`website/catering/catering-settings.js`**. The design, the headline, the tiers and prices, what the chat helper says, the "Coming soon" tag (`tag`) and the catering card on the home page (`homePage`) are all there. The steps are in [`website/catering/README.md`](../website/catering/README.md).
 
 ## Publish
 
@@ -71,6 +71,6 @@ If you made a typo, the preview fails with a red ✗ and the live site stays as 
 
 - New photo: upload it to `website/assets/`, then put its path under `photos`. It works right away. For the fastest loading, ask Claude to "run the image optimizer".
 - Korean words: your dictionary is `website/designs/language.js`. Words for the new sections are in `website/build/ko-extra.mjs`.
-- The family letter and photo captions: `website/designs/brand-story.js` (same as before).
+- The family letter and photo captions: `website/designs/brand-story.js` (same as before). They show on the Our story page (`sweetsnow.org/our-story`); the home page shows the title, the first line and three of the photos.
 - The look, the bowl drawing used in the scroll animation, the links and the home page features are also in `site-settings.js`, each with a short note.
 - The machinery lives in `website/build/`. You do not need to open it.

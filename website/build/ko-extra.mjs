@@ -10,6 +10,7 @@ export const EXTRA = {
   'Get directions': '길찾기',
   'Hours & directions': '영업시간 & 길찾기',
   'Meet Sweet Snow': '스위트 스노우 알아보기',
+  'Read our story': '우리 이야기 보기',
   'Check availability': '주문 가능 여부 확인',
   'Limited Time': '기간 한정',
   '5 pm – 10 pm': '오후 5시 – 오후 10시',

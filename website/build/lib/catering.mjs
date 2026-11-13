@@ -15,7 +15,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { runBrowserFile, nearest, slug } from './data.mjs';
-import { e } from './pages.mjs';
+import { e, header as siteHeader, footer as siteFooter } from './pages.mjs';
 
 export const SETTINGS_FILE = 'catering/catering-settings.js';
 export const DESIGNS = {
@@ -68,10 +68,10 @@ export function loadCatering(root, site) {
   const A = S.appointments || {};
   const side = (block, title) => ({ show: !!block && block.show !== false, title: text(block?.title) || title, text: text(block?.text) });
   const H = S.homePage || {};
-  const home = { show: H.show === true, label: text(H.label), title: text(H.title) || text(S.title) || 'Sweet Snow Catering', text: text(H.text), link: H.link === true };
+  const home = { show: H.show === true, title: text(H.title) || text(S.title) || 'Sweet Snow Catering', text: text(H.text), link: H.link === true };
   const answers = Object.fromEntries(Object.entries(S.answers || {}).map(([key, value]) => [key, text(value)]).filter(([, value]) => value));
   return {
-    design, announce: S.announce === true, home,
+    design, announce: S.announce === true, tag: text(S.tag), home,
     title: text(S.title) || 'Sweet Snow Catering', headline: text(S.headline) || 'Sweet Snow Catering', text: text(S.text),
     heroItems: list(S.heroItems).map(name => named(text(name), 'heroItems')).filter(Boolean).slice(0, 3),
     facts: list(S.facts).map(text).filter(Boolean),
@@ -107,7 +107,7 @@ const ICON_ARROW = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><pat
 /* ---------- the catering section on the main home page ---------- */
 
 /* A card after the cup bingsu, in the main site's own look. It carries a
-   "Coming soon" tag while catering-settings.js → homePage.label says so.
+   "Coming soon" tag while catering-settings.js → tag says so.
    Styles: build/src/home-catering.css, loaded by the home page only. */
 export function homeSection(ctx) {
   const { t, ta, img, site } = ctx;
@@ -122,7 +122,7 @@ export function homeSection(ctx) {
     <div class="hc-peek" aria-hidden="true">${BUNNY}</div>
     <div class="hc-panel">
       <div class="hc-copy">
-        ${H.label ? `<p class="hc-flag"><span class="tag tag-soon">${t(H.label)}</span></p>` : ''}
+        ${C.tag ? `<p class="hc-flag"><span class="tag tag-soon">${t(C.tag)}</span></p>` : ''}
         <h2 id="home-catering-title">${t(H.title)}</h2>
         ${H.text ? `<p>${t(H.text)}</p>` : ''}
         ${H.link ? `<a class="link" href="/catering">${t('Explore catering')}${ICON_ARROW}</a>` : ''}
@@ -198,7 +198,7 @@ function hero(ctx, design) {
   return `<section class="k-hero" aria-labelledby="k-title">
   <div class="wrap k-hero-in">
     <div class="k-hero-copy">
-      <p class="kicker">${t(C.title)}</p>
+      <p class="kicker">${t(C.title)}${C.tag ? `<span class="tag tag-soon k-soon">${t(C.tag)}</span>` : ''}</p>
       <h1 id="k-title">${t(C.headline)}</h1>
       ${C.text ? `<p class="lead">${t(C.text)}</p>` : ''}
       <p class="k-hero-actions"><a class="btn btn-primary" href="#book">${t('Book an appointment')}</a><a class="link" href="#tiers">${t('See the tiers')}${ICON_ARROW}</a></p>
@@ -417,9 +417,12 @@ function book(ctx, design) {
 
 /* ---------- pages ---------- */
 
-function landing(ctx, design) {
+/* `sitePage`: the page at /catering once catering is announced. It is a page of the
+   website like Menu or Our story, so it carries the website's own menu and footer.
+   The design pages (/catering/bunny …) stay landing pages for ads, with the short header. */
+function landing(ctx, design, sitePage = false) {
   const { t } = ctx;
-  return `${header(ctx, true)}
+  return `${sitePage ? siteHeader(ctx, 'catering') : header(ctx, true)}
 <main id="main" class="k-page">
 ${hero(ctx, design)}
 ${steps(ctx)}
@@ -428,11 +431,11 @@ ${eventMenu(ctx)}
 ${extras(ctx)}
 ${book(ctx, design)}
 </main>
-${footer(ctx)}
+${sitePage ? siteFooter(ctx, { orderbar: false }) : footer(ctx)}
 <div class="k-bar" data-catering-bar><a class="btn btn-primary" href="#book">${t('Book an appointment')}</a></div>`;
 }
 
-export const catering = ctx => landing(ctx, ctx.site.catering.design);
+export const catering = ctx => landing(ctx, ctx.site.catering.design, ctx.site.catering.announce);
 
 /* Where the form lands when the browser sends it without the page script. */
 export function cateringThanks(ctx) {

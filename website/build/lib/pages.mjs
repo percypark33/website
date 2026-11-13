@@ -17,10 +17,10 @@ const ICON = {
   dash: '<img class="pay dash" src="/assets/doordash-logo.svg" width="26" height="15" alt="">'
 };
 
-function header(ctx, page) {
+export function header(ctx, page) {
   const { t, ta, logo, site } = ctx;
   const L = site.SETTINGS.links;
-  const nav = [['Home', '/', 'home'], ['Menu', '/menu', 'menu'], ['Our story', '/#brand-story', 'story'], ['Find us', '/visit', 'visit']];
+  const nav = [['Home', '/', 'home'], ['Menu', '/menu', 'menu'], ['Our story', '/our-story', 'story'], ['Find us', '/visit', 'visit']];
   if (site.catering?.announce) nav.splice(2, 0, ['Catering', '/catering', 'catering']);
   const links = nav.map(([label, href, key]) => `<a href="${href}"${key === page ? ' aria-current="page"' : ''}>${t(label)}</a>`).join('');
   return `<a class="skip" href="#main">${t('Skip to content')}</a>
@@ -55,7 +55,8 @@ function hoursRows(ctx) {
     </dl>`;
 }
 
-function footer(ctx) {
+/* `orderbar: false` leaves out the floating "Order online" bar (the catering page has its own "Book" bar). */
+export function footer(ctx, { orderbar = true } = {}) {
   const { t, ta, logo, site } = ctx;
   const L = site.SETTINGS.links;
   const handle = L.instagram.replace(/\/$/, '').split('/').pop();
@@ -71,11 +72,11 @@ function footer(ctx) {
     <a href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}${t('Delivery with DoorDash')}</a>
     ${site.catering?.announce ? `<a href="/catering">${t('Catering')}</a>\n    ` : ''}<a href="/privacy">${t('Privacy')}</a>
   </nav>
-</footer>
+</footer>${orderbar ? `
 <div class="orderbar" data-orderbar>
   <a class="orderbar-main" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
   <a class="orderbar-side" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery')}</span></a>
-</div>`;
+</div>` : ''}`;
 }
 
 function faq(ctx) {
@@ -296,16 +297,56 @@ function features(ctx) {
 </section>`;
 }
 
-function story(ctx) {
-  const { img, story: S } = ctx;
-  const polaroid = p => `<figure class="polaroid" style="--tilt:${Number(p.tilt) || 0}deg">${img('/assets/story/' + p.file, 'photo', { alt: e(p.alt), sizes: '(max-width: 720px) 62vw, 260px' })}<figcaption><span class="pol-caption">${e(p.caption)}</span>${p.note ? `<span class="pol-note">${e(p.note)}</span>` : ''}<span class="pol-date">${e(p.date)}</span></figcaption></figure>`;
+/* The family letter and its photos (designs/brand-story.js), taken apart so the
+   home page can show the opening lines and the story page the whole letter. */
+function storyParts(ctx, lang) {
+  const S = ctx.story;
+  const P = S.photos[lang];
+  const polaroid = p => `<figure class="polaroid" style="--tilt:${Number(p.tilt) || 0}deg">${ctx.img('/assets/story/' + p.file, 'photo', { alt: e(p.alt), sizes: '(max-width: 720px) 62vw, 260px' })}<figcaption><span class="pol-caption">${e(p.caption)}</span>${p.note ? `<span class="pol-note">${e(p.note)}</span>` : ''}<span class="pol-date">${e(p.date)}</span></figcaption></figure>`;
+  const letter = S.letter[lang].replace(/<img class="sl-logo"[^>]*>/, '').trim();
+  // The line above the title, the title, and everything after it.
+  const cut = /^([\s\S]*?)<h2 class="sl-title">([\s\S]*?)<\/h2>\s*([\s\S]*)$/.exec(letter);
+  const rest = cut ? cut[3] : letter;
+  return {
+    eyebrow: cut ? cut[1].trim() : '',
+    title: cut ? cut[2] : (lang === 'ko' ? '우리 이야기' : 'Our story'),
+    rest,
+    first: (/^<p>[\s\S]*?<\/p>/.exec(rest) || [''])[0],
+    photos: [...P.left, ...P.right, ...P.row].map(polaroid)
+  };
+}
+
+/* Home page: the opening lines and three photos, with a link to the whole story. */
+function storyTeaser(ctx) {
+  const copy = lang => { const s = storyParts(ctx, lang); return `${s.eyebrow}<h2 class="sl-title" id="home-story-title">${s.title}</h2>${s.first}`; };
+  const photos = lang => { const all = storyParts(ctx, lang).photos; return [all[0], all[3], all[5]].filter(Boolean).join(''); };
+  ctx.blocks['story-copy'] = copy('ko');
+  ctx.blocks['story-photos'] = photos('ko');
+  return `<section class="story story-teaser" aria-labelledby="home-story-title">
+  <div class="wrap story-teaser-inner">
+    <div class="story-teaser-copy">
+      <div class="letter" data-i18n-block="story-copy">${copy('en')}</div>
+      <a class="link" href="/our-story">${ctx.t('Read our story')}${ICON.arrow}</a>
+    </div>
+    <div class="story-photos" data-reel data-i18n-block="story-photos">${photos('en')}</div>
+  </div>
+</section>`;
+}
+
+/* ---------- OUR STORY ---------- */
+
+export function story(ctx) {
   const block = lang => {
-    const P = S.photos[lang];
-    const letter = S.letter[lang].replace(/<img class="sl-logo"[^>]*>/, '').trim();
-    return `<div class="story-photos" data-reel>${[...P.left, ...P.right, ...P.row].map(polaroid).join('')}</div><article class="letter" lang="${lang}">${letter}</article>`;
+    const s = storyParts(ctx, lang);
+    return `<header class="letter story-head" lang="${lang}">${s.eyebrow}<h1 class="sl-title" id="story-title">${s.title}</h1></header><div class="story-photos" data-reel>${s.photos.join('')}</div><article class="letter" lang="${lang}">${s.rest}</article>`;
   };
   ctx.blocks.story = block('ko');
-  return `<section class="story" id="brand-story" aria-label="Our story"><div class="wrap story-inner" data-i18n-block="story">${block('en')}</div><p class="wrap story-next"><a class="link" href="/visit">${ctx.t('Come find us')}${ICON.arrow}</a></p></section>`;
+  return `${header(ctx, 'story')}
+<main id="main" class="story-page">
+  <section class="story" id="brand-story" aria-labelledby="story-title"><div class="wrap story-inner" data-i18n-block="story">${block('en')}</div></section>
+  <p class="wrap next"><a class="link" href="/visit">${ctx.t('Come find us')}${ICON.arrow}</a></p>
+</main>
+${footer(ctx)}`;
 }
 
 function findTeaser(ctx) {
@@ -330,7 +371,7 @@ export function home(ctx) {
 ${hero(ctx)}
 ${build(ctx)}
 ${features(ctx)}${ctx.cateringHome ? ctx.cateringHome() : ''}
-${story(ctx)}
+${storyTeaser(ctx)}
 ${findTeaser(ctx)}
 ${faq(ctx)}
 </main>
@@ -410,7 +451,7 @@ export function menu(ctx) {
       <p class="topping-note" data-serving-note>${t(site.toppingsMeta.servingNote)}</p>
     </div>
   </section>
-  <p class="wrap next"><a class="link" href="/#brand-story">${t('Meet Sweet Snow')}${ICON.arrow}</a></p>
+  <p class="wrap next"><a class="link" href="/our-story">${t('Meet Sweet Snow')}${ICON.arrow}</a></p>
   ${faq(ctx)}
 </main>
 ${sheet(ctx)}
@@ -541,6 +582,12 @@ export const PAGES = {
     title: 'Sweet Snow Menu | Bingsu & Desserts in Garden Grove',
     ogTitle: 'Sweet Snow Menu | Bingsu & Desserts in Garden Grove',
     description: 'Browse Sweet Snow’s bingsu, cup bingsu, croffles and mini taiyaki menu in Garden Grove. Check today’s availability and order online for pickup.'
+  },
+  story: {
+    file: 'our-story.html', path: '/our-story', bodyClass: 'page-story', crumb: 'Our story', noMenuSchema: true,
+    title: 'Our Story | The Family Behind Sweet Snow in Garden Grove',
+    ogTitle: 'Our Story | The Family Behind Sweet Snow',
+    description: 'Sweet Snow is a family from Korea sharing our love of bingsu in Garden Grove. Read how it started at the dinner table, and the three goals we keep coming back to.'
   },
   visit: {
     file: 'visit.html', path: '/visit', bodyClass: 'page-visit', crumb: 'Visit',

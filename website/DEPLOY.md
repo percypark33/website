@@ -45,12 +45,14 @@ The picture shown when the site is shared (link preview) is `assets/share-sweet-
 
 ## Pages and behavior
 
-- `/`: hero item, the bowl that builds itself, croffle and cup features, our story (`/#brand-story`), find us, questions.
+- Every item in the menu is its own page: Home `/`, Menu `/menu`, Catering `/catering`, Our story `/our-story`, Find us `/visit`. The home page shows a short preview of each and links to it.
+- `/`: hero item, the bowl that builds itself, croffle and cup features, the catering card, the opening lines of our story with three photos, find us, questions.
+- `/our-story`: the family letter and all the photos (`designs/brand-story.js`). The old address `/#brand-story` is sent here.
 - `/menu`: Classic `#menu-classic`, Special `#menu-special`, Fruit Half & Half `#menu-half-half`, Cups `#single-cups`, Food `#food` (and `#mini-sides`), Croffles `#croffles`, Toppings `#toppings`. Each item keeps its `#menu-item-…` address.
 - `/visit`: location guide `#find-us`, hours, directions.
-- `/#catering`: the catering section on the home page, tagged "Coming soon". Switched on and worded in `catering/catering-settings.js` → `homePage`; styles in `build/src/home-catering.css`, loaded by the home page only.
+- `/#catering`: the catering card on the home page. Switched on and worded in `catering/catering-settings.js` → `homePage`; styles in `build/src/home-catering.css`, loaded by the home page only. The "Coming soon" tag on it and on the catering pages is `tag` in the same file.
 - `/privacy` and `/thanks`: supporting pages.
-- `/catering`: the catering landing page, where Instagram ads land. The main site's look plus a cute design (`build/src/catering.css` and `catering-<design>.css`). All three designs are always live at `/catering/bunny`, `/catering/cloud` and `/catering/diary`; `/catering` shows the one named in the settings. How to book `#how`, tiers `#tiers`, the event menu `#menu`, booking `#book` (Snow the chat helper and a form). `/catering/thanks` is where the form lands without the page script; `/catering/designs` shows the three designs side by side. Not in the menu or the sitemap until `announce: true`.
+- `/catering`: the catering page, in the website's menu while `announce: true` (then it has the website's header and footer). The main site's look plus a cute design (`build/src/catering.css` and `catering-<design>.css`). All three designs are always live at `/catering/bunny`, `/catering/cloud` and `/catering/diary`; `/catering` shows the one named in the settings. How to book `#how`, tiers `#tiers`, the event menu `#menu`, booking `#book` (Snow the chat helper and a form). `/catering/thanks` is where the form lands without the page script; `/catering/designs` shows the three designs side by side. The design addresses are landing pages for Instagram ads and keep a short header. With `announce: false`, `/catering` leaves the menu and the sitemap.
 - Old links such as `/#croffles` or `/#visit` are sent to the page that now holds that section.
 - `api/inventory.js`: Square availability (SOLD OUT / FEW LEFT badges).
 - `api/form.js`: emails each catering appointment request and question to the owner. Needs `RESEND_API_KEY` (recipients come from `FORM_TO_EMAIL` or `CONTACT_EMAIL`) or `FORM_WEBHOOK_URL`; without one, guests are told their request was not sent.

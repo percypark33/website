@@ -6,7 +6,7 @@
            menu-art.js           (the bowl drawings)
            designs/language.js, designs/brand-story.js (Korean words, family letter)
            catering/catering-settings.js (the catering landing page: design, tiers, appointments)
-   Writes  index.html, menu.html, visit.html, catering/*.html and assets/site/*
+   Writes  index.html, menu.html, our-story.html, visit.html, catering/*.html and assets/site/*
 
    Run:    node build/build.mjs
    Vercel runs this by itself on every change (see vercel.json). */
@@ -133,7 +133,7 @@ function main() {
     ? `<div class="build-warning" role="alert"><strong>Settings to check (only shown on previews):</strong><ul>${site.warnings.map(w => `<li>${pages.e(w)}</li>`).join('')}</ul></div>` : '';
   const config = { schedule: site.schedule, ko: `/assets/site/ko.json?v=${hash(koJson)}` };
   // Old links such as /#croffles or /#visit keep working: they go to the page that now holds that section.
-  const legacy = `(function(){function go(){var h=location.hash,p=location.pathname.replace(/\\/$/,'')||'/';if(p!=='/'||!h)return;var m=['#menu','#menu-premium','#menu-classic','#menu-special','#menu-half-half','#single-cups','#food','#mini-taiyaki','#mini-sides','#croffles','#toppings','#drinks','#coming-soon'];if(m.indexOf(h)>-1||h.indexOf('#menu-item-')===0)location.replace('/menu'+(h==='#menu'||h==='#drinks'||h==='#coming-soon'?'':h==='#menu-premium'?'#menu-classic':h));else if(h==='#visit'||h==='#find-us')location.replace('/visit');}go();addEventListener('hashchange',go);})();`;
+  const legacy = `(function(){function go(){var h=location.hash,p=location.pathname.replace(/\\/$/,'')||'/';if(p!=='/'||!h)return;var m=['#menu','#menu-premium','#menu-classic','#menu-special','#menu-half-half','#single-cups','#food','#mini-taiyaki','#mini-sides','#croffles','#toppings','#drinks','#coming-soon'];if(m.indexOf(h)>-1||h.indexOf('#menu-item-')===0)location.replace('/menu'+(h==='#menu'||h==='#drinks'||h==='#coming-soon'?'':h==='#menu-premium'?'#menu-classic':h));else if(h==='#visit'||h==='#find-us')location.replace('/visit');else if(h==='#brand-story')location.replace('/our-story');}go();addEventListener('hashchange',go);})();`;
   const scriptsFor = (settings, extra = '') => `<script>document.documentElement.classList.add('js');window.SWEET_SNOW=${JSON.stringify(settings)};__LEGACY__</script>
 <script defer src="/assets/site/app.js?v=${hash(js)}"></script>${extra}
 <script defer src="/analytics-config.js?v=google-tags-sept24"></script>
@@ -164,7 +164,7 @@ function main() {
   for (const [key, { ctx, body }] of Object.entries(rendered)) {
     const page = pageSet[key];
     const preload = ['<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/hahmlet.woff2" crossorigin>'];
-    if (page.design === 'diary') preload.push('<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/gaegu-700.woff2" crossorigin>');
+    if (key === 'story' || page.design === 'diary') preload.push('<link rel="preload" as="font" type="font/woff2" href="/assets/site/fonts/gaegu-700.woff2" crossorigin>');
     if (key === 'menu' && site.groups.classic[0]) {
       const entry = manifest.images[site.groups.classic[0].photo + '|card'];
       if (entry) preload.push(preloadImage(entry, pages.CARD_SIZES));
@@ -189,7 +189,7 @@ ${warningBar}${body}
 
   const counts = `${site.groups.classic.length + site.groups.special.length + site.groups['half-half'].length} bowls, ${site.cups.length} cups, ${site.taiyaki.length} mini taiyaki, ${site.croffles.length} croffles, ${site.toppings.length} toppings`;
   console.log(`Built ${Object.values(pageSet).map(p => p.file).join(', ')} — ${counts}. Look: ${look}. Prices ${site.showPrices ? 'shown' : 'hidden'}.`);
-  if (site.catering) console.log(`Catering: "${catering.DESIGNS[site.catering.design].name}" design, ${site.catering.tiers.length} tiers, ${site.catering.menu.classic.length} classic and ${site.catering.menu.special.length} special bingsu on the event menu. All three designs are also at /catering/bunny, /catering/cloud and /catering/diary. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'} Home page section: ${site.catering.home.show ? `on${site.catering.home.label ? `, tagged "${site.catering.home.label}"` : ''}${site.catering.home.link ? ', with a link to the catering page' : ', no link'}` : 'off'}.`);
+  if (site.catering) console.log(`Catering: "${catering.DESIGNS[site.catering.design].name}" design, ${site.catering.tiers.length} tiers, ${site.catering.menu.classic.length} classic and ${site.catering.menu.special.length} special bingsu on the event menu. All three designs are also at /catering/bunny, /catering/cloud and /catering/diary. ${site.catering.announce ? 'Announced: in the menu and the sitemap.' : 'Not announced yet: reachable by link only.'} ${site.catering.tag ? `Tagged "${site.catering.tag}". ` : ''}Home page section: ${site.catering.home.show ? `on${site.catering.home.link ? ', with a link to the catering page' : ', no link'}` : 'off'}.`);
   if (site.warnings.length) console.log('\nThings to check:\n' + site.warnings.map(w => '  • ' + w).join('\n'));
 }
 
