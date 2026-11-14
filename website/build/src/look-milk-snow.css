@@ -12,6 +12,7 @@
   --line:rgba(22,50,74,.13);
   --focus:#245F92;
   --glass:rgba(247,251,254,.82);
+  --header-solid:#FFFFFF;
   --scrim:rgba(14,36,56,.38);
   --open:#1F9D63;
   --closed:#9AAFC0;
@@ -30,6 +31,9 @@
   --sign:#4F86B5;
   --halo:radial-gradient(circle,#FFFFFF 0%,#FFFFFF 40%,rgba(255,255,255,0) 70%);
   --hero-bg:linear-gradient(180deg,#F7FBFE 0%,#EEF5FB 46%,#DCEAF6 100%);
+  --sky-top:#84B8DB;
+  --sky-bg:linear-gradient(180deg,#84B8DB 0%,#B5DBF3 24%,#D7EDFA 58%,#E9F6FC 78%,#EEF5FB 100%);
+  --sky-snow:#EAF4FB;
   --photo-shadow:rgba(40,90,140,.20);
   --snow-far:#A9CBE6;
   --snow-near:#FFFFFF;

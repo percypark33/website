@@ -57,11 +57,26 @@ h3{font-family:var(--font-body);font-weight:600;font-size:1.06rem;line-height:1.
 
 /* ---------- header ---------- */
 .site-header{position:sticky;top:0;z-index:40;transition:background-color .3s,box-shadow .3s,backdrop-filter .3s}
-.site-header.is-stuck,.drawer-open .site-header{background:var(--glass);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);box-shadow:0 1px 0 var(--line)}
+/* After a little scrolling the header is its own solid bar, set apart from the page by a line and a soft shadow. */
+.site-header.is-stuck,.drawer-open .site-header{background:var(--header-solid);box-shadow:0 1px 0 var(--line),0 8px 22px rgba(40,90,140,.07)}
 .topbar{display:none}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:var(--header-h)}
-.brand{display:block;flex:none}
-.brand-logo{width:112px;height:auto}
+.brand{position:relative;display:block;flex:none}
+.brand-logo{width:112px;height:auto;transition:opacity .4s ease}
+.brand-logo-sky{position:absolute;left:0;top:0;opacity:0}
+
+/* HOME, AT THE TOP OF THE PAGE: the header shares the hero's sky. The logo is white and blends into it;
+   after a little scrolling the header turns into the solid bar above and the logo goes back to blue.
+   Brought back from the earlier site (designs/hero-header.css and designs/hero-header.js).
+   Only with scripts on, because a script has to notice the scrolling. */
+.js .page-home .hero{background:var(--sky-bg);--snow-far:var(--sky-snow)}
+.js .page-home .hero-tagline{color:var(--ink)}
+.js .page-home .hero-sign{color:#fff}
+.js:not(.drawer-open) .page-home .site-header:not(.is-stuck) .brand-logo{opacity:0}
+.js:not(.drawer-open) .page-home .site-header:not(.is-stuck) .brand-logo-sky{opacity:1}
+.js:not(.drawer-open) .page-home .site-header:not(.is-stuck) .status,
+.js:not(.drawer-open) .page-home .site-header:not(.is-stuck) .topbar,
+.js:not(.drawer-open) .page-home .site-header:not(.is-stuck) .nav a{color:var(--ink)}
 .nav{display:none}
 .bar-actions{display:flex;align-items:center;gap:.8rem}
 .bar-actions .lang,.btn-order{display:none}
