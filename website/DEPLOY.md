@@ -75,6 +75,7 @@ The picture shown when the site is shared (link preview) is `assets/share-sweet-
 
 - Every item in the menu is its own page: Home `/`, Menu `/menu`, Catering `/catering`, Our story `/our-story`, Find us `/visit`. The home page shows a short preview of each and links to it.
 - `/`: hero item, the bowl that builds itself, croffle and cup features, the catering card, the opening lines of our story with three photos, find us, questions.
+  - At the top of the home page the header is see-through over a sky-blue hero and the logo is white, so it blends into the sky. After a little scrolling the header becomes a solid white bar with the blue logo. This came back from the earlier site (`designs/hero-header.css`, `designs/hero-header.js`). The sky colours are `--sky-bg`, `--sky-top` and `--sky-snow` in `build/src/look-milk-snow.css`; the rules are in `build/src/styles.css` under "HOME, AT THE TOP OF THE PAGE"; the scroll check is `paintHeader` in `build/src/app.js`.
 - `/our-story`: the family letter and all the photos (`designs/brand-story.js`). The old address `/#brand-story` is sent here.
 - `/menu`: Classic `#menu-classic`, Special `#menu-special`, Fruit Half & Half `#menu-half-half`, Cups `#single-cups`, Food `#food` (and `#mini-sides`), Croffles `#croffles`, Toppings `#toppings`. Each item keeps its `#menu-item-…` address.
 - `/visit`: location guide `#find-us`, hours, directions.

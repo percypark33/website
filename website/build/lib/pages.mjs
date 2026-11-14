@@ -27,7 +27,7 @@ export function header(ctx, page) {
 <header class="site-header" data-header>
   <div class="topbar wrap"><a class="topbar-addr" href="/visit">${ICON.pin}<span>${e(site.brand.street)} · Garden Grove</span></a><span class="status" data-status aria-live="polite"></span></div>
   <div class="bar wrap">
-    <a class="brand" href="/" aria-label="${ta('Sweet Snow home')}">${logo('logo-blue', 'Sweet Snow', 'brand-logo', '(max-width: 720px) 112px, 136px')}</a>
+    <a class="brand" href="/" aria-label="${ta('Sweet Snow home')}">${logo('logo-blue', 'Sweet Snow', 'brand-logo', '(max-width: 720px) 112px, 136px')}${page === 'home' ? logo('logo-white', '', 'brand-logo brand-logo-sky', '(max-width: 720px) 112px, 136px') : ''}</a>
     <nav class="nav" aria-label="${ta('Main navigation')}">${links}</nav>
     <div class="bar-actions">
       <span class="status status-compact" data-status-compact aria-hidden="true"></span>

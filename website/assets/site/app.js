@@ -119,21 +119,37 @@ const toggle = $('.menu-toggle');
 const drawer = $('#drawer');
 const orderbar = $('[data-orderbar]');
 let ticking = false;
+/* The home page opens with a sky-blue hero and a see-through header on top of it.
+After a little scrolling the header becomes a solid bar. The colour around the
+browser's address bar follows along on phones. */
+const sky = doc.body.classList.contains('page-home');
+const themeMeta = $('meta[name="theme-color"]');
+const themeBase = themeMeta ? themeMeta.content : '';
+const themeSky = getComputedStyle(root).getPropertyValue('--sky-top').trim() || '#84B8DB';
+const paintHeader = () => {
+if (!header) return;
+const stuck = window.scrollY > (sky ? 24 : 8);
+header.classList.toggle('is-stuck', stuck);
+if (sky && themeMeta) themeMeta.content = stuck || root.classList.contains('drawer-open') ? themeBase : themeSky;
+};
 const onScroll = () => {
 if (ticking) return;
 ticking = true;
 requestAnimationFrame(() => {
 ticking = false;
-header.classList.toggle('is-stuck', window.scrollY > 8);
+paintHeader();
 parallax();
 });
 };
 addEventListener('scroll', onScroll, { passive: true });
+addEventListener('pageshow', paintHeader);
+paintHeader();
 function setDrawer(open) {
 drawer.hidden = !open;
 toggle.setAttribute('aria-expanded', String(open));
 toggle.setAttribute('aria-label', tr(open ? 'Close navigation' : 'Open navigation'));
 root.classList.toggle('drawer-open', open);
+paintHeader();
 doc.body.style.overflow = open ? 'hidden' : '';
 if (orderbar) orderbar.classList.toggle('is-hidden', open);
 }
@@ -151,7 +167,7 @@ stage.style.transform = 'translate3d(0,' + (y * 0.1).toFixed(1) + 'px,0)';
 }
 function snow(canvas) {
 const ctx = canvas.getContext('2d');
-const style = getComputedStyle(root);
+const style = getComputedStyle(canvas);    // the section can set its own snow colours
 const far = style.getPropertyValue('--snow-far').trim() || '#A9CBE6';
 const near = style.getPropertyValue('--snow-near').trim() || '#FFFFFF';
 let width = 0, height = 0, flakes = [], running = false, last = 0, visible = true;
