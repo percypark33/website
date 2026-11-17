@@ -137,6 +137,7 @@ main>section{position:relative}
 .build{background:var(--bg)}
 .build-head{display:grid;gap:.2rem;margin-bottom:clamp(20px,5vw,48px)}
 .build-head .lead{margin-top:.9rem}
+.build-shown{margin-top:.5rem;font-size:.9rem;font-weight:500;color:var(--accent-text)}
 .build-body{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
 .build-stage{position:sticky;top:calc(var(--header-h) + 6px);z-index:2;height:min(46svh,380px);display:grid;place-items:center;margin-inline:calc(-1 * var(--gutter));background:linear-gradient(var(--bg) 82%,transparent)}
 .build-svg{width:auto;height:min(40svh,330px);overflow:visible}

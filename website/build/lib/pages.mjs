@@ -264,6 +264,7 @@ function build(ctx) {
     <p class="kicker">${t('Quality ingredients. Bringing new flavors.')}</p>
     <h2 id="build-title">${t('What Is Bingsu?')}</h2>
     <p class="lead">${t('A Korean shaved ice dessert, made at Sweet Snow with soft, fluffy milk snow.')}</p>
+    ${stages.length ? `<p class="build-shown">${t('Every bingsu is built the same way. Shown here:')} ${t(shown)}</p>` : ''}
   </div>
   <div class="wrap build-body">
     <div class="build-stage" data-build-stage data-step="0" role="img" aria-label="${e('A little look inside a ' + shown + ' bingsu')}">${stages.length ? buildStages(ctx, stages) : photoItem ? buildPhoto(ctx, photoItem) : buildArt(ctx)}</div>
