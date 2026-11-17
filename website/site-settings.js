@@ -72,11 +72,11 @@ window.SITE_SETTINGS = {
   buildBowlStagesName: "Lychee Heaven",
   buildBowlStages: [
     { title: "Milk snow", text: "Real milk shaved into soft snow — creamy, never watery.", photo: "/assets/build-lychee-heaven/1-milk-snow.webp" },
-    { title: "Coconut jelly", text: "In the middle.", photo: "/assets/build-lychee-heaven/2-coconut-jelly.webp" },
-    { title: "Lychee & lychee popping boba", text: "On top.", photo: "/assets/build-lychee-heaven/3-lychee-boba.webp" },
-    { title: "Yogurt ice cream", text: "", photo: "/assets/build-lychee-heaven/4-yogurt-ice-cream.webp" },
-    { title: "Lychee yogurt syrup", text: "", photo: "/assets/build-lychee-heaven/5-lychee-yogurt-syrup.webp" },
-    { title: "Coconut flakes", text: "To finish, with mochi on the side.", photo: "/assets/build-lychee-heaven/6-coconut-flakes-mochi.webp" }
+    { title: "A layer in the middle", text: "Many bowls hide something inside. Here: coconut jelly.", photo: "/assets/build-lychee-heaven/2-coconut-jelly.webp" },
+    { title: "Fruit & toppings", text: "Real fruit, cut fresh daily. Here: lychee and lychee popping boba.", photo: "/assets/build-lychee-heaven/3-lychee-boba.webp" },
+    { title: "Ice cream", text: "Some bowls get a scoop on top. Here: yogurt ice cream.", photo: "/assets/build-lychee-heaven/4-yogurt-ice-cream.webp" },
+    { title: "House-made syrup", text: "Flavor in layers. Here: lychee yogurt syrup.", photo: "/assets/build-lychee-heaven/5-lychee-yogurt-syrup.webp" },
+    { title: "The finish", text: "Each flavor has its own finish. Here: toasted coconut flakes, with mochi on the side.", photo: "/assets/build-lychee-heaven/6-coconut-flakes-mochi.webp" }
   ],
 
   /* ---- TAGLINE AND LINKS -------------------------------------- */
