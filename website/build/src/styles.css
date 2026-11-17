@@ -179,6 +179,10 @@ main>section{position:relative}
 .js .build-stage.s3 .bp-main{--bp-reveal:81%}
 .js .build-stage.s4 .bp-main{--bp-reveal:106%}
 .js .build-stage.s4 .bp-side{opacity:1;transform:none}
+.js .build-stack .bs{opacity:0;transform:translateY(-26px) scale(1.03);transition:opacity .5s ease,transform .8s var(--spring)}
+.js .build-stage.s1 .bs-1,.js .build-stage.s2 .bs-2,.js .build-stage.s3 .bs-3,.js .build-stage.s4 .bs-4,.js .build-stage.s5 .bs-5,.js .build-stage.s6 .bs-6,.js .build-stage.s7 .bs-7,.js .build-stage.s8 .bs-8{opacity:1;transform:none}
+.build-stack .bs:not(:last-child){display:none}
+.js .build-stack .bs:not(:last-child){display:block}
 .js .build-stage .bl-snow,.js .build-stage .bl-drop{opacity:0;transform:translateY(-120px);transform-box:view-box}
 .js .build-stage .bl-syrup{clip-path:inset(0 0 100% 0);opacity:0}
 .js .build-stage .bl{transition:transform .7s var(--spring),opacity .35s ease,clip-path .9s var(--ease)}
@@ -483,6 +487,7 @@ main>section{position:relative}
   .js .bp-main{-webkit-mask-image:none;mask-image:none}
   .js .bp-side{opacity:1;transform:none}
   .js .bp-ghost{display:none}
+  .js .build-stack .bs{opacity:1;transform:none}
   .js .build-step:not(.is-active) h3{color:var(--ink);transform:none}
   @view-transition{navigation:none}
 }
