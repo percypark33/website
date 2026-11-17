@@ -38,231 +38,269 @@
     }
    ]
   },
-  "/assets/build-lychee-heaven/1-milk-snow.webp|card": {
+  "/assets/build-lychee-heaven/1-milk-snow-half.webp|card": {
    "w": 1024,
    "h": 957,
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/1-milk-snow-fd292edb-320.webp",
+     "url": "/assets/site/img/1-milk-snow-half-a7f71e9f-320.webp",
+     "bytes": 10184
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/1-milk-snow-half-a7f71e9f-480.webp",
+     "bytes": 17696
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/1-milk-snow-half-a7f71e9f-720.webp",
+     "bytes": 28050
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/1-milk-snow-half-a7f71e9f-320.avif",
+     "bytes": 7384
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/1-milk-snow-half-a7f71e9f-480.avif",
+     "bytes": 11996
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/1-milk-snow-half-a7f71e9f-720.avif",
+     "bytes": 18108
+    }
+   ]
+  },
+  "/assets/build-lychee-heaven/2-jelly-syrup-middle.webp|card": {
+   "w": 1024,
+   "h": 957,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/2-jelly-syrup-middle-f4074b0a-320.webp",
+     "bytes": 10884
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/2-jelly-syrup-middle-f4074b0a-480.webp",
+     "bytes": 18884
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/2-jelly-syrup-middle-f4074b0a-720.webp",
+     "bytes": 29912
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/2-jelly-syrup-middle-f4074b0a-320.avif",
+     "bytes": 7607
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/2-jelly-syrup-middle-f4074b0a-480.avif",
+     "bytes": 12914
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/2-jelly-syrup-middle-f4074b0a-720.avif",
+     "bytes": 19613
+    }
+   ]
+  },
+  "/assets/build-lychee-heaven/3-milk-snow-full.webp|card": {
+   "w": 1024,
+   "h": 957,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/3-milk-snow-full-148e9fe2-320.webp",
      "bytes": 11110
     },
     {
      "w": 480,
-     "url": "/assets/site/img/1-milk-snow-fd292edb-480.webp",
-     "bytes": 19584
+     "url": "/assets/site/img/3-milk-snow-full-148e9fe2-480.webp",
+     "bytes": 19590
     },
     {
      "w": 720,
-     "url": "/assets/site/img/1-milk-snow-fd292edb-720.webp",
-     "bytes": 31508
+     "url": "/assets/site/img/3-milk-snow-full-148e9fe2-720.webp",
+     "bytes": 31524
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/1-milk-snow-fd292edb-320.avif",
-     "bytes": 8104
+     "url": "/assets/site/img/3-milk-snow-full-148e9fe2-320.avif",
+     "bytes": 8152
     },
     {
      "w": 480,
-     "url": "/assets/site/img/1-milk-snow-fd292edb-480.avif",
-     "bytes": 13861
+     "url": "/assets/site/img/3-milk-snow-full-148e9fe2-480.avif",
+     "bytes": 13822
     },
     {
      "w": 720,
-     "url": "/assets/site/img/1-milk-snow-fd292edb-720.avif",
-     "bytes": 21512
+     "url": "/assets/site/img/3-milk-snow-full-148e9fe2-720.avif",
+     "bytes": 21493
     }
    ]
   },
-  "/assets/build-lychee-heaven/2-coconut-jelly.webp|card": {
+  "/assets/build-lychee-heaven/4-lychee-boba.webp|card": {
    "w": 1024,
    "h": 957,
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/2-coconut-jelly-a4aee207-320.webp",
-     "bytes": 11232
-    },
-    {
-     "w": 480,
-     "url": "/assets/site/img/2-coconut-jelly-a4aee207-480.webp",
-     "bytes": 19802
-    },
-    {
-     "w": 720,
-     "url": "/assets/site/img/2-coconut-jelly-a4aee207-720.webp",
-     "bytes": 31578
-    }
-   ],
-   "avif": [
-    {
-     "w": 320,
-     "url": "/assets/site/img/2-coconut-jelly-a4aee207-320.avif",
-     "bytes": 8421
-    },
-    {
-     "w": 480,
-     "url": "/assets/site/img/2-coconut-jelly-a4aee207-480.avif",
-     "bytes": 13916
-    },
-    {
-     "w": 720,
-     "url": "/assets/site/img/2-coconut-jelly-a4aee207-720.avif",
-     "bytes": 21141
-    }
-   ]
-  },
-  "/assets/build-lychee-heaven/3-lychee-boba.webp|card": {
-   "w": 1024,
-   "h": 957,
-   "variants": [
-    {
-     "w": 320,
-     "url": "/assets/site/img/3-lychee-boba-233e82bb-320.webp",
+     "url": "/assets/site/img/4-lychee-boba-cba09e15-320.webp",
      "bytes": 13914
     },
     {
      "w": 480,
-     "url": "/assets/site/img/3-lychee-boba-233e82bb-480.webp",
+     "url": "/assets/site/img/4-lychee-boba-cba09e15-480.webp",
      "bytes": 24614
     },
     {
      "w": 720,
-     "url": "/assets/site/img/3-lychee-boba-233e82bb-720.webp",
-     "bytes": 39374
+     "url": "/assets/site/img/4-lychee-boba-cba09e15-720.webp",
+     "bytes": 39366
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/3-lychee-boba-233e82bb-320.avif",
-     "bytes": 10127
+     "url": "/assets/site/img/4-lychee-boba-cba09e15-320.avif",
+     "bytes": 10130
     },
     {
      "w": 480,
-     "url": "/assets/site/img/3-lychee-boba-233e82bb-480.avif",
-     "bytes": 16971
+     "url": "/assets/site/img/4-lychee-boba-cba09e15-480.avif",
+     "bytes": 16897
     },
     {
      "w": 720,
-     "url": "/assets/site/img/3-lychee-boba-233e82bb-720.avif",
-     "bytes": 26762
+     "url": "/assets/site/img/4-lychee-boba-cba09e15-720.avif",
+     "bytes": 26792
     }
    ]
   },
-  "/assets/build-lychee-heaven/4-yogurt-ice-cream.webp|card": {
+  "/assets/build-lychee-heaven/5-yogurt-ice-cream.webp|card": {
    "w": 1024,
    "h": 957,
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-320.webp",
+     "url": "/assets/site/img/5-yogurt-ice-cream-72e14bba-320.webp",
      "bytes": 14514
     },
     {
      "w": 480,
-     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-480.webp",
-     "bytes": 25258
+     "url": "/assets/site/img/5-yogurt-ice-cream-72e14bba-480.webp",
+     "bytes": 25260
     },
     {
      "w": 720,
-     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-720.webp",
-     "bytes": 40628
+     "url": "/assets/site/img/5-yogurt-ice-cream-72e14bba-720.webp",
+     "bytes": 40630
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-320.avif",
-     "bytes": 10109
+     "url": "/assets/site/img/5-yogurt-ice-cream-72e14bba-320.avif",
+     "bytes": 10119
     },
     {
      "w": 480,
-     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-480.avif",
-     "bytes": 17278
+     "url": "/assets/site/img/5-yogurt-ice-cream-72e14bba-480.avif",
+     "bytes": 17283
     },
     {
      "w": 720,
-     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-720.avif",
-     "bytes": 27563
+     "url": "/assets/site/img/5-yogurt-ice-cream-72e14bba-720.avif",
+     "bytes": 27579
     }
    ]
   },
-  "/assets/build-lychee-heaven/5-lychee-yogurt-syrup.webp|card": {
+  "/assets/build-lychee-heaven/6-lychee-yogurt-syrup.webp|card": {
    "w": 1024,
    "h": 957,
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-320.webp",
+     "url": "/assets/site/img/6-lychee-yogurt-syrup-7505d571-320.webp",
      "bytes": 14396
     },
     {
      "w": 480,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-480.webp",
+     "url": "/assets/site/img/6-lychee-yogurt-syrup-7505d571-480.webp",
      "bytes": 25188
     },
     {
      "w": 720,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-720.webp",
-     "bytes": 40274
+     "url": "/assets/site/img/6-lychee-yogurt-syrup-7505d571-720.webp",
+     "bytes": 40288
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-320.avif",
-     "bytes": 10042
+     "url": "/assets/site/img/6-lychee-yogurt-syrup-7505d571-320.avif",
+     "bytes": 10017
     },
     {
      "w": 480,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-480.avif",
-     "bytes": 17206
+     "url": "/assets/site/img/6-lychee-yogurt-syrup-7505d571-480.avif",
+     "bytes": 17130
     },
     {
      "w": 720,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-720.avif",
-     "bytes": 27247
+     "url": "/assets/site/img/6-lychee-yogurt-syrup-7505d571-720.avif",
+     "bytes": 27197
     }
    ]
   },
-  "/assets/build-lychee-heaven/6-coconut-flakes-mochi.webp|card": {
+  "/assets/build-lychee-heaven/7-coconut-flakes-mochi.webp|card": {
    "w": 1024,
    "h": 957,
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-320.webp",
-     "bytes": 20922
+     "url": "/assets/site/img/7-coconut-flakes-mochi-f44814b7-320.webp",
+     "bytes": 21016
     },
     {
      "w": 480,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-480.webp",
-     "bytes": 37278
+     "url": "/assets/site/img/7-coconut-flakes-mochi-f44814b7-480.webp",
+     "bytes": 37276
     },
     {
      "w": 720,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-720.webp",
-     "bytes": 64994
+     "url": "/assets/site/img/7-coconut-flakes-mochi-f44814b7-720.webp",
+     "bytes": 64870
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-320.avif",
-     "bytes": 12411
+     "url": "/assets/site/img/7-coconut-flakes-mochi-f44814b7-320.avif",
+     "bytes": 12474
     },
     {
      "w": 480,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-480.avif",
-     "bytes": 22110
+     "url": "/assets/site/img/7-coconut-flakes-mochi-f44814b7-480.avif",
+     "bytes": 22127
     },
     {
      "w": 720,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-720.avif",
-     "bytes": 39205
+     "url": "/assets/site/img/7-coconut-flakes-mochi-f44814b7-720.avif",
+     "bytes": 38999
     }
    ]
   },
