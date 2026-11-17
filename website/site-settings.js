@@ -71,12 +71,13 @@ window.SITE_SETTINGS = {
      photo, by taking toppings away. The last one is the real photo.        */
   buildBowlStagesName: "Lychee Heaven",
   buildBowlStages: [
-    { title: "Milk snow", text: "Real milk shaved into soft snow — creamy, never watery.", photo: "/assets/build-lychee-heaven/1-milk-snow.webp" },
-    { title: "Coconut jelly", text: "In the middle, with the syrup.", photo: "/assets/build-lychee-heaven/2-coconut-jelly.webp" },
-    { title: "Fruit & toppings", text: "Real fruit · Cut fresh daily · Made to order", photo: "/assets/build-lychee-heaven/3-lychee-boba.webp" },
-    { title: "Ice cream", text: "A scoop on top.", photo: "/assets/build-lychee-heaven/4-yogurt-ice-cream.webp" },
-    { title: "House-made syrup", text: "Flavor in layers.", photo: "/assets/build-lychee-heaven/5-lychee-yogurt-syrup.webp" },
-    { title: "The finish", text: "Each flavor has its own finish.", photo: "/assets/build-lychee-heaven/6-coconut-flakes-mochi.webp" }
+    { title: "Milk snow", text: "Real milk shaved into soft snow — creamy, never watery.", photo: "/assets/build-lychee-heaven/1-milk-snow-half.webp" },
+    { title: "Coconut jelly", text: "In the middle, with the syrup.", photo: "/assets/build-lychee-heaven/2-jelly-syrup-middle.webp" },
+    { title: "More milk snow", text: "Piled high on top.", photo: "/assets/build-lychee-heaven/3-milk-snow-full.webp" },
+    { title: "Fruit & toppings", text: "Real fruit · Cut fresh daily · Made to order", photo: "/assets/build-lychee-heaven/4-lychee-boba.webp" },
+    { title: "Ice cream", text: "A scoop on top.", photo: "/assets/build-lychee-heaven/5-yogurt-ice-cream.webp" },
+    { title: "House-made syrup", text: "Flavor in layers.", photo: "/assets/build-lychee-heaven/6-lychee-yogurt-syrup.webp" },
+    { title: "The finish", text: "Each flavor has its own finish.", photo: "/assets/build-lychee-heaven/7-coconut-flakes-mochi.webp" }
   ],
 
   /* ---- TAGLINE AND LINKS -------------------------------------- */
