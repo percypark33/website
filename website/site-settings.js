@@ -64,6 +64,20 @@ window.SITE_SETTINGS = {
      The photo is uncovered from the bottom up as you scroll.
      To go back to the drawing, make it:  buildBowlPhoto: "",       */
   buildBowlPhoto: "Lychee Heaven",
+  /* Or build the bowl in stages, one picture per step. While this list has
+     pictures, it is what the home page shows. `title` and `text` are the words
+     next to each step. To switch it off, make it:  buildBowlStages: [],
+     The first five pictures were made with Runway from the real Lychee Heaven
+     photo, by taking toppings away. The last one is the real photo.        */
+  buildBowlStagesName: "Lychee Heaven",
+  buildBowlStages: [
+    { title: "Milk snow", text: "Real milk shaved into soft snow — creamy, never watery.", photo: "/assets/build-lychee-heaven/1-milk-snow.webp" },
+    { title: "Coconut jelly", text: "In the middle.", photo: "/assets/build-lychee-heaven/2-coconut-jelly.webp" },
+    { title: "Lychee & lychee popping boba", text: "On top.", photo: "/assets/build-lychee-heaven/3-lychee-boba.webp" },
+    { title: "Yogurt ice cream", text: "", photo: "/assets/build-lychee-heaven/4-yogurt-ice-cream.webp" },
+    { title: "Lychee yogurt syrup", text: "", photo: "/assets/build-lychee-heaven/5-lychee-yogurt-syrup.webp" },
+    { title: "Coconut flakes", text: "To finish, with mochi on the side.", photo: "/assets/build-lychee-heaven/6-coconut-flakes-mochi.webp" }
+  ],
 
   /* ---- TAGLINE AND LINKS -------------------------------------- */
   tagline: "Authentic Korean Bingsu",

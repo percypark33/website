@@ -240,12 +240,19 @@ function buildPhoto(ctx, item) {
   return `<div class="build-photo">${shot('bp bp-ghost')}${shot('bp bp-main')}${shot('bp bp-side')}</div>`;
 }
 
+/* The scroll-built bowl from stage pictures (site-settings.js → buildBowlStages):
+   one picture per step, stacked. Each step fades its picture in over the one before. */
+function buildStages(ctx, stages) {
+  return `<div class="build-photo build-stack">${stages.map((s, i) => ctx.img(s.photo, 'card', { alt: '', sizes: '(max-width: 859px) 80vw, 460px', cls: 'bp bs bs-' + (i + 1) })).join('')}</div>`;
+}
+
 function build(ctx) {
   const { t, site } = ctx;
+  const stages = (site.SETTINGS.buildBowlStages || []).filter(s => s && s.photo && s.title);
   const photoName = site.SETTINGS.buildBowlPhoto;
   const photoItem = photoName ? [...Object.values(site.groups).flat(), ...site.cups].find(i => i.name === photoName && i.photo) : null;
   if (photoName && !photoItem) site.warnings.push(`site-settings.js → buildBowlPhoto: no menu item with a photo is called "${photoName}". Showing the drawing instead.`);
-  const shown = photoItem ? photoItem.name : (site.SETTINGS.buildBowl || 'Mango');
+  const shown = stages.length ? (site.SETTINGS.buildBowlStagesName || 'Lychee Heaven') : photoItem ? photoItem.name : (site.SETTINGS.buildBowl || 'Mango');
   const steps = [
     ['Milk snow', site.brand.blurb],
     ['House-made syrup', 'Flavor in layers.'],
@@ -259,8 +266,8 @@ function build(ctx) {
     <p class="lead">${t('A Korean shaved ice dessert, made at Sweet Snow with soft, fluffy milk snow.')}</p>
   </div>
   <div class="wrap build-body">
-    <div class="build-stage" data-build-stage data-step="0" role="img" aria-label="${e('A little look inside a ' + shown + ' bingsu')}">${photoItem ? buildPhoto(ctx, photoItem) : buildArt(ctx)}</div>
-    <ol class="build-steps">${steps.map(([title, text], i) => `<li class="build-step" data-build-step="${i + 1}"><span class="build-num" aria-hidden="true">${i + 1}</span><h3>${t(title)}</h3><p>${t(text)}</p></li>`).join('')}</ol>
+    <div class="build-stage" data-build-stage data-step="0" role="img" aria-label="${e('A little look inside a ' + shown + ' bingsu')}">${stages.length ? buildStages(ctx, stages) : photoItem ? buildPhoto(ctx, photoItem) : buildArt(ctx)}</div>
+    <ol class="build-steps">${(stages.length ? stages.map(s => [s.title, s.text || '']) : steps).map(([title, text], i) => `<li class="build-step" data-build-step="${i + 1}"><span class="build-num" aria-hidden="true">${i + 1}</span><h3>${t(title)}</h3><p>${t(text)}</p></li>`).join('')}</ol>
   </div>
   <div class="wrap build-foot">
     <h3>${t('Fresh ingredients. Thoughtfully made.')}</h3>

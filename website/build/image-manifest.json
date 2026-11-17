@@ -38,6 +38,234 @@
     }
    ]
   },
+  "/assets/build-lychee-heaven/1-milk-snow.webp|card": {
+   "w": 1024,
+   "h": 957,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/1-milk-snow-0d796a26-320.webp",
+     "bytes": 13380
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/1-milk-snow-0d796a26-480.webp",
+     "bytes": 23714
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/1-milk-snow-0d796a26-720.webp",
+     "bytes": 38408
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/1-milk-snow-0d796a26-320.avif",
+     "bytes": 9285
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/1-milk-snow-0d796a26-480.avif",
+     "bytes": 15760
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/1-milk-snow-0d796a26-720.avif",
+     "bytes": 25134
+    }
+   ]
+  },
+  "/assets/build-lychee-heaven/2-coconut-jelly.webp|card": {
+   "w": 1024,
+   "h": 957,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-320.webp",
+     "bytes": 13528
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-480.webp",
+     "bytes": 23900
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-720.webp",
+     "bytes": 38476
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-320.avif",
+     "bytes": 9536
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-480.avif",
+     "bytes": 16059
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-720.avif",
+     "bytes": 24805
+    }
+   ]
+  },
+  "/assets/build-lychee-heaven/3-lychee-boba.webp|card": {
+   "w": 1024,
+   "h": 957,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/3-lychee-boba-7605a278-320.webp",
+     "bytes": 16252
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/3-lychee-boba-7605a278-480.webp",
+     "bytes": 29134
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/3-lychee-boba-7605a278-720.webp",
+     "bytes": 46578
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/3-lychee-boba-7605a278-320.avif",
+     "bytes": 11439
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/3-lychee-boba-7605a278-480.avif",
+     "bytes": 19324
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/3-lychee-boba-7605a278-720.avif",
+     "bytes": 30833
+    }
+   ]
+  },
+  "/assets/build-lychee-heaven/4-yogurt-ice-cream.webp|card": {
+   "w": 1024,
+   "h": 957,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-320.webp",
+     "bytes": 16822
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-480.webp",
+     "bytes": 29798
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-720.webp",
+     "bytes": 47654
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-320.avif",
+     "bytes": 11525
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-480.avif",
+     "bytes": 19784
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-720.avif",
+     "bytes": 31787
+    }
+   ]
+  },
+  "/assets/build-lychee-heaven/5-lychee-yogurt-syrup.webp|card": {
+   "w": 1024,
+   "h": 957,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-320.webp",
+     "bytes": 16664
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-480.webp",
+     "bytes": 29618
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-720.webp",
+     "bytes": 47464
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-320.avif",
+     "bytes": 11387
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-480.avif",
+     "bytes": 19564
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-720.avif",
+     "bytes": 31315
+    }
+   ]
+  },
+  "/assets/build-lychee-heaven/6-coconut-flakes-mochi.webp|card": {
+   "w": 1024,
+   "h": 957,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-320.webp",
+     "bytes": 22972
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-480.webp",
+     "bytes": 41524
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-720.webp",
+     "bytes": 72798
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-320.avif",
+     "bytes": 13774
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-480.avif",
+     "bytes": 24602
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-720.avif",
+     "bytes": 43673
+    }
+   ]
+  },
   "/assets/croffles/biscoff.png|feature": {
    "w": 1536,
    "h": 849,
@@ -225,6 +453,120 @@
      "w": 720,
      "url": "/assets/site/img/cookies-cream-d6a67edd-720.avif",
      "bytes": 92186
+    }
+   ]
+  },
+  "/assets/bowl-shine-lychee-preview-20261026.png|card": {
+   "w": 1219,
+   "h": 1163,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-320.webp",
+     "bytes": 22966
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-480.webp",
+     "bytes": 44546
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-720.webp",
+     "bytes": 92222
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-320.avif",
+     "bytes": 12077
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-480.avif",
+     "bytes": 22840
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-720.avif",
+     "bytes": 45555
+    }
+   ]
+  },
+  "/assets/bowl-mango-natural.png|card": {
+   "w": 565,
+   "h": 600,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-320.webp",
+     "bytes": 23672
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-480.webp",
+     "bytes": 44324
+    },
+    {
+     "w": 565,
+     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-565.webp",
+     "bytes": 55450
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-320.avif",
+     "bytes": 14936
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-480.avif",
+     "bytes": 26878
+    },
+    {
+     "w": 565,
+     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-565.avif",
+     "bytes": 34769
+    }
+   ]
+  },
+  "/assets/bowl-matcha-strawberry-natural.png|card": {
+   "w": 636,
+   "h": 607,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-320.webp",
+     "bytes": 26528
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-480.webp",
+     "bytes": 51284
+    },
+    {
+     "w": 636,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-636.webp",
+     "bytes": 75824
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-320.avif",
+     "bytes": 15493
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-480.avif",
+     "bytes": 28643
+    },
+    {
+     "w": 636,
+     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-636.avif",
+     "bytes": 42920
     }
    ]
   },
@@ -448,44 +790,6 @@
     }
    ]
   },
-  "/assets/bowl-mango-natural.png|card": {
-   "w": 565,
-   "h": 600,
-   "variants": [
-    {
-     "w": 320,
-     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-320.webp",
-     "bytes": 23672
-    },
-    {
-     "w": 480,
-     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-480.webp",
-     "bytes": 44324
-    },
-    {
-     "w": 565,
-     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-565.webp",
-     "bytes": 55450
-    }
-   ],
-   "avif": [
-    {
-     "w": 320,
-     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-320.avif",
-     "bytes": 14936
-    },
-    {
-     "w": 480,
-     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-480.avif",
-     "bytes": 26878
-    },
-    {
-     "w": 565,
-     "url": "/assets/site/img/bowl-mango-natural-f4ad4ab3-565.avif",
-     "bytes": 34769
-    }
-   ]
-  },
   "/assets/bowl-strawberry-realphoto-natural.png|card": {
    "w": 589,
    "h": 615,
@@ -559,44 +863,6 @@
      "w": 637,
      "url": "/assets/site/img/bowl-cookies-cream-natural-63782241-637.avif",
      "bytes": 39127
-    }
-   ]
-  },
-  "/assets/bowl-matcha-strawberry-natural.png|card": {
-   "w": 636,
-   "h": 607,
-   "variants": [
-    {
-     "w": 320,
-     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-320.webp",
-     "bytes": 26528
-    },
-    {
-     "w": 480,
-     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-480.webp",
-     "bytes": 51284
-    },
-    {
-     "w": 636,
-     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-636.webp",
-     "bytes": 75824
-    }
-   ],
-   "avif": [
-    {
-     "w": 320,
-     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-320.avif",
-     "bytes": 15493
-    },
-    {
-     "w": 480,
-     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-480.avif",
-     "bytes": 28643
-    },
-    {
-     "w": 636,
-     "url": "/assets/site/img/bowl-matcha-strawberry-natural-c1f22def-636.avif",
-     "bytes": 42920
     }
    ]
   },
@@ -901,44 +1167,6 @@
      "w": 611,
      "url": "/assets/site/img/bowl-half-half-natural-9bb7db8b-611.avif",
      "bytes": 39372
-    }
-   ]
-  },
-  "/assets/bowl-shine-lychee-preview-20261026.png|card": {
-   "w": 1219,
-   "h": 1163,
-   "variants": [
-    {
-     "w": 320,
-     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-320.webp",
-     "bytes": 22966
-    },
-    {
-     "w": 480,
-     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-480.webp",
-     "bytes": 44546
-    },
-    {
-     "w": 720,
-     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-720.webp",
-     "bytes": 92222
-    }
-   ],
-   "avif": [
-    {
-     "w": 320,
-     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-320.avif",
-     "bytes": 12077
-    },
-    {
-     "w": 480,
-     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-480.avif",
-     "bytes": 22840
-    },
-    {
-     "w": 720,
-     "url": "/assets/site/img/bowl-shine-lychee-preview-20261026-24091f77-720.avif",
-     "bytes": 45555
     }
    ]
   },
