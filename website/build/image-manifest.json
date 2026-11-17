@@ -44,35 +44,35 @@
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/1-milk-snow-0d796a26-320.webp",
-     "bytes": 13380
+     "url": "/assets/site/img/1-milk-snow-fd292edb-320.webp",
+     "bytes": 11110
     },
     {
      "w": 480,
-     "url": "/assets/site/img/1-milk-snow-0d796a26-480.webp",
-     "bytes": 23714
+     "url": "/assets/site/img/1-milk-snow-fd292edb-480.webp",
+     "bytes": 19584
     },
     {
      "w": 720,
-     "url": "/assets/site/img/1-milk-snow-0d796a26-720.webp",
-     "bytes": 38408
+     "url": "/assets/site/img/1-milk-snow-fd292edb-720.webp",
+     "bytes": 31508
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/1-milk-snow-0d796a26-320.avif",
-     "bytes": 9285
+     "url": "/assets/site/img/1-milk-snow-fd292edb-320.avif",
+     "bytes": 8104
     },
     {
      "w": 480,
-     "url": "/assets/site/img/1-milk-snow-0d796a26-480.avif",
-     "bytes": 15760
+     "url": "/assets/site/img/1-milk-snow-fd292edb-480.avif",
+     "bytes": 13861
     },
     {
      "w": 720,
-     "url": "/assets/site/img/1-milk-snow-0d796a26-720.avif",
-     "bytes": 25134
+     "url": "/assets/site/img/1-milk-snow-fd292edb-720.avif",
+     "bytes": 21512
     }
    ]
   },
@@ -82,35 +82,35 @@
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-320.webp",
-     "bytes": 13528
+     "url": "/assets/site/img/2-coconut-jelly-a4aee207-320.webp",
+     "bytes": 11232
     },
     {
      "w": 480,
-     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-480.webp",
-     "bytes": 23900
+     "url": "/assets/site/img/2-coconut-jelly-a4aee207-480.webp",
+     "bytes": 19802
     },
     {
      "w": 720,
-     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-720.webp",
-     "bytes": 38476
+     "url": "/assets/site/img/2-coconut-jelly-a4aee207-720.webp",
+     "bytes": 31578
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-320.avif",
-     "bytes": 9536
+     "url": "/assets/site/img/2-coconut-jelly-a4aee207-320.avif",
+     "bytes": 8421
     },
     {
      "w": 480,
-     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-480.avif",
-     "bytes": 16059
+     "url": "/assets/site/img/2-coconut-jelly-a4aee207-480.avif",
+     "bytes": 13916
     },
     {
      "w": 720,
-     "url": "/assets/site/img/2-coconut-jelly-fdd299c3-720.avif",
-     "bytes": 24805
+     "url": "/assets/site/img/2-coconut-jelly-a4aee207-720.avif",
+     "bytes": 21141
     }
    ]
   },
@@ -120,35 +120,35 @@
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/3-lychee-boba-7605a278-320.webp",
-     "bytes": 16252
+     "url": "/assets/site/img/3-lychee-boba-233e82bb-320.webp",
+     "bytes": 13914
     },
     {
      "w": 480,
-     "url": "/assets/site/img/3-lychee-boba-7605a278-480.webp",
-     "bytes": 29134
+     "url": "/assets/site/img/3-lychee-boba-233e82bb-480.webp",
+     "bytes": 24614
     },
     {
      "w": 720,
-     "url": "/assets/site/img/3-lychee-boba-7605a278-720.webp",
-     "bytes": 46578
+     "url": "/assets/site/img/3-lychee-boba-233e82bb-720.webp",
+     "bytes": 39374
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/3-lychee-boba-7605a278-320.avif",
-     "bytes": 11439
+     "url": "/assets/site/img/3-lychee-boba-233e82bb-320.avif",
+     "bytes": 10127
     },
     {
      "w": 480,
-     "url": "/assets/site/img/3-lychee-boba-7605a278-480.avif",
-     "bytes": 19324
+     "url": "/assets/site/img/3-lychee-boba-233e82bb-480.avif",
+     "bytes": 16971
     },
     {
      "w": 720,
-     "url": "/assets/site/img/3-lychee-boba-7605a278-720.avif",
-     "bytes": 30833
+     "url": "/assets/site/img/3-lychee-boba-233e82bb-720.avif",
+     "bytes": 26762
     }
    ]
   },
@@ -158,35 +158,35 @@
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-320.webp",
-     "bytes": 16822
+     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-320.webp",
+     "bytes": 14514
     },
     {
      "w": 480,
-     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-480.webp",
-     "bytes": 29798
+     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-480.webp",
+     "bytes": 25258
     },
     {
      "w": 720,
-     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-720.webp",
-     "bytes": 47654
+     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-720.webp",
+     "bytes": 40628
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-320.avif",
-     "bytes": 11525
+     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-320.avif",
+     "bytes": 10109
     },
     {
      "w": 480,
-     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-480.avif",
-     "bytes": 19784
+     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-480.avif",
+     "bytes": 17278
     },
     {
      "w": 720,
-     "url": "/assets/site/img/4-yogurt-ice-cream-9b169576-720.avif",
-     "bytes": 31787
+     "url": "/assets/site/img/4-yogurt-ice-cream-fd176091-720.avif",
+     "bytes": 27563
     }
    ]
   },
@@ -196,35 +196,35 @@
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-320.webp",
-     "bytes": 16664
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-320.webp",
+     "bytes": 14396
     },
     {
      "w": 480,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-480.webp",
-     "bytes": 29618
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-480.webp",
+     "bytes": 25188
     },
     {
      "w": 720,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-720.webp",
-     "bytes": 47464
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-720.webp",
+     "bytes": 40274
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-320.avif",
-     "bytes": 11387
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-320.avif",
+     "bytes": 10042
     },
     {
      "w": 480,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-480.avif",
-     "bytes": 19564
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-480.avif",
+     "bytes": 17206
     },
     {
      "w": 720,
-     "url": "/assets/site/img/5-lychee-yogurt-syrup-9c970b56-720.avif",
-     "bytes": 31315
+     "url": "/assets/site/img/5-lychee-yogurt-syrup-73bb7d6e-720.avif",
+     "bytes": 27247
     }
    ]
   },
@@ -234,35 +234,35 @@
    "variants": [
     {
      "w": 320,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-320.webp",
-     "bytes": 22972
+     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-320.webp",
+     "bytes": 20922
     },
     {
      "w": 480,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-480.webp",
-     "bytes": 41524
+     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-480.webp",
+     "bytes": 37278
     },
     {
      "w": 720,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-720.webp",
-     "bytes": 72798
+     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-720.webp",
+     "bytes": 64994
     }
    ],
    "avif": [
     {
      "w": 320,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-320.avif",
-     "bytes": 13774
+     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-320.avif",
+     "bytes": 12411
     },
     {
      "w": 480,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-480.avif",
-     "bytes": 24602
+     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-480.avif",
+     "bytes": 22110
     },
     {
      "w": 720,
-     "url": "/assets/site/img/6-coconut-flakes-mochi-66ffed9f-720.avif",
-     "bytes": 43673
+     "url": "/assets/site/img/6-coconut-flakes-mochi-cee9d503-720.avif",
+     "bytes": 39205
     }
    ]
   },
