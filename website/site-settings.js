@@ -72,7 +72,7 @@ window.SITE_SETTINGS = {
   buildBowlStagesName: "Lychee Heaven",
   buildBowlStages: [
     { title: "Milk snow", text: "Real milk shaved into soft snow — creamy, never watery.", photo: "/assets/build-lychee-heaven/1-milk-snow.webp" },
-    { title: "A layer in the middle", text: "Jelly and house-made syrup inside.", photo: "/assets/build-lychee-heaven/2-coconut-jelly.webp" },
+    { title: "Coconut jelly", text: "In the middle, with the syrup.", photo: "/assets/build-lychee-heaven/2-coconut-jelly.webp" },
     { title: "Fruit & toppings", text: "Real fruit · Cut fresh daily · Made to order", photo: "/assets/build-lychee-heaven/3-lychee-boba.webp" },
     { title: "Ice cream", text: "A scoop on top.", photo: "/assets/build-lychee-heaven/4-yogurt-ice-cream.webp" },
     { title: "House-made syrup", text: "Flavor in layers.", photo: "/assets/build-lychee-heaven/5-lychee-yogurt-syrup.webp" },
