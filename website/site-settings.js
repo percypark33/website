@@ -60,6 +60,10 @@ window.SITE_SETTINGS = {
      To show them again, make it:  buildBowlLeaveOut: [],        */
   buildBowl: "Mango",
   buildBowlLeaveOut: ["coconut flakes"],
+  /* To build a real photo instead of the drawing, put a menu item's name here.
+     The photo is uncovered from the bottom up as you scroll.
+     To go back to the drawing, make it:  buildBowlPhoto: "",       */
+  buildBowlPhoto: "Lychee Heaven",
 
   /* ---- TAGLINE AND LINKS -------------------------------------- */
   tagline: "Authentic Korean Bingsu",

@@ -232,8 +232,20 @@ function hero(ctx) {
 </section>`;
 }
 
+/* The scroll-built bowl with a real photo: the same picture three times.
+   A faint copy shows where the bowl will be, the main copy is uncovered from the
+   bottom up as the steps go by, and the little cup on the side drops in last. */
+function buildPhoto(ctx, item) {
+  const shot = cls => ctx.img(item.photo, 'card', { alt: '', sizes: '(max-width: 859px) 80vw, 460px', cls });
+  return `<div class="build-photo">${shot('bp bp-ghost')}${shot('bp bp-main')}${shot('bp bp-side')}</div>`;
+}
+
 function build(ctx) {
   const { t, site } = ctx;
+  const photoName = site.SETTINGS.buildBowlPhoto;
+  const photoItem = photoName ? [...Object.values(site.groups).flat(), ...site.cups].find(i => i.name === photoName && i.photo) : null;
+  if (photoName && !photoItem) site.warnings.push(`site-settings.js → buildBowlPhoto: no menu item with a photo is called "${photoName}". Showing the drawing instead.`);
+  const shown = photoItem ? photoItem.name : (site.SETTINGS.buildBowl || 'Mango');
   const steps = [
     ['Milk snow', site.brand.blurb],
     ['House-made syrup', 'Flavor in layers.'],
@@ -247,7 +259,7 @@ function build(ctx) {
     <p class="lead">${t('A Korean shaved ice dessert, made at Sweet Snow with soft, fluffy milk snow.')}</p>
   </div>
   <div class="wrap build-body">
-    <div class="build-stage" data-build-stage data-step="0" role="img" aria-label="${e('A little look inside a ' + (site.SETTINGS.buildBowl || 'Mango').toLowerCase() + ' bingsu')}">${buildArt(ctx)}</div>
+    <div class="build-stage" data-build-stage data-step="0" role="img" aria-label="${e('A little look inside a ' + shown + ' bingsu')}">${photoItem ? buildPhoto(ctx, photoItem) : buildArt(ctx)}</div>
     <ol class="build-steps">${steps.map(([title, text], i) => `<li class="build-step" data-build-step="${i + 1}"><span class="build-num" aria-hidden="true">${i + 1}</span><h3>${t(title)}</h3><p>${t(text)}</p></li>`).join('')}</ol>
   </div>
   <div class="wrap build-foot">
