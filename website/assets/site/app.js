@@ -235,10 +235,26 @@ near.observe(storySection);
 const buildStage = $('[data-build-stage]');
 if (buildStage) {
 const steps = $$('[data-build-step]');
+const clips = $$('[data-build-clip]', buildStage);
+const saveData = navigator.connection && navigator.connection.saveData;
+const stopClip = clip => { clip.classList.remove('is-playing'); try { clip.pause(); } catch (error) { /* not started */ } };
+clips.forEach(clip => clip.addEventListener('ended', () => clip.classList.remove('is-playing')));
+const playClip = n => {
+clips.forEach(clip => {
+if (Number(clip.dataset.buildClip) !== n || reduced.matches || saveData) return stopClip(clip);
+try { clip.currentTime = 0; } catch (error) { /* not loaded yet */ }
+clip.classList.add('is-playing');
+const started = clip.play();
+if (started && started.catch) started.catch(() => clip.classList.remove('is-playing'));
+});
+};
 const setStep = n => {
+const before = Number(buildStage.dataset.step || 0);
 for (let i = 1; i <= steps.length; i++) buildStage.classList.toggle('s' + i, i <= n);
 steps.forEach((step, i) => step.classList.toggle('is-active', i + 1 === n));
 buildStage.dataset.step = n;
+if (n >= 1 && !saveData && !reduced.matches) clips.forEach(clip => { if (clip.preload !== 'auto') { clip.preload = 'auto'; clip.load(); } });
+if (n > before) playClip(n); else clips.forEach(stopClip);
 };
 if (!('IntersectionObserver' in window) || reduced.matches) setStep(steps.length);
 else {
@@ -251,7 +267,9 @@ if (String(current) !== buildStage.dataset.step) setStep(current);
 let queued = false;
 const queue = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; measure(); }); } };
 new IntersectionObserver(entries => {
-if (entries[0].isIntersecting) { addEventListener('scroll', queue, { passive: true }); measure(); }
+if (entries[0].isIntersecting) {
+addEventListener('scroll', queue, { passive: true }); measure();
+}
 else removeEventListener('scroll', queue);
 }, { rootMargin: '200px 0px' }).observe($('[data-build]'));
 }
