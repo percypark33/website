@@ -74,3 +74,7 @@ If you made a typo, the preview fails with a red ✗ and the live site stays as 
 - The family letter and photo captions: `website/designs/brand-story.js` (same as before). They show on the Our story page (`sweetsnow.org/our-story`); the home page shows the title, the first line and three of the photos.
 - The look, the bowl drawing used in the scroll animation, the links and the home page features are also in `site-settings.js`, each with a short note.
 - The machinery lives in `website/build/`. You do not need to open it.
+
+## Change the bowl that builds itself as you scroll
+
+Open `website/site-settings.js` and find `buildBowlPhoto`. Put a menu item's name there (now `"Lychee Heaven"`) and its real photo is uncovered from the bottom up as people scroll. Make it `""` to go back to the drawing set in `buildBowl`.

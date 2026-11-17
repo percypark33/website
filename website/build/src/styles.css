@@ -164,6 +164,21 @@ main>section{position:relative}
 .sources a{text-decoration:underline;text-underline-offset:3px}
 
 /* the drawing: layers wait above the bowl, then drop in step by step */
+.build-photo{position:relative;height:min(40svh,330px);aspect-ratio:1}
+.build-photo .bp{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:bottom}
+.bp-ghost{display:none}
+.bp-main{clip-path:polygon(evenodd,0 0,100% 0,100% 100%,0 100%,0 0,var(--bp-cup),71% 80%,0 0)}
+.bp-side{clip-path:polygon(var(--bp-cup))}
+.build-photo{--bp-cup:71% 80%,76% 74%,88% 72%,100% 75%,100% 100%,74% 100%,70% 90%}
+@property --bp-reveal{syntax:"<percentage>";inherits:false;initial-value:0%}
+.js .bp-ghost{display:block;opacity:.13;filter:grayscale(1)}
+.js .bp-main{--bp-reveal:0%;-webkit-mask-image:linear-gradient(to top,#000 calc(var(--bp-reveal) - 5%),transparent var(--bp-reveal));mask-image:linear-gradient(to top,#000 calc(var(--bp-reveal) - 5%),transparent var(--bp-reveal));transition:--bp-reveal 1s var(--ease)}
+.js .bp-side{opacity:0;transform:translateY(-70px) scale(.9);transition:transform .7s var(--spring) .3s,opacity .35s ease .3s}
+.js .build-stage.s1 .bp-main{--bp-reveal:31%}
+.js .build-stage.s2 .bp-main{--bp-reveal:44%}
+.js .build-stage.s3 .bp-main{--bp-reveal:81%}
+.js .build-stage.s4 .bp-main{--bp-reveal:106%}
+.js .build-stage.s4 .bp-side{opacity:1;transform:none}
 .js .build-stage .bl-snow,.js .build-stage .bl-drop{opacity:0;transform:translateY(-120px);transform-box:view-box}
 .js .build-stage .bl-syrup{clip-path:inset(0 0 100% 0);opacity:0}
 .js .build-stage .bl{transition:transform .7s var(--spring),opacity .35s ease,clip-path .9s var(--ease)}
@@ -430,6 +445,7 @@ main>section{position:relative}
   .build-body{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}
   .build-stage{top:120px;height:calc(100svh - 160px);max-height:560px;margin:0;background:none}
   .build-svg{height:min(58svh,460px)}
+  .build-photo{height:min(58svh,460px)}
   .build-step{min-height:62svh}
   .feature-inner{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
   .feature-cups .feature-copy{order:2}
@@ -464,6 +480,9 @@ main>section{position:relative}
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
   .js .build-stage .bl-snow,.js .build-stage .bl-drop{opacity:1;transform:none}
   .js .build-stage .bl-syrup{clip-path:none;opacity:1}
+  .js .bp-main{-webkit-mask-image:none;mask-image:none}
+  .js .bp-side{opacity:1;transform:none}
+  .js .bp-ghost{display:none}
   .js .build-step:not(.is-active) h3{color:var(--ink);transform:none}
   @view-transition{navigation:none}
 }
