@@ -251,8 +251,11 @@ function buildStages(ctx, stages) {
 
 function build(ctx) {
   const { t, site } = ctx;
-  const stages = (site.SETTINGS.buildBowlStages || []).filter(s => s && s.photo && s.title);
-  const photoName = site.SETTINGS.buildBowlPhoto;
+  // site-settings.js → buildBowlMode picks the version: "drawing" (default), "photo" or "stages".
+  const mode = String(site.SETTINGS.buildBowlMode || 'drawing').toLowerCase();
+  if (!['drawing', 'photo', 'stages'].includes(mode)) site.warnings.push(`site-settings.js → buildBowlMode: "${site.SETTINGS.buildBowlMode}" is not "drawing", "photo" or "stages". Showing the drawing.`);
+  const stages = mode === 'stages' ? (site.SETTINGS.buildBowlStages || []).filter(s => s && s.photo && s.title) : [];
+  const photoName = mode === 'photo' ? site.SETTINGS.buildBowlPhoto : '';
   const photoItem = photoName ? [...Object.values(site.groups).flat(), ...site.cups].find(i => i.name === photoName && i.photo) : null;
   if (photoName && !photoItem) site.warnings.push(`site-settings.js → buildBowlPhoto: no menu item with a photo is called "${photoName}". Showing the drawing instead.`);
   const shown = stages.length ? (site.SETTINGS.buildBowlStagesName || 'Lychee Heaven') : photoItem ? photoItem.name : (site.SETTINGS.buildBowl || 'Mango');

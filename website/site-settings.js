@@ -60,9 +60,12 @@ window.SITE_SETTINGS = {
      To show them again, make it:  buildBowlLeaveOut: [],        */
   buildBowl: "Mango",
   buildBowlLeaveOut: ["coconut flakes"],
-  /* To build a real photo instead of the drawing, put a menu item's name here.
-     The photo is uncovered from the bottom up as you scroll.
-     To go back to the drawing, make it:  buildBowlPhoto: "",       */
+  /* WHICH VERSION SHOWS. One word switches it:
+       "drawing"  your mango drawing, layers drop in (what shows now)
+       "photo"    the real photo named in buildBowlPhoto, uncovered bottom to top
+       "stages"   the Lychee Heaven pictures and clips in buildBowlStages      */
+  buildBowlMode: "drawing",
+  /* For "photo": a menu item's name. Its photo is uncovered as you scroll. */
   buildBowlPhoto: "Lychee Heaven",
   /* Or build the bowl in stages, one picture per step. While this list has
      pictures, it is what the home page shows. `title` and `text` are the words
