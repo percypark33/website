@@ -67,16 +67,18 @@ window.SITE_SETTINGS = {
   /* Or build the bowl in stages, one picture per step. While this list has
      pictures, it is what the home page shows. `title` and `text` are the words
      next to each step. To switch it off, make it:  buildBowlStages: [],
-     The first five pictures were made with Runway from the real Lychee Heaven
-     photo, by taking toppings away. The last one is the real photo.        */
+     The pictures were made with Runway from the real Lychee Heaven photo.
+     A step can also have `clip`: a short silent video that plays once when
+     the step is reached (the jelly and syrup going in, the scoop, the
+     drizzle). Take `clip: "…"` out of a line to switch that video off.     */
   buildBowlStagesName: "Lychee Heaven",
   buildBowlStages: [
     { title: "Milk snow", text: "Real milk shaved into soft snow — creamy, never watery.", photo: "/assets/build-lychee-heaven/1-milk-snow-half.webp" },
-    { title: "Coconut jelly", text: "In the middle, with the syrup.", photo: "/assets/build-lychee-heaven/2-jelly-syrup-middle.webp" },
+    { title: "Coconut jelly", text: "In the middle, with the syrup.", photo: "/assets/build-lychee-heaven/2-jelly-syrup-middle.webp", clip: "/assets/build-lychee-heaven/2-jelly-syrup-added.mp4" },
     { title: "More milk snow", text: "Piled high on top.", photo: "/assets/build-lychee-heaven/3-milk-snow-full.webp" },
     { title: "Fruit & toppings", text: "Real fruit · Cut fresh daily · Made to order", photo: "/assets/build-lychee-heaven/4-lychee-boba.webp" },
-    { title: "Ice cream", text: "A scoop on top.", photo: "/assets/build-lychee-heaven/5-yogurt-ice-cream.webp" },
-    { title: "House-made syrup", text: "Flavor in layers.", photo: "/assets/build-lychee-heaven/6-lychee-yogurt-syrup.webp" },
+    { title: "Ice cream", text: "A scoop on top.", photo: "/assets/build-lychee-heaven/5-yogurt-ice-cream.webp", clip: "/assets/build-lychee-heaven/5-ice-cream-scoop.mp4" },
+    { title: "House-made syrup", text: "Flavor in layers.", photo: "/assets/build-lychee-heaven/6-lychee-yogurt-syrup.webp", clip: "/assets/build-lychee-heaven/6-syrup-drizzle.mp4" },
     { title: "The finish", text: "Each flavor has its own finish.", photo: "/assets/build-lychee-heaven/7-coconut-flakes-mochi.webp" }
   ],
 

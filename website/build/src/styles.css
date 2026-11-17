@@ -182,6 +182,9 @@ main>section{position:relative}
 .js .build-stage.s4 .bp-side{opacity:1;transform:none}
 .js .build-stack .bs{opacity:0;transform:translateY(-26px) scale(1.03);transition:opacity .5s ease,transform .8s var(--spring)}
 .js .build-stage.s1 .bs-1,.js .build-stage.s2 .bs-2,.js .build-stage.s3 .bs-3,.js .build-stage.s4 .bs-4,.js .build-stage.s5 .bs-5,.js .build-stage.s6 .bs-6,.js .build-stage.s7 .bs-7,.js .build-stage.s8 .bs-8{opacity:1;transform:none}
+.build-stack .bv{display:none}
+.js .build-stack .bv{display:block;opacity:0;pointer-events:none;transition:opacity .35s ease;-webkit-mask-image:radial-gradient(ellipse 56% 56% at 50% 55%,#000 70%,transparent 100%);mask-image:radial-gradient(ellipse 56% 56% at 50% 55%,#000 70%,transparent 100%)}
+.js .build-stack .bv.is-playing{opacity:1}
 .build-stack .bs:not(:last-child){display:none}
 .js .build-stack .bs:not(:last-child){display:block}
 .js .build-stage .bl-snow,.js .build-stage .bl-drop{opacity:0;transform:translateY(-120px);transform-box:view-box}

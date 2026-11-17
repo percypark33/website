@@ -243,7 +243,10 @@ function buildPhoto(ctx, item) {
 /* The scroll-built bowl from stage pictures (site-settings.js → buildBowlStages):
    one picture per step, stacked. Each step fades its picture in over the one before. */
 function buildStages(ctx, stages) {
-  return `<div class="build-photo build-stack">${stages.map((s, i) => ctx.img(s.photo, 'card', { alt: '', sizes: '(max-width: 859px) 80vw, 460px', cls: 'bp bs bs-' + (i + 1) })).join('')}</div>`;
+  // A stage can also have a short silent clip (clip: "/assets/….mp4") that shows it being made.
+  // The clip plays once when its step is reached, then gives way to the still picture.
+  const clips = stages.map((s, i) => (s.clip ? `<video class="bp bv" data-build-clip="${i + 1}" src="${e(s.clip)}" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>` : '')).join('');
+  return `<div class="build-photo build-stack">${stages.map((s, i) => ctx.img(s.photo, 'card', { alt: '', sizes: '(max-width: 859px) 80vw, 460px', cls: 'bp bs bs-' + (i + 1) })).join('')}${clips}</div>`;
 }
 
 function build(ctx) {
