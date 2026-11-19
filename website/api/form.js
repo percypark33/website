@@ -32,13 +32,13 @@ const KNOWN_FORMS = {
   "catering-appointment": {
     required: ["name", "date", "guests"], oneOf: [["phone", "email"]], label: "Catering appointment request",
     thanks: "/catering/thanks", back: { href: "/catering#book", text: "Back to catering" },
-    offline: { title: "Your request was not sent", text: "The catering form is not connected yet, so your request did not reach us. Please message the same details to us on Instagram <a href=\"https://www.instagram.com/sweetsnow_oc/\" rel=\"noopener\">@sweetsnow_oc</a> and we will set up your appointment there." },
+    offline: { title: "Your request was not sent", text: "The catering form is not connected yet, so your request did not reach us. Please message the same details to us on Instagram <a href=\"https://www.instagram.com/sweetsnowusa/\" rel=\"noopener\">@sweetsnowusa</a> and we will set up your appointment there." },
     calendar: true,
   },
   "catering-question": {
     required: ["question"], oneOf: [["phone", "email"]], label: "Catering question",
     thanks: "/catering/thanks", back: { href: "/catering#book", text: "Back to catering" },
-    offline: { title: "Your question was not sent", text: "The catering chat is not connected yet. Please message us on Instagram <a href=\"https://www.instagram.com/sweetsnow_oc/\" rel=\"noopener\">@sweetsnow_oc</a>." },
+    offline: { title: "Your question was not sent", text: "The catering chat is not connected yet. Please message us on Instagram <a href=\"https://www.instagram.com/sweetsnowusa/\" rel=\"noopener\">@sweetsnowusa</a>." },
   },
 };
 // How each field is named in the email, in this order. Anything else follows under its own name.
@@ -159,7 +159,7 @@ module.exports = async (req, res) => {
     console.error("form: no delivery configured (set RESEND_API_KEY + FORM_TO_EMAIL and/or FORM_WEBHOOK_URL)");
     if (json) { res.statusCode = 503; res.setHeader("Content-Type", "application/json"); return res.end('{"ok":false,"error":"not-configured"}'); }
     if (spec.offline) return page(res, 503, spec.offline.title, spec.offline.text, spec.back);
-    return page(res, 503, "Our idea box isn't connected yet", "Sorry — we couldn't save your message. Please send it to us on Instagram <a href=\"https://www.instagram.com/sweetsnow_oc/\" rel=\"noopener\">@sweetsnow_oc</a> or tell us in store.");
+    return page(res, 503, "Our idea box isn't connected yet", "Sorry — we couldn't save your message. Please send it to us on Instagram <a href=\"https://www.instagram.com/sweetsnowusa/\" rel=\"noopener\">@sweetsnowusa</a> or tell us in store.");
   }
 
   const known = Object.keys(FIELD_LABELS).filter((k) => data[k]).map((k) => `${FIELD_LABELS[k]}: ${data[k]}`);
@@ -186,7 +186,7 @@ module.exports = async (req, res) => {
   failures.forEach((f) => console.error("form delivery:", f.reason?.message || f.reason));
   if (failures.length === results.length) {
     if (json) { res.statusCode = 502; res.setHeader("Content-Type", "application/json"); return res.end('{"ok":false,"error":"delivery-failed"}'); }
-    return page(res, 502, "That didn't go through", "Sorry — something went wrong on our side. Please try again in a minute, or message us on Instagram <a href=\"https://www.instagram.com/sweetsnow_oc/\" rel=\"noopener\">@sweetsnow_oc</a>.", spec.back);
+    return page(res, 502, "That didn't go through", "Sorry — something went wrong on our side. Please try again in a minute, or message us on Instagram <a href=\"https://www.instagram.com/sweetsnowusa/\" rel=\"noopener\">@sweetsnowusa</a>.", spec.back);
   }
 
   if (json) { res.setHeader("Content-Type", "application/json"); return res.end('{"ok":true}'); }
