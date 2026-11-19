@@ -52,7 +52,7 @@ window.MENU = {
     venue: "Inside QT Golden Market Place",
     street: "9772 Garden Grove Blvd",
     city: "Garden Grove, CA 92844",
-    instagram: "sweetsnow_oc",
+    instagram: "sweetsnowusa",
     url: "sweetsnow.org"
   },
 

@@ -129,6 +129,6 @@ Names and pictures come from `topping-image-manifest.json` (the list the live si
 |---|---|---|
 | Hours | Mon–Thu 5–10pm, Fri–Sun 1–10pm (Pacific) | `684`–`687`, open/closed clock `690`–`698` |
 | Address | Inside QT Golden Market Place, 9772 Garden Grove Blvd, Garden Grove, CA 92844 | `52`–`54` |
-| Instagram | @sweetsnow_oc | `55` |
+| Instagram | @sweetsnowusa | `55` |
 | Cream top add-on | $2 (corrected from $3 on your instruction), not shown on the website | `562` |
 | Prices hidden on the website | yes | `714` |

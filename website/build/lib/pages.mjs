@@ -522,7 +522,7 @@ const TEXT_PAGES = {
       'Our website tracking records page visits, viewed menu sections, navigation, Instagram link clicks, and form submission attempts. An attempt does not confirm that a message was received. Our tracking code does not send the text you enter in forms or count in-store and kiosk purchases as website sales.',
       'Google signals and advertising personalization are disabled in our website tag configuration. The tags do not load when your browser sends Global Privacy Control or Do Not Track. You can also control cookies in your browser or use <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">Google’s Analytics opt-out browser add-on</a>.',
       'Learn <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses information from sites that use its services</a>. Links to external sites, including Instagram, are subject to those sites’ privacy practices.',
-      'For questions, contact Sweet Snow in-store or through <a href="https://www.instagram.com/sweetsnow_oc/" rel="noopener">our Instagram account</a>.'
+      'For questions, contact Sweet Snow in-store or through <a href="https://www.instagram.com/sweetsnowusa/" rel="noopener">our Instagram account</a>.'
     ]
   },
   thanks: {
@@ -572,7 +572,7 @@ export function business(site) {
     address: { '@type': 'PostalAddress', streetAddress: '9772 Garden Grove Blvd', addressLocality: 'Garden Grove', addressRegion: 'CA', postalCode: '92844', addressCountry: 'US' },
     geo: { '@type': 'GeoCoordinates', latitude: 33.7729, longitude: -117.9619 },
     openingHoursSpecification: spec,
-    sameAs: ['https://www.instagram.com/sweetsnow_oc/', 'https://www.yelp.com/biz/sweet-snow-garden-grove'],
+    sameAs: ['https://www.instagram.com/sweetsnowusa/', 'https://www.yelp.com/biz/sweet-snow-garden-grove'],
     hasMenu: SITE + '/menu', hasMap: 'https://www.google.com/maps/search/?api=1&query=Sweet%20Snow%209772%20Garden%20Grove%20Blvd%20Garden%20Grove%20CA',
     areaServed: ['Garden Grove', 'Orange County'], keywords: 'Korean bingsu, Korean shaved ice, bingsu Garden Grove, bingsu Orange County, mini taiyaki, croffles'
   };

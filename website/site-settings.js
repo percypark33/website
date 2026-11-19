@@ -91,7 +91,7 @@ window.SITE_SETTINGS = {
     order: "https://cash.app/$sweetsnowus",
     delivery: "https://www.doordash.com/store/sweet-snow-garden-grove-52186263/122031760/",
     maps: "https://www.google.com/maps/search/?api=1&query=Sweet%20Snow%209772%20Garden%20Grove%20Blvd%20Garden%20Grove%2C%20CA%2092844",
-    instagram: "https://www.instagram.com/sweetsnow_oc/"
+    instagram: "https://www.instagram.com/sweetsnowusa/"
   },
 
   /* ---- HOME PAGE FEATURES -------------------------------------
