@@ -38,17 +38,17 @@ export function loadCatering(root, site) {
   let design = text(S.design).toLowerCase() || 'bunny';
   if (!DESIGNS[design]) { warn(`design: "${S.design}" is not one of ${Object.keys(DESIGNS).join(', ')}. Using "bunny".`); design = 'bunny'; }
 
-  const bowls = [...site.groups.classic, ...site.groups.special, ...site.groups['half-half']];
+  // Catering serves the cup bingsu, so everything here comes from the cups on the menu.
+  const cups = site.cups;
   const named = (name, where) => {
-    const item = bowls.find(bowl => bowl.name === name);
+    const item = cups.find(cup => cup.name === name);
     if (item) return item;
-    const close = nearest(name, bowls.map(bowl => bowl.name));
-    warn(`${where}: no bingsu is called "${name}".${close ? ` Did you mean "${close}"?` : ''}`);
+    const close = nearest(name, cups.map(cup => cup.name));
+    warn(`${where}: no cup bingsu is called "${name}".${close ? ` Did you mean "${close}"?` : ''}`);
     return null;
   };
   const leaveOut = list(S.leaveOut).map(text).filter(name => named(name, 'leaveOut'));
-  const onMenu = group => site.groups[group].filter(bowl => !bowl.comingSoon && !leaveOut.includes(bowl.name));
-  const menu = { classic: onMenu('classic'), special: onMenu('special') };
+  const menu = cups.filter(cup => !cup.comingSoon && cup.photo && !leaveOut.includes(cup.name));
 
   const ids = new Set();
   const tiers = list(S.tiers).map((tier, index) => {
@@ -56,11 +56,9 @@ export function loadCatering(root, site) {
     let id = 'tier-' + (slug(name) || index + 1);
     while (ids.has(id)) id += '-' + (index + 1);
     ids.add(id);
-    const picks = list(tier.picks).map(pick => text(pick).toLowerCase()).filter(pick => {
-      if (pick === 'classic' || pick === 'special') return true;
-      warn(`tiers → "${name}" → picks: "${pick}" should be "Classic" or "Special".`);
-      return false;
-    });
+    let flavors = Math.round(Number(tier.flavors));
+    if (!(flavors >= 0 && flavors <= 12)) { warn(`tiers → "${name}" → flavors: write a number, for example 2.`); flavors = 0; }
+    const picks = Array(flavors).fill('cup');
     return { id, name, text: text(tier.text), picks, addOn: text(tier.addOn), price: text(tier.price), guests: text(tier.guests) };
   });
   if (!tiers.length) warn('tiers: there are no tiers yet.');
@@ -101,6 +99,9 @@ const DOODLE = {
 const bunny = (ctx, sizes, lazy = true) => ctx.logo('bunny', '', 'k-bunny', sizes, lazy);
 const CLOUD = '<svg class="k-cloud" viewBox="0 0 640 230" preserveAspectRatio="none" aria-hidden="true"><path d="M86 226a72 72 0 0 1 4-144 96 96 0 0 1 176-34 118 118 0 0 1 208 22 84 84 0 0 1 96 156Z"/></svg>';
 const BOWL = '<svg class="k-mini-bowl" viewBox="0 0 28 24" aria-hidden="true"><path class="k-mini-snow" d="M5 12c0-5 4-9 9-9s9 4 9 9Z"/><path class="k-mini-dish" d="M2.5 12h23l-3.4 8.2a3 3 0 0 1-2.8 1.8H8.7a3 3 0 0 1-2.8-1.8Z"/></svg>';
+const MINI_CUP = '<svg class="k-mini-bowl" viewBox="0 0 28 24" aria-hidden="true"><path class="k-mini-snow" d="M7 8c0-3.6 3.1-6.5 7-6.5S21 4.4 21 8Z"/><path class="k-mini-dish" d="M5 8h18l-2.300 12.100a2.300 2.300 0 0 1-2.300 1.900H9.600a2.300 2.300 0 0 1-2.300-1.900Z"/></svg>';
+const short = name => name.replace(/ Cup$/, '');
+const cupAlt = item => short(item.name) + ' cup bingsu';
 const CUP = '<svg class="k-cup" viewBox="0 0 200 200" aria-hidden="true"><path class="k-cup-body" d="M22 60H178L160 178Q159 188 148 188H52Q41 188 40 178Z"/><path class="k-cup-band" d="M26.6 90H173.4L162.7 160H37.3Z"/><rect class="k-cup-lid" x="12" y="30" width="176" height="32" rx="9"/><rect class="k-cup-seal" x="146" y="40" width="18" height="40" rx="5"/></svg>';
 const ICON_OUT = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const ICON_ARROW = '<svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -115,8 +116,8 @@ export function homeSection(ctx) {
   const C = site.catering;
   const H = C.home;
   // The middle bowl is the big one.
-  const bowls = C.heroItems.map((item, n) => `<span class="hc-bowl hc-bowl-${n + 1}">${img(item.photo, 'card', { alt: ta(item.name + ' bingsu'), sizes: n === 1 ? '(max-width: 859px) 38vw, 230px' : '(max-width: 859px) 30vw, 180px' })}</span>`).join('');
-  const tier = item => `<li class="hc-tier"><h3>${t(item.name)}</h3>${item.picks.length ? `<ul class="hc-picks">${item.picks.map(kind => `<li class="hc-pick hc-pick-${kind}">${t(kind === 'classic' ? 'Classic' : 'Special')}</li>`).join('')}</ul>` : ''}${item.addOn ? `<p class="hc-addon">${t(item.addOn)}</p>` : ''}</li>`;
+  const bowls = C.heroItems.map((item, n) => `<span class="hc-bowl hc-bowl-${n + 1}">${img(item.photo, 'card', { alt: ta(cupAlt(item)), sizes: n === 1 ? '(max-width: 859px) 38vw, 230px' : '(max-width: 859px) 30vw, 180px' })}</span>`).join('');
+  const tier = item => `<li class="hc-tier"><h3>${t(item.name)}</h3>${item.picks.length ? `<ul class="hc-picks">${item.picks.map(kind => `<li class="hc-pick hc-pick-${kind}">${t('Cup')}</li>`).join('')}</ul>` : ''}${item.addOn ? `<p class="hc-addon">${t(item.addOn)}</p>` : ''}</li>`;
   return `
 <section class="home-catering" id="catering" aria-labelledby="home-catering-title">
   <div class="wrap hc-wrap">
@@ -130,7 +131,7 @@ export function homeSection(ctx) {
       </div>
       ${bowls ? `<div class="hc-bowls">${bowls}</div>` : ''}
       ${C.tiers.length ? `<div class="hc-tiers">
-        <p class="hc-tiers-lead"><strong>${t('Three tiers')}</strong><span>${t('Each tier sets how many bingsu go on your event menu. You choose the flavors.')}</span></p>
+        <p class="hc-tiers-lead"><strong>${t('Three tiers')}</strong><span>${t('Each tier sets how many cup bingsu flavors go on your event menu. You choose the flavors.')}</span></p>
         <ol class="hc-tier-list">${C.tiers.map(tier).join('')}</ol>
       </div>` : ''}
     </div>
@@ -173,7 +174,7 @@ function heroArt(ctx, design) {
   const { t, ta, img, site } = ctx;
   const items = site.catering.heroItems;
   if (!items.length) return '';
-  const photo = (item, n, sizes) => img(item.photo, 'card', { alt: ta(item.name + ' bingsu'), sizes, eager: true, cls: 'k-hero-bowl k-hero-bowl-' + n });
+  const photo = (item, n, sizes) => img(item.photo, 'card', { alt: ta(cupAlt(item)), sizes, eager: true, cls: 'k-hero-bowl k-hero-bowl-' + n });
   if (design === 'cloud') return `<div class="k-hero-art">
       ${DOODLE.star}${DOODLE.sparkle}${DOODLE.star}
       ${CLOUD}
@@ -218,7 +219,7 @@ function steps(ctx) {
   const list = [
     ['Tell us about your event', 'Chat with Snow or fill in the form. It takes about a minute.'],
     ['We confirm your appointment', 'You hear back from us by email or text.'],
-    ['We plan your menu', 'Pick your bingsu together and get your quote.']
+    ['We plan your menu', 'Pick your cup bingsu flavors together and get your quote.']
   ];
   return `<section class="k-steps" id="how" aria-labelledby="how-title">
   <div class="wrap">
@@ -233,7 +234,7 @@ function tiers(ctx) {
   const { t, site } = ctx;
   const C = site.catering;
   if (!C.tiers.length) return '';
-  const pick = kind => `<li class="k-pick k-pick-${kind}">${BOWL}<span>${t(kind === 'classic' ? 'Classic' : 'Special')}</span></li>`;
+  const pick = kind => `<li class="k-pick k-pick-${kind}">${MINI_CUP}<span>${t('Cup')}</span></li>`;
   const card = (tier, index) => `<li class="k-tier k-tier-${index + 1}" id="${tier.id}">
       <p class="k-tier-step">${t('Tier ' + (index + 1))}</p>
       <h3>${t(tier.name)}</h3>
@@ -247,7 +248,7 @@ function tiers(ctx) {
   <div class="wrap">
     <div class="k-head">
       <h2 id="tiers-title">${t('Pick your tier')}</h2>
-      <p class="lead">${t('Each tier sets how many bingsu go on your event menu. You choose the flavors.')}</p>
+      <p class="lead">${t('Each tier sets how many cup bingsu flavors go on your event menu. You choose the flavors.')}</p>
     </div>
     <ol class="k-tier-list">
     ${C.tiers.map(card).join('\n    ')}
@@ -259,20 +260,18 @@ function tiers(ctx) {
 function eventMenu(ctx) {
   const { t, ta, img, site } = ctx;
   const C = site.catering;
-  const group = (kind, label, lead, items) => (items.length ? `<div class="k-group k-group-${kind}">
-      <h3>${BOWL}${t(label)}</h3>
-      <p class="k-group-lead">${t(lead)}</p>
-      <ul class="k-bowls">${items.map(item => `<li><span class="k-bowl-photo">${img(item.photo, 'card', { alt: ta(item.name + ' bingsu'), sizes: '(max-width: 859px) 40vw, 200px' })}</span><span class="k-bowl-name">${t(item.name)}</span></li>`).join('')}</ul>
-    </div>` : '');
-  if (!C.menu.classic.length && !C.menu.special.length) return '';
+  if (!C.menu.length) return '';
   return `<section class="k-menu" id="menu" aria-labelledby="menu-title">
   <div class="wrap">
     <div class="k-head">
       <h2 id="menu-title">${t('The event menu')}</h2>
-      <p class="lead">${t('Made the way we make it at our shop: real milk shaved into soft snow, then fruit, syrups and toppings.')}</p>
+      <p class="lead">${t('Our cup bingsu: real milk shaved into soft snow, layered with fruit, syrups and toppings.')}</p>
     </div>
-    ${group('classic', 'Classic', 'The flavors everyone knows.', C.menu.classic)}
-    ${group('special', 'Special', 'Our layered, loaded bowls.', C.menu.special)}
+    <div class="k-group k-group-cups">
+      <h3>${MINI_CUP}${t('Cup Bingsu')}</h3>
+      <p class="k-group-lead">${t('All the joy of bingsu, in a cup.')}</p>
+      <ul class="k-bowls">${C.menu.map(item => `<li><span class="k-bowl-photo">${img(item.photo, 'card', { alt: ta(cupAlt(item)), sizes: '(max-width: 859px) 40vw, 200px' })}</span><span class="k-bowl-name">${t(item.name)}</span></li>`).join('')}</ul>
+    </div>
   </div>
 </section>`;
 }
@@ -394,7 +393,7 @@ function book(ctx, design) {
           <div class="k-field"><label for="cf-appt-date">${t('Appointment day')}</label><input id="cf-appt-date" name="appointment_day" type="date"></div>
           <div class="k-field"><label for="cf-appt-time">${t('Time of day')}</label><select id="cf-appt-time" name="appointment_time">${option('Any time')}${A.times.map(time => option(time)).join('')}</select></div>
         </div>
-        ${C.taiyaki.show ? `<label class="k-check"><input type="checkbox" name="taiyaki" value="Yes"><span>${t('Add mini taiyaki (Special tier)')}</span></label>` : ''}
+        ${C.taiyaki.show ? `<label class="k-check"><input type="checkbox" name="taiyaki" value="Yes"><span>${t('Add mini taiyaki')}</span></label>` : ''}
         <div class="k-field"><label for="cf-notes">${t('Anything else we should know?')}</label><textarea id="cf-notes" name="notes" rows="3" maxlength="1500"></textarea></div>
         <button class="btn btn-primary" type="submit" data-send><span data-send-idle>${t('Send request')}</span><span data-send-busy hidden>${t('Sending')}</span></button>
         <p class="k-privacy">${t('We use these details only to reply about your event.')} <a href="/privacy">${t('Privacy')}</a></p>

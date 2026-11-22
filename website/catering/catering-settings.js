@@ -50,7 +50,7 @@ window.CATERING_SETTINGS = {
 
   /* ---- ON THE HOME PAGE OF SWEETSNOW.ORG ------------------------
      A catering section on the home page, after the cup bingsu.
-     It shows the three bowls and the three tiers from this file.
+     It shows the three cups and the three tiers from this file.
 
      show    true  = the section is on the home page
              false = it is not
@@ -61,15 +61,15 @@ window.CATERING_SETTINGS = {
   homePage: {
     show: true,
     title: "Sweet Snow Catering",
-    text: "Fresh bingsu, made at your event. We bring the milk snow and make every bowl the way we do at our shop.",
+    text: "Fresh bingsu, made at your event. We bring the milk snow and make every cup the way we do at our shop.",
     link: true
   },
 
   /* ---- TOP OF THE PAGE ---------------------------------------- */
   title: "Sweet Snow Catering",
   headline: "Fresh bingsu, made at your event.",
-  text: "We bring the milk snow and make every bowl the way we do at our shop. Book an appointment and we will plan it with you.",
-  heroItems: ["Lychee & Shine Muscat", "Mango", "Matcha Strawberry"],      // the three bowls shown at the top. The first one is the big bowl on the catering page.
+  text: "We bring the milk snow and make every cup the way we do at our shop. Book an appointment and we will plan it with you.",
+  heroItems: ["Mango Jelly Cup", "Strawberry Mango Popping Candy Cup", "Cookies and Cream Cup"],      // the three cups shown at the top. The first one is the big cup on the catering page.
   facts: [                                                       // from the catering team plan. Change or remove any line.
     "For 50 to 200+ guests",
     "Same milk base and Korean snow machine as our shop"
@@ -78,22 +78,21 @@ window.CATERING_SETTINGS = {
   /* ---- THE THREE TIERS -------------------------------------------
      name     what the tier is called
      text     one short line about it
-     picks    what goes on the event menu: one word per bingsu,
-              "Classic" or "Special"
+     flavors  how many cup bingsu flavors go on the event menu
      addOn    an optional extra, for example the taiyaki add-on.
               Leave "" for none.
      price    for example "$12 per guest". Leave "" to show
               "Ask for a quote".
      guests   for example "50 to 100 guests". Leave "" to hide.      */
   tiers: [
-    { name: "Basic",   text: "Two classic bingsu on your event menu.",              picks: ["Classic", "Classic"],            addOn: "", price: "", guests: "" },
-    { name: "Premium", text: "Two classic bingsu and one special bingsu.",          picks: ["Classic", "Classic", "Special"], addOn: "", price: "", guests: "" },
-    { name: "Special", text: "Three bingsu of your choice: one classic, two special.", picks: ["Classic", "Special", "Special"], addOn: "Mini taiyaki add-on available", price: "", guests: "" }
+    { name: "Basic",   text: "Two cup bingsu flavors on your event menu.",   flavors: 2, addOn: "", price: "", guests: "" },
+    { name: "Premium", text: "Three cup bingsu flavors on your event menu.", flavors: 3, addOn: "", price: "", guests: "" },
+    { name: "Special", text: "Three cup bingsu flavors of your choice.",     flavors: 3, addOn: "Mini taiyaki add-on available", price: "", guests: "" }
   ],
 
   /* ---- THE EVENT MENU ---------------------------------------------
-     The Classic and Special bingsu guests can choose from. They come
-     from the menu by themselves (coming-soon items are left out).
+     The cup bingsu guests can choose from. They come from the
+     menu by themselves (coming-soon items are left out).
      To leave one off the event menu, write its name in `leaveOut`.   */
   leaveOut: [],
 
@@ -103,8 +102,8 @@ window.CATERING_SETTINGS = {
     title: "Mini taiyaki add-on",
     text: "Small filled, fish-shaped pastries. Add them with the Special tier."
   },
-  preMade: {
-    show: true,
+  preMade: {                                                     // not shown: cups are the main catering menu now
+    show: false,
     title: "Pre-made cups, on the side",
     text: "Bingsu in a sealed paper cup, labeled by flavor. Ask about it at your appointment."
   },
@@ -144,7 +143,7 @@ window.CATERING_SETTINGS = {
     how: "Tell me about your event and pick a day for your appointment. We confirm by email or text, plan your menu together, and send you a quote.",
     price: "The price depends on your guest count and tier. We send a quote after your appointment.",
     taiyaki: "Mini taiyaki can be added with the Special tier.",
-    preMade: "We also make pre-made bingsu in sealed paper cups, labeled by flavor. Ask about it at your appointment.",
+    preMade: "We serve our cup bingsu at your event. You choose the flavors for your event menu at your appointment.",
     guests: "We cater events of 50 to 200+ guests."
   }
 };
