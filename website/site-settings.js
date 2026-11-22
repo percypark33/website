@@ -49,6 +49,10 @@ window.SITE_SETTINGS = {
      Hide from the website: "Mango": { hidden: true },           */
   menuEdits: {
     // "Mango": { price: 15.99 },
+    // Off the menu for now (owner, 2026-11-22). Delete these lines to bring them back.
+    "Strawnana Pie": { hidden: true },
+    "Matcha Banana Cream": { hidden: true },
+    "Hojicha Tiramisu": { hidden: true },
   },
 
   /* ---- THE BOWL THAT BUILDS ITSELF AS YOU SCROLL --------------
