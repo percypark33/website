@@ -69,6 +69,7 @@ html:has(.page-catering){scroll-padding-top:calc(var(--header-h) + 12px)}
 .k-picks{display:flex;flex-wrap:wrap;gap:6px;margin-top:.2rem}
 .k-pick{display:inline-flex;align-items:center;gap:.4rem;min-height:34px;padding:0 .8rem 0 .6rem;border-radius:999px;font-size:.88rem;font-weight:600}
 .k-pick-classic{background:var(--k-blue-soft);color:var(--k-navy)}
+.k-pick-cup{background:var(--k-blue-soft);color:var(--k-navy)}
 .k-pick-special{background:var(--k-pink-soft);color:var(--k-rose)}
 .k-addon{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .8rem;border-radius:999px;background:var(--k-butter-soft);color:#6B4A00;font-size:.88rem;font-weight:600}
 .k-addon::before{content:"+";font-weight:700}
@@ -80,6 +81,7 @@ html:has(.page-catering){scroll-padding-top:calc(var(--header-h) + 12px)}
 .k-group+.k-group{margin-top:clamp(28px,5vw,44px)}
 .k-group h3{display:flex;align-items:center;gap:.5rem;font-family:var(--font-display);font-weight:400;letter-spacing:-.02em;font-size:1.6rem}
 .k-group-classic h3{color:var(--k-navy)}
+.k-group-cups h3{color:var(--k-navy)}
 .k-group-special h3{color:var(--k-rose)}
 .k-group-lead{margin-top:.2rem;color:var(--ink-2);font-size:.95rem}
 .k-bowls{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:1rem calc(-1 * var(--gutter)) 0;padding:6px var(--gutter) 14px;scrollbar-width:none}

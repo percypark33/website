@@ -4,7 +4,7 @@ Catering is a page of the website, like Menu and Our story: **`sweetsnow.org/cat
 
 For Instagram ads, use one of the three design addresses below. They are the same page without the website's menu, so a guest who taps an ad stays on booking.
 
-What it shows, in order: our bingsu and a **Book an appointment** button, how to book, the three tiers, the event menu, the extras on the side (taiyaki add-on, pre-made cups), and booking with Snow the chat helper or a form.
+What it shows, in order: our cup bingsu and a **Book an appointment** button, how to book, the three tiers, the event menu, the extras on the side (taiyaki add-on), and booking with Snow the chat helper or a form.
 
 ## The three designs
 
@@ -13,7 +13,7 @@ There are three designs, all based on the main website's look with a cuter conce
 | Address | Name | What it is |
 |---|---|---|
 | `sweetsnow.org/catering/bunny` | Snow Bunny | Closest to the website: milk-blue and airy, with the logo bunny, falling snow and doodles |
-| `sweetsnow.org/catering/cloud` | Cotton Cloud | A pastel sky: bowls on a cloud, soft pink and butter yellow, everything round |
+| `sweetsnow.org/catering/cloud` | Cotton Cloud | A pastel sky: cups on a cloud, soft pink and butter yellow, everything round |
 | `sweetsnow.org/catering/diary` | Sticker Diary | A scrapbook: polaroids with tape, stickers, dotted paper, handwritten titles |
 
 `sweetsnow.org/catering` itself shows the one written next to `design` in the settings file. See all three side by side at **`sweetsnow.org/catering/designs`**.
@@ -26,7 +26,7 @@ One word in the settings file, `tag: "Coming soon"`, puts the yellow tag next to
 
 ## The catering section on the home page
 
-The home page of `sweetsnow.org` has a catering card after the cup bingsu. It shows the three bowls from `heroItems`, the three tiers, and an "Explore catering" link to the catering page. It is the `homePage` part of the settings file:
+The home page of `sweetsnow.org` has a catering card after the cup bingsu. It shows the three cups from `heroItems`, the three tiers, and an "Explore catering" link to the catering page. It is the `homePage` part of the settings file:
 
 | To do this | Change |
 |---|---|
@@ -42,12 +42,12 @@ The home page of `sweetsnow.org` has a catering card after the cup bingsu. It sh
 |---|---|
 | Which design `sweetsnow.org/catering` shows | `design` |
 | The big headline and the words under it | `headline`, `text` |
-| The three bowls at the top | `heroItems`. The first name is the big bowl on the catering page (now Lychee & Shine Muscat). |
+| The three cups at the top | `heroItems`. The first name is the big cup on the catering page (now Mango Jelly Cup). |
 | The small facts under the buttons | `facts` |
 | A tier's name, words, price or guest count | `tiers` |
-| How many bingsu a tier has | `picks` in that tier: one `"Classic"` or `"Special"` per bingsu |
+| How many cup flavors a tier has | `flavors` in that tier: a number, for example `2` |
 | The taiyaki add-on line on a tier | `addOn` in that tier |
-| Leave a bingsu off the event menu | `leaveOut` |
+| Leave a cup bingsu off the event menu | `leaveOut` |
 | The taiyaki and pre-made cup cards | `taiyaki`, `preMade` |
 | The event types guests can pick | `events` |
 | The times of day guests can ask for | `appointments` → `times` |
@@ -56,7 +56,7 @@ The home page of `sweetsnow.org` has a catering card after the cup bingsu. It sh
 | The catering card on the home page | `homePage` |
 | Take "Catering" out of the website's menu | `announce: false` |
 
-The event menu lists every Classic and Special bingsu on the main menu by itself (coming-soon items are left out), with its photo. If an item is renamed or hidden on the menu, the preview link shows a yellow bar that names the line to fix.
+The event menu lists every cup bingsu on the main menu by itself (coming-soon items are left out), with its photo. If an item is renamed or hidden on the menu, the preview link shows a yellow bar that names the line to fix.
 
 ### Tier prices
 

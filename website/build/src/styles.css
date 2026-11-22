@@ -199,6 +199,11 @@ main>section{position:relative}
 /* home features */
 .feature{background:var(--band)}
 .feature+.feature{padding-top:0}
+/* The croffles, the cups and catering are one soft band: it fades in from the
+   page above and back out below, so there is no line where a section starts. */
+.feature-croffles{background:linear-gradient(var(--bg),var(--band) clamp(120px,24vw,240px))}
+.feature-cups{background:linear-gradient(var(--band) calc(100% - clamp(120px,24vw,240px)),var(--bg))}
+.feature-cups:has(+ .home-catering){background:var(--band)}
 .feature-inner{display:grid;gap:clamp(24px,5vw,56px);align-items:center}
 .feature-copy{display:grid;gap:.9rem;justify-items:start}
 .feature-copy p:not(.kicker){color:var(--ink-2);max-width:26rem}
@@ -241,7 +246,7 @@ main>section{position:relative}
 .next{padding-bottom:clamp(40px,8vw,72px)}
 
 /* find teaser + visit */
-.find-teaser{background:var(--band)}
+.find-teaser{background:linear-gradient(var(--bg),var(--band) clamp(120px,24vw,240px),var(--band) calc(100% - clamp(120px,24vw,240px)),var(--bg))}
 .find-teaser-inner{display:grid;gap:2rem}
 .find-teaser-inner>div:first-child{display:grid;gap:.9rem;justify-items:start}
 .find-teaser-inner p:not(.kicker){color:var(--ink-2)}
