@@ -114,6 +114,33 @@ window.SITE_SETTINGS = {
     alt: "Matcha mochi ice cream in a white bowl with glazed fresh strawberries"
   },
 
+  /* ---- WAFFLES, COMING SOON ------------------------------------
+     Shown on the menu page under "Waffles". One full-size waffle,
+     folded in half around the filling. Change a name or the words
+     here. To hide the whole section, make it:  show: false       */
+  wafflesSoon: {
+    show: true,
+    badge: "Coming Soon",
+    title: "Waffles",
+    blurb: "A full-size waffle, folded in half around the filling.",
+    items: [
+      { name: "Cream Waffle", text: "House-made cream",
+        photo: "/assets/waffles/cream-20261123.png", alt: "Folded waffle filled with white cream" },
+      { name: "Apple Cinnamon Waffle", text: "House-made cream · apple jam · cinnamon powder",
+        photo: "/assets/waffles/apple-cinnamon-20261123.png", alt: "Folded waffle filled with cream, apple jam and cinnamon" },
+      { name: "Cookies & Cream Waffle", text: "House-made cream · Oreo crumbs · Nutella",
+        photo: "/assets/waffles/cookies-cream-20261123.png", alt: "Folded waffle filled with cream, Oreo crumbs and Nutella" },
+      { name: "Strawberry Waffle", text: "House-made cream · strawberries · Nutella",
+        photo: "/assets/waffles/strawberry-20261123.png", alt: "Folded waffle filled with cream, sliced strawberries and Nutella" },
+      { name: "Tiramisu Waffle", text: "House-made mascarpone cream · premium cacao powder",
+        photo: "/assets/waffles/tiramisu-20261123.png", alt: "Folded waffle filled with mascarpone cream and dusted with cacao powder" },
+      { name: "Strawberry Cheesecake Waffle", text: "House-made cream · strawberries · cheesecake bites · vanilla ice cream",
+        photo: "/assets/waffles/strawberry-cheesecake-20261123.png", alt: "Folded waffle filled with cream, strawberries, cheesecake bites and vanilla ice cream" },
+      { name: "Yogurt Fruit Mochi Waffle", text: "House-made yogurt cream · mochi sheet · strawberries · mangoes · green grapes",
+        photo: "/assets/waffles/yogurt-fruit-mochi-20261123.png", alt: "Folded waffle filled with yogurt cream, a mochi sheet, strawberries, mango and green grapes" }
+    ]
+  },
+
   /* ---- DRINKS, COMING SOON -------------------------------------
      Shown on the menu page under "Drinks". No prices yet.
      Change a name or the words here. To hide the whole section,

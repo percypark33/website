@@ -2663,6 +2663,272 @@
      "bytes": 27265
     }
    ]
+  },
+  "/assets/waffles/cream-20261123.png|feature": {
+   "w": 1400,
+   "h": 819,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cream-20261123-4b79c0d9-320.webp",
+     "bytes": 13134
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cream-20261123-4b79c0d9-480.webp",
+     "bytes": 22174
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cream-20261123-4b79c0d9-720.webp",
+     "bytes": 39738
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cream-20261123-4b79c0d9-320.avif",
+     "bytes": 8619
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cream-20261123-4b79c0d9-480.avif",
+     "bytes": 15279
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cream-20261123-4b79c0d9-720.avif",
+     "bytes": 27859
+    }
+   ]
+  },
+  "/assets/waffles/apple-cinnamon-20261123.png|feature": {
+   "w": 1400,
+   "h": 819,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/apple-cinnamon-20261123-4e558816-320.webp",
+     "bytes": 14302
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/apple-cinnamon-20261123-4e558816-480.webp",
+     "bytes": 24668
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/apple-cinnamon-20261123-4e558816-720.webp",
+     "bytes": 44682
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/apple-cinnamon-20261123-4e558816-320.avif",
+     "bytes": 9679
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/apple-cinnamon-20261123-4e558816-480.avif",
+     "bytes": 17021
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/apple-cinnamon-20261123-4e558816-720.avif",
+     "bytes": 30980
+    }
+   ]
+  },
+  "/assets/waffles/cookies-cream-20261123.png|feature": {
+   "w": 1400,
+   "h": 822,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cookies-cream-20261123-2242f591-320.webp",
+     "bytes": 15482
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cookies-cream-20261123-2242f591-480.webp",
+     "bytes": 27314
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cookies-cream-20261123-2242f591-720.webp",
+     "bytes": 49270
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cookies-cream-20261123-2242f591-320.avif",
+     "bytes": 10064
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cookies-cream-20261123-2242f591-480.avif",
+     "bytes": 17842
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cookies-cream-20261123-2242f591-720.avif",
+     "bytes": 33307
+    }
+   ]
+  },
+  "/assets/waffles/strawberry-20261123.png|feature": {
+   "w": 1400,
+   "h": 817,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-20261123-5dbf0631-320.webp",
+     "bytes": 13532
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-20261123-5dbf0631-480.webp",
+     "bytes": 23122
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-20261123-5dbf0631-720.webp",
+     "bytes": 39980
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-20261123-5dbf0631-320.avif",
+     "bytes": 8900
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-20261123-5dbf0631-480.avif",
+     "bytes": 15881
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-20261123-5dbf0631-720.avif",
+     "bytes": 28305
+    }
+   ]
+  },
+  "/assets/waffles/tiramisu-20261123.png|feature": {
+   "w": 1400,
+   "h": 819,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/tiramisu-20261123-7a6a7778-320.webp",
+     "bytes": 14822
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/tiramisu-20261123-7a6a7778-480.webp",
+     "bytes": 25798
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/tiramisu-20261123-7a6a7778-720.webp",
+     "bytes": 47066
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/tiramisu-20261123-7a6a7778-320.avif",
+     "bytes": 9575
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/tiramisu-20261123-7a6a7778-480.avif",
+     "bytes": 17104
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/tiramisu-20261123-7a6a7778-720.avif",
+     "bytes": 31267
+    }
+   ]
+  },
+  "/assets/waffles/strawberry-cheesecake-20261123.png|feature": {
+   "w": 1400,
+   "h": 859,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-cheesecake-20261123-2f4fe075-320.webp",
+     "bytes": 14840
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-cheesecake-20261123-2f4fe075-480.webp",
+     "bytes": 25224
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-cheesecake-20261123-2f4fe075-720.webp",
+     "bytes": 46088
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-cheesecake-20261123-2f4fe075-320.avif",
+     "bytes": 9557
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-cheesecake-20261123-2f4fe075-480.avif",
+     "bytes": 17896
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-cheesecake-20261123-2f4fe075-720.avif",
+     "bytes": 32270
+    }
+   ]
+  },
+  "/assets/waffles/yogurt-fruit-mochi-20261123.png|feature": {
+   "w": 1400,
+   "h": 814,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261123-e108c020-320.webp",
+     "bytes": 12902
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261123-e108c020-480.webp",
+     "bytes": 21844
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261123-e108c020-720.webp",
+     "bytes": 38442
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261123-e108c020-320.avif",
+     "bytes": 8802
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261123-e108c020-480.avif",
+     "bytes": 15070
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261123-e108c020-720.avif",
+     "bytes": 27376
+    }
+   ]
   }
  },
  "logos": {

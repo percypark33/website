@@ -333,6 +333,7 @@ main>section{position:relative}
 .soon-options{font-weight:600;color:var(--ink)!important}
 .soon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem;margin-top:clamp(16px,3vw,24px)}
 .soon-grid .soon-card{margin-top:0}
+.soon-grid-wide .soon-card{grid-template-columns:1fr minmax(130px,46%)}
 .soon-card source{display:none}
 .soon-card img{width:100%;max-height:220px;object-fit:contain;filter:drop-shadow(0 12px 10px var(--photo-shadow))}
 
