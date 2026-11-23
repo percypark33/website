@@ -428,8 +428,10 @@ function sheet(ctx) {
 export function menu(ctx) {
   const { t, ta, img, site } = ctx;
   const M = site.SETTINGS.mochiIceCream || {};
+  const D = site.SETTINGS.drinksSoon || {};
+  const drinks = D.show ? (D.items || []) : [];
   const groups = [['menu-classic', 'Classic', site.groups.classic], ['menu-special', 'Special', site.groups.special], ['menu-half-half', 'Fruit Half & Half', site.groups['half-half']]];
-  const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cups'], ['food', 'Food'], ['croffles', 'Croffles'], ['toppings', 'Toppings']];
+  const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cups'], ['food', 'Food'], ['croffles', 'Croffles'], ...(drinks.length ? [['drinks', 'Drinks']] : []), ['toppings', 'Toppings']];
   const tabs = [['crunch', 'Crunch'], ['sweet', 'Soft & sweet'], ['finish', 'Sauces & dustings'], ['fruit', 'Extra Fruit']];
   const topping = item => `<li class="topping" data-group="${item.group}">${img(item.photo, 'icon', { alt: '', sizes: '84px' })}<span>${t(item.en)}</span>${site.showPrices && item.price ? `<small>+${e(money(item.price))}</small>` : ''}</li>`;
   ctx.ko[' '] = ' ';
@@ -465,6 +467,14 @@ export function menu(ctx) {
     <p class="group-lead">${t('Croissant meets waffle.')}</p>
     <div class="grid grid-wide grid-count-${site.croffles.length}">${site.croffles.map(i => card(ctx, i)).join('')}</div>
   </section>
+  ${drinks.length ? `<section class="group wrap" id="drinks" aria-labelledby="h-drinks">
+    <h2 id="h-drinks">${t(D.title)}</h2>
+    ${D.blurb ? `<p class="group-lead">${t(D.blurb)}</p>` : ''}
+    <div class="soon-grid">${drinks.map(i => `<div class="soon-card">
+      <div><span class="tag tag-soon">${t(D.badge)}</span><h3>${t(i.name)}</h3><p>${t(i.text)}</p></div>
+      ${img(i.photo, 'feature', { alt: ta(i.alt), sizes: '(max-width: 720px) 40vw, 220px' })}
+    </div>`).join('')}</div>
+  </section>` : ''}
   <section class="group toppings wrap" id="toppings" aria-labelledby="h-toppings">
     <p class="kicker">${t('Make it your own')}</p>
     <h2 id="h-toppings">${t('20+ toppings to choose from.')}</h2>

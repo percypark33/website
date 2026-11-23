@@ -59,6 +59,14 @@ export const EXTRA = {
   'Serves 1 person · Made with our premium milk base.': '1인분 · 프리미엄 우유 베이스로 만듭니다.',
   'Served with fresh strawberries.': '신선한 딸기와 함께 드립니다.',
   'One or two scoops': '한 스쿱 또는 두 스쿱',
+  'Drinks': '음료',
+  'Pink coconut water topped with our house-made fruit cream.': '핑크 코코넛 워터에 수제 과일 크림을 올렸어요.',
+  'Strawberry Coconut Cloud': '딸기 코코넛 클라우드',
+  'Mango Coconut Cloud': '망고 코코넛 클라우드',
+  'Pink coconut water · house-made strawberry cream': '핑크 코코넛 워터 · 수제 딸기 크림',
+  'Pink coconut water · house-made mango cream': '핑크 코코넛 워터 · 수제 망고 크림',
+  'Pink coconut water with a pink strawberry cream top in a clear cup': '투명 컵에 담긴 핑크 코코넛 워터와 딸기 크림',
+  'Pink coconut water with a pale mango cream top in a clear cup': '투명 컵에 담긴 핑크 코코넛 워터와 망고 크림',
   'Highly customizable. Mix and match your favorites to make your perfect bingsu.': '취향대로 자유롭게. 좋아하는 토핑을 골라 나만의 빙수를 완성해 보세요.',
 
   // visit + questions

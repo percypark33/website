@@ -2587,6 +2587,82 @@
      "bytes": 118438
     }
    ]
+  },
+  "/assets/drinks/strawberry-coconut-cloud-20261123.png|feature": {
+   "w": 955,
+   "h": 1400,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-320.webp",
+     "bytes": 14450
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-480.webp",
+     "bytes": 24512
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-720.webp",
+     "bytes": 47114
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-320.avif",
+     "bytes": 10116
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-480.avif",
+     "bytes": 16927
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-720.avif",
+     "bytes": 30679
+    }
+   ]
+  },
+  "/assets/drinks/mango-coconut-cloud-20261123.png|feature": {
+   "w": 944,
+   "h": 1400,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-320.webp",
+     "bytes": 14456
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-480.webp",
+     "bytes": 23630
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-720.webp",
+     "bytes": 43582
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-320.avif",
+     "bytes": 10104
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-480.avif",
+     "bytes": 16366
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-720.avif",
+     "bytes": 27265
+    }
+   ]
   }
  },
  "logos": {

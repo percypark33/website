@@ -114,6 +114,31 @@ window.SITE_SETTINGS = {
     alt: "Matcha mochi ice cream in a white bowl with glazed fresh strawberries"
   },
 
+  /* ---- DRINKS, COMING SOON -------------------------------------
+     Shown on the menu page under "Drinks". No prices yet.
+     Change a name or the words here. To hide the whole section,
+     make it:  show: false                                        */
+  drinksSoon: {
+    show: true,
+    badge: "Coming Soon",
+    title: "Drinks",
+    blurb: "Pink coconut water topped with our house-made fruit cream.",
+    items: [
+      {
+        name: "Strawberry Coconut Cloud",
+        text: "Pink coconut water · house-made strawberry cream",
+        photo: "/assets/drinks/strawberry-coconut-cloud-20261123.png",
+        alt: "Pink coconut water with a pink strawberry cream top in a clear cup"
+      },
+      {
+        name: "Mango Coconut Cloud",
+        text: "Pink coconut water · house-made mango cream",
+        photo: "/assets/drinks/mango-coconut-cloud-20261123.png",
+        alt: "Pink coconut water with a pale mango cream top in a clear cup"
+      }
+    ]
+  },
+
   /* ---- PHOTOS -------------------------------------------------
      Which picture goes with which item. Cups and mini taiyaki
      already name their picture in menu-2026-august.js.
