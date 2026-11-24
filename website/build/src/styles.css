@@ -467,6 +467,10 @@ main>section{position:relative}
   .feature-inner{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
   .feature-cups .feature-copy{order:2}
   .feature-cups .feature-inner{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+  .feature-waffles .feature-copy{order:2}
+  .feature-waffles .feature-inner{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+  .feature-waffles + .feature-cups .feature-copy{order:0}
+  .feature-waffles + .feature-cups .feature-inner{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
   .story-inner{grid-template-columns:minmax(0,1fr)}
   .story-teaser-inner{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
   .story-photos{justify-content:center;flex-wrap:wrap;overflow:visible;margin:0;padding:0;gap:22px}

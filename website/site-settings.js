@@ -102,6 +102,9 @@ window.SITE_SETTINGS = {
      The croffles and cups shown on the home page.               */
   homeCroffles: ["Biscoff Caramel Croffle", "Dubai Strawberry Croffle"],
   homeCups: ["Mango Jelly Cup", "Strawberry Mango Popping Candy Cup", "Cookies and Cream Cup"],
+  /* Three waffles shown on the home page, by their names in wafflesSoon below.
+     To take the waffles off the home page, make it:  homeWaffles: [],          */
+  homeWaffles: ["Pig Bar Waffle", "Strawberry Cheesecake Waffle", "Shine Muscat Yogurt Mochi Waffle"],
 
   /* ---- COMING SOON, NOT IN THE MENU FILE YET -------------------- */
   mochiIceCream: {

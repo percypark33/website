@@ -309,6 +309,7 @@ function features(ctx) {
     <div class="feature-food feature-food-2">${site.homeCroffles.map(i => figure(i, '(max-width: 859px) 44vw, 330px')).join('')}</div>
   </div>
 </section>
+${waffleFeature(ctx)}
 <section class="feature feature-cups" aria-labelledby="home-cups-title">
   <div class="wrap feature-inner">
     <div class="feature-copy">
@@ -318,6 +319,27 @@ function features(ctx) {
       <a class="link" href="/menu#single-cups">${t('Explore cup bingsu')}${ICON.arrow}</a>
     </div>
     <div class="feature-food feature-food-3">${site.homeCups.map(i => figure(i, '(max-width: 859px) 29vw, 220px')).join('')}</div>
+  </div>
+</section>`;
+}
+
+/* Waffles, coming soon: three of them on the home page, picked in site-settings.js (homeWaffles). */
+function waffleFeature(ctx) {
+  const { t, ta, img, site } = ctx;
+  const W = site.SETTINGS.wafflesSoon || {};
+  const items = W.show ? (site.SETTINGS.homeWaffles || []).map(name => (W.items || []).find(i => i.name === name)).filter(Boolean) : [];
+  if (!items.length) return '';
+  const short = name => name.replace(/ Waffle$/, '');
+  const figure = i => `<figure><a href="/menu#waffles">${img(i.photo, 'feature', { alt: ta(i.alt), sizes: '(max-width: 859px) 29vw, 220px' })}</a><figcaption>${t(short(i.name))}</figcaption></figure>`;
+  return `<section class="feature feature-waffles" aria-labelledby="home-waffles-title">
+  <div class="wrap feature-inner">
+    <div class="feature-copy">
+      <span class="tag tag-soon">${t(W.badge)}</span>
+      <h2 id="home-waffles-title">${t('Stuffed Waffles')}</h2>
+      <p>${t('A full-size waffle, freshly baked and crispy, folded and stuffed with our house-made cream, fresh fruit and toppings.')}</p>
+      <a class="link" href="/menu#waffles">${t('See all waffles')}${ICON.arrow}</a>
+    </div>
+    <div class="feature-food feature-food-${items.length === 2 ? 2 : 3}">${items.map(figure).join('')}</div>
   </div>
 </section>`;
 }
