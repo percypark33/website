@@ -309,6 +309,7 @@ function features(ctx) {
     <div class="feature-food feature-food-2">${site.homeCroffles.map(i => figure(i, '(max-width: 859px) 44vw, 330px')).join('')}</div>
   </div>
 </section>
+${waffleFeature(ctx)}
 <section class="feature feature-cups" aria-labelledby="home-cups-title">
   <div class="wrap feature-inner">
     <div class="feature-copy">
@@ -318,6 +319,27 @@ function features(ctx) {
       <a class="link" href="/menu#single-cups">${t('Explore cup bingsu')}${ICON.arrow}</a>
     </div>
     <div class="feature-food feature-food-3">${site.homeCups.map(i => figure(i, '(max-width: 859px) 29vw, 220px')).join('')}</div>
+  </div>
+</section>`;
+}
+
+/* Waffles, coming soon: three of them on the home page, picked in site-settings.js (homeWaffles). */
+function waffleFeature(ctx) {
+  const { t, ta, img, site } = ctx;
+  const W = site.SETTINGS.wafflesSoon || {};
+  const items = W.show ? (site.SETTINGS.homeWaffles || []).map(name => (W.items || []).find(i => i.name === name)).filter(Boolean) : [];
+  if (!items.length) return '';
+  const short = name => name.replace(/ Waffle$/, '');
+  const figure = i => `<figure><a href="/menu#waffles">${img(i.photo, 'feature', { alt: ta(i.alt), sizes: '(max-width: 859px) 29vw, 220px' })}</a><figcaption>${t(short(i.name))}</figcaption></figure>`;
+  return `<section class="feature feature-waffles" aria-labelledby="home-waffles-title">
+  <div class="wrap feature-inner">
+    <div class="feature-copy">
+      <span class="tag tag-soon">${t(W.badge)}</span>
+      <h2 id="home-waffles-title">${t('Stuffed Waffles')}</h2>
+      <p>${t('A full-size waffle, freshly baked and crispy, folded and stuffed with our house-made cream, fresh fruit and toppings.')}</p>
+      <a class="link" href="/menu#waffles">${t('See all waffles')}${ICON.arrow}</a>
+    </div>
+    <div class="feature-food feature-food-${items.length === 2 ? 2 : 3}">${items.map(figure).join('')}</div>
   </div>
 </section>`;
 }
@@ -428,8 +450,20 @@ function sheet(ctx) {
 export function menu(ctx) {
   const { t, ta, img, site } = ctx;
   const M = site.SETTINGS.mochiIceCream || {};
+  const D = site.SETTINGS.drinksSoon || {};
+  const drinks = D.show ? (D.items || []) : [];
+  const W = site.SETTINGS.wafflesSoon || {};
+  const waffles = W.show ? (W.items || []) : [];
+  const soonSection = (id, S, items, wide) => items.length ? `<section class="group wrap" id="${id}" aria-labelledby="h-${id}">
+    <h2 id="h-${id}">${t(S.title)}</h2>
+    ${S.blurb ? `<p class="group-lead">${t(S.blurb)}</p>` : ''}
+    <div class="soon-grid${wide ? ' soon-grid-wide' : ''}">${items.map(i => `<div class="soon-card">
+      <div><span class="tag tag-soon">${t(S.badge)}</span><h3>${t(i.name)}</h3><p>${t(i.text)}</p></div>
+      ${img(i.photo, 'feature', { alt: ta(i.alt), sizes: '(max-width: 720px) 40vw, 220px' })}
+    </div>`).join('')}</div>
+  </section>` : '';
   const groups = [['menu-classic', 'Classic', site.groups.classic], ['menu-special', 'Special', site.groups.special], ['menu-half-half', 'Fruit Half & Half', site.groups['half-half']]];
-  const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cups'], ['food', 'Food'], ['croffles', 'Croffles'], ['toppings', 'Toppings']];
+  const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cups'], ['food', 'Food'], ['croffles', 'Croffles'], ...(waffles.length ? [['waffles', 'Waffles']] : []), ...(drinks.length ? [['drinks', 'Drinks']] : []), ['toppings', 'Toppings']];
   const tabs = [['crunch', 'Crunch'], ['sweet', 'Soft & sweet'], ['finish', 'Sauces & dustings'], ['fruit', 'Extra Fruit']];
   const topping = item => `<li class="topping" data-group="${item.group}">${img(item.photo, 'icon', { alt: '', sizes: '84px' })}<span>${t(item.en)}</span>${site.showPrices && item.price ? `<small>+${e(money(item.price))}</small>` : ''}</li>`;
   ctx.ko[' '] = ' ';
@@ -465,6 +499,8 @@ export function menu(ctx) {
     <p class="group-lead">${t('Croissant meets waffle.')}</p>
     <div class="grid grid-wide grid-count-${site.croffles.length}">${site.croffles.map(i => card(ctx, i)).join('')}</div>
   </section>
+  ${soonSection('waffles', W, waffles, true)}
+  ${soonSection('drinks', D, drinks, false)}
   <section class="group toppings wrap" id="toppings" aria-labelledby="h-toppings">
     <p class="kicker">${t('Make it your own')}</p>
     <h2 id="h-toppings">${t('20+ toppings to choose from.')}</h2>

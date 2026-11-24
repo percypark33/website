@@ -49,6 +49,10 @@ window.SITE_SETTINGS = {
      Hide from the website: "Mango": { hidden: true },           */
   menuEdits: {
     // "Mango": { price: 15.99 },
+    // Off the menu for now (owner, 2026-11-22). Delete these lines to bring them back.
+    "Strawnana Pie": { hidden: true },
+    "Matcha Banana Cream": { hidden: true },
+    "Hojicha Tiramisu": { hidden: true },
   },
 
   /* ---- THE BOWL THAT BUILDS ITSELF AS YOU SCROLL --------------
@@ -98,6 +102,9 @@ window.SITE_SETTINGS = {
      The croffles and cups shown on the home page.               */
   homeCroffles: ["Biscoff Caramel Croffle", "Dubai Strawberry Croffle"],
   homeCups: ["Mango Jelly Cup", "Strawberry Mango Popping Candy Cup", "Cookies and Cream Cup"],
+  /* Three waffles shown on the home page, by their names in wafflesSoon below.
+     To take the waffles off the home page, make it:  homeWaffles: [],          */
+  homeWaffles: ["Pig Bar Waffle", "Strawberry Cheesecake Waffle", "Shine Muscat Yogurt Mochi Waffle"],
 
   /* ---- COMING SOON, NOT IN THE MENU FILE YET -------------------- */
   mochiIceCream: {
@@ -108,6 +115,62 @@ window.SITE_SETTINGS = {
     options: "One or two scoops",
     photo: "/assets/mochi-20261108/white-bowl-v3.webp",
     alt: "Matcha mochi ice cream in a white bowl with glazed fresh strawberries"
+  },
+
+  /* ---- WAFFLES, COMING SOON ------------------------------------
+     Shown on the menu page under "Waffles". One full-size waffle,
+     folded in half around the filling. Change a name or the words
+     here. To hide the whole section, make it:  show: false       */
+  wafflesSoon: {
+    show: true,
+    badge: "Coming Soon",
+    title: "Waffles",
+    blurb: "A full-size waffle, freshly baked, folded and stuffed with cream.",
+    items: [
+      { name: "House Cream Waffle", text: "Freshly baked crispy waffle · house-made mascarpone cream",
+        photo: "/assets/waffles/house-cream-20261124.png", alt: "Folded waffle opened to show mascarpone cream" },
+      { name: "Apple Cinnamon Waffle", text: "House-made mascarpone cream · apple jam · cinnamon powder",
+        photo: "/assets/waffles/apple-cinnamon-20261124.png", alt: "Folded waffle opened to show mascarpone cream, apple jam and cinnamon" },
+      { name: "Cookies & Cream Waffle", text: "House-made mascarpone cream · Oreo crumbs · Nutella spread",
+        photo: "/assets/waffles/cookies-cream-20261124.png", alt: "Folded waffle opened to show mascarpone cream, Oreo crumbs and Nutella" },
+      { name: "Strawnana Waffle", text: "Cream · strawberries · bananas · Nutella spread",
+        photo: "/assets/waffles/strawnana-20261124.png", alt: "Folded waffle opened to show cream, strawberries, bananas and Nutella" },
+      { name: "Pig Bar Waffle", text: "House-made cream · strawberries glazed in strawberry syrup · Nutella spread · toffee · Oreo crumbs · vanilla ice cream",
+        photo: "/assets/waffles/pig-bar-20261124.png", alt: "Folded waffle opened to show cream, syrup-glazed strawberries, Nutella, toffee, Oreo crumbs and vanilla ice cream" },
+      { name: "Chocolate Banana Fudge Waffle", text: "Nutella spread · bananas · cream · brownie bites · premium cacao powder",
+        photo: "/assets/waffles/chocolate-banana-fudge-20261124.png", alt: "Folded waffle opened to show Nutella, bananas, cream, brownie bites and cacao powder" },
+      { name: "Strawberry Cheesecake Waffle", text: "Strawberries · cream · cheesecake bites",
+        photo: "/assets/waffles/strawberry-cheesecake-20261124.png", alt: "Folded waffle opened to show strawberries, cream and cheesecake bites" },
+      { name: "Yogurt Fruit Mochi Waffle", text: "House-made yogurt cream · mochi sheet · strawberries · mangoes · green grapes",
+        photo: "/assets/waffles/yogurt-fruit-mochi-20261124.png", alt: "Folded waffle opened to show yogurt cream, a mochi sheet, strawberries, mango and green grapes" },
+      { name: "Shine Muscat Yogurt Mochi Waffle", text: "House-made yogurt cream · mochi sheet · shine muscats",
+        photo: "/assets/waffles/shine-muscat-yogurt-mochi-20261124.png", alt: "Folded waffle opened to show yogurt cream, a mochi sheet and shine muscat grapes" }
+    ]
+  },
+
+  /* ---- DRINKS, COMING SOON -------------------------------------
+     Shown on the menu page under "Drinks". No prices yet.
+     Change a name or the words here. To hide the whole section,
+     make it:  show: false                                        */
+  drinksSoon: {
+    show: true,
+    badge: "Coming Soon",
+    title: "Drinks",
+    blurb: "Pink coconut water topped with our house-made fruit cream.",
+    items: [
+      {
+        name: "Strawberry Coconut Cloud",
+        text: "Pink coconut water · house-made strawberry cream",
+        photo: "/assets/drinks/strawberry-coconut-cloud-20261123.png",
+        alt: "Pink coconut water with a pink strawberry cream top in a clear cup"
+      },
+      {
+        name: "Mango Coconut Cloud",
+        text: "Pink coconut water · house-made mango cream",
+        photo: "/assets/drinks/mango-coconut-cloud-20261123.png",
+        alt: "Pink coconut water with a pale mango cream top in a clear cup"
+      }
+    ]
   },
 
   /* ---- PHOTOS -------------------------------------------------

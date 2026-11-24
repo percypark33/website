@@ -2587,6 +2587,424 @@
      "bytes": 118438
     }
    ]
+  },
+  "/assets/drinks/strawberry-coconut-cloud-20261123.png|feature": {
+   "w": 955,
+   "h": 1400,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-320.webp",
+     "bytes": 14450
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-480.webp",
+     "bytes": 24512
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-720.webp",
+     "bytes": 47114
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-320.avif",
+     "bytes": 10116
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-480.avif",
+     "bytes": 16927
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-coconut-cloud-20261123-5b80abd2-720.avif",
+     "bytes": 30679
+    }
+   ]
+  },
+  "/assets/drinks/mango-coconut-cloud-20261123.png|feature": {
+   "w": 944,
+   "h": 1400,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-320.webp",
+     "bytes": 14456
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-480.webp",
+     "bytes": 23630
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-720.webp",
+     "bytes": 43582
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-320.avif",
+     "bytes": 10104
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-480.avif",
+     "bytes": 16366
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/mango-coconut-cloud-20261123-0cb29eca-720.avif",
+     "bytes": 27265
+    }
+   ]
+  },
+  "/assets/waffles/house-cream-20261124.png|feature": {
+   "w": 1400,
+   "h": 1099,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/house-cream-20261124-b50662db-320.webp",
+     "bytes": 14912
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/house-cream-20261124-b50662db-480.webp",
+     "bytes": 25044
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/house-cream-20261124-b50662db-720.webp",
+     "bytes": 46706
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/house-cream-20261124-b50662db-320.avif",
+     "bytes": 10534
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/house-cream-20261124-b50662db-480.avif",
+     "bytes": 18635
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/house-cream-20261124-b50662db-720.avif",
+     "bytes": 34478
+    }
+   ]
+  },
+  "/assets/waffles/apple-cinnamon-20261124.png|feature": {
+   "w": 1400,
+   "h": 1099,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/apple-cinnamon-20261124-26704de0-320.webp",
+     "bytes": 19292
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/apple-cinnamon-20261124-26704de0-480.webp",
+     "bytes": 35178
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/apple-cinnamon-20261124-26704de0-720.webp",
+     "bytes": 69230
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/apple-cinnamon-20261124-26704de0-320.avif",
+     "bytes": 13276
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/apple-cinnamon-20261124-26704de0-480.avif",
+     "bytes": 25143
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/apple-cinnamon-20261124-26704de0-720.avif",
+     "bytes": 49101
+    }
+   ]
+  },
+  "/assets/waffles/cookies-cream-20261124.png|feature": {
+   "w": 1400,
+   "h": 1101,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cookies-cream-20261124-8e26f828-320.webp",
+     "bytes": 23492
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cookies-cream-20261124-8e26f828-480.webp",
+     "bytes": 43276
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cookies-cream-20261124-8e26f828-720.webp",
+     "bytes": 84666
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/cookies-cream-20261124-8e26f828-320.avif",
+     "bytes": 15706
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/cookies-cream-20261124-8e26f828-480.avif",
+     "bytes": 29280
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/cookies-cream-20261124-8e26f828-720.avif",
+     "bytes": 56556
+    }
+   ]
+  },
+  "/assets/waffles/strawnana-20261124.png|feature": {
+   "w": 1400,
+   "h": 1099,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawnana-20261124-79efbc9f-320.webp",
+     "bytes": 17954
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawnana-20261124-79efbc9f-480.webp",
+     "bytes": 31270
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawnana-20261124-79efbc9f-720.webp",
+     "bytes": 58520
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawnana-20261124-79efbc9f-320.avif",
+     "bytes": 12162
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawnana-20261124-79efbc9f-480.avif",
+     "bytes": 22187
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawnana-20261124-79efbc9f-720.avif",
+     "bytes": 42381
+    }
+   ]
+  },
+  "/assets/waffles/pig-bar-20261124.png|feature": {
+   "w": 1400,
+   "h": 1132,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/pig-bar-20261124-1d4597ac-320.webp",
+     "bytes": 23592
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/pig-bar-20261124-1d4597ac-480.webp",
+     "bytes": 44932
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/pig-bar-20261124-1d4597ac-720.webp",
+     "bytes": 86830
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/pig-bar-20261124-1d4597ac-320.avif",
+     "bytes": 15577
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/pig-bar-20261124-1d4597ac-480.avif",
+     "bytes": 29458
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/pig-bar-20261124-1d4597ac-720.avif",
+     "bytes": 57836
+    }
+   ]
+  },
+  "/assets/waffles/chocolate-banana-fudge-20261124.png|feature": {
+   "w": 1400,
+   "h": 1099,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/chocolate-banana-fudge-20261124-fb8cc943-320.webp",
+     "bytes": 22898
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/chocolate-banana-fudge-20261124-fb8cc943-480.webp",
+     "bytes": 42330
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/chocolate-banana-fudge-20261124-fb8cc943-720.webp",
+     "bytes": 84858
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/chocolate-banana-fudge-20261124-fb8cc943-320.avif",
+     "bytes": 14714
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/chocolate-banana-fudge-20261124-fb8cc943-480.avif",
+     "bytes": 27499
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/chocolate-banana-fudge-20261124-fb8cc943-720.avif",
+     "bytes": 54786
+    }
+   ]
+  },
+  "/assets/waffles/strawberry-cheesecake-20261124.png|feature": {
+   "w": 1400,
+   "h": 1099,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-cheesecake-20261124-4394a4a1-320.webp",
+     "bytes": 20798
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-cheesecake-20261124-4394a4a1-480.webp",
+     "bytes": 37708
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-cheesecake-20261124-4394a4a1-720.webp",
+     "bytes": 74642
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/strawberry-cheesecake-20261124-4394a4a1-320.avif",
+     "bytes": 13932
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/strawberry-cheesecake-20261124-4394a4a1-480.avif",
+     "bytes": 26196
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/strawberry-cheesecake-20261124-4394a4a1-720.avif",
+     "bytes": 51425
+    }
+   ]
+  },
+  "/assets/waffles/yogurt-fruit-mochi-20261124.png|feature": {
+   "w": 1400,
+   "h": 1100,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261124-b095334e-320.webp",
+     "bytes": 17192
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261124-b095334e-480.webp",
+     "bytes": 29970
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261124-b095334e-720.webp",
+     "bytes": 57642
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261124-b095334e-320.avif",
+     "bytes": 11911
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261124-b095334e-480.avif",
+     "bytes": 21560
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/yogurt-fruit-mochi-20261124-b095334e-720.avif",
+     "bytes": 41319
+    }
+   ]
+  },
+  "/assets/waffles/shine-muscat-yogurt-mochi-20261124.png|feature": {
+   "w": 1400,
+   "h": 1092,
+   "variants": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/shine-muscat-yogurt-mochi-20261124-d4b748f1-320.webp",
+     "bytes": 15542
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/shine-muscat-yogurt-mochi-20261124-d4b748f1-480.webp",
+     "bytes": 27022
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/shine-muscat-yogurt-mochi-20261124-d4b748f1-720.webp",
+     "bytes": 50790
+    }
+   ],
+   "avif": [
+    {
+     "w": 320,
+     "url": "/assets/site/img/shine-muscat-yogurt-mochi-20261124-d4b748f1-320.avif",
+     "bytes": 11171
+    },
+    {
+     "w": 480,
+     "url": "/assets/site/img/shine-muscat-yogurt-mochi-20261124-d4b748f1-480.avif",
+     "bytes": 19701
+    },
+    {
+     "w": 720,
+     "url": "/assets/site/img/shine-muscat-yogurt-mochi-20261124-d4b748f1-720.avif",
+     "bytes": 37568
+    }
+   ]
   }
  },
  "logos": {
