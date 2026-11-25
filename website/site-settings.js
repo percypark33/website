@@ -191,7 +191,7 @@ window.SITE_SETTINGS = {
   photos: {
     // Classic
     "Black Sesame": "/assets/bowl-black-sesame-natural.png",
-    "Injeolmi Jollypong": "/assets/bowl-injeolmi-jollypong-preview-20261026.png",
+    "Injeolmi": "/assets/bowl-injeolmi-natural.png",
     "Mango": "/assets/bowl-mango-natural.png",
     "Strawberry": "/assets/bowl-strawberry-realphoto-natural.png",
     "Cookies and Cream": "/assets/bowl-cookies-cream-natural.png",

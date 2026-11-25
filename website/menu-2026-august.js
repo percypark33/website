@@ -723,9 +723,6 @@ window.MENU.squareMenu = {"checkedAt": "2026-10-26T23:18:30.008Z", "source": "ht
  const apply=(f,item)=>({...f,ing:item.description.replace(/\n+/g,' · ').replace(/,\s*/g,' · '),price:item.price.amount/100,squareName:item.name,inventoryName:item.name,soldOut:item.availability==='LOCAL_CATALOG_AVAILABILITY_SOLD_OUT'});
  const originals=M.bingsu.flavors;
  M.bingsu.flavors=S.bowls.map(item=>{const f=originals.find(f=>norm(f.name)===norm(item.name));return f?apply(f,item):null;}).filter(Boolean);
- // Owner recipe update; retain the original Square inventory name and price.
- const injeolmi=M.bingsu.flavors.find(f=>f.name==='Injeolmi');
- if(injeolmi){injeolmi.name='Injeolmi Jollypong';injeolmi.ing+=' · Jollypong';injeolmi.imagePreview=true;}
  // Owner confirmed available now on 2026-10-28; Square catalog is managed separately.
  M.bingsu.upcoming=[{name:"Milk & Honeycomb",ing:"Granola · Raw honeycomb · Honeycomb cereal",imagePreview:true,price:16.99,menuType:"special",comingSoon:true}];
  M.bingsu.flavors.push(...[{"name": "Shine Muscat Aloe Bingsu", "price": 18.99, "ing": "Korean Shine Muscats \u00b7 Green grape yogurt syrup \u00b7 Aloe vera \u00b7 Yogurt ice cream", "menuType": "special", "imagePreview": true, "comingSoon": false, "soldOut": false}, {"name": "Lychee & Shine Muscat", "price": 19.99, "ing": "Lychee \u00b7 Korean Shine Muscats \u00b7 Green grape yogurt syrup \u00b7 Aloe vera \u00b7 Yogurt ice cream", "menuType": null, "imagePreview": true, "comingSoon": false, "soldOut": false, "subtitle": "Half-and-half"}, {"name": "Lychee & Strawberry", "price": 18.99, "ing": "Lychee \u00b7 Fresh strawberries \u00b7 Fruit syrups \u00b7 Strawberry popping boba on the strawberry side \u00b7 Yogurt ice cream", "menuType": null, "imagePreview": true, "comingSoon": false, "soldOut": false, "subtitle": "Half-and-half"}, {"name": "Mango & Lychee", "price": 18.99, "ing": "Fresh mango \u00b7 Lychee \u00b7 Fruit syrups \u00b7 Yogurt ice cream", "menuType": null, "imagePreview": true, "comingSoon": false, "soldOut": false, "subtitle": "Half-and-half"}, {"name": "Strawberry & Shine Muscat", "price": 18.99, "ing": "Fresh strawberries \u00b7 Korean Shine Muscats \u00b7 Green grape yogurt syrup \u00b7 Aloe vera \u00b7 Strawberry popping boba on the strawberry side \u00b7 Yogurt ice cream", "menuType": null, "imagePreview": true, "comingSoon": false, "soldOut": false, "subtitle": "Half-and-half"}],...M.bingsu.upcoming);
@@ -734,7 +731,7 @@ window.MENU.squareMenu = {"checkedAt": "2026-10-26T23:18:30.008Z", "source": "ht
  M.bingsu.halfAndHalfOrder=M.bingsu.halfAndHalfOrder.filter(n=>n!=="Lychee & Strawberry");
  M.bingsu.rotationOrder=M.bingsu.flavors.map(f=>f.name);
  // Owner defines permanence; never infer Regular/Special from flavor, price or stock.
- M.bingsu.menuTypes={"Mango": "classic", "Strawberry": "classic", "Injeolmi Jollypong": "classic", "Black Sesame": "classic", "Cookies and Cream": "classic", "Matcha Strawberry": "special", "Matcha Banana Cream": "special", "Hojicha Tiramisu": "special", "Lychee Heaven": "special", "Strawnana Pie": "special"};
+ M.bingsu.menuTypes={"Mango": "classic", "Strawberry": "classic", "Injeolmi": "classic", "Black Sesame": "classic", "Cookies and Cream": "classic", "Matcha Strawberry": "special", "Matcha Banana Cream": "special", "Hojicha Tiramisu": "special", "Lychee Heaven": "special", "Strawnana Pie": "special"};
  M.bingsu.flavors=M.bingsu.flavors.map(f=>({...f,menuType:M.bingsu.menuTypes[f.name]||f.menuType||null}));
  M.bingsu.classicOrder=[];M.bingsu.specialOrder=[];M.bingsu.title='Premium Fruit Bingsu';
  const oldCups=M.cupBingsu.flavors;
