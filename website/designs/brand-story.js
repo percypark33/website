@@ -28,7 +28,7 @@
   const PHOTOS_KO = {
     left: [
       { file: 'winter.jpg', alt: '작은 크리스마스트리와 전구 장식이 있는 Sweet Snow 카운터에서 주문하는 두 손님', caption: '우리의 첫 겨울', date: '2025년 12월', tilt: -3, tape: -5 },
-      { file: 'pastry.jpg', alt: '주방에서 한 사람이 팥을 반죽에 넣고 다른 사람이 지켜보는 모습', caption: '팥 붕어빵 연습', date: '오픈 직후', tilt: 2.5, tape: 4 },
+      { file: 'pastry.jpg', alt: '주방에서 한 사람이 팥을 반죽에 넣고 다른 사람이 지켜보는 모습', caption: '팥 반죽 연습', date: '오픈 직후', tilt: 2.5, tape: 4 },
       { file: 'family-time.jpg', alt: '2026년 설 배너가 보이는 푸드코트에서 유모차에 앉아 웃고 있는 아기', caption: '가족 시간', date: '2026년 2월', tilt: -2, tape: -3 }
     ],
     right: [

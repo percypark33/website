@@ -86,7 +86,7 @@ function faq(ctx) {
     ['What is bingsu?', 'Bingsu, also spelled bingsoo, is a Korean shaved ice dessert. At Sweet Snow, our milk base is shaved into soft snow and layered with fruit, syrups and toppings.'],
     ['Where is Sweet Snow?', 'Find us inside the QT Golden Market Place food court at 9772 Garden Grove Blvd, Garden Grove, CA 92844. Look for the blue Sweet Snow sign.'],
     ['Can I order pickup or delivery?', 'Use Order online to see today’s pickup menu and availability. Delivery is available through our DoorDash link.'],
-    ['What are croffles and mini taiyaki?', 'A croffle is croissant dough cooked in a waffle maker. Our mini taiyaki are small filled, fish-shaped pastries, baked to order and served as seven pieces in a small kraft paper bag.']
+    ['What are croffles?', 'A croffle is croissant dough cooked in a waffle maker.']
   ];
   return `<section class="faq wrap" aria-labelledby="faq-title">
   <h2 id="faq-title">${t('A little more about Sweet Snow')}</h2>
@@ -463,7 +463,9 @@ export function menu(ctx) {
     </div>`).join('')}</div>
   </section>` : '';
   const groups = [['menu-classic', 'Classic', site.groups.classic], ['menu-special', 'Special', site.groups.special], ['menu-half-half', 'Fruit Half & Half', site.groups['half-half']]];
-  const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cups'], ['food', 'Food'], ['croffles', 'Croffles'], ...(waffles.length ? [['waffles', 'Waffles']] : []), ...(drinks.length ? [['drinks', 'Drinks']] : []), ['toppings', 'Toppings']];
+  const showTaiyaki = site.taiyaki.length > 0;
+  const showFood = showTaiyaki || M.show;
+  const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cups'], ...(showFood ? [['food', 'Food']] : []), ['croffles', 'Croffles'], ...(waffles.length ? [['waffles', 'Waffles']] : []), ...(drinks.length ? [['drinks', 'Drinks']] : []), ['toppings', 'Toppings']];
   const tabs = [['crunch', 'Crunch'], ['sweet', 'Soft & sweet'], ['finish', 'Sauces & dustings'], ['fruit', 'Extra Fruit']];
   const topping = item => `<li class="topping" data-group="${item.group}">${img(item.photo, 'icon', { alt: '', sizes: '84px' })}<span>${t(item.en)}</span>${site.showPrices && item.price ? `<small>+${e(money(item.price))}</small>` : ''}</li>`;
   ctx.ko[' '] = ' ';
@@ -472,7 +474,7 @@ export function menu(ctx) {
 <main id="main" class="menu-page">
   <header class="page-head wrap" id="menu">
     <h1>${t('Our menu')}</h1>
-    <p class="lead">${t('Korean bingsu, cup bingsu, croffles and mini taiyaki in Garden Grove. Explore the flavors below, then check today’s availability when you order online.')}</p>
+    <p class="lead">${t('Korean bingsu, cup bingsu and croffles in Garden Grove. Explore the flavors below, then check today’s availability when you order online.')}</p>
   </header>
   <nav class="cats" aria-label="${ta('Menu categories')}" data-cats><div class="cats-track wrap">${cats.map(([id, label]) => `<a href="#${id}">${t(label)}</a>`).join('')}</div></nav>
   ${groups.map(([id, label, items]) => `<section class="group wrap" id="${id}" aria-labelledby="h-${id}">
@@ -484,16 +486,16 @@ export function menu(ctx) {
     <p class="group-lead">${t(site.cupMeta.blurb)}</p>
     <div class="grid">${site.cups.map(i => card(ctx, i)).join('')}</div>
   </section>
-  <section class="group wrap" id="food" aria-labelledby="h-food">
+  ${showFood ? `<section class="group wrap" id="food" aria-labelledby="h-food">
     <h2 id="h-food">${t(site.taiyakiMeta.section)}</h2>
-    <h3 class="group-sub" id="mini-taiyaki">${t(site.taiyakiMeta.title)}</h3>
+    ${showTaiyaki ? `<h3 class="group-sub" id="mini-taiyaki">${t(site.taiyakiMeta.title)}</h3>
     <p class="group-lead">${t(site.taiyakiMeta.blurb)}</p>
-    <div class="grid">${site.taiyaki.map(i => card(ctx, i)).join('')}</div>
+    <div class="grid">${site.taiyaki.map(i => card(ctx, i)).join('')}</div>` : ''}
     ${M.show ? `<div class="soon-card" id="mini-sides">
       <div><span class="tag tag-soon">${t(M.badge)}</span><h3>${t(M.name)}</h3><p>${t(M.text)}</p><p class="soon-options">${t(M.options)}</p></div>
       ${img(M.photo, 'feature', { alt: ta(M.alt), sizes: '(max-width: 720px) 60vw, 300px' })}
     </div>` : ''}
-  </section>
+  </section>` : ''}
   <section class="group wrap" id="croffles" aria-labelledby="h-croffles">
     <h2 id="h-croffles">${t('Premium Croffles')}</h2>
     <p class="group-lead">${t('Croissant meets waffle.')}</p>
@@ -603,14 +605,14 @@ export function business(site) {
   return {
     '@context': 'https://schema.org', '@type': 'IceCreamShop', '@id': SITE + '/#business', name: 'Sweet Snow', url: SITE,
     image: SITE + '/assets/brand/sweet-snow-logo-20261112.png', logo: SITE + '/assets/brand/sweet-snow-logo-20261112.png',
-    description: 'Korean bingsu, mini taiyaki, and customizable toppings inside QT Golden Market Place, Garden Grove, CA.',
+    description: 'Korean bingsu and customizable toppings inside QT Golden Market Place, Garden Grove, CA.',
     servesCuisine: ['Korean', 'Dessert'], priceRange: '$$',
     address: { '@type': 'PostalAddress', streetAddress: '9772 Garden Grove Blvd', addressLocality: 'Garden Grove', addressRegion: 'CA', postalCode: '92844', addressCountry: 'US' },
     geo: { '@type': 'GeoCoordinates', latitude: 33.7729, longitude: -117.9619 },
     openingHoursSpecification: spec,
     sameAs: ['https://www.instagram.com/sweetsnowusa/', 'https://www.yelp.com/biz/sweet-snow-garden-grove'],
     hasMenu: SITE + '/menu', hasMap: 'https://www.google.com/maps/search/?api=1&query=Sweet%20Snow%209772%20Garden%20Grove%20Blvd%20Garden%20Grove%20CA',
-    areaServed: ['Garden Grove', 'Orange County'], keywords: 'Korean bingsu, Korean shaved ice, bingsu Garden Grove, bingsu Orange County, mini taiyaki, croffles'
+    areaServed: ['Garden Grove', 'Orange County'], keywords: 'Korean bingsu, Korean shaved ice, bingsu Garden Grove, bingsu Orange County, croffles'
   };
 }
 
@@ -620,13 +622,14 @@ export function menuSchema(site) {
   const bowl = i => ({ '@type': 'MenuItem', name: /bingsu$/i.test(i.name) ? i.name : i.name + ' Bingsu', description: i.ing.replace(/^Milk base · /, ''), ...offer(i) });
   const plain = i => ({ '@type': 'MenuItem', name: i.name, description: i.ing, ...offer(i) });
   const section = (name, items) => ({ '@type': 'MenuSection', name, hasMenuItem: items });
+  const taiyaki = live(site.taiyaki).map(i => ({ '@type': 'MenuItem', name: i.name + ' Mini Taiyaki', description: `${i.ing} · ${i.note}`, ...offer(i) }));
   return {
     '@context': 'https://schema.org', '@type': 'Menu', '@id': SITE + '/menu#menu', url: SITE + '/menu', name: 'Sweet Snow Menu', inLanguage: 'en',
     hasMenuSection: [
       section('Classic Bingsu', live(site.groups.classic).map(bowl)), section('Special Bingsu', live(site.groups.special).map(bowl)),
       section('Fruit Half & Half', live(site.groups['half-half']).map(bowl)), section('Cup Bingsu', live(site.cups).map(plain)),
       section('Croffles', live(site.croffles).map(plain)),
-      section('Mini Taiyaki — 7 pieces', live(site.taiyaki).map(i => ({ '@type': 'MenuItem', name: i.name + ' Mini Taiyaki', description: `${i.ing} · ${i.note}`, ...offer(i) })))
+      ...(taiyaki.length ? [section('Mini Taiyaki — 7 pieces', taiyaki)] : [])
     ]
   };
 }
@@ -636,13 +639,13 @@ export const PAGES = {
     file: 'index.html', path: '/', bodyClass: 'page-home',
     title: 'Sweet Snow | Korean Bingsu in Garden Grove, Orange County',
     ogTitle: 'Sweet Snow | Korean Bingsu in Garden Grove',
-    description: 'Korean bingsu, croffles and mini taiyaki inside QT Golden Market Place in Garden Grove. Explore the menu, order online, and find hours and directions.'
+    description: 'Korean bingsu and croffles inside QT Golden Market Place in Garden Grove. Explore the menu, order online, and find hours and directions.'
   },
   menu: {
     file: 'menu.html', path: '/menu', bodyClass: 'page-menu', crumb: 'Menu',
     title: 'Sweet Snow Menu | Bingsu & Desserts in Garden Grove',
     ogTitle: 'Sweet Snow Menu | Bingsu & Desserts in Garden Grove',
-    description: 'Browse Sweet Snow’s bingsu, cup bingsu, croffles and mini taiyaki menu in Garden Grove. Check today’s availability and order online for pickup.'
+    description: 'Browse Sweet Snow’s bingsu, cup bingsu and croffles menu in Garden Grove. Check today’s availability and order online for pickup.'
   },
   story: {
     file: 'our-story.html', path: '/our-story', bodyClass: 'page-story', crumb: 'Our story', noMenuSchema: true,

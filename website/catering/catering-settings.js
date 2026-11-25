@@ -87,7 +87,7 @@ window.CATERING_SETTINGS = {
   tiers: [
     { name: "Basic",   text: "Two cup bingsu flavors on your event menu.",   flavors: 2, addOn: "", price: "", guests: "" },
     { name: "Premium", text: "Three cup bingsu flavors on your event menu.", flavors: 3, addOn: "", price: "", guests: "" },
-    { name: "Special", text: "Three cup bingsu flavors of your choice.",     flavors: 3, addOn: "Mini taiyaki add-on available", price: "", guests: "" }
+    { name: "Special", text: "Three cup bingsu flavors of your choice.",     flavors: 3, addOn: "", price: "", guests: "" }
   ],
 
   /* ---- THE EVENT MENU ---------------------------------------------
@@ -98,7 +98,7 @@ window.CATERING_SETTINGS = {
 
   /* ---- ON THE SIDE ------------------------------------------------- */
   taiyaki: {
-    show: true,
+    show: false, // off the website, 2026-11-24
     title: "Mini taiyaki add-on",
     text: "Small filled, fish-shaped pastries. Add them with the Special tier."
   },
@@ -142,7 +142,7 @@ window.CATERING_SETTINGS = {
   answers: {
     how: "Tell me about your event and pick a day for your appointment. We confirm by email or text, plan your menu together, and send you a quote.",
     price: "The price depends on your guest count and tier. We send a quote after your appointment.",
-    taiyaki: "Mini taiyaki can be added with the Special tier.",
+    taiyaki: "", // add-on is off the website, 2026-11-24
     preMade: "We serve our cup bingsu at your event. You choose the flavors for your event menu at your appointment.",
     guests: "We cater events of 50 to 200+ guests."
   }

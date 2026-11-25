@@ -53,6 +53,13 @@ window.SITE_SETTINGS = {
     "Strawnana Pie": { hidden: true },
     "Matcha Banana Cream": { hidden: true },
     "Hojicha Tiramisu": { hidden: true },
+    // Mini taiyaki off the website (2026-11-24). Delete these lines to bring them back.
+    "Red Bean": { hidden: true },
+    "Custard": { hidden: true },
+    "Cheese": { hidden: true },
+    "Sweet Potato": { hidden: true },
+    "Nutella": { hidden: true },
+    "Dubai Chocolate": { hidden: true },
   },
 
   /* ---- THE BOWL THAT BUILDS ITSELF AS YOU SCROLL --------------
