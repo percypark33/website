@@ -137,7 +137,7 @@ function main() {
   const scriptsFor = (settings, extra = '') => `<script>document.documentElement.classList.add('js');window.SWEET_SNOW=${JSON.stringify(settings)};__LEGACY__</script>
 <script defer src="/assets/site/app.js?v=${hash(js)}"></script>${extra}
 <script defer src="/analytics-config.js?v=google-tags-sept24"></script>
-<script defer src="/analytics.js?v=seo-20261031"></script>`;
+<script defer src="/analytics.js?v=menu-click-20261125"></script>`;
   const scripts = scriptsFor(config);
 
   /* --- catering: the landing page. The main site's styles, plus its own and one of three cute designs, loaded only by the catering pages --- */

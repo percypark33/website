@@ -80,6 +80,9 @@
     } else if (isDirectionsDestination(url)) {
       event("directions_click", {});
     } else if (url.origin === window.location.origin) {
+      if (/^\/menu\/?$/.test(url.pathname) && !/^\/menu\/?$/.test(window.location.pathname)) {
+        event("view_menu_click", {});
+      }
       var section = sections[url.hash.slice(1)];
       if (section) event("navigate_section", { section_name: section });
     } else if (/^(www\.)?instagram\.com$/.test(url.hostname)) {
