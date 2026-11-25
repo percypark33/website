@@ -47,7 +47,7 @@ export function nearest(name, names) {
 
 const TOPPING_GROUPS = {
   finish: new Set(['condensed-milk', 'honey-drizzle', 'tajin', 'injeolmi-powder']),
-  sweet: new Set(['coconut-jelly', 'mochi', 'red-beans', 'ice-cream-vanilla', 'ice-cream-yogurt', 'cheesecake-bites', 'brownie-bites', 'cookie-dough-bites', 'sprinkles'])
+  sweet: new Set(['cream-top', 'coconut-jelly', 'mochi', 'red-beans', 'ice-cream-vanilla', 'ice-cream-yogurt', 'cheesecake-bites', 'brownie-bites', 'cookie-dough-bites', 'sprinkles'])
 };
 
 export function loadSite(root) {
@@ -127,8 +127,8 @@ export function loadSite(root) {
     tierPrice[item.en.toLowerCase()] = price(tier.price);
   }
   const toppingPrice = en => tierPrice[en.toLowerCase()] ?? tierPrice[en.toLowerCase().replace(/ ice cream$/, '')] ?? (en === 'Sprinkles' ? 0 : null);
-  const toppings = manifest.filter(t => t.category !== 'cream-top' && t.category !== 'extra-fruit').map(t => ({
-    key: t.key, en: t.en, ko: t.ko, photo: `/designs/toppings/${t.key}.webp`, price: toppingPrice(t.en),
+  const toppings = manifest.filter(t => t.category !== 'extra-fruit').map(t => ({
+    key: t.key, en: t.en, ko: t.ko, photo: `/designs/toppings/${t.key}.webp`, price: t.category === 'cream-top' ? price(MENU.creamTop.price) : toppingPrice(t.en),
     group: TOPPING_GROUPS.finish.has(t.key) ? 'finish' : (TOPPING_GROUPS.sweet.has(t.key) || t.key.startsWith('popping-boba-')) ? 'sweet' : 'crunch'
   }));
   const fruitPrice = Object.fromEntries((MENU.extraFruit?.items || []).map(i => [i.en.toLowerCase(), price(i.price)]));
