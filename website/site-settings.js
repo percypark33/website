@@ -132,13 +132,13 @@ window.SITE_SETTINGS = {
     alt: "Matcha mochi ice cream in a white bowl with glazed fresh strawberries"
   },
 
-  /* ---- WAFFLES, COMING SOON ------------------------------------
+  /* ---- STUFFED WAFFLES ------------------------------------
      Shown on the menu page under "Waffles". One full-size waffle,
      folded in half around the filling. Change a name or the words
      here. To hide the whole section, make it:  show: false       */
   wafflesSoon: {
     show: true,
-    badge: "Coming Soon",
+    badge: "Available in-store",
     title: "Waffles",
     blurb: "A full-size waffle, freshly baked, folded and stuffed with cream.",
     items: [
