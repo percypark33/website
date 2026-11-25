@@ -284,7 +284,7 @@ function build(ctx) {
       <p class="lead">${t('Korean shaved milk ice, soft as freshly fallen snow.')}</p>
       <h4>${t('Light, Fluffy, Melt-In-Your-Mouth')}</h4>
       <p>${t('Bingsu is a Korean shaved ice dessert, also spelled bingsoo. Snowflake bingsu takes its name from the delicate flakes that resemble snow. Made with a milk base, this modern style has a soft, creamy texture that melts on your tongue.')}</p>
-      <p>${t('At Sweet Snow, we use only milk for our snow, shaved on an authentic snowflake machine from Korea. Each flavor brings its own combination of fruit, house-made syrups and toppings. Our full-size bowls are made to share between two or three people.')}</p>
+      <p>${t('At Sweet Snow, we use only milk for our snow, shaved on an authentic snowflake machine from Korea. Each flavor brings its own combination of fruit, house-made syrups and toppings. Our full-size bowls are made to share between two and four people.')}</p>
       <h4>${t('From Ice To Milk Snow')}</h4>
       <p>${t('Korea has a long tradition of chilled ice desserts. Early ice-and-fruit preparations were different from the bingsu bowls we know today. Over time, shaved ice topped with sweet red bean became a familiar favorite known as patbingsu.')}</p>
       <p>${t('The milk-snow style is a more recent chapter. Snowflake-style bingsu gained popularity during the 2000s, and shaved-milk versions became mainstream in Korea in the early-to-mid 2010s as dessert cafés expanded. Today, bowls range from red bean and roasted soybean powder to fresh fruit and tea flavors.')}</p>
@@ -468,7 +468,7 @@ export function menu(ctx) {
   const showFood = showTaiyaki || M.show;
   const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cups'], ...(showFood ? [['food', 'Food']] : []), ['croffles', 'Croffles'], ...(waffles.length ? [['waffles', 'Waffles']] : []), ...(drinks.length ? [['drinks', 'Drinks']] : []), ['toppings', 'Toppings']];
   const tabs = [['crunch', 'Crunch'], ['sweet', 'Soft & sweet'], ['finish', 'Sauces & dustings'], ['fruit', 'Extra Fruit']];
-  const topping = item => `<li class="topping" data-group="${item.group}">${img(item.photo, 'icon', { alt: '', sizes: '84px' })}<span>${t(item.en)}</span>${site.showPrices && item.price !== null ? `<small>${item.price === 0 ? t("Free") : "+" + e(money(item.price))}</small>` : ''}</li>`;
+  const topping = item => `<li class="topping" data-group="${item.group}">${item.photo ? img(item.photo, 'icon', { alt: '', sizes: '84px' }) : ''}<span>${t(item.en)}</span>${site.showPrices && item.price !== null ? `<small>${item.price === 0 ? t("Free") : "+" + e(money(item.price))}</small>` : ''}</li>`;
   ctx.ko[' '] = ' ';
   for (const item of [...site.toppings, ...site.extraFruit]) ctx.ko[item.en] = item.ko; // the owner's own Korean topping names
   return `${header(ctx, 'menu')}

@@ -48,11 +48,11 @@ window.SITE_SETTINGS = {
      Mark coming soon:      "Mango": { comingSoon: true },
      Hide from the website: "Mango": { hidden: true },           */
   menuEdits: {
-    "Injeolmi Croffle": { price: 6.99 },
-    "Biscoff Caramel Croffle": { price: 7.99 },
+    "Injeolmi Croffle": { price: 7.99 },
+    "Biscoff Caramel Croffle": { price: 8.99 },
     "Cookies and Cream Croffle": { hidden: true },
     "Dubai Strawberry Croffle": { hidden: true },
-    "Matcha Strawberry": { price: 16.99 },
+    "Matcha Strawberry": { name: "Matcha Strawberry Biscoff", price: 16.99 },
     "Lychee Heaven": { price: 17.99 },
     "Shine Muscat Aloe Bingsu": { price: 17.99 },
     "Sweet Potato Cream Bingsu": { price: 15.99 },
@@ -117,7 +117,7 @@ window.SITE_SETTINGS = {
 
   /* ---- HOME PAGE FEATURES -------------------------------------
      The croffles and cups shown on the home page.               */
-  homeCroffles: ["Plain Croffle", "Biscoff Caramel Croffle"],
+  homeCroffles: ["Injeolmi Croffle", "Biscoff Caramel Croffle"],
   homeCups: ["Mango Jelly Cup", "Strawberry Mango Popping Candy Cup", "Cookies and Cream Cup"],
   /* Three waffles shown on the home page, by their names in wafflesSoon below.
      To take the waffles off the home page, make it:  homeWaffles: [],          */
@@ -206,7 +206,7 @@ window.SITE_SETTINGS = {
     "Strawnana Pie": "/assets/bowl-strawnana-natural.png",
     "Shine Muscat Aloe Bingsu": "/assets/bingsu-tv/b-shine-muscat.webp",
     "Honeycomb x2": "/assets/bingsu-tv/b-honeycomb-x2.webp",
-    "Sweet Potato Cream Bingsu": "/assets/bowl-sweet-potato-cream-20261109.webp",
+    "Sweet Potato Cream Bingsu": "/assets/bingsu-tv/b-sweet-potato-cream.webp",
     // Fruit Half & Half
     "Mango & Strawberry": "/assets/bingsu-tv/b-half-half.webp",
     "Lychee & Shine Muscat": "/assets/bingsu-tv/b-shine-lychee.webp",

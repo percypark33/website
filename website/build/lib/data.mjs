@@ -131,6 +131,7 @@ export function loadSite(root) {
     key: t.key, en: t.en, ko: t.ko, photo: `/designs/toppings/${t.key}.webp`, price: t.category === 'cream-top' ? price(MENU.creamTop.price) : toppingPrice(t.en),
     group: TOPPING_GROUPS.finish.has(t.key) ? 'finish' : (TOPPING_GROUPS.sweet.has(t.key) || t.key.startsWith('popping-boba-')) ? 'sweet' : 'crunch'
   }));
+  toppings.push({ key: 'animal-crackers', en: 'Animal Crackers (1 bag)', ko: '동물 모양 크래커 (1봉)', photo: null, price: 1.50, group: 'crunch' });
   const fruitPrice = Object.fromEntries((MENU.extraFruit?.items || []).map(i => [i.en.toLowerCase(), price(i.price)]));
   const extraFruit = manifest.filter(t => t.category === 'extra-fruit' && t.en.replace(/^Extra /, '').toLowerCase() in fruitPrice).map(t => ({
     key: t.key, en: t.en, ko: t.ko, photo: `/designs/toppings/${t.key}.webp`, group: 'fruit',

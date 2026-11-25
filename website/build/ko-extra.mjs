@@ -3,6 +3,7 @@
    the owner's own dictionary (designs/language.js) has it.
    Please review these lines; change any wording you would say differently. */
 export const EXTRA = {
+  'Matcha Strawberry Biscoff': '말차 딸기 비스코프',
   'House Cream': '하우스 크림',
   'Mascarpone cream': '마스카르포네 크림',
   'House Cream served on an open Belgian waffle': '하우스 크림 토핑이 보이는 펼친 벨기에 와플',
@@ -71,7 +72,7 @@ export const EXTRA = {
   'Korean shaved milk ice, soft as freshly fallen snow.': '갓 내린 눈처럼 부드러운 한국식 우유 빙수.',
   'Light, Fluffy, Melt-In-Your-Mouth': '가볍고 폭신하게, 입안에서 사르르',
   'Bingsu is a Korean shaved ice dessert, also spelled bingsoo. Snowflake bingsu takes its name from the delicate flakes that resemble snow. Made with a milk base, this modern style has a soft, creamy texture that melts on your tongue.': '빙수는 한국의 대표적인 얼음 디저트입니다. 눈꽃빙수는 눈송이처럼 고운 얼음 결에서 이름이 붙었어요. 우유를 베이스로 만들어 부드럽고 크리미하며, 입안에서 사르르 녹습니다.',
-  'At Sweet Snow, we use only milk for our snow, shaved on an authentic snowflake machine from Korea. Each flavor brings its own combination of fruit, house-made syrups and toppings. Our full-size bowls are made to share between two or three people.': '스위트 스노우는 우유만으로 눈꽃을 만들고, 한국에서 들여온 정통 눈꽃빙수 기계로 갈아냅니다. 메뉴마다 어울리는 과일, 수제 시럽, 토핑을 올려요. 큰 사이즈 빙수는 두세 명이 함께 나눠 먹기 좋습니다.',
+  'At Sweet Snow, we use only milk for our snow, shaved on an authentic snowflake machine from Korea. Each flavor brings its own combination of fruit, house-made syrups and toppings. Our full-size bowls are made to share between two and four people.': '스위트 스노우는 우유만으로 눈꽃을 만들고, 한국에서 들여온 정통 눈꽃빙수 기계로 갈아냅니다. 메뉴마다 어울리는 과일, 수제 시럽, 토핑을 올려요. 큰 사이즈 빙수는 2~4명이 함께 나눠 먹기 좋습니다.',
   'From Ice To Milk Snow': '얼음에서 우유 눈꽃까지',
   'Korea has a long tradition of chilled ice desserts. Early ice-and-fruit preparations were different from the bingsu bowls we know today. Over time, shaved ice topped with sweet red bean became a familiar favorite known as patbingsu.': '한국에는 오래전부터 얼음을 즐기는 디저트 문화가 있었습니다. 초기의 얼음과 과일 디저트는 지금의 빙수와는 달랐어요. 시간이 지나며 곱게 간 얼음에 달콤한 팥을 올린 팥빙수가 모두에게 친숙한 메뉴로 자리 잡았습니다.',
   'The milk-snow style is a more recent chapter. Snowflake-style bingsu gained popularity during the 2000s, and shaved-milk versions became mainstream in Korea in the early-to-mid 2010s as dessert cafés expanded. Today, bowls range from red bean and roasted soybean powder to fresh fruit and tea flavors.': '우유 눈꽃 스타일은 비교적 최근에 등장했습니다. 눈꽃빙수는 2000년대에 인기를 얻기 시작했고, 2010년대 초중반 디저트 카페가 늘어나면서 우유 빙수가 한국에서 대중화되었어요. 오늘날에는 팥과 인절미부터 신선한 과일, 차 맛까지 다양하게 즐길 수 있습니다.',
@@ -89,7 +90,7 @@ export const EXTRA = {
 
   // menu page
   'Korean bingsu, cup bingsu and croffles in Garden Grove. Explore the flavors below, then check today’s availability when you order online.': '가든그로브에서 만나는 한국 빙수, 컵빙수, 크로플. 아래에서 메뉴를 살펴보고, 온라인 주문에서 오늘 주문 가능한 메뉴를 확인하세요.',
-  'Serves 1 person · Made with our premium milk base.': '1인분 · 프리미엄 우유 베이스로 만듭니다.',
+  'Serves 1–2 · Made with our premium milk base.': '1~2인분 · 프리미엄 우유 베이스로 만듭니다.',
   'Served with fresh strawberries.': '신선한 딸기와 함께 드립니다.',
   'One or two scoops': '한 스쿱 또는 두 스쿱',
   'Available in-store': '매장에서 판매 중',
