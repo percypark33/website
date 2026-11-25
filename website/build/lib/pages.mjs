@@ -637,15 +637,15 @@ export function menuSchema(site) {
 export const PAGES = {
   home: {
     file: 'index.html', path: '/', bodyClass: 'page-home',
-    title: 'Sweet Snow | Korean Bingsu in Garden Grove, Orange County',
+    title: 'Sweet Snow | Bingsu & Korean Shaved Ice in Garden Grove',
     ogTitle: 'Sweet Snow | Korean Bingsu in Garden Grove',
-    description: 'Korean bingsu and croffles inside QT Golden Market Place in Garden Grove. Explore the menu, order online, and find hours and directions.'
+    description: 'Try fluffy Korean shaved ice at Sweet Snow inside QT Golden Market Place in Garden Grove. Browse bingsu flavors, order pickup or get directions to the food court.'
   },
   menu: {
     file: 'menu.html', path: '/menu', bodyClass: 'page-menu', crumb: 'Menu',
-    title: 'Sweet Snow Menu | Bingsu & Desserts in Garden Grove',
-    ogTitle: 'Sweet Snow Menu | Bingsu & Desserts in Garden Grove',
-    description: 'Browse Sweet Snow’s bingsu, cup bingsu and croffles menu in Garden Grove. Check today’s availability and order online for pickup.'
+    title: 'Sweet Snow Menu | Bingsu Flavors, Prices & Croffles in Garden Grove',
+    ogTitle: 'Sweet Snow Menu | Bingsu Flavors, Prices & Croffles in Garden Grove',
+    description: 'Explore Sweet Snow’s menu and prices for mango, strawberry and injeolmi bingsu, cup bingsu, stuffed waffles and croffles in Garden Grove.'
   },
   story: {
     file: 'our-story.html', path: '/our-story', bodyClass: 'page-story', crumb: 'Our story', noMenuSchema: true,
