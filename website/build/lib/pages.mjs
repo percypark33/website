@@ -487,7 +487,7 @@ export function menu(ctx) {
     <p class="group-lead">${t(site.cupMeta.blurb)}</p>
     <div class="grid">${site.cups.map(i => card(ctx, i)).join('')}</div>
   </section>
-  ${showFood ? `<section class="group wrap" id="food" aria-labelledby="h-food">
+${showFood ? `  <section class="group wrap" id="food" aria-labelledby="h-food">
     <h2 id="h-food">${t(site.taiyakiMeta.section)}</h2>
     ${showTaiyaki ? `<h3 class="group-sub" id="mini-taiyaki">${t(site.taiyakiMeta.title)}</h3>
     <p class="group-lead">${t(site.taiyakiMeta.blurb)}</p>

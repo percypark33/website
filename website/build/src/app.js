@@ -290,16 +290,38 @@
 
   /* ---------- menu: category chips ---------- */
   const cats = $('[data-cats]');
-  if (cats && 'IntersectionObserver' in window) {
-    const links = $$('a', cats);
-    const byId = new Map(links.map(link => [link.getAttribute('href').slice(1), link]));
-    const mark = id => links.forEach(link => {
-      const on = link === byId.get(id);
-      if (on && !link.hasAttribute('aria-current')) { link.setAttribute('aria-current', 'true'); link.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduced.matches ? 'auto' : 'smooth' }); }
-      else if (!on) link.removeAttribute('aria-current');
-    });
-    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) mark(entry.target.id); }), { rootMargin: '-30% 0px -60% 0px' });
-    byId.forEach((_, id) => { const section = doc.getElementById(id); if (section) observer.observe(section); });
+  if (cats) {
+    const track = $('.cats-track', cats);
+    const links = $$('a', track);
+    const sections = links.map(link => doc.getElementById(link.hash.slice(1)));
+    let current = null;
+    let pending = false;
+    const updateCategory = () => {
+      pending = false;
+      const edge = cats.getBoundingClientRect().bottom + 48;
+      let index = 0;
+      sections.forEach((section, i) => {
+        if (section && section.getBoundingClientRect().top <= edge) index = i;
+      });
+      if (window.scrollY + window.innerHeight >= doc.documentElement.scrollHeight - 2) index = sections.length - 1;
+      const link = links[index];
+      if (!link || link === current) return;
+      if (current) current.removeAttribute('aria-current');
+      current = link;
+      link.setAttribute('aria-current', 'location');
+      const rect = link.getBoundingClientRect();
+      const viewport = track.getBoundingClientRect();
+      if (rect.left < viewport.left || rect.right > viewport.right) {
+        track.scrollLeft += rect.left - viewport.left - (viewport.width - rect.width) / 2;
+      }
+    };
+    const queueCategory = () => {
+      if (!pending) { pending = true; requestAnimationFrame(updateCategory); }
+    };
+    addEventListener('scroll', queueCategory, { passive: true });
+    addEventListener('resize', queueCategory);
+    addEventListener('load', queueCategory);
+    updateCategory();
   }
 
   /* ---------- menu: item sheet ---------- */
@@ -377,12 +399,7 @@
       else return;
       event.preventDefault(); select(order[i], true);
     });
-    // Show the first group right away; let it bounce in the first time it scrolls into view.
-    items.forEach(item => { item.hidden = item.dataset.group !== 'crunch'; });
-    if ('IntersectionObserver' in window) {
-      const once = new IntersectionObserver(entries => { if (entries[0].isIntersecting) { once.disconnect(); select('crunch'); } }, { threshold: 0.2 });
-      once.observe(panel);
-    }
+    select('crunch');
   }
 
   /* ---------- live stock from Square (SOLD OUT / FEW LEFT) ---------- */

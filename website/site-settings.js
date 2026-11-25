@@ -125,7 +125,7 @@ window.SITE_SETTINGS = {
 
   /* ---- COMING SOON, NOT IN THE MENU FILE YET -------------------- */
   mochiIceCream: {
-    show: true,
+    show: false,
     badge: "Coming Soon",
     name: "Matcha Mochi Ice Cream",
     text: "Served with fresh strawberries.",
@@ -186,26 +186,32 @@ window.SITE_SETTINGS = {
      already name their picture in menu-2026-august.js.
      For a new bowl or croffle, add a line here.                 */
   photos: {
+    "Cookies and Cream Cup": "/assets/bingsu-tv/cookies-cream.webp",
+    "Mango Jelly Cup": "/assets/bingsu-tv/mango-jelly.webp",
+    "Matcha Red Bean Cup": "/assets/bingsu-tv/matcha-red-bean-crunch.webp",
+    "Injeolmi Jollypong Cup": "/assets/bingsu-tv/injeolmi-jollypong.webp",
+    "Viet Coffee Cup": "/assets/bingsu-tv/cups-viet-coffee-20261101.webp",
+    "Biscoff Caramel Cup": "/assets/bingsu-tv/cups-biscoff-caramel-20261101.webp",
     // Classic
-    "Black Sesame": "/assets/bowl-black-sesame-natural.png",
-    "Injeolmi": "/assets/bowl-injeolmi-natural.png",
-    "Mango": "/assets/bowl-mango-natural.png",
-    "Strawberry": "/assets/bowl-strawberry-realphoto-natural.png",
-    "Cookies and Cream": "/assets/bowl-cookies-cream-natural.png",
+    "Black Sesame": "/assets/bingsu-tv/b-black-sesame.webp",
+    "Injeolmi": "/assets/bingsu-tv/b-injeolmi-classic.webp",
+    "Mango": "/assets/bingsu-tv/b-mango.webp",
+    "Strawberry": "/assets/bingsu-tv/b-strawberry.webp",
+    "Cookies and Cream": "/assets/bingsu-tv/b-cookies-cream-crumb-layer.webp",
     // Special
-    "Matcha Strawberry": "/assets/bowl-matcha-strawberry-natural.png",
-    "Lychee Heaven": "/assets/bowl-lychee-realphoto-natural.png",
+    "Matcha Strawberry": "/assets/bingsu-tv/b-matcha-strawberry.webp",
+    "Lychee Heaven": "/assets/bingsu-tv/b-lychee.webp",
     "Hojicha Tiramisu": "/assets/bowl-hojicha-syrup-natural.png",
     "Matcha Banana Cream": "/assets/bowl-matcha-banana-natural.png",
     "Strawnana Pie": "/assets/bowl-strawnana-natural.png",
-    "Shine Muscat Aloe Bingsu": "/assets/bowl-shine-muscat-preview-20261026.png",
-    "Honeycomb x2": "/assets/bowl-honeycomb-x2-20261101.png",
+    "Shine Muscat Aloe Bingsu": "/assets/bingsu-tv/b-shine-muscat.webp",
+    "Honeycomb x2": "/assets/bingsu-tv/b-honeycomb-x2.webp",
     "Sweet Potato Cream Bingsu": "/assets/bowl-sweet-potato-cream-20261109.webp",
     // Fruit Half & Half
-    "Mango & Strawberry": "/assets/bowl-half-half-natural.png",
-    "Lychee & Shine Muscat": "/assets/bowl-shine-lychee-preview-20261026.png",
-    "Mango & Lychee": "/assets/bowl-mango-lychee-20261028.png",
-    "Strawberry & Shine Muscat": "/assets/bowl-strawberry-shine-20261028.png",
+    "Mango & Strawberry": "/assets/bingsu-tv/b-half-half.webp",
+    "Lychee & Shine Muscat": "/assets/bingsu-tv/b-shine-lychee.webp",
+    "Mango & Lychee": "/assets/bingsu-tv/b-mango-lychee.webp",
+    "Strawberry & Shine Muscat": "/assets/bingsu-tv/b-strawberry-shine.webp",
     // Croffles
     "Injeolmi Croffle": "/assets/croffles/injeolmi.png",
     "Biscoff Caramel Croffle": "/assets/croffles/biscoff.png",
