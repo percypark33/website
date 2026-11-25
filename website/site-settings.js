@@ -119,7 +119,7 @@ window.SITE_SETTINGS = {
   homeCups: ["Mango Jelly Cup", "Strawberry Mango Popping Candy Cup", "Cookies and Cream Cup"],
   /* Three waffles shown on the home page, by their names in wafflesSoon below.
      To take the waffles off the home page, make it:  homeWaffles: [],          */
-  homeWaffles: ["Pig Bar Waffle", "Strawberry Cheesecake Waffle", "Shine Muscat Yogurt Mochi Waffle"],
+  homeWaffles: ["House Cream Waffle", "Strawberry Cheesecake Waffle", "Shine Muscat Yogurt Mochi Waffle"],
 
   /* ---- COMING SOON, NOT IN THE MENU FILE YET -------------------- */
   mochiIceCream: {
@@ -148,10 +148,6 @@ window.SITE_SETTINGS = {
         photo: "/assets/waffles/apple-cinnamon-20261124.png", alt: "Folded waffle opened to show mascarpone cream, apple jam and cinnamon" },
       { name: "Cookies & Cream Waffle", text: "House-made mascarpone cream · Oreo crumbs · Nutella spread",
         photo: "/assets/waffles/cookies-cream-20261124.png", alt: "Folded waffle opened to show mascarpone cream, Oreo crumbs and Nutella" },
-      { name: "Strawnana Waffle", text: "Cream · strawberries · bananas · Nutella spread",
-        photo: "/assets/waffles/strawnana-20261124.png", alt: "Folded waffle opened to show cream, strawberries, bananas and Nutella" },
-      { name: "Pig Bar Waffle", text: "House-made cream · strawberries glazed in strawberry syrup · Nutella spread · toffee · Oreo crumbs · vanilla ice cream",
-        photo: "/assets/waffles/pig-bar-20261124.png", alt: "Folded waffle opened to show cream, syrup-glazed strawberries, Nutella, toffee, Oreo crumbs and vanilla ice cream" },
       { name: "Chocolate Banana Fudge Waffle", text: "Nutella spread · bananas · cream · brownie bites · premium cacao powder",
         photo: "/assets/waffles/chocolate-banana-fudge-20261124.png", alt: "Folded waffle opened to show Nutella, bananas, cream, brownie bites and cacao powder" },
       { name: "Strawberry Cheesecake Waffle", text: "Strawberries · cream · cheesecake bites",
