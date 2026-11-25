@@ -809,7 +809,7 @@ window.MENU.miniTaiyaki.flavors.push({name: "Sweet Potato", filling: "Sweet pota
   const croffles = window.MENU.squareMenu.croffles;
   const injeolmi = croffles.find(c => c.name === "Injeolmi Croffle");
   if (injeolmi) injeolmi.description = "House-Made Cream, Injeolmi Powder, Crushed Almonds";
-  if (!croffles.some(c => c.name === "Plain Croffle")) croffles.push({"ordinal": 24, "name": "Plain Croffle", "description": "Golden croffle dusted with powdered sugar", "availability": "LOCAL_CATALOG_AVAILABILITY_NORMAL", "price": {"amount": 499, "currency_code": "USD"}});
+  if (!croffles.some(c => c.name === "Plain Croffle")) croffles.unshift({"ordinal": 24, "name": "Plain Croffle", "description": "Golden croffle dusted with powdered sugar", "availability": "LOCAL_CATALOG_AVAILABILITY_NORMAL", "price": {"amount": 499, "currency_code": "USD"}});
 })();
 
 // Owner, 2026-11-23: no more bananas. Extra Banana is off the extra-fruit list.
