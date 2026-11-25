@@ -28,8 +28,8 @@ window.SITE_SETTINGS = {
      ingredients instead.                                        */
   hero: {
     item: "Shine Muscat Aloe Bingsu",
-    label: "New at Sweet Snow",
-    title: "Shine Muscat Aloe",
+    label: "Shine Muscat Aloe Bingsu",
+    title: "Korean Bingsu in Garden Grove",
     text: "Juicy Korean Shine Muscats, aloe vera, and green grape yogurt syrup over our premium milk snow. Finished with yogurt ice cream."
   },
 

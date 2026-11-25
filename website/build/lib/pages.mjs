@@ -220,10 +220,11 @@ function hero(ctx) {
     </div>
     <div class="hero-foot">
       <p class="hero-text">${t(h.text)}</p>
+      <p class="hero-location">${t('Inside QT Golden Market Place · Garden Grove')}<span class="status" data-status aria-live="polite"></span></p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
-        <a class="btn btn-quiet" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery with DoorDash')}</span></a>
-        <a class="link hero-menu-link" href="/menu">${t('Explore the menu')}${ICON.arrow}</a>
+        <a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a>
+        <a class="btn btn-quiet" href="/menu"><span>${t('Menu')}</span>${ICON.arrow}</a>
+        <a class="btn btn-quiet" href="${e(L.maps)}" target="_blank" rel="noopener" data-track="directions">${ICON.pin}<span>${t('Directions')}</span></a>
       </div>
     </div>
     <p class="hero-sign" aria-hidden="true">${ctx.sign}</p>
@@ -454,18 +455,18 @@ export function menu(ctx) {
   const drinks = D.show ? (D.items || []) : [];
   const W = site.SETTINGS.wafflesSoon || {};
   const waffles = W.show ? (W.items || []) : [];
-  const soonSection = (id, S, items, wide) => items.length ? `<section class="group wrap" id="${id}" aria-labelledby="h-${id}">
-    <h2 id="h-${id}">${t(S.title)}</h2>
+  const soonSection = (id, S, items, wide) => items.length ? `<section class="coming-soon-group" id="${id}" aria-labelledby="h-${id}">
+    <h3 id="h-${id}">${t(S.title)}</h3>
     ${S.blurb ? `<p class="group-lead">${t(S.blurb)}</p>` : ''}
     <div class="soon-grid${wide ? ' soon-grid-wide' : ''}">${items.map(i => `<div class="soon-card">
       <div><span class="tag tag-soon">${t(S.badge)}</span><h3>${t(i.name)}</h3><p>${t(i.text)}</p></div>
       ${img(i.photo, 'feature', { alt: ta(i.alt), sizes: '(max-width: 720px) 40vw, 220px' })}
     </div>`).join('')}</div>
   </section>` : '';
-  const groups = [['menu-classic', 'Classic', site.groups.classic], ['menu-special', 'Special', site.groups.special], ['menu-half-half', 'Fruit Half & Half', site.groups['half-half']]];
+  const groups = [['menu-classic', 'Classic Bingsu', site.groups.classic], ['menu-special', 'Special Bingsu', site.groups.special], ['menu-half-half', 'Fruit Half & Half Bingsu', site.groups['half-half']]];
   const showTaiyaki = site.taiyaki.length > 0;
   const showFood = showTaiyaki || M.show;
-  const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cups'], ...(showFood ? [['food', 'Food']] : []), ['croffles', 'Croffles'], ...(waffles.length ? [['waffles', 'Waffles']] : []), ...(drinks.length ? [['drinks', 'Drinks']] : []), ['toppings', 'Toppings']];
+  const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cup Bingsu'], ...(showFood ? [['food', 'Food']] : []), ['croffles', 'Croffles'], ...((waffles.length || drinks.length) ? [['coming-soon', 'Coming soon']] : []), ['toppings', 'Toppings']];
   const tabs = [['crunch', 'Crunch'], ['sweet', 'Soft & sweet'], ['finish', 'Sauces & dustings'], ['fruit', 'Extra Fruit']];
   const topping = item => `<li class="topping" data-group="${item.group}">${img(item.photo, 'icon', { alt: '', sizes: '84px' })}<span>${t(item.en)}</span>${site.showPrices && item.price !== null ? `<small>${item.price === 0 ? t("Free") : "+" + e(money(item.price))}</small>` : ''}</li>`;
   ctx.ko[' '] = ' ';
@@ -474,7 +475,7 @@ export function menu(ctx) {
 <main id="main" class="menu-page">
   <header class="page-head wrap" id="menu">
     <h1>${t('Our menu')}</h1>
-    <p class="lead">${t('Korean bingsu, cup bingsu and croffles in Garden Grove. Explore the flavors below, then check today’s availability when you order online.')}</p>
+    <p class="lead">${t('Cup bingsu for one · bowls made to share. Explore Korean bingsu, croffles, and more in Garden Grove, then check today’s availability when you order online.')}</p>
   </header>
   <nav class="cats" aria-label="${ta('Menu categories')}" data-cats><div class="cats-track wrap">${cats.map(([id, label]) => `<a href="#${id}">${t(label)}</a>`).join('')}</div></nav>
   ${groups.map(([id, label, items]) => `<section class="group wrap" id="${id}" aria-labelledby="h-${id}">
@@ -482,7 +483,7 @@ export function menu(ctx) {
     <div class="grid">${items.map((i, n) => card(ctx, i, id === 'menu-classic' && n < 2)).join('')}</div>
   </section>`).join('\n  ')}
   <section class="group wrap" id="single-cups" aria-labelledby="h-cups">
-    <h2 id="h-cups">${t(site.cupMeta.title)}</h2>
+    <h2 id="h-cups">${t('Cup Bingsu · for one')}</h2>
     <p class="group-lead">${t(site.cupMeta.blurb)}</p>
     <div class="grid">${site.cups.map(i => card(ctx, i)).join('')}</div>
   </section>
@@ -501,8 +502,12 @@ export function menu(ctx) {
     <p class="group-lead">${t('Croissant meets waffle.')}</p>
     <div class="grid grid-wide grid-count-${site.croffles.length}">${site.croffles.map(i => card(ctx, i)).join('')}</div>
   </section>
-  ${soonSection('waffles', W, waffles, true)}
-  ${soonSection('drinks', D, drinks, false)}
+  ${(waffles.length || drinks.length) ? `<section class="group wrap" id="coming-soon" aria-labelledby="h-coming-soon">
+    <p class="kicker">${t('A taste of what’s next')}</p>
+    <h2 id="h-coming-soon">${t('Coming soon')}</h2>
+    ${soonSection('waffles', W, waffles, true)}
+    ${soonSection('drinks', D, drinks, false)}
+  </section>` : ''}
   <section class="group toppings wrap" id="toppings" aria-labelledby="h-toppings">
     <p class="kicker">${t('Make it your own')}</p>
     <h2 id="h-toppings">${t('20+ toppings to choose from.')}</h2>
