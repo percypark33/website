@@ -62,6 +62,7 @@ export const EXTRA = {
   'Serves 1 person · Made with our premium milk base.': '1인분 · 프리미엄 우유 베이스로 만듭니다.',
   'Served with fresh strawberries.': '신선한 딸기와 함께 드립니다.',
   'One or two scoops': '한 스쿱 또는 두 스쿱',
+  'Available in-store': '매장에서 판매 중',
   'Waffles': '와플',
   'Stuffed Waffles': '크림 가득 와플',
   'A full-size waffle, freshly baked and crispy, folded and stuffed with our house-made cream, fresh fruit and toppings.': '갓 구운 바삭한 큼직한 와플을 반으로 접어 수제 크림과 신선한 과일, 토핑을 가득 채웠어요.',
