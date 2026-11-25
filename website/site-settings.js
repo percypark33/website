@@ -138,7 +138,7 @@ window.SITE_SETTINGS = {
      here. To hide the whole section, make it:  show: false       */
   wafflesSoon: {
     show: true,
-    badge: "Available in-store",
+    badge: "Coming Soon",
     title: "Waffles",
     blurb: "A full-size waffle, freshly baked, folded and stuffed with cream.",
     items: [
