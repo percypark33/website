@@ -456,9 +456,9 @@ window.MENU = {
      in [ ] and each choice gets its own red line.
      `note` is a quieter line under that (coming-soon, etc.).     */
   toppings: {
-    "note": "Add to any size · stack as many as you want",
+    "note": "Available with any menu item",
     "freeNote": "Sprinkles are free.",
-    "servingNote": "All toppings served on the side, except sprinkles and honey drizzle.",
+    "servingNote": "Choose toppings for any menu item. All toppings are served on the side.",
     "tiers": [
       {
         "price": "1",
@@ -565,7 +565,7 @@ window.MENU = {
      not with the topping boxes. */
   extraFruit: {
     "title": "Extra fruit",
-    "note": "Goes in the middle layer",
+    "note": "Extra fruit is served on the side.",
     "items": [
       {
         "en": "Strawberry",

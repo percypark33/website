@@ -506,12 +506,12 @@ export function menu(ctx) {
   <section class="group toppings wrap" id="toppings" aria-labelledby="h-toppings">
     <p class="kicker">${t('Make it your own')}</p>
     <h2 id="h-toppings">${t('20+ toppings to choose from.')}</h2>
-    <p class="group-lead">${t('Highly customizable. Mix and match your favorites to make your perfect bingsu.')}</p>
+    <p class="group-lead">${t(site.toppingsMeta.servingNote)}</p>
     <div class="tabs" role="tablist" aria-label="${ta('Topping categories')}">${tabs.map(([id, label], i) => `<button class="tab" role="tab" type="button" id="tab-${id}" aria-controls="topping-panel" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-tab="${id}">${t(label)}</button>`).join('')}</div>
     <div id="topping-panel" role="tabpanel" aria-labelledby="tab-crunch" data-topping-panel>
       <div class="fruit-note" data-group="fruit" hidden><p class="kicker">${t('A little extra fruit')}</p><h3>${t('Add fruit.')}</h3><p>${t(site.toppingsMeta.fruitNote)}</p></div>
       <ul class="topping-grid">${site.toppings.map(topping).join('')}${site.extraFruit.map(topping).join('')}</ul>
-      <p class="topping-note" data-serving-note>${t(site.toppingsMeta.servingNote)}</p>
+      <p class="topping-note" data-serving-note>${t(site.MENU.toppings.freeNote)}</p>
     </div>
   </section>
   <p class="wrap next"><a class="link" href="/our-story">${t('Meet Sweet Snow')}${ICON.arrow}</a></p>

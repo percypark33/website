@@ -3,6 +3,9 @@
    the owner's own dictionary (designs/language.js) has it.
    Please review these lines; change any wording you would say differently. */
 export const EXTRA = {
+  'Choose toppings for any menu item. All toppings are served on the side.': '모든 메뉴에 토핑을 추가할 수 있어요. 추가 토핑은 모두 따로 담아 드려요.',
+  'Extra fruit is served on the side.': '추가 과일은 따로 담아 드려요.',
+  'Sprinkles are free.': '스프링클은 무료예요.',
   // buttons and small labels
   'Shine Muscat Aloe': '샤인머스캣 알로에',
   'Delivery with DoorDash': 'DoorDash 배달 주문',
