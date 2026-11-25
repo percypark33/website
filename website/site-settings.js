@@ -48,6 +48,8 @@ window.SITE_SETTINGS = {
      Mark coming soon:      "Mango": { comingSoon: true },
      Hide from the website: "Mango": { hidden: true },           */
   menuEdits: {
+    "Injeolmi Croffle": { price: 6.99 },
+    "Biscoff Caramel Croffle": { price: 7.99 },
     "Cookies and Cream Croffle": { hidden: true },
     "Dubai Strawberry Croffle": { hidden: true },
     "Matcha Strawberry": { price: 16.99 },
