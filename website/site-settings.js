@@ -48,6 +48,8 @@ window.SITE_SETTINGS = {
      Mark coming soon:      "Mango": { comingSoon: true },
      Hide from the website: "Mango": { hidden: true },           */
   menuEdits: {
+    "Cookies and Cream Croffle": { hidden: true },
+    "Dubai Strawberry Croffle": { hidden: true },
     "Matcha Strawberry": { price: 16.99 },
     "Lychee Heaven": { price: 17.99 },
     "Shine Muscat Aloe Bingsu": { price: 17.99 },
@@ -113,7 +115,7 @@ window.SITE_SETTINGS = {
 
   /* ---- HOME PAGE FEATURES -------------------------------------
      The croffles and cups shown on the home page.               */
-  homeCroffles: ["Biscoff Caramel Croffle", "Dubai Strawberry Croffle"],
+  homeCroffles: ["Biscoff Caramel Croffle", "Injeolmi Croffle"],
   homeCups: ["Mango Jelly Cup", "Strawberry Mango Popping Candy Cup", "Cookies and Cream Cup"],
   /* Three waffles shown on the home page, by their names in wafflesSoon below.
      To take the waffles off the home page, make it:  homeWaffles: [],          */
