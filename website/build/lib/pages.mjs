@@ -32,7 +32,7 @@ export function header(ctx, page) {
     <div class="bar-actions">
       <span class="status status-compact" data-status-compact aria-hidden="true"></span>
       <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ko" aria-pressed="false" lang="ko">한국어</button></div>
-      <a class="btn btn-primary btn-order" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
+      <a class="btn btn-primary btn-order" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="${ta('Open navigation')}"><span></span><span></span></button>
     </div>
   </div>
@@ -55,7 +55,7 @@ function hoursRows(ctx) {
     </dl>`;
 }
 
-/* `orderbar: false` leaves out the floating "Order online" bar (the catering page has its own "Book" bar). */
+/* `orderbar: false` leaves out the floating pickup bar (the catering page has its own "Book" bar). */
 export function footer(ctx, { orderbar = true } = {}) {
   const { t, ta, logo, site } = ctx;
   const L = site.SETTINGS.links;
@@ -68,13 +68,13 @@ export function footer(ctx, { orderbar = true } = {}) {
     <section aria-labelledby="f-follow"><h2 id="f-follow">${t('Follow along')}</h2><a class="link" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON.out}</a></section>
   </div>
   <nav class="wrap footer-links" aria-label="${ta('Footer navigation')}">
-    <a href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}${t('Order online')}</a>
+    <a href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}${t('Order pickup')}</a>
     <a href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}${t('Delivery with DoorDash')}</a>
     ${site.catering?.announce ? `<a href="/catering">${t('Catering')}</a>\n    ` : ''}<a href="/privacy">${t('Privacy')}</a>
   </nav>
 </footer>${orderbar ? `
 <div class="orderbar" data-orderbar>
-  <a class="orderbar-main" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
+  <a class="orderbar-main" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a>
   <a class="orderbar-side" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery')}</span></a>
 </div>` : ''}`;
 }
@@ -85,13 +85,13 @@ function faq(ctx) {
   const items = [
     ['What is bingsu?', 'Bingsu, also spelled bingsoo, is a Korean shaved ice dessert. At Sweet Snow, our milk base is shaved into soft snow and layered with fruit, syrups and toppings.'],
     ['Where is Sweet Snow?', 'Find us inside the QT Golden Market Place food court at 9772 Garden Grove Blvd, Garden Grove, CA 92844. Look for the blue Sweet Snow sign.'],
-    ['Can I order pickup or delivery?', 'Use Order online to see today’s pickup menu and availability. Delivery is available through our DoorDash link.'],
+    ['Can I order pickup or delivery?', 'Use Order pickup to see today’s pickup menu and availability. Delivery is available through our DoorDash link.'],
     ['What are croffles?', 'A croffle is croissant dough cooked in a waffle maker.']
   ];
   return `<section class="faq wrap" aria-labelledby="faq-title">
   <h2 id="faq-title">${t('A little more about Sweet Snow')}</h2>
   <div class="faq-list">${items.map(([q, a]) => `<details><summary>${t(q)}</summary><p>${t(a)}</p></details>`).join('')}</div>
-  <p class="faq-links"><a class="link" href="/visit">${t('Hours & directions')}${ICON.arrow}</a><a class="link" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${t('Order online')}${ICON.out}</a></p>
+  <p class="faq-links"><a class="link" href="/visit">${t('Hours & directions')}${ICON.arrow}</a><a class="link" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${t('Order pickup')}${ICON.out}</a></p>
 </section>`;
 }
 
@@ -220,7 +220,7 @@ function hero(ctx) {
     </div>
     <div class="hero-foot">
       <p class="hero-text">${t(h.text)}</p>
-      <p class="hero-location">${t('Inside QT Golden Market Place · Garden Grove')}<span class="status" data-status aria-live="polite"></span></p>
+      <p class="hero-location">${t('Inside QT Golden Market Place · Garden Grove')}<span>${t('Today’s hours:')} <span data-today-hours></span></span><span class="status" data-status aria-live="polite"></span></p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a>
         <a class="btn btn-quiet" href="/menu"><span>${t('Menu')}</span>${ICON.arrow}</a>
@@ -441,7 +441,7 @@ function sheet(ctx) {
     <ul class="sheet-ing" data-sheet-ing></ul>
     <p class="sheet-note" data-sheet-note hidden></p>
     <div class="sheet-actions">
-      <a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
+      <a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a>
       <a class="btn btn-quiet" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery')}</span></a>
     </div>
   </div>
@@ -475,7 +475,7 @@ export function menu(ctx) {
 <main id="main" class="menu-page">
   <header class="page-head wrap" id="menu">
     <h1>${t('Our menu')}</h1>
-    <p class="lead">${t('Cup bingsu for one · bowls made to share. Explore Korean bingsu, croffles, and more in Garden Grove, then check today’s availability when you order online.')}</p>
+    <p class="lead">${t('Cup bingsu for one · bowls made to share. Explore Korean bingsu, croffles, and more in Garden Grove, then check today’s availability when you order pickup.')}</p>
   </header>
   <nav class="cats" aria-label="${ta('Menu categories')}" data-cats><div class="cats-track wrap">${cats.map(([id, label]) => `<a href="#${id}">${t(label)}</a>`).join('')}</div></nav>
   ${groups.map(([id, label, items]) => `<section class="group wrap" id="${id}" aria-labelledby="h-${id}">
@@ -548,7 +548,7 @@ export function visit(ctx) {
   <section class="visit-info wrap" aria-label="${ta('Visit us')}">
     <div><h2>${t('Visit us')}</h2><address>${t(site.brand.venue)}<br>${e(site.brand.street)}<br>${e(site.brand.city)}</address><a class="link" href="${e(L.maps)}" target="_blank" rel="noopener" data-track="directions">${t('Get directions')}${ICON.out}</a></div>
     <div><h2>${t('Hours')}</h2>${hoursRows(ctx)}</div>
-    <div><h2>${t('Order online')}</h2><p class="visit-order"><a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a><a class="btn btn-quiet" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery with DoorDash')}</span></a></p></div>
+    <div><h2>${t('Order pickup')}</h2><p class="visit-order"><a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a><a class="btn btn-quiet" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery with DoorDash')}</span></a></p></div>
   </section>
   <p class="wrap next"><a class="link" href="/menu">${t('Explore the menu')}${ICON.arrow}</a></p>
 </main>

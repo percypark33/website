@@ -107,8 +107,10 @@ break;
 }
 const full = open ? tr('Open now · until ') + fmt12(today.close) : tr('Closed now') + (next ? ' · ' + next : '');
 const compact = open ? full : nextShort || tr('Closed now');
+const todayHours = today ? fmt12(today.open) + '–' + fmt12(today.close) : tr('Closed');
 $$('[data-status]').forEach(el => { el.textContent = full; el.classList.toggle('is-open', open); });
 $$('[data-status-compact]').forEach(el => { el.textContent = compact; el.classList.toggle('is-open', open); });
+$$('[data-today-hours]').forEach(el => { el.textContent = todayHours; });
 $$('[data-hours] [data-days]').forEach(row => row.classList.toggle('is-today', row.dataset.days.split(',').includes(String(now.day))));
 }
 renderStatus();
