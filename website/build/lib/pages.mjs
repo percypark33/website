@@ -223,8 +223,8 @@ function hero(ctx) {
       <p class="hero-location">${t('Inside QT Golden Market Place · Garden Grove')}<span>${t('Today’s hours:')} <span data-today-hours></span></span><span class="status" data-status aria-live="polite"></span></p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a>
-        <a class="btn btn-quiet" href="/menu"><span>${t('Menu')}</span>${ICON.arrow}</a>
-        <a class="btn btn-quiet" href="${e(L.maps)}" target="_blank" rel="noopener" data-track="directions">${ICON.pin}<span>${t('Directions')}</span></a>
+        <a class="btn btn-quiet" href="/menu"><span>${t('View menu')}</span>${ICON.arrow}</a>
+        <a class="btn btn-quiet" href="${e(L.maps)}" target="_blank" rel="noopener" data-track="directions">${ICON.pin}<span>${t('Get directions')}</span></a>
       </div>
     </div>
     <p class="hero-sign" aria-hidden="true">${ctx.sign}</p>
