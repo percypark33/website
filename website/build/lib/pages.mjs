@@ -645,7 +645,7 @@ export const PAGES = {
     file: 'menu.html', path: '/menu', bodyClass: 'page-menu', crumb: 'Menu',
     title: 'Sweet Snow Menu | Bingsu Flavors, Prices & Croffles in Garden Grove',
     ogTitle: 'Sweet Snow Menu | Bingsu Flavors, Prices & Croffles in Garden Grove',
-    description: 'Explore Sweet Snow’s menu and prices for mango, strawberry and injeolmi bingsu, individual cups and croffles. Check availability and order pickup in Garden Grove.'
+    description: 'Explore Sweet Snow’s menu and prices for mango, strawberry and injeolmi bingsu, cup bingsu, stuffed waffles and croffles in Garden Grove.'
   },
   story: {
     file: 'our-story.html', path: '/our-story', bodyClass: 'page-story', crumb: 'Our story', noMenuSchema: true,
