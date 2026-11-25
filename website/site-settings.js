@@ -34,9 +34,9 @@ window.SITE_SETTINGS = {
   },
 
   /* ---- PRICES ------------------------------------------------
-     false = the website shows no prices (how it is today).
+     false = the website shows no prices.
      true  = show the price next to each item.                   */
-  showPrices: false,
+  showPrices: true,
 
   /* ---- QUICK MENU EDITS (website only) ------------------------
      One line per change. Remove the // at the start to switch a
@@ -48,7 +48,13 @@ window.SITE_SETTINGS = {
      Mark coming soon:      "Mango": { comingSoon: true },
      Hide from the website: "Mango": { hidden: true },           */
   menuEdits: {
-    // "Mango": { price: 15.99 },
+    "Matcha Strawberry": { price: 16.99 },
+    "Lychee Heaven": { price: 17.99 },
+    "Shine Muscat Aloe Bingsu": { price: 17.99 },
+    "Sweet Potato Cream Bingsu": { price: 15.99 },
+    "Lychee & Shine Muscat": { price: 18.99 },
+    "Mango & Lychee": { price: 17.99 },
+    "Strawberry & Shine Muscat": { price: 17.99 },
     // Off the menu for now (owner, 2026-11-22). Delete these lines to bring them back.
     "Strawnana Pie": { hidden: true },
     "Matcha Banana Cream": { hidden: true },

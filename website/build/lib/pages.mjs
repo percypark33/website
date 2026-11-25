@@ -467,7 +467,7 @@ export function menu(ctx) {
   const showFood = showTaiyaki || M.show;
   const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cups'], ...(showFood ? [['food', 'Food']] : []), ['croffles', 'Croffles'], ...(waffles.length ? [['waffles', 'Waffles']] : []), ...(drinks.length ? [['drinks', 'Drinks']] : []), ['toppings', 'Toppings']];
   const tabs = [['crunch', 'Crunch'], ['sweet', 'Soft & sweet'], ['finish', 'Sauces & dustings'], ['fruit', 'Extra Fruit']];
-  const topping = item => `<li class="topping" data-group="${item.group}">${img(item.photo, 'icon', { alt: '', sizes: '84px' })}<span>${t(item.en)}</span>${site.showPrices && item.price ? `<small>+${e(money(item.price))}</small>` : ''}</li>`;
+  const topping = item => `<li class="topping" data-group="${item.group}">${img(item.photo, 'icon', { alt: '', sizes: '84px' })}<span>${t(item.en)}</span>${site.showPrices && item.price !== null ? `<small>${item.price === 0 ? t("Free") : "+" + e(money(item.price))}</small>` : ''}</li>`;
   ctx.ko[' '] = ' ';
   for (const item of [...site.toppings, ...site.extraFruit]) ctx.ko[item.en] = item.ko; // the owner's own Korean topping names
   return `${header(ctx, 'menu')}
@@ -492,7 +492,7 @@ export function menu(ctx) {
     <p class="group-lead">${t(site.taiyakiMeta.blurb)}</p>
     <div class="grid">${site.taiyaki.map(i => card(ctx, i)).join('')}</div>` : ''}
     ${M.show ? `<div class="soon-card" id="mini-sides">
-      <div><span class="tag tag-soon">${t(M.badge)}</span><h3>${t(M.name)}</h3><p>${t(M.text)}</p><p class="soon-options">${t(M.options)}</p></div>
+      <div><span class="tag tag-soon">${t(M.badge)}</span><h3>${t(M.name)}</h3><p>${t(M.text)}</p><p class="soon-options">${site.showPrices ? t("1 scoop $6.99 · 2 scoops $7.99") : t(M.options)}</p></div>
       ${img(M.photo, 'feature', { alt: ta(M.alt), sizes: '(max-width: 720px) 60vw, 300px' })}
     </div>` : ''}
   </section>` : ''}

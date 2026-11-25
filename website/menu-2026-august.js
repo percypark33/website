@@ -464,14 +464,6 @@ window.MENU = {
         "price": "1",
         "items": [
           {
-            "en": "Popping Boba",
-            "opts": [
-              "Strawberry",
-              "Mango",
-              "Lychee"
-            ]
-          },
-          {
             "en": "Cereal",
             "opts": [
               "Fruity Pebbles",
@@ -513,10 +505,11 @@ window.MENU = {
         "price": "1.50",
         "items": [
           {
-            "en": "Premium Ice Cream Scoop",
+            "en": "Popping Boba",
             "opts": [
-              "Vanilla",
-              "Yogurt"
+              "Strawberry",
+              "Mango",
+              "Lychee"
             ]
           },
           {
@@ -536,6 +529,13 @@ window.MENU = {
       {
         "price": "2",
         "items": [
+          {
+            "en": "Premium Ice Cream Scoop",
+            "opts": [
+              "Vanilla",
+              "Yogurt"
+            ]
+          },
           {
             "en": "Cheesecake Bites"
           },
