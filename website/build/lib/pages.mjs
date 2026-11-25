@@ -32,7 +32,7 @@ export function header(ctx, page) {
     <div class="bar-actions">
       <span class="status status-compact" data-status-compact aria-hidden="true"></span>
       <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ko" aria-pressed="false" lang="ko">한국어</button></div>
-      <a class="btn btn-primary btn-order" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
+      <a class="btn btn-primary btn-order" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="${ta('Open navigation')}"><span></span><span></span></button>
     </div>
   </div>
@@ -55,7 +55,7 @@ function hoursRows(ctx) {
     </dl>`;
 }
 
-/* `orderbar: false` leaves out the floating "Order online" bar (the catering page has its own "Book" bar). */
+/* `orderbar: false` leaves out the floating pickup bar (the catering page has its own "Book" bar). */
 export function footer(ctx, { orderbar = true } = {}) {
   const { t, ta, logo, site } = ctx;
   const L = site.SETTINGS.links;
@@ -68,13 +68,13 @@ export function footer(ctx, { orderbar = true } = {}) {
     <section aria-labelledby="f-follow"><h2 id="f-follow">${t('Follow along')}</h2><a class="link" href="${e(L.instagram)}" target="_blank" rel="noopener">@${e(handle)}${ICON.out}</a></section>
   </div>
   <nav class="wrap footer-links" aria-label="${ta('Footer navigation')}">
-    <a href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}${t('Order online')}</a>
+    <a href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}${t('Order pickup')}</a>
     <a href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}${t('Delivery with DoorDash')}</a>
     ${site.catering?.announce ? `<a href="/catering">${t('Catering')}</a>\n    ` : ''}<a href="/privacy">${t('Privacy')}</a>
   </nav>
 </footer>${orderbar ? `
 <div class="orderbar" data-orderbar>
-  <a class="orderbar-main" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
+  <a class="orderbar-main" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a>
   <a class="orderbar-side" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery')}</span></a>
 </div>` : ''}`;
 }
@@ -85,13 +85,13 @@ function faq(ctx) {
   const items = [
     ['What is bingsu?', 'Bingsu, also spelled bingsoo, is a Korean shaved ice dessert. At Sweet Snow, our milk base is shaved into soft snow and layered with fruit, syrups and toppings.'],
     ['Where is Sweet Snow?', 'Find us inside the QT Golden Market Place food court at 9772 Garden Grove Blvd, Garden Grove, CA 92844. Look for the blue Sweet Snow sign.'],
-    ['Can I order pickup or delivery?', 'Use Order online to see today’s pickup menu and availability. Delivery is available through our DoorDash link.'],
+    ['Can I order pickup or delivery?', 'Use Order pickup to see today’s pickup menu and availability. Delivery is available through our DoorDash link.'],
     ['What are croffles?', 'A croffle is croissant dough cooked in a waffle maker.']
   ];
   return `<section class="faq wrap" aria-labelledby="faq-title">
   <h2 id="faq-title">${t('A little more about Sweet Snow')}</h2>
   <div class="faq-list">${items.map(([q, a]) => `<details><summary>${t(q)}</summary><p>${t(a)}</p></details>`).join('')}</div>
-  <p class="faq-links"><a class="link" href="/visit">${t('Hours & directions')}${ICON.arrow}</a><a class="link" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${t('Order online')}${ICON.out}</a></p>
+  <p class="faq-links"><a class="link" href="/visit">${t('Hours & directions')}${ICON.arrow}</a><a class="link" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${t('Order pickup')}${ICON.out}</a></p>
 </section>`;
 }
 
@@ -220,10 +220,11 @@ function hero(ctx) {
     </div>
     <div class="hero-foot">
       <p class="hero-text">${t(h.text)}</p>
+      <p class="hero-location">${t('Inside QT Golden Market Place · Garden Grove')}<span>${t('Today’s hours:')} <span data-today-hours></span></span><span class="status" data-status aria-live="polite"></span></p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
-        <a class="btn btn-quiet" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery with DoorDash')}</span></a>
-        <a class="link hero-menu-link" href="/menu">${t('Explore the menu')}${ICON.arrow}</a>
+        <a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a>
+        <a class="btn btn-quiet" href="/menu"><span>${t('View menu')}</span>${ICON.arrow}</a>
+        <a class="btn btn-quiet" href="${e(L.maps)}" target="_blank" rel="noopener" data-track="directions">${ICON.pin}<span>${t('Get directions')}</span></a>
       </div>
     </div>
     <p class="hero-sign" aria-hidden="true">${ctx.sign}</p>
@@ -440,7 +441,7 @@ function sheet(ctx) {
     <ul class="sheet-ing" data-sheet-ing></ul>
     <p class="sheet-note" data-sheet-note hidden></p>
     <div class="sheet-actions">
-      <a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a>
+      <a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a>
       <a class="btn btn-quiet" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery')}</span></a>
     </div>
   </div>
@@ -454,18 +455,18 @@ export function menu(ctx) {
   const drinks = D.show ? (D.items || []) : [];
   const W = site.SETTINGS.wafflesSoon || {};
   const waffles = W.show ? (W.items || []) : [];
-  const soonSection = (id, S, items, wide) => items.length ? `<section class="group wrap" id="${id}" aria-labelledby="h-${id}">
-    <h2 id="h-${id}">${t(S.title)}</h2>
+  const soonSection = (id, S, items, wide) => items.length ? `<section class="coming-soon-group" id="${id}" aria-labelledby="h-${id}">
+    <h3 id="h-${id}">${t(S.title)}</h3>
     ${S.blurb ? `<p class="group-lead">${t(S.blurb)}</p>` : ''}
     <div class="soon-grid${wide ? ' soon-grid-wide' : ''}">${items.map(i => `<div class="soon-card">
       <div><span class="tag tag-soon">${t(S.badge)}</span><h3>${t(i.name)}</h3><p>${t(i.text)}</p></div>
       ${img(i.photo, 'feature', { alt: ta(i.alt), sizes: '(max-width: 720px) 40vw, 220px' })}
     </div>`).join('')}</div>
   </section>` : '';
-  const groups = [['menu-classic', 'Classic', site.groups.classic], ['menu-special', 'Special', site.groups.special], ['menu-half-half', 'Fruit Half & Half', site.groups['half-half']]];
+  const groups = [['menu-classic', 'Classic Bingsu', site.groups.classic], ['menu-special', 'Special Bingsu', site.groups.special], ['menu-half-half', 'Fruit Half & Half Bingsu', site.groups['half-half']]];
   const showTaiyaki = site.taiyaki.length > 0;
   const showFood = showTaiyaki || M.show;
-  const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cups'], ...(showFood ? [['food', 'Food']] : []), ['croffles', 'Croffles'], ...(waffles.length ? [['waffles', 'Waffles']] : []), ...(drinks.length ? [['drinks', 'Drinks']] : []), ['toppings', 'Toppings']];
+  const cats = [...groups.map(([id, label]) => [id, label]), ['single-cups', 'Cup Bingsu'], ...(showFood ? [['food', 'Food']] : []), ['croffles', 'Croffles'], ...((waffles.length || drinks.length) ? [['coming-soon', 'Coming soon']] : []), ['toppings', 'Toppings']];
   const tabs = [['crunch', 'Crunch'], ['sweet', 'Soft & sweet'], ['finish', 'Sauces & dustings'], ['fruit', 'Extra Fruit']];
   const topping = item => `<li class="topping" data-group="${item.group}">${img(item.photo, 'icon', { alt: '', sizes: '84px' })}<span>${t(item.en)}</span>${site.showPrices && item.price !== null ? `<small>${item.price === 0 ? t("Free") : "+" + e(money(item.price))}</small>` : ''}</li>`;
   ctx.ko[' '] = ' ';
@@ -474,7 +475,7 @@ export function menu(ctx) {
 <main id="main" class="menu-page">
   <header class="page-head wrap" id="menu">
     <h1>${t('Our menu')}</h1>
-    <p class="lead">${t('Korean bingsu, cup bingsu and croffles in Garden Grove. Explore the flavors below, then check today’s availability when you order online.')}</p>
+    <p class="lead">${t('Cup bingsu for one · bowls made to share. Explore Korean bingsu, croffles, and more in Garden Grove, then check today’s availability when you order pickup.')}</p>
   </header>
   <nav class="cats" aria-label="${ta('Menu categories')}" data-cats><div class="cats-track wrap">${cats.map(([id, label]) => `<a href="#${id}">${t(label)}</a>`).join('')}</div></nav>
   ${groups.map(([id, label, items]) => `<section class="group wrap" id="${id}" aria-labelledby="h-${id}">
@@ -482,7 +483,7 @@ export function menu(ctx) {
     <div class="grid">${items.map((i, n) => card(ctx, i, id === 'menu-classic' && n < 2)).join('')}</div>
   </section>`).join('\n  ')}
   <section class="group wrap" id="single-cups" aria-labelledby="h-cups">
-    <h2 id="h-cups">${t(site.cupMeta.title)}</h2>
+    <h2 id="h-cups">${t('Cup Bingsu · for one')}</h2>
     <p class="group-lead">${t(site.cupMeta.blurb)}</p>
     <div class="grid">${site.cups.map(i => card(ctx, i)).join('')}</div>
   </section>
@@ -501,8 +502,12 @@ export function menu(ctx) {
     <p class="group-lead">${t('Croissant meets waffle.')}</p>
     <div class="grid grid-wide grid-count-${site.croffles.length}">${site.croffles.map(i => card(ctx, i)).join('')}</div>
   </section>
-  ${soonSection('waffles', W, waffles, true)}
-  ${soonSection('drinks', D, drinks, false)}
+  ${(waffles.length || drinks.length) ? `<section class="group wrap" id="coming-soon" aria-labelledby="h-coming-soon">
+    <p class="kicker">${t('A taste of what’s next')}</p>
+    <h2 id="h-coming-soon">${t('Coming soon')}</h2>
+    ${soonSection('waffles', W, waffles, true)}
+    ${soonSection('drinks', D, drinks, false)}
+  </section>` : ''}
   <section class="group toppings wrap" id="toppings" aria-labelledby="h-toppings">
     <p class="kicker">${t('Make it your own')}</p>
     <h2 id="h-toppings">${t('20+ toppings to choose from.')}</h2>
@@ -543,7 +548,7 @@ export function visit(ctx) {
   <section class="visit-info wrap" aria-label="${ta('Visit us')}">
     <div><h2>${t('Visit us')}</h2><address>${t(site.brand.venue)}<br>${e(site.brand.street)}<br>${e(site.brand.city)}</address><a class="link" href="${e(L.maps)}" target="_blank" rel="noopener" data-track="directions">${t('Get directions')}${ICON.out}</a></div>
     <div><h2>${t('Hours')}</h2>${hoursRows(ctx)}</div>
-    <div><h2>${t('Order online')}</h2><p class="visit-order"><a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order online')}</span></a><a class="btn btn-quiet" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery with DoorDash')}</span></a></p></div>
+    <div><h2>${t('Order pickup')}</h2><p class="visit-order"><a class="btn btn-primary" href="${e(L.order)}" target="_blank" rel="noopener noreferrer" data-track="order">${ICON.cash}<span>${t('Order pickup')}</span></a><a class="btn btn-quiet" href="${e(L.delivery)}" target="_blank" rel="noopener" data-track="delivery">${ICON.dash}<span>${t('Delivery with DoorDash')}</span></a></p></div>
   </section>
   <p class="wrap next"><a class="link" href="/menu">${t('Explore the menu')}${ICON.arrow}</a></p>
 </main>

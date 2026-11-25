@@ -11,6 +11,7 @@ export const EXTRA = {
   'Delivery with DoorDash': 'DoorDash 배달 주문',
   'Delivery': '배달',
   'Get directions': '길찾기',
+  'View menu': '메뉴 보기',
   'Hours & directions': '영업시간 & 길찾기',
   'Meet Sweet Snow': '스위트 스노우 알아보기',
   'Read our story': '우리 이야기 보기',
