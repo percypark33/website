@@ -55,7 +55,7 @@ export const EXTRA = {
   'Croissant meets waffle.': '크루아상과 와플의 만남.',
 
   // menu page
-  'Korean bingsu, cup bingsu, croffles and mini taiyaki in Garden Grove. Explore the flavors below, then check today’s availability when you order online.': '가든그로브에서 만나는 한국 빙수, 컵빙수, 크로플, 미니 붕어빵. 아래에서 메뉴를 살펴보고, 온라인 주문에서 오늘 주문 가능한 메뉴를 확인하세요.',
+  'Korean bingsu, cup bingsu and croffles in Garden Grove. Explore the flavors below, then check today’s availability when you order online.': '가든그로브에서 만나는 한국 빙수, 컵빙수, 크로플. 아래에서 메뉴를 살펴보고, 온라인 주문에서 오늘 주문 가능한 메뉴를 확인하세요.',
   'Serves 1 person · Made with our premium milk base.': '1인분 · 프리미엄 우유 베이스로 만듭니다.',
   'Served with fresh strawberries.': '신선한 딸기와 함께 드립니다.',
   'One or two scoops': '한 스쿱 또는 두 스쿱',
@@ -113,8 +113,8 @@ export const EXTRA = {
   'Find us inside the QT Golden Market Place food court at 9772 Garden Grove Blvd, Garden Grove, CA 92844. Look for the blue Sweet Snow sign.': 'QT 골든 마켓 플레이스 푸드코트 안에 있습니다. 주소는 9772 Garden Grove Blvd, Garden Grove, CA 92844이며, 파란색 SWEET SNOW 간판을 찾아주세요.',
   'Can I order pickup or delivery?': '픽업이나 배달 주문이 되나요?',
   'Use Order online to see today’s pickup menu and availability. Delivery is available through our DoorDash link.': '‘온라인 주문’에서 오늘의 픽업 메뉴와 주문 가능 여부를 확인하실 수 있습니다. 배달은 DoorDash 링크로 주문해 주세요.',
-  'What are croffles and mini taiyaki?': '크로플과 미니 붕어빵은 무엇인가요?',
-  'A croffle is croissant dough cooked in a waffle maker. Our mini taiyaki are small filled, fish-shaped pastries, baked to order and served as seven pieces in a small kraft paper bag.': '크로플은 크루아상 반죽을 와플 기계에 구운 디저트입니다. 미니 붕어빵은 속을 채운 작은 붕어 모양 빵으로, 주문 후 바로 구워 7개를 작은 크라프트 종이봉투에 담아 드립니다.',
+  'What are croffles?': '크로플은 무엇인가요?',
+  'A croffle is croissant dough cooked in a waffle maker.': '크로플은 크루아상 반죽을 와플 기계에 구운 디저트입니다.',
 
   // catering landing page (website/catering). "Tier" is written as 패키지; change it here if you say it differently.
   'Catering': '케이터링',

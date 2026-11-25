@@ -312,7 +312,7 @@ function chatLines(ctx) {
       ${line('askDate', 'When is your event?')}
       ${line('askGuests', 'About how many guests?')}
       ${line('askTier', 'Which tier are you thinking of?')}
-      ${line('askAddon', 'Would you like to add mini taiyaki?')}
+      ${C.taiyaki.show ? line('askAddon', 'Would you like to add mini taiyaki?') : ''}
       ${line('askApptDate', 'Which day works for your appointment?')}
       ${line('askApptTime', 'What time of day is best?')}
       ${line('askName', 'What is your name?')}
@@ -328,7 +328,7 @@ function chatLines(ctx) {
       ${line('questionSent', 'Got it. We will reply by email or text.')}
       ${line('failed', 'I could not send that. Copy your request and message it to us on Instagram, and we will set up your appointment there.')}
       ${line('copied', 'Copied. Paste it in a message to us on Instagram.')}
-      ${[['Event', 'event'], ['Event date', 'date'], ['Guests', 'guests'], ['Tier', 'tier'], ['Taiyaki add-on', 'addon'], ['Appointment', 'appt'], ['Name', 'name'], ['Contact', 'contact'], ['Question', 'question']].map(([label, key]) => line('l-' + key, label)).join('')}
+      ${[['Event', 'event'], ['Event date', 'date'], ['Guests', 'guests'], ['Tier', 'tier'], ...(C.taiyaki.show ? [['Taiyaki add-on', 'addon']] : []), ['Appointment', 'appt'], ['Name', 'name'], ['Contact', 'contact'], ['Question', 'question']].map(([label, key]) => line('l-' + key, label)).join('')}
       ${quick('topics', topics)}
       ${quick('events', [...C.events.map(event => [event, event]), ['Something else', 'Other']])}
       ${quick('guests', ['50', '100', '150', '200+'].map(n => [n, n]))}
