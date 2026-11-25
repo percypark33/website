@@ -53,13 +53,18 @@ window.SITE_SETTINGS = {
     "Cookies and Cream Croffle": { hidden: true },
     "Dubai Strawberry Croffle": { hidden: true },
     "Matcha Strawberry": { name: "Matcha Strawberry Biscoff", price: 16.99 },
-    "Lychee Heaven": { price: 17.99 },
-    "Shine Muscat Aloe Bingsu": { price: 17.99 },
+    "Lychee Heaven": { price: 17.99, bestseller: true },
+    "Mango": { bestseller: true },
+    "Mango & Strawberry": { bestseller: true },
+    "Shine Muscat Aloe Bingsu": { price: 17.99, isNew: true },
     "Sweet Potato Cream Bingsu": { price: 15.99 },
     "Lychee & Shine Muscat": { price: 18.99 },
     "Mango & Lychee": { price: 17.99 },
     "Strawberry & Shine Muscat": { price: 17.99 },
     // Off the menu for now (owner, 2026-11-22). Delete these lines to bring them back.
+    "Viet Coffee Cup": { name: "Viet Toffee Cup" },
+    "Strawberry Mango Popping Candy Cup": { hidden: true },
+    "Strawberry Cheesecake Cup": { hidden: true },
     "Strawnana Pie": { hidden: true },
     "Matcha Banana Cream": { hidden: true },
     "Hojicha Tiramisu": { hidden: true },
@@ -117,8 +122,12 @@ window.SITE_SETTINGS = {
 
   /* ---- HOME PAGE FEATURES -------------------------------------
      The croffles and cups shown on the home page.               */
+  bowlOrder: ["Mango", "Cookies and Cream", "Injeolmi", "Strawberry", "Black Sesame",
+    "Lychee Heaven", "Matcha Strawberry Biscoff", "Shine Muscat Aloe Bingsu", "Honeycomb x2", "Sweet Potato Cream Bingsu",
+    "Mango & Strawberry", "Mango & Lychee", "Strawberry & Shine Muscat", "Lychee & Shine Muscat"],
+  cupOrder: ["Cookies and Cream Cup", "Mango Jelly Cup", "Matcha Red Bean Cup", "Injeolmi Jollypong Cup", "Viet Toffee Cup", "Biscoff Caramel Cup"],
   homeCroffles: ["Injeolmi Croffle", "Biscoff Caramel Croffle"],
-  homeCups: ["Mango Jelly Cup", "Strawberry Mango Popping Candy Cup", "Cookies and Cream Cup"],
+  homeCups: ["Mango Jelly Cup", "Injeolmi Jollypong Cup", "Cookies and Cream Cup"],
   /* Three waffles shown on the home page, by their names in wafflesSoon below.
      To take the waffles off the home page, make it:  homeWaffles: [],          */
   homeWaffles: ["House Cream", "Nutella Strawberry", "Shine Muscat Yogurt Cream Mochi"],

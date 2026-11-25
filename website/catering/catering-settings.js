@@ -69,7 +69,7 @@ window.CATERING_SETTINGS = {
   title: "Sweet Snow Catering",
   headline: "Fresh bingsu, made at your event.",
   text: "We bring the milk snow and make every cup the way we do at our shop. Book an appointment and we will plan it with you.",
-  heroItems: ["Mango Jelly Cup", "Strawberry Mango Popping Candy Cup", "Cookies and Cream Cup"],      // the three cups shown at the top. The first one is the big cup on the catering page.
+  heroItems: ["Mango Jelly Cup", "Injeolmi Jollypong Cup", "Cookies and Cream Cup"],      // the three cups shown at the top. The first one is the big cup on the catering page.
   facts: [                                                       // from the catering team plan. Change or remove any line.
     "For 50 to 200+ guests",
     "Same milk base and Korean snow machine as our shop"

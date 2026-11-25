@@ -102,6 +102,7 @@ function tags(ctx, item) {
   const L = site.SETTINGS.links;
   const out = [];
   if (item.type) out.push(`<span class="tag">${t(item.type)}</span>`);
+  if (item.bestseller) out.push(`<span class="tag tag-soft">${t('#1 Bestseller')}</span>`);
   if (item.isNew) out.push(`<span class="tag tag-new">${t('New')}</span>`);
   if (item.tag) out.push(`<span class="tag tag-soft">${t(item.tag)}</span>`);
   if (item.comingSoon) out.push(`<span class="tag tag-soon">${t('Coming soon')}</span>`);
@@ -480,6 +481,7 @@ export function menu(ctx) {
   <nav class="cats" aria-label="${ta('Menu categories')}" data-cats><div class="cats-track wrap">${cats.map(([id, label]) => `<a href="#${id}">${t(label)}</a>`).join('')}</div></nav>
   ${groups.map(([id, label, items]) => `<section class="group wrap" id="${id}" aria-labelledby="h-${id}">
     <h2 id="h-${id}">${t(label)}</h2>
+    <p class="group-lead">${t('Serves 2–4 per bowl.')}</p>
     <div class="grid">${items.map((i, n) => card(ctx, i, id === 'menu-classic' && n < 2)).join('')}</div>
   </section>`).join('\n  ')}
   <section class="group wrap" id="single-cups" aria-labelledby="h-cups">

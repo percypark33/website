@@ -3,6 +3,9 @@
    the owner's own dictionary (designs/language.js) has it.
    Please review these lines; change any wording you would say differently. */
 export const EXTRA = {
+  'Viet Toffee Cup': '베트남 커피 토피 컵',
+  '#1 Bestseller': '판매 1위',
+  'Serves 2–4 per bowl.': '한 그릇에 2~4인분입니다.',
   'Matcha Strawberry Biscoff': '말차 딸기 비스코프',
   'House Cream': '하우스 크림',
   'Mascarpone cream': '마스카르포네 크림',

@@ -115,9 +115,16 @@ export function loadSite(root) {
     if ('comingSoon' in change) item.comingSoon = !!change.comingSoon;
     if ('hidden' in change) item.hidden = !!change.hidden;
     if ('name' in change) item.name = String(change.name);
+    if ('isNew' in change) item.isNew = !!change.isNew;
+    if ('bestseller' in change) item.bestseller = !!change.bestseller;
     if ('photo' in change) item.photo = abs(change.photo);
   }
   const visible = list => list.filter(i => !i.hidden);
+  function inDisplayOrder(items, names = []) {
+    const order = new Map(names.map((name, index) => [name, index]));
+    return visible(items).sort((a, b) => (order.get(a.name) ?? Infinity) - (order.get(b.name) ?? Infinity));
+  }
+  const orderedBowls = inDisplayOrder(bowls, SETTINGS.bowlOrder);
   for (const item of visible(all)) if (!item.photo) warnings.push(`No photo is set for "${item.name}". Add it under photos in site-settings.js.`);
 
   /* ---- toppings (same list and groups as the previous site) ---- */
@@ -132,6 +139,11 @@ export function loadSite(root) {
     group: TOPPING_GROUPS.finish.has(t.key) ? 'finish' : (TOPPING_GROUPS.sweet.has(t.key) || t.key.startsWith('popping-boba-')) ? 'sweet' : 'crunch'
   }));
   toppings.push({ key: 'animal-crackers', en: 'Animal Crackers (1 bag)', ko: '동물 모양 크래커 (1봉)', photo: null, price: 1.50, group: 'crunch' });
+  toppings.push(
+    { key: 'reeses-pieces', en: 'Reese’s Pieces', ko: '리세스 피시스', photo: null, price: 1, group: 'crunch' },
+    { key: 'm-and-ms', en: 'M&M’s', ko: '엠앤엠즈', photo: null, price: 1, group: 'crunch' },
+    { key: 'ice-cream-green-tea', en: 'Green Tea Ice Cream', ko: '녹차 아이스크림', photo: null, price: 2, group: 'sweet' }
+  );
   const fruitPrice = Object.fromEntries((MENU.extraFruit?.items || []).map(i => [i.en.toLowerCase(), price(i.price)]));
   const extraFruit = manifest.filter(t => t.category === 'extra-fruit' && t.en.replace(/^Extra /, '').toLowerCase() in fruitPrice).map(t => ({
     key: t.key, en: t.en, ko: t.ko, photo: `/designs/toppings/${t.key}.webp`, group: 'fruit',
@@ -152,11 +164,11 @@ export function loadSite(root) {
   return {
     MENU, SETTINGS, ART, warnings,
     groups: {
-      classic: visible(bowls).filter(i => i.category === 'classic'),
-      special: visible(bowls).filter(i => i.category === 'special'),
-      'half-half': visible(bowls).filter(i => i.category === 'half-half')
+      classic: orderedBowls.filter(i => i.category === 'classic'),
+      special: orderedBowls.filter(i => i.category === 'special'),
+      'half-half': orderedBowls.filter(i => i.category === 'half-half')
     },
-    cups: visible(cups), taiyaki: visible(taiyaki), croffles: visible(croffles), toppings, extraFruit,
+    cups: inDisplayOrder(cups, SETTINGS.cupOrder), taiyaki: visible(taiyaki), croffles: visible(croffles), toppings, extraFruit,
     cupMeta: { title: MENU.cupBingsu?.title || 'Cup Bingsu', blurb: MENU.cupBingsu?.blurb || '' },
     taiyakiMeta: { section: T.sectionTitle || 'Food', title: T.title || 'Mini Taiyaki', blurb: T.blurb || '', note: T.orderNote || '' },
     toppingsMeta: { servingNote: MENU.toppings?.servingNote || '', fruitNote: MENU.extraFruit?.note || '' },
