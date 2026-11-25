@@ -121,7 +121,7 @@ window.SITE_SETTINGS = {
   homeCups: ["Mango Jelly Cup", "Strawberry Mango Popping Candy Cup", "Cookies and Cream Cup"],
   /* Three waffles shown on the home page, by their names in wafflesSoon below.
      To take the waffles off the home page, make it:  homeWaffles: [],          */
-  homeWaffles: ["House Cream Waffle", "Strawberry Cheesecake Waffle", "Shine Muscat Yogurt Mochi Waffle"],
+  homeWaffles: ["House Cream", "Nutella Strawberry", "Shine Muscat Yogurt Cream Mochi"],
 
   /* ---- COMING SOON, NOT IN THE MENU FILE YET -------------------- */
   mochiIceCream: {
@@ -141,23 +141,18 @@ window.SITE_SETTINGS = {
   wafflesSoon: {
     show: true,
     badge: "Coming Soon",
-    title: "Waffles",
+    title: "Full Size Belgian Waffles",
     blurb: "A full-size waffle, freshly baked, folded and stuffed with cream.",
     items: [
-      { name: "House Cream Waffle", text: "Freshly baked crispy waffle · house-made mascarpone cream",
-        photo: "/assets/waffles/house-cream-20261124.png", alt: "Folded waffle opened to show mascarpone cream" },
-      { name: "Apple Cinnamon Waffle", text: "House-made mascarpone cream · apple jam · cinnamon powder",
-        photo: "/assets/waffles/apple-cinnamon-20261124.png", alt: "Folded waffle opened to show mascarpone cream, apple jam and cinnamon" },
-      { name: "Cookies & Cream Waffle", text: "House-made mascarpone cream · Oreo crumbs · Nutella spread",
-        photo: "/assets/waffles/cookies-cream-20261124.png", alt: "Folded waffle opened to show mascarpone cream, Oreo crumbs and Nutella" },
-      { name: "Chocolate Banana Fudge Waffle", text: "Nutella spread · bananas · cream · brownie bites · premium cacao powder",
-        photo: "/assets/waffles/chocolate-banana-fudge-20261124.png", alt: "Folded waffle opened to show Nutella, bananas, cream, brownie bites and cacao powder" },
-      { name: "Strawberry Cheesecake Waffle", text: "Strawberries · cream · cheesecake bites",
-        photo: "/assets/waffles/strawberry-cheesecake-20261124.png", alt: "Folded waffle opened to show strawberries, cream and cheesecake bites" },
-      { name: "Yogurt Fruit Mochi Waffle", text: "House-made yogurt cream · mochi sheet · strawberries · mangoes · green grapes",
-        photo: "/assets/waffles/yogurt-fruit-mochi-20261124.png", alt: "Folded waffle opened to show yogurt cream, a mochi sheet, strawberries, mango and green grapes" },
-      { name: "Shine Muscat Yogurt Mochi Waffle", text: "House-made yogurt cream · mochi sheet · shine muscats",
-        photo: "/assets/waffles/shine-muscat-yogurt-mochi-20261124.png", alt: "Folded waffle opened to show yogurt cream, a mochi sheet and shine muscat grapes" }
+      {"group": "Classic", "name": "House Cream", "price": "From $8.99", "text": "Mascarpone cream", "photo": "/assets/waffles/house-cream-flat.webp", "alt": "House Cream served on an open Belgian waffle"},
+      {"group": "Classic", "name": "Apple Cinnamon", "price": "$9.99", "text": "Smooth apple jam · house-made cream · cinnamon powder", "photo": "/assets/waffles/apple-jam-cream-cinnamon-flat.webp", "alt": "Apple Cinnamon served on an open Belgian waffle"},
+      {"group": "Classic", "name": "Nutella Cookies & Cream", "price": "$9.99", "text": "Nutella · fine Oreo crumbs · cream", "photo": "/assets/waffles/cookies-fine-crumb-flat.webp", "alt": "Nutella Cookies & Cream served on an open Belgian waffle"},
+      {"group": "Classic", "name": "Nutella Strawberry", "price": "$10.99", "text": "Nutella spread · house cream · fresh strawberries · powdered sugar", "photo": "/assets/waffles/nutella-strawberry-flat.webp", "alt": "Nutella Strawberry served on an open Belgian waffle"},
+      {"group": "Classic", "name": "Nutella Banana", "price": "$10.99", "text": "Nutella spread · house cream · fresh banana · powdered sugar", "photo": "/assets/waffles/nutella-banana-flat.webp", "alt": "Nutella Banana served on an open Belgian waffle"},
+      {"group": "Special", "name": "Mango Yogurt Cream Mochi", "price": "$12.99", "text": "Yogurt cream · powdered mochi sheet triangles · mango", "photo": "/assets/waffles/mango-yogurt-cream-mochi-flat.webp", "alt": "Mango Yogurt Cream Mochi served on an open Belgian waffle"},
+      {"group": "Special", "name": "Shine Muscat Yogurt Cream Mochi", "price": "$13.99", "text": "Yogurt cream · powdered mochi sheet triangles · Shine Muscat grapes", "photo": "/assets/waffles/shine-muscat-yogurt-mochi-triangles-flat.webp", "alt": "Shine Muscat Yogurt Cream Mochi served on an open Belgian waffle"},
+      {"group": "Special", "name": "Nutella Chocolate Banana Fudge", "price": "$13.99", "text": "Nutella spread · house cream · bananas · brownie bites · Heath toffee · chocolate drizzle", "photo": "/assets/waffles/banana-fudge-heath-flat.webp", "alt": "Nutella Chocolate Banana Fudge served on an open Belgian waffle"},
+      {"group": "Special", "name": "Dubai Chocolate Strawberry", "price": "$14.99", "text": "Nutella spread · pistachio kataifi spread · strawberries · vanilla ice cream · chocolate drizzle · crushed pistachios", "photo": "/assets/waffles/dubai-chocolate-strawberry-flat.webp", "alt": "Dubai Chocolate Strawberry served on an open Belgian waffle"}
     ]
   },
 

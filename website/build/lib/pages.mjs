@@ -335,7 +335,7 @@ function waffleFeature(ctx) {
   <div class="wrap feature-inner">
     <div class="feature-copy">
       <span class="tag tag-soon">${t(W.badge)}</span>
-      <h2 id="home-waffles-title">${t('Stuffed Waffles')}</h2>
+      <h2 id="home-waffles-title">${t(W.title)}</h2>
       <p>${t('A full-size waffle, freshly baked and crispy, folded and stuffed with our house-made cream, fresh fruit and toppings.')}</p>
       <a class="link" href="/menu#waffles">${t('See all waffles')}${ICON.arrow}</a>
     </div>
@@ -454,13 +454,14 @@ export function menu(ctx) {
   const drinks = D.show ? (D.items || []) : [];
   const W = site.SETTINGS.wafflesSoon || {};
   const waffles = W.show ? (W.items || []) : [];
+  const soonGrid = (S, items, wide) => `<div class="soon-grid${wide ? ' soon-grid-wide' : ''}">${items.map(i => `<div class="soon-card">
+      <div><span class="tag tag-soon">${t(S.badge)}</span><h3>${t(i.name)}</h3>${site.showPrices && i.price ? `<p class="soon-options">${t(i.price)}</p>` : ''}<p>${t(i.text)}</p></div>
+      ${img(i.photo, 'feature', { alt: ta(i.alt), sizes: '(max-width: 720px) 40vw, 220px' })}
+    </div>`).join('')}</div>`;
   const soonSection = (id, S, items, wide) => items.length ? `<section class="group wrap" id="${id}" aria-labelledby="h-${id}">
     <h2 id="h-${id}">${t(S.title)}</h2>
     ${S.blurb ? `<p class="group-lead">${t(S.blurb)}</p>` : ''}
-    <div class="soon-grid${wide ? ' soon-grid-wide' : ''}">${items.map(i => `<div class="soon-card">
-      <div><span class="tag tag-soon">${t(S.badge)}</span><h3>${t(i.name)}</h3><p>${t(i.text)}</p></div>
-      ${img(i.photo, 'feature', { alt: ta(i.alt), sizes: '(max-width: 720px) 40vw, 220px' })}
-    </div>`).join('')}</div>
+    ${id === 'waffles' ? ['Classic', 'Special'].map(group => `<h3 class="group-sub">${t(group)}</h3>${soonGrid(S, items.filter(i => i.group === group), wide)}`).join('') : soonGrid(S, items, wide)}
   </section>` : '';
   const groups = [['menu-classic', 'Classic', site.groups.classic], ['menu-special', 'Special', site.groups.special], ['menu-half-half', 'Fruit Half & Half', site.groups['half-half']]];
   const showTaiyaki = site.taiyaki.length > 0;
